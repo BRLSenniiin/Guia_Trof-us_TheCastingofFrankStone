@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Casting of Frank Stone — Guia de Platina PT-BR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inconsolata:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0b0c0e;
+  --paper:#f0ede6;
+  --aged:#e2ddd4;
+  --rust:#9b2c2c;
+  --rust2:#c0392b;
+  --sepia:#7a6040;
+  --sepia2:#b8966a;
+  --green:#2c5f3a;
+  --green2:#3d8a52;
+  --blue:#1a3a5c;
+  --blue2:#2e6da4;
+  --dim:#6b6055;
+  --border:#ccc4b4;
+  --card:#ede9e0;
+  --warn:#6b1a1a;
+}
+body{
+  background:var(--ink);
+  color:var(--ink);
+  font-family:'Source Serif 4',Georgia,serif;
+  min-height:100vh;
+  background-image:url('Images/Wallpaper.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+.wallpaper-bg{
+  position:fixed;inset:0;z-index:0;
+  background-image:url('Images/Wallpaper.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  opacity:0.18;
+  pointer-events:none;
+}
+/* Wallpaper de fundo semi-transparente */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background-image:url('./Images/Wallpaper.jpg');
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;
+  opacity:0.15;
+  pointer-events:none;
+}
+.root{
+  min-height:100vh;
+  background:var(--paper);
+  position:relative;
+}
+.root::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;
+}
+.root::after{
+  content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(155,44,44,.06) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:0 16px 80px;}
+
+/* Imagens laterais */
+.side-img{
+  position:fixed;top:50%;transform:translateY(-50%);
+  z-index:1;width:220px;pointer-events:none;
+  filter:drop-shadow(0 4px 24px rgba(0,0,0,0.7));
+}
+.side-img.left{position:fixed;right:1050px;top:0;bottom:0;height:100vh;width:45vw;transform:none;object-fit:cover;object-position:30% center;z-index:1000;pointer-events:none;filter:drop-shadow(-5px 0 20px rgba(0,0,0,0.8)) brightness(1.05) contrast(1.05);}
+.side-img.left img{width:100%;height:100%;object-fit:cover;object-position:0% center;display: block;}
+.side-img.right{position:fixed;right:-60px;left:400;top:50;bottom:0;height:100vh;width:60vw;transform:none;object-fit:cover;object-position:left center;z-index:1000;pointer-events:none;filter:drop-shadow(-5px 0 20px rgba(0,0,0,0.8)) brightness(1.05) contrast(1.05);}
+.side-img.right img{width:100%;height:55%;object-fit:cover;object-position:left ;}
+.root{
+  min-height:100vh;
+  background:rgba(240,237,230,0.80);
+  position:relative;
+  z-index:2;
+}
+/* HEADER */
+.hdr{border-bottom:3px double var(--border);padding:40px 0 28px;text-align:center;margin-bottom:0;}
+.hdr-eye{font-family:'Inconsolata',monospace;font-size:10px;letter-spacing:5px;color:var(--dim);text-transform:uppercase;margin-bottom:10px;}
+.hdr-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(34px,7vw,76px);line-height:.92;color:var(--ink);letter-spacing:-1px;text-transform:uppercase;margin-bottom:4px;}
+.hdr-title em{color:var(--rust2);font-style:normal;text-shadow:2px 2px 0 rgba(155,44,44,.2);}
+.hdr-sub{font-family:'Oswald',sans-serif;font-weight:300;font-size:clamp(12px,2.5vw,18px);letter-spacing:6px;color:var(--sepia);text-transform:uppercase;margin-bottom:14px;}
+.hdr-desc{font-size:14px;color:var(--dim);font-style:italic;max-width:580px;margin:0 auto;line-height:1.7;}
+
+/* STATS */
+.stats{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);border-top:3px solid var(--rust);margin:20px 0;background:var(--card);}
+.stat{flex:1;min-width:110px;padding:10px 14px;border-right:1px solid var(--border);font-family:'Inconsolata',monospace;font-size:11px;color:var(--dim);letter-spacing:.5px;text-align:center;}
+.stat:last-child{border-right:none;}
+.stat strong{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;color:var(--rust2);line-height:1;margin-bottom:2px;}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px;overflow-x:auto;}
+.tab{background:transparent;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;padding:10px 18px;font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.tab:hover{color:var(--ink);}
+.tab.on{color:var(--rust2);border-bottom-color:var(--rust2);}
+
+/* TAB PANELS */
+.tab-panel{display:none;}
+.tab-panel.on{display:block;}
+
+/* RUN CARDS */
+.run-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-bottom:28px;}
+.run-card{background:var(--card);border:1px solid var(--border);border-top:4px solid var(--sepia);padding:18px 18px 14px;}
+.run-card.r1{border-top-color:var(--green);}
+.run-card.r2{border-top-color:var(--rust2);}
+.run-card.r3{border-top-color:var(--blue2);}
+.run-n{font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:4px;}
+.run-card.r1 .run-n{color:var(--green);}
+.run-card.r2 .run-n{color:var(--rust2);}
+.run-card.r3 .run-n{color:var(--blue2);}
+.run-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:20px;color:var(--ink);margin-bottom:8px;}
+.run-desc{font-size:13px;color:var(--dim);line-height:1.65;margin-bottom:10px;}
+.run-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.rtag{font-family:'Inconsolata',monospace;font-size:10px;padding:2px 7px;border:1px solid var(--border);background:var(--aged);color:var(--dim);}
+.rtag.g{border-color:rgba(44,95,58,.4);color:var(--green);background:rgba(44,95,58,.06);}
+.rtag.r{border-color:rgba(155,44,44,.4);color:var(--rust2);background:rgba(155,44,44,.06);}
+.rtag.b{border-color:rgba(26,58,92,.4);color:var(--blue2);background:rgba(26,58,92,.06);}
+
+/* CHAPTER ACCORDION */
+.ch-acc{border:1px solid var(--border);margin-bottom:4px;background:var(--card);}
+.ch-head{width:100%;background:transparent;border:none;padding:12px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;text-align:left;transition:background .15s;}
+.ch-head:hover{background:var(--aged);}
+.ch-head.on{background:var(--aged);border-bottom:1px solid var(--border);}
+.ch-nn{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;color:var(--rust2);line-height:1;min-width:36px;text-align:center;flex-shrink:0;}
+.ch-meta{flex:1;min-width:0;}
+.ch-name{font-family:'Oswald',sans-serif;font-weight:500;font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ch-sub{font-size:11px;color:var(--dim);font-style:italic;}
+.ch-pills{display:flex;gap:4px;flex-wrap:wrap;flex-shrink:0;}
+.pill{font-family:'Inconsolata',monospace;font-size:9px;padding:2px 6px;border-radius:10px;white-space:nowrap;}
+.p-col{background:rgba(122,96,64,.12);color:var(--sepia);border:1px solid rgba(122,96,64,.3);}
+.p-troph{background:rgba(26,58,92,.1);color:var(--blue2);border:1px solid rgba(26,58,92,.25);}
+.p-miss{background:rgba(155,44,44,.1);color:var(--rust2);border:1px solid rgba(155,44,44,.3);}
+.p-surv{background:rgba(44,95,58,.1);color:var(--green);border:1px solid rgba(44,95,58,.3);}
+.p-gen{background:rgba(80,60,20,.08);color:#7a5a20;border:1px solid rgba(80,60,20,.25);}
+.ch-chev{font-size:12px;color:var(--border);transition:transform .25s;flex-shrink:0;}
+.ch-head.on .ch-chev{transform:rotate(180deg);color:var(--rust2);}
+.ch-body{display:none;background:var(--paper);}
+.ch-body.on{display:block;}
+
+/* INSIDE CHAPTER */
+.sec{padding:16px 18px 8px;border-bottom:1px solid var(--aged);}
+.sec:last-child{border-bottom:none;}
+.sec-lbl{font-family:'Inconsolata',monospace;font-size:10px;letter-spacing:3px;color:var(--sepia);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* STEPS */
+.steps{list-style:none;display:flex;flex-direction:column;gap:6px;padding-bottom:10px;}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.65;color:#2a2520;}
+.sn{font-family:'Inconsolata',monospace;font-size:10px;font-weight:600;color:var(--rust2);background:rgba(155,44,44,.08);border:1px solid rgba(155,44,44,.2);padding:1px 5px;flex-shrink:0;margin-top:3px;min-width:24px;text-align:center;}
+.step strong{color:var(--ink);font-weight:600;}
+.hl{color:var(--rust2);font-weight:700;}
+/* Ícone de troféu */
+.trophy{color:#d4af37;font-weight:700;display:inline-flex;align-items:center;gap:4px;}
+.trophy::before{content:"🏆";font-size:1.1em;}
+.choice-made{display:block;background:linear-gradient(135deg,var(--warn) 0%,#8b1a1a 100%);color:#fff;border:2px solid var(--rust2);padding:12px 16px;margin:16px 0;font-family:'Oswald',sans-serif;font-weight:600;font-size:15px;letter-spacing:1px;text-align:center;border-radius:4px;box-shadow:0 3px 8px rgba(0,0,0,0.25);}
+.choice-save{color:var(--rust2);font-weight:700;}
+.choice-run{color:var(--green2);font-weight:700;}
+.wn{color:var(--rust2);font-weight:700;}
+.ok{color:var(--green);font-weight:600;}
+.ti{color:var(--blue2);}
+
+/* ALERTS */
+.a-warn,.a-tip,.a-info,.a-ok{padding:10px 14px;margin:8px 0;font-size:12.5px;line-height:1.65;border-left:4px solid;}
+.a-warn{background:rgba(155,44,44,.06);border-color:var(--rust2);color:#6b2020;}
+.a-warn strong{color:var(--rust2);}
+.a-tip{background:rgba(122,96,64,.07);border-color:var(--sepia);color:var(--sepia);}
+.a-tip strong{color:var(--sepia2);}
+.a-info{background:rgba(26,58,92,.06);border-color:var(--blue2);color:#24425e;}
+.a-info strong{color:var(--blue2);}
+.a-ok{background:rgba(44,95,58,.06);border-color:var(--green2);color:#244530;}
+.a-ok strong{color:var(--green2);}
+
+/* COLLECTIBLE GRID */
+.col-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin:8px 0 10px;}
+.col-cell{background:var(--card);border:1px solid var(--border);padding:8px 10px;text-align:center;}
+.col-n{font-family:'Oswald',sans-serif;font-weight:700;font-size:24px;color:var(--rust2);line-height:1;}
+.col-n.zero{color:var(--border);}
+.col-lbl{font-size:11px;color:var(--dim);margin-top:1px;}
+.col-sub{font-family:'Inconsolata',monospace;font-size:9px;color:var(--sepia);margin-top:2px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* TROPHY TABLE */
+.t-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px;}
+.t-table th{background:var(--card);padding:8px 12px;text-align:left;font-family:'Inconsolata',monospace;font-size:9px;letter-spacing:2px;color:var(--rust2);border:1px solid var(--border);text-transform:uppercase;}
+.t-table td{padding:8px 12px;border:1px solid var(--aged);color:#2a2520;vertical-align:top;line-height:1.5;}
+.t-table tr:nth-child(even) td{background:rgba(0,0,0,.02);}
+.t-table tr:hover td{background:rgba(155,44,44,.03);}
+.t-table td:first-child{font-weight:600;color:var(--ink);}
+.td-miss{color:var(--rust2);font-family:'Inconsolata',monospace;font-size:10px;font-weight:600;}
+.td-rank span{font-family:'Inconsolata',monospace;font-size:10px;padding:1px 5px;border-radius:2px;}
+.rk-plat{background:#1a1440;color:#a090e0;}
+.rk-gold{background:#2a1e06;color:#c8a84b;}
+.rk-silv{background:#1a2535;color:#7aaabb;}
+.rk-bron{background:#2a1e10;color:#a07858;}
+
+/* TRACKER */
+.tr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px;margin-bottom:20px;}
+.tr-item{display:flex;align-items:flex-start;gap:9px;background:var(--card);border:1px solid var(--border);padding:9px 12px;cursor:pointer;transition:all .15s;user-select:none;}
+.tr-item:hover{border-color:rgba(155,44,44,.4);}
+.tr-item.done{background:rgba(44,95,58,.06);border-color:rgba(44,95,58,.4);}
+.tr-box{width:14px;height:14px;border:1.5px solid var(--border);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:9px;transition:all .15s;}
+.tr-item.done .tr-box{border-color:var(--green2);background:rgba(61,138,82,.15);color:var(--green2);}
+.tr-text{font-size:12.5px;color:var(--dim);line-height:1.45;}
+.tr-item.done .tr-text{color:var(--border);text-decoration:line-through;text-decoration-color:rgba(61,138,82,.5);}
+
+/* TIPS GRID */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:24px;}
+.tip-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--sepia);padding:14px;}
+.tip-card:hover{border-top-color:var(--rust2);}
+.tip-ttl{font-family:'Oswald',sans-serif;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:6px;}
+.tip-card p{font-size:12.5px;color:var(--dim);line-height:1.7;}
+.tip-card p strong{color:var(--ink);}
+
+/* PROGRESS BAR */
+.pb-wrap{background:var(--card);border:1px solid var(--border);padding:14px 18px;margin-bottom:16px;}
+.pb-lbl{display:flex;justify-content:space-between;font-family:'Inconsolata',monospace;font-size:11px;color:var(--dim);margin-bottom:6px;}
+.pb-bar{height:6px;background:var(--aged);border:1px solid var(--border);}
+.pb-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green2));transition:width .4s;}
+
+/* RUN HEADER */
+.run-hdr{border-left:5px solid var(--rust2);padding:10px 16px;margin-bottom:14px;background:rgba(155,44,44,.04);}
+.run-hdr.g{border-left-color:var(--green2);background:rgba(44,95,58,.04);}
+.run-hdr.b{border-left-color:var(--blue2);background:rgba(26,58,92,.04);}
+.run-hdr-n{font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:2px;color:var(--rust2);}
+.run-hdr.g .run-hdr-n{color:var(--green2);}
+.run-hdr.b .run-hdr-n{color:var(--blue2);}
+.run-hdr h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;color:var(--ink);}
+.run-hdr p{font-size:13px;color:var(--dim);margin-top:3px;font-style:italic;}
+
+/* RUN FILTER BUTTONS */
+.run-filter{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+.run-btn{font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);background:var(--card);color:var(--dim);cursor:pointer;transition:all .15s;}
+.run-btn.on{border-color:var(--rust2);background:rgba(155,44,44,.08);color:var(--rust2);}
+.run-filter-label{font-size:12px;color:var(--dim);font-style:italic;}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .ch-pills{display:none;}
+  .run-cards{grid-template-columns:1fr;}
+  .tips-grid{grid-template-columns:1fr;}
+  .tr-grid{grid-template-columns:1fr;}
+  .t-table{font-size:11px;}
+  .t-table th,.t-table td{padding:5px 8px;}
+  .col-grid{grid-template-columns:repeat(2,1fr);}
+  .stats{flex-direction:column;}
+  .stat{border-right:none;border-bottom:1px solid var(--border);}
+}
+
+/* FOOTER */
+.footer{text-align:center;padding:24px 16px;border-top:1px solid var(--border);font-family:'Inconsolata',monospace;font-size:10px;color:var(--border);letter-spacing:2px;background:var(--aged);}
+.footer-accent{color:var(--rust2);}
+
+/* INLINE STYLES HELPERS */
+.mb-8{margin-bottom:8px;}
+.mb-12{margin-bottom:12px;}
+.mb-14{margin-bottom:14px;}
+.mb-16{margin-bottom:16px;}
+.mb-24{margin-bottom:24px;}
+.mt-8{margin-top:8px;}
+.section-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--rust2);margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<div class="side-img left"><img src="./Images/PNG02.png" alt=""></div>
+<div class="side-img right"><img src="./Images/PNG01.png" alt=""></div>
+<div class="root">
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-eye">Guia de Platina Completo · PT-BR · Supermassive Games</div>
+        <div class="hdr-title"><img src="Images/PNGNOME.png" alt="The Casting of Frank Stone" style="max-width:50%;height:auto;"></div>
+    <div class="hdr-sub">Dead by Daylight Universe · 2024</div>
+    <div class="hdr-desc">Guia organizado em 3 runs com todos os 14 capítulos, 54 colecionáveis, troféus em português do Brasil e rastreador de perdíveis.</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><strong>33</strong>Troféus</div>
+    <div class="stat"><strong>54</strong>Colecionáveis</div>
+    <div class="stat"><strong>3</strong>Runs mín.</div>
+    <div class="stat"><strong>30–40h</strong>Estimativa</div>
+    <div class="stat"><strong>224</strong>Ramos (CRF)</div>
+    <div class="stat"><strong>4/10</strong>Dificuldade</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab on" data-tab="runs">Visão Geral — 3 Runs</button>
+    <button class="tab" data-tab="caps">14 Capítulos</button>
+    <button class="tab" data-tab="trophies">Troféus PT-BR</button>
+    <button class="tab" data-tab="tips">Dicas</button>
+    <button class="tab" data-tab="missables">⚠ PERDÍVEIS</button>
+  </div>
+
+  <!-- ── RUNS ── -->
+  <div id="panel-runs" class="tab-panel on">
+    <div class="run-cards">
+      <div class="run-card r1">
+        <div class="run-n">RUN 1 — PRINCIPAL</div>
+        <div class="run-title">Todos Sobrevivem + Colecionáveis</div>
+        <div class="run-desc">Jogue do Cap. 1 ao 14 com foco em sobreviver com todos os personagens, coletar todos os 54 colecionáveis e obter a maioria dos troféus de escolha. Use dificuldade Observador.</div>
+        <div class="run-tags">
+          <span class="rtag g">Entidade Descontente</span>
+          <span class="rtag g">A Fogueira</span>
+          <span class="rtag g">Aprimorador</span>
+          <span class="rtag g">Todos os Colecionáveis</span>
+          <span class="rtag r">Artista da Fuga OU Memento Mori</span>
+          <span class="rtag r">Fogo Amigo OU Fagocitose</span>
+          <span class="rtag">~15–20h</span>
+        </div>
+      </div>
+      <div class="run-card r2">
+        <div class="run-n">RUN 2 — MORTES</div>
+        <div class="run-title">Assassino Impiedoso</div>
+        <div class="run-desc">Jogue do início ao fim tomando decisões que matam todos os 5 personagens principais. Madi, Jaime, Chris, Sam e Linda precisam morrer. Foque nas escolhas que levam a mortes em cada capítulo-chave.</div>
+        <div class="run-tags">
+          <span class="rtag r">Assassino Impiedoso</span>
+          <span class="rtag r">Todos os personagens morrem</span>
+          <span class="rtag r">Memento Mori ou Artista da Fuga (o que não fez)</span>
+          <span class="rtag">~10–12h</span>
+        </div>
+      </div>
+      <div class="run-card r3">
+        <div class="run-n">RUN 3 — SALA DE MONTAGEM</div>
+        <div class="run-title">Limpeza via Cutting Room Floor</div>
+        <div class="run-desc">Use o Cutting Room Floor para acessar os 224 ramos narrativos, troféus mutuamente exclusivos não obtidos e colecionáveis perdidos. Você precisará jogar sequencialmente a partir do ponto de retorno até o final.</div>
+        <div class="run-tags">
+          <span class="rtag b">Onisciente (224 ramos)</span>
+          <span class="rtag b">Troféus exclusivos restantes</span>
+          <span class="rtag b">Colecionáveis faltantes</span>
+          <span class="rtag b">Stan O Fragmentado</span>
+          <span class="rtag">~8–12h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="a-info mb-16">
+      <strong>NOTA SOBRE A SALA DE MONTAGEM:</strong> Diferente de outros jogos da Supermassive, o Cutting Room Floor do Frank Stone exige que você <strong>jogue todos os capítulos sequencialmente a partir do ponto de retorno</strong>. Não é possível pular para o capítulo final diretamente após mudar uma escolha. Planeje suas runs com isso em mente.
+    </div>
+
+    <div class="section-title">COMO MATAR CADA PERSONAGEM (RUN 2)</div>
+    <table class="t-table mb-24">
+      <thead>
+        <tr><th>PERSONAGEM</th><th>COMO GARANTIR A MORTE</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Jaime (1980)</td><td>🔪 JAIME - Cap. 5: NÃO pegar foguetes na Farmácia + confrontar Frank Stone para salvar Chris → ele é cortado ao meio Cap. 13: Na sequência do esgoto, falhar a câmera contra Frank Stone (Memento Mori / rota alternativa) → Jaime morre na perseguição.</td></tr>
+        <tr><td>Madi</td><td>🧠 MADI - Cap. 8: Falhar o QTE de apertar □ no puzzle Horologium → Madi é queimada viva Cap. 14:Se ir para o elevador com Linda → Madi é capturada para sacrifício. Se falhar QTEs na fuga → Madi é sacrificada pela Entidade</td></tr>
+        <tr><td>Chris</td><td>🧍 CHRIS - Cap. 10: Morte alternativa em rota de timeline (falha de progressão / evento específico). Cap. 13: Se Chris voltar para 1980 → Frank a derruba. Se Linda NÃO salvá-la com a câmera → Frank esmaga a cabeça dela. Cap. 14: Se tiver o espelho (Cap. 3) + escolher entrar no projetor → Chris é queimada instantaneamente</td></tr>
+        <tr><td>Sam</td><td>🧍 SAM -  Cap. 13: No esgoto (1980), falhar em afastar Frank Stone → Sam é espancado até a morte. Cap. 14: Se tentar salvar Linda/Madi e falhar QTEs → Sam é sacrificado pela Entidade.</td></tr>
+        <tr><td>Linda</td><td>🧍‍♀️ LINDA - Falhar QTEs de fuga deCap. 13: Falhar minigame da câmera (última luta) → Frank esmaga a cabeça dela. Cap. 14: Ir para o elevador em vez de ajudar Madi → decapitada Ou falhar fuga após perseguição → pescoço quebrado.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="a-warn">
+      <strong>Bonnie e Stan:</strong> Estes NPC não contam para o troféu "Assassino Impiedoso". As mortes contabilizadas são apenas dos 5 personagens jogáveis: Madi, Jaime, Chris, Sam e Linda.
+    </div>
+  </div>
+
+  <!-- ── CAPÍTULOS ── -->
+  <div id="panel-caps" class="tab-panel">
+    <div class="a-tip mb-16">
+      <strong>INSTRUÇÃO GERAL:</strong> Jogue sempre em dificuldade Observador. Explore cada ambiente completamente antes de interagir com objetos que avançam a narrativa — esses objetos fecham áreas anteriores permanentemente. Verifique o menu de Colecionáveis ao fim de cada capítulo.
+    </div>
+
+    <div class="run-filter">
+      <button class="run-btn on" data-run="1">Run 1</button>
+      <button class="run-btn" data-run="2">Run 2</button>
+      <button class="run-btn" data-run="3">Run 3</button>
+      <span class="run-filter-label" id="run-label">Todos Sobrevivem + Colecionáveis</span>
+    </div>
+
+    <div id="run2-alert" class="a-warn mb-12" style="display:none">
+      <strong>Run 2 — Foco em Mortes:</strong> Falhe QTEs deliberadamente nos momentos-chave abaixo. Consulte a tabela "Como Matar Cada Personagem" na aba Visão Geral, procure fazer escolhas diferentes em conversas pra aumentar o leque de linhas de diálogo.
+    </div>
+    <div id="run3-alert" class="a-info mb-12" style="display:none">
+      <strong>Run 3 — Cutting Room Floor:</strong> Acesse o CRF no menu principal após terminar o jogo. Para o troféu Onisciente, você deve desbloquear todos os 224 ramos. Use o mapa de ramificações dentro do CRF para identificar os ramos ainda bloqueados.
+    </div>
+
+    <!-- CHAPTERS ACCORDION -->
+    <div id="chapters-container"></div>
+  </div>
+
+  <!-- ── TROFÉUS ── -->
+  <div id="panel-trophies" class="tab-panel">
+    <div class="a-info mb-16">
+      <strong>Nomes em Português do Brasil</strong> conforme o guia oficial PT-BR do Steam (Luke-Son) e verificados contra a lista do PSNProfiles. Troféus marcados com ⚠ são perdíveis ou mutuamente exclusivos.
+    </div>
+    <table class="t-table">
+      <thead>
+        <tr>
+          <th>ÍCONE</th>
+          <th>NOME PT-BR</th>
+          <th>COMO OBTER</th>
+          <th>RANK</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody id="trophies-tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- ── DICAS ── -->
+  <div id="panel-tips" class="tab-panel">
+    <div class="tips-grid" id="tips-grid"></div>
+  </div>
+
+  <!-- ── PERDÍVEIS ── -->
+  <div id="panel-missables" class="tab-panel">
+    <div class="a-warn mb-14">
+      <strong>AVISO:</strong> Qualquer item desta lista, se perdido, só pode ser recuperado usando o Cutting Room Floor — o que exige jogar todos os capítulos subsequentes novamente. Marque cada item conforme for completando.
+    </div>
+
+    <div class="pb-wrap">
+      <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;">Rastreador de Perdíveis</div>
+      <div class="pb-lbl"><span>Concluídos</span><span id="done-count">0 / 20</span></div>
+      <div class="pb-bar"><div class="pb-fill" id="pb-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="tr-grid" id="missables-grid"></div>
+
+    <div class="a-info mt-8">
+      <strong>3 PARES DE TROFÉUS MUTUAMENTE EXCLUSIVOS:</strong><br>
+      1. <strong>Dinheiro Fácil</strong> ↔ <strong>Desconto dos Cinco Dedos</strong> (Cap. 3 — suborno vs roubo)<br>
+      2. <strong>Artista da Fuga</strong> ↔ <strong>Memento Mori</strong> (Cap. 13 — salvar vs matar Jaime)<br>
+      3. <strong>Fogo Amigo</strong> ↔ <strong>Fagocitose</strong> (Cap. 14 — atirar em Madi vs deixar absorver)
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <img src="Images/PNGNOME.png" alt="The Casting of Frank Stone" style="height:55px;vertical-align:middle;">
+  &nbsp;·&nbsp; Guia de Platina PT-BR &nbsp;·&nbsp;
+  Fontes: PSNProfiles · Neoseeker · Steam (Luke-Son) &nbsp;·&nbsp;
+  Supermassive Games × Dead by Daylight
+</div>
+</div><!-- /root -->
+
+<script>
+/* ── DATA ── */
+const TROPHIES = [
+  {ico:"🏆", name:"A Forma de Frank Stone",        how:"Obtenha todos os outros troféus.",                                                rank:"plat", miss:false},
+  {ico:"😤", name:"Entidade Descontente",           how:"Todos os 5 personagens sobrevivem: Madi, Jaime, Chris, Sam e Linda.",             rank:"gold", miss:true},
+  {ico:"💀", name:"Assassino Impiedoso",             how:"Todos os 5 personagens morrem ao longo do jogo.",                                rank:"gold", miss:true},
+  {ico:"👁",  name:"Onisciente",                    how:"Desbloqueie todos os 224 ramos na Sala de Montagem (Cutting Room Floor).",       rank:"gold", miss:false},
+  {ico:"🎬", name:"A Fogueira",                     how:"Conclua a história pela primeira vez.",                                          rank:"gold", miss:false},
+  {ico:"🧳", name:"O Lugar Disso É No Museu",       how:"Colete todos os 30 Artefatos (10 Murder Mill + 10 Campeão + 10 Narradora).",    rank:"silv", miss:false},
+  {ico:"🗡",  name:"Siderúrgica Mortal",             how:"Colete todos os 10 Artefatos Murder Mill.",                                     rank:"silv", miss:false},
+  {ico:"📜", name:"O Campeão",                      how:"Colete todos os 10 Artefatos O Campeão.",                                       rank:"silv", miss:false},
+  {ico:"📖", name:"A Narradora",                    how:"Colete todos os 10 Artefatos A Narradora.",                                     rank:"silv", miss:false},
+  {ico:"🪆", name:"Plangonologista",                how:"Colete todos os 12 Relíquias.",                                                   rank:"silv", miss:false},
+  {ico:"🔑", name:"Instinto do Saqueador",          how:"Colete todos os 12 Bugigangas.",                                                  rank:"silv", miss:false},
+  {ico:"🌿", name:"Poder de Dois",                  how:"Maximize o relacionamento entre Jaime e Chris.",                                rank:"silv", miss:true},
+  {ico:"🔧", name:"Aprimorador",                    how:"Conserte todos os 3 geradores (Caps. 5, 7 e 14) sem falhar um único Skill Check.", rank:"silv", miss:true},
+  {ico:"🪝", name:"Artista da Fuga",                how:"Cap. 13: Sam usa a câmera com sucesso e liberta Jaime do gancho.",               rank:"silv", miss:true},
+  {ico:"☠",  name:"Memento Mori",                   how:"Cap. 13: Sam falha com a câmera e Frank Stone arranca a mandíbula de Jaime.",   rank:"silv", miss:true},
+  {ico:"🔫", name:"Fogo Amigo",                     how:"Cap. 14: Sam atira em Madi enquanto ela está hipnotizada.",                     rank:"silv", miss:true},
+  {ico:"🌀", name:"Fagocitose",                     how:"Cap. 14: Madi hipnotizada é absorvida por Frank Stone.",                        rank:"silv", miss:true},
+  {ico:"⏳", name:"De Volta Para o... Passado",     how:"Cap. 10: Chris volta com sucesso para 1980.",                                   rank:"silv", miss:true},
+  {ico:"🎹", name:"Tema",                           how:"Cap. 2: Toque a melodia correta no piano — Dó♭, Dó, Dó♭, Si♭.",               rank:"bron", miss:true},
+  {ico:"🎮", name:"Herói 8 Bit",                    how:"Cap. 3: Obtenha a maior pontuação (5.040+) no arcade do Drugstore.",           rank:"bron", miss:true},
+  {ico:"🚗", name:"Colegas de Viagem",              how:"Cap. 2: Madi para o carro e pega Linda como carona.",                          rank:"bron", miss:true},
+  {ico:"💰", name:"Dinheiro Fácil",                 how:"Cap. 3: Jaime aceita o suborno de Sam.",                                       rank:"bron", miss:true},
+  {ico:"✋", name:"Desconto dos Cinco Dedos",        how:"Cap. 3: Jaime rouba dinheiro da Bonnie.",                                      rank:"bron", miss:true},
+  {ico:"🐶", name:"Cão Malvado",                    how:"Cap. 9: Encontre a coleira de Merlin (cachorro de Sam).",                      rank:"bron", miss:false},
+  {ico:"🍺", name:"Vivendo e Aprendendo",           how:"Prólogo + Cap. 5: Sam é gentil com Tom; Jaime encontra a fita cassete.",       rank:"bron", miss:true},
+  {ico:"🔒", name:"Abra-te, Sésamo",               how:"Cap. 6: Resolva o puzzle do portão.",                                          rank:"bron", miss:false},
+  {ico:"⚙",  name:"Stan, O Fragmentado",            how:"Cap. 8: Stan é cortado em pedaços no Horologium.",                            rank:"bron", miss:true},
+  {ico:"🏃", name:"Salvador",                       how:"Prólogo: Sam passa todos os QTEs e atira em Frank Stone.",                     rank:"bron", miss:false},
+  {ico:"✅", name:"Que Perícia",                    how:"Passe 5 Skill Checks seguidos com sucesso.",                                   rank:"bron", miss:false},
+  {ico:"⭐", name:"É Questão de Reflexos",          how:"Passe 10 Skill Checks ótimos (zona branca) ao longo do jogo.",                 rank:"bron", miss:false},
+  {ico:"📷", name:"Medo de Câmera",                 how:"Nunca falhe um momento de câmera ao longo de todo o jogo.",                   rank:"bron", miss:true},
+  {ico:"🔄", name:"odassaP ...o arap atloV eD",    how:"Cap. 10: Chris vai para 1980 mas algo sai errado (deixe-a ir sem sucesso).",   rank:"bron", miss:true},
+  {ico:"🔫", name:"Não É Nada Pessoal",             how:"Cap. 8/14: Linda rouba a arma de Sam e depois atira em Augustine.",           rank:"bron", miss:true},
+];
+
+const CAPS = [
+  {
+    n:1, name:"A Bocarra Ardente", sub:"Prólogo · 1963 · Siderúrgica Cedar · Personagem: Sam",
+    pills:["p-troph","p-col","p-miss"],
+    secs:[
+       {lbl:"OBJETIVO DO CAPÍTULO 1 (RUN 1)", runs:[1],
+       alert:{t:"warn", msg:"<strong>⚠ Ao chegar à siderúrgica,</strong> entre em conversa com Tom, o guarda noturno. Para o troféu <span class='hl'>Vivendo e Aprendendo</span>, seja sempre gentil com ele e peça que ele ligue pedindo reforços enquanto entrega o rádio de ouvido."},
+       steps:[
+         {n:1, t:"Após terminar de conversar com Tom, o guarda noturno, você entrará pelos portões da siderúrgica. Siga pela parede direita do pátio até encontrar uma abertura na cerca. Passe por ela e vire à esquerda. Haverá uma caixa no chão — pegue-a para obter a <span class='hl'>Bugiganga #1 – Rei Iridescente</span>."},
+         {n:1.5, t:"<img src='Images/Bugiganga01.png' alt='Rei Iridescente' width='1207' height='675' title='Está à esquerda ao entrar na cerca' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:2, t:"Após entrar na siderúrgica, mais adiante <strong>não interaja com a madeira</strong> bloqueando a porta antes de explorar a sala. Vá ao armário de arquivos à direita — um arquivo cairá no chão: <span class='hl'>Artefato Campeão #1 (Arquivo de Funcionários)</span>."},
+         {n:2.5, t:"<img src='Images/The Champion Artifact01.png' alt='The Champion Artifact' width='1207' height='675' title='No armário de arquivos' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:3, t:"Assim que o Sam descer para o bueiro pluvial, siga pela direita. Continue pelos corredores até chegar a uma porta na parede direita. Lá dentro, no final de outro corredor, há uma caixa com um Trinket <span class='hl'>[Trinket #2 – Cavalo de Madeira].</span>"},
+         {n:3.5, t:"<img src='Images/TheChampionArtifact02.jpg' alt='The Champion Artifact 02' width='1207' height='675' title='Na porta a seguir' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:4, t:"O Artefato do Campeão <span class='hl'>[Artefato do Campeão #2 – Símbolos]</span> pode ser encontrado na parede logo abaixo de uma placa “Câmara da Fornalha”. Você o encontrará na área logo após cair no bueiro pluvial."},
+         {n:4.5, t:"<img src='Images/TheChampionArtifact03.png' alt='The Champion Artifact 03' width='1207' height='675' title='Do lado da placa' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},        
+         {n:5, t:"Antes de rastejar pela passagem nos drenos, <strong>suba os canos</strong> à direita — encontrará o <span class='hl'>Relíquia #1 (Caipira)</span> no chão."},
+         {n:5.5, t:"<img src='Images/Rellik01.png' alt='Relíquia 01' width='1207' height='675' title='No esgoto' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:6, t:"Na fornalha, passe TODOS os QTEs para o troféu <span class='hl'>Salvador</span>: bata no rosto de Frank, use a lanterna para cegá-lo e atire nele com o rifle. <span class='wn'>ATENÇÃO: Se falhar QTEs aqui, Sam se tornará mais sombrio, o que é necessário para o troféu Dinheiro Fácil mas prejudica a run de sobrevivência.</span>"},
+       ],
+       alert:{t:"warn", msg:"<strong>Crowbar / Pé de Cabra:</strong> Ao chegar ao pátio, Sam precisa abrir uma grade com o pé de cabra. <strong>NÃO quebre o pé de cabra</strong> — ele é necessário no Capítulo 5. Se quebrar, uma Bugiganga fica inacessível permanentemente nessa run. E mais, durante o epísodio, seja amigável com o Tom e implique sobre sua bebedeira para o troféu <span class='hl'>Vivendo e Aprendendo</span> "}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:"<strong>Run 2 — Matar Chris:</strong> NÃO vá à Farmácia no Cap. 3, ou certifique-se de que Jaime não comprou os foguetes. Sem foguetes, Frank Stone parte Chris ao meio no confronto — morte confirmada. Falhe deliberadamente os QTEs de Jaime para garantir que ele não interfira."},
+       steps:[
+         {n:1, t:"Quebre o pé de cabra e não implique sobre a bebedeira do Tom, apenas faça ao contrário da RUN 1"},
+         {n:2, t:"Apenas faça ao contrário pra conseguir mais dialógos e fornecer pro troféu dos 100%"},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+         {n:1, t:"Sério--Ver livro de registros--Falsificar nomes--Quebrar pé de cabra (falhar QTE)--Pé de cabra quebrado--Frustrado com Tom--Sam irritado--Usar pé de cabra--Solidário--Tom confiável--Passar QTE do vapor--Escada--Escada do forno--Passar QTEs e verificações de habilidade--Frank Stone cegado--Empurrado da tubulação--Frank parado--Falhar QTE do vapor--Lanterna derrubada--Rampa--Rampa do forno--Falhar QTEs e verificações de habilidade--Olho arrancado--Gravemente ferido--Sam falhou"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 1", cols:[
+        {n:1,l:"Bugigangas",s:"#1 Rei Iridescente, #2 Cavalo de Madeira"},
+        {n:1,l:"Relíquia",s:"#1 Caipira"},
+        {n:3,l:"Artefatos",s:"Campeão #1 e #2"},
+        {n:5,l:"Total",s:"5 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:2, name:"Na Casa das Trevas", sub:"1980 · Mansão Gerant · Personagem: Madi",
+    pills:["p-troph","p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 2", runs:[1],
+       steps:[
+         {n:1, t:"<span class='wn'>AÇÃO IMEDIATA:</span> Se você escolher parar, vai dar carona para a Linda (outra personagem jogável), que está indo para o mesmo local que a Madi. Escolher parar para a Linda também concede um troféu. <span class='hl'>Colegas de Viagem</span>."},
+         {n:2, t:"Ao chegar à mansão e tomar controle de Madi, <strong>suba as escadas imediatamente antes de encontrar Stan</strong>. Vá para a sala com piano à esquerda. Na mesa perto da janela, colete o <span class='hl'>Artefato Narradora #1 (Carta de Herança)</span>."},
+         {n:2.5, t:"<img src='Images/StorytellerArtifact01.png' alt='Artefato Narradora #1' width='1207' height='675' title='Mesa perto da janela a esquerda, em cima' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:3, t:"Pegue a <strong>partitura musical</strong> na mesa próxima à escadaria direita. Depois vá ao piano e <strong>toque a sequência exata: Ré♭ → Dó → Ré♭ → Si♭</strong> — troféu <span class='trophy'>Tema</span> e uma porta secreta é aberta."},
+         {n:4, t:"Agora vá até o piano e use-o para tocar o Tema do Sobrevivente, o que concede um troféu e também abre uma porta secreta. Desça as escadas e você estará em uma sala com um boneco da Caçadora <span class='hl'>[Rellik 2/12]</span> no chão, ao lado da mesa. Abra a porta e você chegará ao corredor do andar de baixo. Siga até as portas duplas à direita e continue a história."},
+         {n:4.5, t:"<img src='Images/Rellik02.png' alt='Relíquia #2 (Huntress)' width='1207' height='675' title='Ao lado da poltrona' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:5, t:"Após voltar ao salão haverá uma conversa, seja carismático, explore a sala. Vá até o armário, onde você encontrará a <span class='hl'>Epopeia de Gilgamesh [Artefato do Campeão 4/10]</span>."},
+         {n:5.5, t:"<img src='Images/TheChampionArtifact04.png' alt='Epopeia de Gilgamesh' width='1207' height='675' title='No armário' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:6, t:"Interaja com o painel ao lado do armário — pressione o botão escondido para revelar o <span class='hl'>Artefato Murder Mill #1 (Pôster do Filme)</span>."},
+         {n:6.5, t:"<img src='Images/MurderMillArtifact01.png' alt='Artefato Murder Mill #1' width='1207' height='675' title='No armário' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:7, t:"Tome escolhas de diálogo positivas com Madi para preparar o relacionamento que influencia escolhas futuras."},
+       ],
+       alert:{t:"warn", msg:"<strong>Piano — PERDÍVEL:</strong> A sequência Ré♭ → Dó → Ré♭ → Si♭ PRECISA ser tocada neste capítulo. Se pular esta sala, o troféu Tema é permanentemente perdido nessa run. Só pode ser recuperado pelo Cutting Room Floor. Chegando no Gerant Manor, você vai encontrar Stan e Augustine na sala de estar. Recuse a bebida que Augustine lhe oferece para evitar colocar Madi em perigo mais tarde."}
+      
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"<span class='choice-made'>⚠️ VOCÊ FEZ ESSA ESCOLHA: NÃO DEU CARONA </span>"},
+         {n:2, t:"Optar por apenas prosseguir, Linda será forçada a caminhar de volta para a mansão e você perderá oportunidades de aumentar seu relacionamento. Linda também aparecerá mais tarde no capítulo, em vez de aparecer imediatamente com você."},
+         {n:2, t:"Nesse caso adiante, aceite a bebida de Augustine. Isso coloca Madi em risco de ser drogada, o que é necessário para o troféu <span class='hl'>Stan, O Fragmentado</span>, mas torna a run de sobrevivência mais difícil. Se aceitar a bebida, certifique-se de falhar os QTEs subsequentes para garantir que Madi seja drogada."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+       {n:1, t:"Passar pelo carona--Seguiu viagem--Esperar ela chegar na casa--Linda chega--Parar o carro--Perguntar o que ela faz--Cineasta--Recusar bebida--Bebida recusada--Relaxado (aceitar bebida)--Bebida aceita"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 2", cols:[
+        {n:0,l:"Bugigangas",s:"nenhum"},
+        {n:1,l:"Relíquia",s:"#2 Huntress"},
+        {n:2,l:"Artefatos",s:"Narradora #1, Murder Mill #1"},
+        {n:3,l:"Total",s:"3 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:3, name:"Curiosidade na Rua Principal", sub:"1980 · Cidade de Cedar Hills · Personagem: Jaime/Chris",
+    pills:["p-troph","p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 3 — RUN 1", runs:[1],
+       steps:[
+         {n:1, t:"<span class='wn'>DECISÃO CRÍTICA — VÁ À FARMÁCIA PRIMEIRO.</span> No Capítulo 3 você pode escolher entre a Loja de Curiosidades ou a fármacia primeiro. Sempre vá a Farmácia antes. Isso garante que Jaime pegue os foguetes de artifício, usados para salvar Chris no Capítulo 5."},
+         {n:2, t:"No galpão de armazenamento, responda somente com leve-a ou prefiro morrer, Existe um conquista você pode conseguir aumentando o relacionamento entre Jaime e Chris ao máximo"},
+         {n:3, t:"Como você gastou todo o dinheiro em camisetas, seu objetivo é pedir dinheiro à Bonnie (irmã do Jaime). Quando ela chegar, você pode cumprimentá-la. Se quiser conseguir dinheiro com ela, há duas formas:Escolha empático ou Brincalhão"},
+         {n:4, t:"Porém, analise bem, tem uma forma de você perder um troféu nessa jogatina, se quiser ganha-lo terá que ser rude com ela e depois roubar sua bolsa -- <span class='hl'>Desconto dos cinco dedos</span>"},
+         {t:"<span class='choice-made'>⚠️ VOCÊ FEZ ESSA ESCOLHA: FARMÁCIA</span>"},
+         {n:5, t: "Obtenha a maior pontuação (5.040+) no arcade na farmácia no fundo da loja."},
+         {n:6, t:"Se você escolheu ir para o Farmácia primeiro, você pode explorar a loja da mesma forma que faria acima, depois conversar com Linda, que não está feliz por você estar dizendo eu te amo para Jaime depois de conhecê-lo por apenas dois meses. A Drogaria não consegue consertar a câmera, mas você compra os fogos de artifício."},
+         {n:7, t:"Na Fármacia: na prateleira à direita do leite, colete a <span class='hl'>Bugiganga #3 (Waterlogged Shoe)</span>. "},
+         {n:7.5, t:"<img src='Images/Bugiganga03.png' alt='Bugiganga 03' width='1207' height='675' title='Na prateleira à direita do leite' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},
+         {n:8, t:"Na bancada do bar, colete o <span class='hl'>Artefato Murder Mill #2 (Revista de Filmes Perdidos)</span>."},
+         {n:8.5, t:"<img src='Images/Revista01.png' alt='Revista 01' width='1207' height='675' title='Na bancada do bar' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},         
+         {t:"<span class='choice-made'>⚠️ VOCÊ FEZ ESSA ESCOLHA: LOJA DE ANTIGUIDADES</span>"},
+         {n:9, t:"Na Loja de Curiosidades (Endless Curiosities): vire à esquerda na entrada — colete o <span class='hl'>Artefato Narradora #2 (Carta do Advogado)</span>. "},
+         {n:9.5, t:"<img src='Images/Artefato01.png' alt='Artefato' width='1207' height='675' title='Logo após entrar' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:10, t:"No fundo à direita, colete o <span class='hl'>Relíquia #3 (Trapper)</span>."},
+         {n:10.5, t:"<img src='Images/Relik03.png' alt='Relíquia 03' width='1207' height='675' title='No fundo' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:10, t:"Quando Sam aparece e ameaça expulsá-los: <span class='ti'>Para troféu Dinheiro Fácil</span>, escolha RELUTANTE → COMPLACENTE no diálogo, depois <strong>aceite o suborno</strong>. <span class='ti'>Para Desconto dos Cinco Dedos</span>, provoque Bonnie (CHOCADO → FAMÍLIA EM PRIMEIRO LUGAR) e roube o dinheiro dela. <span class='wn'>São troféus MUTUAMENTE EXCLUSIVOS nesta run.</span>"},
+         {n:11, t:"Para o troféu <span class='hl'>Poder de Dois</span>: tome decisões positivas com Chris durante toda a interação do capítulo — fique no script, não a contradiga."},
+       ],
+       alert:{t:"warn", msg:"<strong>Farmácia Primeiro = Foguetes:</strong> Esta é a decisão com maior cadeia de consequências do jogo. Se explorar a Loja de Curiosidades primeiro, a ordem não muda o resultado final — ambas as lojas serão visitadas. O que importa é que Jaime compre os foguetes ANTES de ir ao moinho no Cap. 5."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:"<strong>Run 2 — Matar Chris:</strong> NÃO vá à Farmácia no Cap. 3, ou certifique-se de que Jaime não comprou os foguetes. Sem foguetes, Frank Stone parte Chris ao meio no confronto — morte confirmada. Falhe deliberadamente os QTEs de Jaime para garantir que ele não interfira."},
+       steps:[
+         {n:1, t:"Falhe nos QTE de início e dê a resposta <span class='hl'>Deixe-a em paz</span>"},
+         {n:2, t:"Aqui começa um ponto central para a primeira morte do jogo, o da Chris. Para garantir a morte de Chris, você deve evitar comprar os foguetes de artifício na Farmácia. Isso significa que você deve explorar a Loja de Curiosidades primeiro, ou se for à Farmácia primeiro, certifique-se de que Jaime não compre os foguetes."},
+         {n:3, t:"Pode ser feito outro troféu também de roubar da bolsa, mas para isso tem que ser rude com a Bonnie e depois roubar a bolsa dela, o que é necessário para o troféu <span class='hl'>Desconto dos cinco dedos</span>."},
+         {t:"<span class='choice-made'>⚠️ VOCÊ FEZ ESSA ESCOLHA: LOJA DE ANTIGUIDADES</span>"},
+         {n:4, t:"Na Loja de Curiosidades (Endless Curiosities): vire à esquerda na entrada — colete o <span class='hl'>Artefato Narradora #2 (Carta do Advogado)</span>. "},
+         {n:4.5, t:"<img src='Images/Artefato01.png' alt='Artefato' width='1207' height='675' title='Logo após entrar' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:5, t:"No fundo à direita, colete o <span class='hl'>Relíquia #3 (Trapper)</span>."},
+         {n:5.5, t:"<img src='Images/Relik03.png' alt='Relíquia 03' width='1207' height='675' title='No fundo' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+       ]
+      },
+            {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[3],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"Passar QTE--Desafiador--Obediente--Relutante--Sam desafiado--Aceitar suborno (dinheiro fácil)--Suborno aceito--Recusar suborno--Suborno recusado--Pedir desculpas--Jaime pediu desculpas--Jovial--Chocado--Sério--Roubar dinheiro--Dinheiro roubado--Contar a verdade--Jaime honesto--Aceitar preço--Preço aceito--Recusar preço--Preço negociado--Aceitar espelho--Espelho recebido--Recusar espelho--Espelho recusado--Loja de antiguidades--Preço aceito"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 3", cols:[
+        {n:1,l:"Bugiganga",s:"#3 Waterlogged Shoe"},
+        {n:1,l:"Relíquia",s:"#3 Trapper"},
+        {n:2,l:"Artefatos",s:"Narradora #2, Murder Mill #2"},
+        {n:4,l:"Total",s:"4 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:4, name:"Estas Paredes Têm Olhos", sub:"1980 · Mansão Gerant (Exploração) · Personagem: Chris/Madi",
+    pills:["p-col"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 4", runs:[1],
+       steps:[
+         {n:1, t:"Foque em reter conversas com Stan, nesse epísodio pra algo positivo"},
+         {n:2, t:"Capítulo de exploração livre da mansão. Interaja com o retrato acima da lareira — limpe a plaquinha para revelar um botão que abre uma sala secreta."},
+         {n:3, t:"Dentro da sala secreta: colete o <span class='hl'>Artefato Narradora #3 (Plantas da Mansão)</span> na mesa à esquerda."},
+         {n:3.5, t:"<img src='Images/Artefato02.png' alt='Artefato 02' width='1207' height='675' title='Na sala secreta' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:4, t:"No andar de cima, você encontrará um portão elaborado que parece estar faltando uma peça. Você ainda não consegue abri-lo. Em vez disso, pegue o livro na mesa logo ao lado. Este é o <span class='hl'>Artefato Face of Evil [Artefato do Campeão 6/10]</span>."},
+         {n:4.5, t:"<img src='Images/TheChampionArtifact05.png' alt='Artefato 06' width='1207' height='675' title='É um livro' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:5, t:"Explore todos os ambientes antes de interagir com o objeto principal que avança o capítulo — <span class='wn'>interações com objetos destacados avançam a narrativa e fecham áreas anteriores.</span>"},
+       ],
+       alert:{t:"tip", msg:"<strong>Capítulo Curto:</strong> Não há QTEs críticos aqui. Use o tempo para explorar completamente antes de acionar qualquer objeto de narrativa."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:"<strong>Run 2 - Vá com Madi</strong>"},
+       steps:[
+         {n:1, t:"Vá com Madi e converse com ela nessa run."},
+         {n:2, t:"O epísodio em si é mais exploração do que escolhas e tudo mais"},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[3],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"Desdenhoso--Ficou com Madi--Sair com Madi--Autoritário--Seguiu Stan--Falar com Madi--Nostálgico--Memória compartilhada"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 4", cols:[
+        {n:0,l:"Bugigangas",s:"nenhum"},
+        {n:0,l:"Relíquias",s:"nenhum"},
+        {n:2,l:"Artefatos",s:"Narradora #3, Campeão #3"},
+        {n:2,l:"Total",s:"2 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:5, name:"O Fantasma da Siderúrgica Cedar", sub:"1980 · Siderúrgica Cedar · Personagem: Jaime/Chris/Robert",
+    pills:["p-gen","p-troph","p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 5 — RUN 1", runs:[1],
+       steps:[
+         {n:1, t:"<span class='wn'>Gerador 1 de 3 (obrigatório):</span> Conserte o gerador na oficina mecânica. Nunca falhe um Skill Check enquanto faz isso — cada falha pode resultar em morte de personagem e perda do troféu Aprimorador."},
+         {n:2, t:"Depois de terminar a conversa, você pode explorar a garagem. Você encontrará um <span class='hl'>Artefato de artigo de jornal antigo [Artefato de campeão 3/10]</span> na mesa à esquerda de Chris e Rob."},
+         {n:2.5, t:"<img src='Images/Artefato03.png' alt='Artefato 03' width='1207' height='675' title='Jornal antigo' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:3, t:"Agora vá em direção à porta e você verá um livro, <span class='hl'>Artefato do Oráculo do Omniverso [Artefato do Moinho do Assassinato 4/10]</span> mesmo no frigorífico. Depois de conseguir tudo, vá até lá e fale com Linda"},
+         {n:3.5, t:"<img src='Images/Artefato04.png' alt='Artefato 04' width='1207' height='675' title='Perto da porta' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {n:4, t:"Vivendo e Aprendendo: Se você escolher as opções para Confiar em Tom no Capítulo 1, poderá ouvir a fita na garagem e obter uma conquista."},
+         {n:4.5, t:"<img src='https://cdn.staticneo.com/ew/thumb/7/7e/The-casting-of-frank-stone-the-phantom-of-cedar-steel-tom-tape.jpg/730px-The-casting-of-frank-stone-the-phantom-of-cedar-steel-tom-tape.jpg' alt='Fita' width='1207' height='675' title='Perto da papelada' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {t:"<span class='choice-made'>⚠️ VOCÊ FEZ ESSA ESCOLHA: ESCALAR</span>"},
+         {n:5, t:"Se você escolher escalar, verá uma bugiganga <span class='hl'>Mãe e Filha [Bugiganga 6/12]</span> aqui. Esse é fácil de perder se você não escolher escalar em vez de atravessar. Continue seguindo e você encontrará o xerife Stone, que, por sorte, não percebe você."},
+         {n:5.5, t:"<img src='Images/Bugiganga04.png' alt='Bugiganga 04' width='1207' height='675' title='Escalada' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                  
+         {t:"<span class='choice-made'>⚠️ VOCÊ FEZ ESSA ESCOLHA: CRUZAR</span>"},
+         {n:6, t:"Siga o Robert até a segunda tábua e não pule. Em vez disso, atravesse para pegar o <span class='hl'>Bugiganga Dedo Médio Tatuado [Bugiganga 5/12]</span> — perdível se não escolher atravessar."},
+         {n:6.5, t:"<img src='Images/Bugiganga05.png' alt='Bugiganga 05' width='1207' height='675' title='Siga o Robert' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                           
+         {n:7, t:"Na oficina, dentro dos vagões do trem, colete o <span class='hl'>Artefato Campeão #5 (Planos de Armas)</span> na mesa antes de pegar o pote na prateleira."},
+         {n:7.5, t:"<img src='Images/Rellik04.png' alt='Relíquia' width='1207' height='675' title='Na oficina' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:8, t:"Siga até a primeira janela aberta, pule por ela e entre pela porta. No canto direito da sala você encontrará a chave do Galpão de Filmagem — necessária depois para coletar todos os Trinkets do capítulo."},
+         {n:9, t:"Agora com Linda, Agora volte, atravesse o pátio até as portas duplas no canto esquerdo. Use o pé de cabra para abrir e pegue a <span class='hl'>Máscara Oni de Madeira [Trinket 7/12]</span> no chão."},
+         {n:9.5, t:"<img src='Images/Bugiganga06.png' alt='Bugiganga 06' width='1207' height='675' title='Atravasse o pátio' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:10, t:"Depois de pegar, volte para a área inicial e entre na sala da fornalha. Não fale com a Chris. Pegue a manivela à direita (subindo as escadas), volte à máquina e use-a para alcançar o <span class='hl'>Trinket Rato Infectado [Trinket 8/12]</span>."},
+         {n:10.5, t:"<img src='Images/Bugiganga07.png' alt='Bugiganga 07' width='1207' height='675' title='Rato artefato' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                           
+         {n:11, t:"Antes da parte com o Chris, é importante que você seja compreensivo estando com Linda e falando com Jaime, fale coisas como <strong>você era bom</strong> e <strong>Quer sair, Bonnie?</strong>"},
+         {n:12, t:"Agora com o Chris, o objetivo é encontrar a oficina, mas antes vá às salas da direita, passe pelo buraco na parede e pegue o <span class='hl'>Relíquia Palhaço [Rellik 5/12]</span> no chão à esquerda."},
+         {n:12.5, t:"<img src='Images/Rellik05.png' alt='Relíquia 05' width='1207' height='675' title='Relíquia Palhaço' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:13, t:"Se você pegou a chave no bueiro, abra a porta. Empurre as prateleiras metálicas para usar como plataformas, mova a caixa de ferramentas vermelha e suba. Depois, contorne e passe pela abertura até chegar à viga onde você precisa se equilibrar."},
+         {n:13.5, t:"<img src='Images/Screenshot_1.png' alt='Caminhos' width='1207' height='675' title='Dicas do caminho' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:14, t:"Ao atravessar, solte a escada por segurança. Depois, pule pelas prateleiras até pegar o <span class='hl'>Trinket [Trinket 4/12]</span>."},
+         {n:14.5, t:"<img src='Images/Bugiganga08.png' alt='Bugiganga 08' width='1207' height='675' title='Trinket 04' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:15, t:"Com Jaime, você precisa subir até o vagão suspenso. Para isso, vá até o gerador do outro lado, mas antes pegue duas peças: um parafuso na mesa à direita (sob as placas) e outra peça na mesa verde perto da entrada. Depois, volte ao <span class='hl'>gerador para consertá-lo. 01/03</span>"},
+         {n:16, t:"Nessa missão tem o gerador que <strong>não pode errar nenhum QTE dele, fique atento.</strong>"},
+         {n:17, t:"Vá até a porta com energia e entre, mas o caminho para o escritório estará bloqueado. Em vez disso, mova a caixa vermelha com rodas, passe pela janela à esquerda e siga pelos dutos. Ao descer, pegue a chave e depois vá até o vagão."},
+         {n:18, t:"O Robert quase vai cair e haverá um QTE para salvá-lo. Se você errar, a Chris salva ele. Na mesa central, pegue o <span class='hl'>Artefato Projetos de Armas [Artefato do Campeão #5]</span>."},
+         {n:18.5, t:"<img src='Images/Artefato05.png' alt='Artefato 05' width='1207' height='675' title='Trinket 05' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:19, t:"Chegando perto do fim seja <strong>apreensivo<strong> e aqui terá duas escolhas, pra não morrer ninguém observe isso."},
+         {n:20, t:" Jaime fica irritado por causa do Robert e você conversa com a Chris. Durante a filmagem, surge uma energia verde estranha da mão e o Frank Stone aparece. Uma porta tipo portal se abre e ameaça puxar a Chris. Você pode salvá-la ou fugir — essa decisão afeta o Capítulo 11."},
+         {n:21, t:" <span class='choice-save'>ESCOLHA SALVAR</span> se quiser morrer — <span class='choice-run'>ESCOLHA FUGIR</span> se quiser salvar a Chris"},
+       
+       
+        ],
+       alert:{t:"warn", msg:"<strong>Escolha de caminho — Bugigangas exclusivas:</strong> Neste capítulo há dois caminhos possíveis para chegar ao moinho. O caminho da CRUZ dá a Bugiganga Dedo Médio Tatuado; o caminho da ESCADA dá a Bugiganga Aliança Mãe-Filha. São mutuamente exclusivos — pegue um agora e o outro no Cutting Room Floor."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:"<strong>Run 2 — Matar Chris:</strong> NÃO vá à Farmácia no Cap. 3, ou certifique-se de que Jaime não comprou os foguetes. Sem foguetes, Frank Stone parte Chris ao meio no confronto — morte confirmada. Falhe deliberadamente os QTEs de Jaime para garantir que ele não interfira."},
+       steps:[
+         {n:1, t:"<span class='wn'>OBJETIVO:</span> Garantir a morte de Chris. Para isso, Jaime NÃO deve ter os foguetes de artifício (adquiridos na Farmácia no Cap. 3)."},
+         {n:2, t:" Com Chris, para entrar no local, faça a escolha contrária a sua na run 1 e colete os colecionáveis que acabaram faltando"},
+         {n:2, t:" Conserte o gerador normalmente (necessário para progressão) — mas deliberadamente <strong>falhe um Skill Check</strong> se quiser evitar o troféu Aprimorador (que você não busca nesta run)."},
+         {t:"<span class='choice-made'>⚠️ PRIMEIRO MORTO: JAIME </span>"},         
+         {n:3, t:" Se você escolher confrontar o espectro de Frank Stone, Jaime quase certamente será cortado e morto."},
+         {n:4, t:" Colete os colecionáveis normalmente se ainda faltam para o troféu de todos os itens — as mortes não impedem a coleta."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:"<strong>Run 3 / CRF:</strong> Se você perdeu a Bugiganga do caminho alternativo (Dedo Médio Tatuado ou Aliança Mãe-Filha), este é o capítulo onde retomar pelo CRF. Ao voltar, escolha o caminho oposto ao da Run 1."},
+       steps:[
+         {n:1, t:"No CRF, volte ao ponto de escolha de caminho (Cruz vs Escada). Escolha o caminho que você <strong>não</strong> tomou na Run 1 para obter a Bugiganga exclusiva restante."},
+         {n:2, t:"Se a morte de Chris foi planejada para o CRF (e não na Run 2), agora é a hora: repita o confronto sem foguetes para registrar o ramo narrativo correspondente."},
+         {n:3, t:"Após a bifurcação, jogue sequencialmente até o final — o CRF exige completar os capítulos a partir do ponto de retorno."},
+         {n:4, t:"Tocar fita cassete--Tom sóbrio--Rio atravessado--Creek South--Falhar em salvar Robert--Chris salvou Robert--Impaciente--Chocado--Confessar sentimentos por Linda--Sentimentos revelados--Passar QTE--Gate escalado--Creek North--Salvar Robert--Jaime salvou Robert--Impaciente--Pessimista--Briga terminada--Jaime morto--Usar firecrackers falha--Chris ajudado--Jaime vivo--Usar firecrackers sucesso--Fugir--Jaime correu"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 5", cols:[
+        {n:5,l:"Bugigangas",s:"#4, Blighted Rat, + 2 exclusivos (caminho)"},
+        {n:2,l:"Relíquia",s:"#5 Clown"},
+        {n:3,l:"Artefatos",s:"Campeão #4 e #5, Narradora #4"},
+        {n:10,l:"Total",s:"8 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:6, name:"Além do Portão", sub:"2024 · Mansão Gerant (Santuário) · Personagem: Madi/Stan/Linda",
+    pills:["p-troph","p-col"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 6", runs:[1],
+       steps:[
+         {n:1, t:"O Stan vai levantar o portão na escada e a Madison pode subir para procurar pistas no andar de cima sobre como abrir o portão elaborado. Também há alguns itens que você pode coletar lá. Primeiro, vá até o canto esquerdo e pegue o <span class='hl'>Boneco Legion [Rellik 6/12]</span> no chão."},         
+         {n:1.5, t:"<img src='Images/Rellik06.png' alt='Relíquia 06' width='1207' height='675' title='No sotão' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:2, t:"Ao fazer isso, vá até a mesa em frente ao sofá, onde você pode ler uma avaliação sobre Murder Mill e também coletar parte do <span class='hl'>Artefato de revisão de fanzine [Murder Mill 3/10]</span>."},
+         {n:2.5, t:"<img src='Images/Artefato06.png' alt='Artefato 06' width='1207' height='675' title='Na mesa' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:3, t:"Depois disso, vá até o armário embaixo da janela esquerda para encontrar o <span class='hl'>Artefato de Escritura de Venda [Murder Mill 5/10]</span> isso mostra quanto Agostinho pagou pelas tiras de filme."},
+         {n:3.5, t:"<img src='Images/Artefato07.png' alt='Artefato 07' width='1207' height='675' title='Perto da janela' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:4, t:"Com todos esses itens colecionáveis recolhidos, vá até a cerca e o canto esquerdo, onde você encontrará um chave na mesa lateral. Você precisa desta chave para desbloquear o armário no andar de baixo, então vá até lá."},
+         {n:4.5, t:"<img src='Images/imagem01.png' alt='Local exato' width='1207' height='675' title='Canto esquerdo da cerca' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:5, t:"Com Linda, explore o Santuário e pegue todos os itens colecionáveis primeiro. Ligue o sistema de som no lado direito da sala para obter o <span class='hl'>Artefato de transmissão de motim [Murder Mill 6/10]</span>."},
+         {n:5.5, t:"<img src='Images/Artefato08.png' alt='Artefato 08' width='1207' height='675' title='Esteja com Linda' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:6, t:"Fique na parede direita e você encontrará um Trinket no canto, bem ao lado das portas duplas Soldado de Viktor [Brincadeira 12/9]."},
+         {n:6.5, t:"<img src='Images/Bugiganga09.png' alt='Bugiganga 09' width='1207' height='675' title='Soldado de Viktor' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:7, t:"Vá para a mesa do meio, você encontrará um <span class='hl'>Artefato de livro de ficção [Artefato de contador de histórias 4/10]</span>."},
+         {n:7.5, t:"<img src='Images/Artefato09.png' alt='Artefato 09' width='1207' height='675' title='Um livro de ficção' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:8, t:"Por fim, vá até a estátua do Demônio Acadiano e interaja com ela para pegar o <span class='hl'>Artefato de estátua demoníaca [Artefato de contador de histórias 5/10]</span>."},
+         {n:8.5, t:"<img src='Images/Artefato10.png' alt='Artefato 10' width='1207' height='675' title='Interaja com a estátua' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:9, t:"Seguindo a trama, você conversará com Stan, seja respeitoso, lembrando que essa é uma forma de dialógo."},
+         {n:10, t:"Quando terminar de falar com Stan, vá até a mesa perto de onde Madi está, abra a gaveta e você encontrará um quebrado <span class='hl'>Artefato de câmera Super8 quebrado [Murder Mill 7/10]</span>, que suspeitamente parece aquele que Linda quebrou antes de comprarem um novo na loja Curiosity."},
+         {n:10.5, t:"<img src='Images/Artefato11.png' alt='Artefato 11' width='1207' height='675' title='Algo relacionado a camêra' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+       ],
+       
+       alert:{t:"info", msg:"<strong>Arquivo de Filmes:</strong> Este capítulo contém o maior cluster de artefatos. Explore sistematicamente cada prateleira e parede antes de acionar qualquer gatilho de narrativa."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"A única escolha aqui é a opção de oferecer amizade ou fazer a aposta.Com a opção <span class='hl'>TRAVESSO</span>, Linda oferecerá uma aposta a Stan. Tenha em mente que Stan sempre escolhe o mesmo lado em ambas as faces da moeda. Se você quiser ganhar e desbloquear essa ramificação, você deve escolher Coroas. Se fizer isso, você descobrirá que Stan basicamente ganhou a tira de filme de Robert Green, filho de Sam, que ajudou os amigos a entrarem na fábrica. "},
+         {n:2, t:"Nada nesse epísodio pode afetar morte futura"},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+       {n:1, t:"Falar com Stan--Mischievous--Heads--Perdeu cara ou coroa--Chutar intruso--Intruso chutado--Falar com Stan--Mischievous--Tails--Ganhou cara ou coroa--Não chutar intruso--Intruso revelado"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 6", cols:[
+        {n:1,l:"Bugiganga",s:"#8 Victor's Soldier"},
+        {n:1,l:"Relíquia",s:"#7 Legion"},
+        {n:5,l:"Artefatos",s:"Murder Mill #3,5,6; Narradora #7,8"},
+        {n:0,l:"Total",s:"7 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:7, name:"Um Local Perigoso", sub:"1980 + 2024 · Galpão dos Vagões · Personagem: Linda/Chris",
+    pills:["p-gen","p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 7", runs:[1],
+       steps:[
+         {n:1, t:"Aqui você pode fazer duas coisas: conseguir afastar o Frank Stone ou falhar. É bem fácil ter sucesso, mas se quiser abrir outro caminho na ramificação e não se importar com colecionáveis, você pode deixar o Frank Stone te atacar. Essa decisão vai influenciar qual rota você seguirá no Capítulo 9."},
+         {t:"<span class='choice-made'>⚠️ OPÇÃO: FUGIR DO GALPÃO </span>"},
+         {n:2, t:"Afaste o Frank Stone no galpão e avance até a plataforma elevatória, que estará sem energia. Siga o cabo até o gerador, use os poderes da câmera para espantá-lo, depois pegue a peça do gerador ao lado da plataforma e conserte-o. Esse gerador é <span class='hl'>IMPORTANTE pra troféu, não erre nenhum QTE. O 02/03</span>"},
+         {n:8.5, t:"<img src='Images/Screenshot_2.png' width='1207' height='675' title='Interaja com a estátua' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:3, t:"Afaste o Frank Stone 3 vezes e depois ative a plataforma e suba. Saia pelo vagão, nas escadas pegue o <span class='trinket'>Abotoaduras de Diamante [10/12]</span> na viga e depois entre na porta à direita."},
+         {n:3.5, t:"<img src='Images/Bugiganga10.png' alt='Bugiganga 10' width='1207' height='675' title='Após 3 ataques dele' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:4, t:"Use a câmera para defender os personagens de Frank Stone — cada momento de câmera bem-sucedido contribui para o troféu <span class='hl'>Medo de Câmera</span>."},
+       ],
+       alert:{t:"warn", msg:"<strong>Gerador Perdível:</strong> Este é o gerador mais difícil. Frank aparece cedo. Planeje a rota antes de avançar qualquer diálogo ou QTE que possa avançar o capítulo."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {t:"<span class='choice-made'>⚠️ OPÇÃO: NÃO FUGIR DO GALPÃO </span>"},
+         {n:2, t:"Se você não conseguir escapar do galpão, Frank Stone fisgará Linda. No entanto, isso não significa morte, pois agora há um novo caminho que se abre."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Deixar Frank atacar--Linda empalada--Usar câmera contra Frank--Fuga do galpão"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 7", cols:[
+        {n:1,l:"Bugiganga",s:"Diamond Cufflinks"},
+        {n:1,l:"Relíquia",s:"#5 Clown (alternativo ao Cap. 5)"},
+        {n:0,l:"Artefatos",s:"nenhum"},
+        {n:0,l:"Total",s:"2 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:8, name:"Mansão Misteriosa", sub:"2024 · Mansão Gerant (interior) · Personagem: Madi/Linda",
+    pills:["p-troph","p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 8", runs:[1],
+       steps:[
+         {n:1, t:"Sam Green explica que o filme é uma prisão que abriga um mal inimaginável, Frank Stone e a Entidade. Ele também explicará como Stan recebeu a tira de Robert quando ele era mais vulnerável."},
+         {t:"<span class='choice-made'>⚠️ OPÇÃO: VENCEU CARA E COROA </span>"},
+         {n:2, t:"Aqui faça o diálogo pautado pra ganhar o sorteio de Stan, isso é importante para o troféu <span class='hl'>Sorte de Principiante</span>."},         
+         {n:3, t:"Com Madison, Antes de descer as escadas, olhe à esquerda e interaja com o <span class='hl'>Artefato do Santuário [Artefato do Narrador 6/10]</span>. Depois disso, continue e você entrará no Horologium."},
+         {n:3.5, t:"<img src='Images/Artefato19.png' alt='Artefato 19' width='1207' height='675' title='Santuário' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:4, t:"Depois de ativar todas as três alavancas, você precisa acionar a chave no meio para impedir a sobrecarga. Você terá duas tentativas para fazer isso. O sucesso ou falha nessa ação vai afetar a história a partir do Capítulo 10."},
+         {t:"<span class='choice-made'>⚠️ OPÇÃO: ACIONE A CHAVE </span>"},
+         {n:5, t:" Se você tiver sucesso, Madi irá liberar a energia no Horologium e verá a Chris saindo do portal. Isso vai afetar capítulos posteriores. Caso contrário, Madi falha e o Horologium sobrecarrega, causando uma explosão que afeta a narrativa de maneira diferente."},                
+         {n:6, t:"O Capítulo X é só uma cutscene dentro do Capítulo 8, mostrando eventos em Cedar Hills. Ele se passa em 1980, enquanto o resto do capítulo é em 2024."},
+         {n:7, t:"Agora são Linda e Sam juntos enquanto passam pela Mansão, lembrando, aqui é mais uma decisão de diálogo, escolha ser <span style='color:#2ecc71;font-weight:bold'>EXIGENTE</span>. E mais a frente coloque a opção <span style='color:#2ecc71;font-weight:bold'>BOLSA</span>"},
+         {n:8, t:"Sam desaparece após um som estranho. Siga até a porta secreta iluminada e entre no arquivo. À esquerda, pegue as camisetas <span class='hl'>“Murder Mine” [Artefato 10/10]</span>, que indicam uma versão alternativa da história."},
+         {n:8.5, t:"<img src='Images/Camiseta01.png' alt='Camiseta 01' width='1207' height='675' title='Em uma coleção de camisetas' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:9, t:"Na mesma fileira de prateleiras, à direita, você encontrará um <span class='hl'>Adereço de braço falso [Artefato Murder Mill 8/10]</span>. Neste universo, foi o outro braço do Jaime que foi manipulado."},
+         {n:9.5, t:"<img src='Images/Artefato13.png' alt='Artefato 13' width='1207' height='675' title='Em uma coleção de artefatos' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:10, t:"Na linha seguinte à esquerda você encontrará um <span class='hl'>Boneca enfermeira [Rellik 7/12]</span> no chão. Como ela é uma das minhas assassinas favoritas, eu estava ansioso para encontrá-la e ela é tão adorável quanto eu suspeitava que seria."},
+         {n:10.5, t:"<img src='Images/Rellik07.png' alt='Relíquia 07 ' width='1207' height='675' title='Boneca enfermeira' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:11, t:"Ao chegar à mesa, vire à direita e examine a <span class='hl'>Lâmpada com Defeito [Artefato do Narrador 7/10]</span>."},
+         {n:11.5, t:"<img src='Images/Artefato14.png' alt='Artefato 14' width='1207' height='675' title='Lâmpada com defeito' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:12, t:"Depois de coletar tudo, interaja com o filme na mesa. O <span class='hl'>Alt Movie Scene [Artefato Murder Mill 9/10]</span> mostra Jaime e Bonnie atuando no lugar de Jaime e Chris."},
+         {n:12.5, t:"<img src='Images/Artefato15.png' alt='Artefato 15' width='1207' height='675' title='Filme na mesa' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:13, t:"Linda começa a examinar freneticamente as fitas nas prateleiras. Se você pegou a Carta de Sam, ela pode lê-la agora. A Carta de Logan Chen também é um <span class='hl'>Artefato [Artefato do Narrador 8/10]</span>."},
+         {n:13.5, t:"<img src='Images/Artefato16.png' alt='Artefato 16' width='1207' height='675' title='Carta de Logan Chen' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+       ],
+       alert:{t:"info", msg:"<strong>Troféu Stan, O Fragmentado:</strong> Para este troféu, falhe o primeiro button mash do Horologium, aceite a ajuda de Stan, falhe o segundo mash, escolha 'Voltar'. Stan será cortado. <strong>Incompatível com a run de sobrevivência</strong> — faça pelo Cutting Room Floor."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"Pulando diretamente pra parte quase fim do epísodio onde você está perto de uma máquina do futuro"},
+         {n:2, t:"Se você não acionar o interruptor, Madi vai morrer à medida que seu corpo murcha e decai devido à energia. Chris ainda conseguirá sair do portal, exceto que, em vez de Madi, há apenas um corpo esperando por ela. Isso afetará capítulos posteriores."},
+         {n:1, t:"Com Augustine, busque responder de forma mais sombria pra conseguir mais diálogos do jogo"},
+         {n:1, t:"Dessa vez pegue o diário e continue normalmente o capítulo."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Resolver puzzle--Falhar QTE--Madi morta--Completar puzzle--Madi ativou switch--Pegar arma--Manter arma--Roubar diário--Ler carta--Confrontar Sam"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 8", cols:[
+        {n:0,l:"Bugiganga",s:"Diamond Cufflinks (se escapar)"},
+        {n:1,l:"Relíquia",s:"#6 Nurse"},
+        {n:6,l:"Artefato",s:"Narradora #6"},
+        {n:0,l:"Total",s:"3 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:9, name:"Descida dos Condenados/Campo de Caça", sub:"2024 · Subsolo da Mansão · Personagem: Linda/Sam",
+    pills:["p-troph","p-col"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 9", runs:[1],
+       steps:[
+         {n:1, t:"Se Linda escapa do galpão de carroças sem ser pego por Frank Stone, você poderá jogar o Descida dos Condenados lado deste capítulo."},
+         {n:2, t:"Do outro lado da porta há outro espaço apertado por onde você pode passar. A chave é para um dos armários do outro lado. Dentro dele, você encontrará um <span class='hl'>Artefato da Carta da Avó [Artefato do Campeão 7/10]</span>."},
+         {n:2.5, t:"<img src='Images/Artefato17.png' alt='Artefato 17' width='1207' height='675' title='Carta da Avó' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:3, t:"Importante que você vasculhe bem, haverá um coleira em algum local, ela lhe dará um troféu. Continue caminhando e encontrará <span class='hl'>Diário de Frank [Artefato Campeão 8/10]</span>."},
+         {n:3.5, t:"<img src='Images/Artefato18.png' alt='Artefato 18' width='1207' height='675' title='Diário de Frank' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:4, t:"À esquerda da sala, há uma grande porta de metal bloqueando uma entrada. Mova-a para revelar o local onde Frank Stone mantinha suas vítimas — dentro da cela, pegue o <span class='hl'>Doutor Rellik [Rellik 8/12]</span>."},
+         {n:4.5, t:"<img src='Images/Rellik08.png' alt='Relíquia 08' width='1207' height='675' title='Doutor Rellik' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+       ],
+       alert:{t:"tip", msg:"<strong>Rotas diferentes em Cap. 9:</strong> Dependendo se Linda escapou ou não no Cap. 7, você pode estar na versão 'Descida dos Condenados' ou 'Terra da Caça'. Alguns artefatos e o Doctor Relíquia só existem na versão 'Descida dos Condenados'."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"Se Linda for pega por Frank Stone, você a encontrará exatamente onde ele a colocou, ainda presa."},
+         {n:2, t:"Jaime e Bonnie irão encontrá-la e ajudá-la a sair do gancho, já que ela não consegue se abaixar. No entanto, enquanto estão saindo do galpão, Frank Stone ataca novamente. Linda e Bonnie subirão em segurança rapidamente, mas a vida de Jaime estará em perigo.Se você falhar no button mash e nos QTEs, Jaime será morto bem na frente de Linda e Bonnie. Se você acertar os QTEs, Linda puxará Jaime, o trio ficará seguro por enquanto e o capítulo terminará."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Completar capítulo--Jaime morto se falhar QTE"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 9", cols:[
+        {n:0,l:"Bugiganga",s:"Wooden Horse (alternativo)"},
+        {n:1,l:"Relíquias",s:"Doctor, Hillbilly (alternativos)"},
+        {n:2,l:"Artefatos",s:"Campeão #7 e #8, Narradora #9"},
+        {n:0,l:"Total",s:"6 de 54 (variável)"}
+      ]}
+    ]
+  },
+  {
+    n:10, name:"Na Casa da Loucura", sub:"1980 · Siderúrgica (passado) · Personagem: Chris",
+    pills:["p-troph","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 10", runs:[1],
+       steps:[
+         {t:"<span class='choice-made'>⚠️ MADI ESTÁ VIVA </span>"},
+         {n:1, t:"Nesse episódio terá muita força pra morte de personagens, tenha noção das respostas também. <span class='hl'>Esperançoso</span> — “Tenho que tentar.” → Chris volta para 1980. <span class='hl'>Com medo</span> — “Não me faça voltar!” → Chris permanece em 2024"},
+         {t:"<span class='choice-made'>⚠️ CHRIS VOLTOU NO TEMPO </span>"},
+         {n:2, t:"Se escolher Esperançoso, Chris tenta voltar ao seu tempo — mas há risco de falhar e morrer. Ela quebra o interruptor e precisa pegar uma barra na beirada (QTE). Se conseguir, retorna ao sarcófago e atravessa o portal."},
+         {n:3, t:"Essa é a versão de sucesso, mas pode dar errado: se falhar no QTE para pegar a barra, o Stan ajuda e acaba caindo. Se você não conseguir puxá-lo, terá que escolher entre ajudar o Stan ou ir embora."},
+         {n:4, t:"Veja a parte da Run 3, que mostrará outros caminhos que poderiam acontecer"},
+       ],
+       alert:{t:"info", msg:"<strong>Troféu odassaP ...o arap atloV eD:</strong> Para Chris ir para 1980 mas algo dar errado — falhe o primeiro button mash, deixe Stan ajudar, falhe novamente, escolha 'Voltar'. Chris vai para 1980 sem sucesso total. Incompatível com 'Entidade Descontente' — faça pelo Cutting Room Floor."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:"Consequências da morte de Madi, Chris morre"},
+       steps:[
+         {n:1, t:"Se Madi morrer, Escolha a resposta “Esperançoso” para dizer que você gostaria de voltar para sua linha do tempo original de 1980. Falhe no QTE para pegar a alavanca; Stan vai te ajudar depois. Stan acabará caindo da borda, e você também deve falhar no QTE. Em seguida, escolha “Ir” e não ajude o Stan."},
+         {n:2, t:"Se Madi estiver viva, veja as etapas abaixo"},
+         {n:1, t:"Se você escolher “Sair”, acontece o seguinte: Stan reclama da decisão, mas consegue se levantar sozinho e não morre nesse momento. Enquanto isso, Chris ainda entra no sarcófago (Horologium), mesmo com o grupo tentando seguir em frente. Porém, como o tempo já passou e a situação não é controlada corretamente, algo dá errado durante a viagem. Você ouve o grito da Chris dentro do dispositivo, indicando que a experiência não foi bem-sucedida."},
+         {n:2, t:"Assim é decratado o fim da Chris. e você consegue um troféu."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Chris encontra Madi--Chris fica--Salvar Stan--Stan salvo--Stan morto--Voltar ao presente--Falhar QTE--Stan não salvo--Ir para portal--Algo deu errado--Completar QTE--Chris volta ao passado--Dar medalhão--Chris fica--Chris volta--Jaime morto--Chris bate em Jaime"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 10", cols:[
+        {n:0,l:"Bugigangas",s:"nenhum"},
+        {n:0,l:"Relíquias",s:"nenhum"},
+        {n:0,l:"Artefato",s:"Campeão #9 (Fita de Sessão)"},
+        {n:0,l:"Total",s:"1 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:11, name:"Todos os Caminhos Se Cruzam", sub:"1980 · Siderúrgica (retorno) · Personagem: Chris",
+    pills:[],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 11", runs:[1],
+       steps:[
+         {t:"<span class='choice-made'>⚠️ CHRIS VOLTA NO TEMPO </span>"},
+         {n:1, t:"Se Chris conseguir voltar para 1980, ela aparecerá na oficina pela porta por onde foi levada. As reações dela variam conforme o que aconteceu antes de ser arrastada pelo portal com Jaime."},
+         {t:"<span class='choice-made'>⚠️ JAIME FUGIU SEM AJUDAR CHRIS </span>"},
+         {n:2, t:"Se Jaime fugir sem tentar salvar Chris, ela ficará brava com ele. Você terá a opção de socá-lo por causa disso."},
+       ],
+       alert:{t:"ok", msg:"<strong>Respiro narrativo:</strong> Nenhuma morte possível aqui. Ótimo momento para revisar o menu de Colecionáveis e planejar o que falta antes do clímax."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"Para obter essa ramificação, no Capítulo 10 você precisa obter a ajuda de Stan e depois se recusar a ajudá-lo quando ele estiver na beira. O momento de atravessar pelo portal dará errado e Chris começará a gritar. No Capítulo 10, ela sairá como um cadáver seco, permanecendo morta pelo resto do jogo. O restante dos personagens que estiverem vivos tentará escapar pelo bueiro."},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Chris retornou--Chris morreu (rota ruim)--Jaime corre--Chris bate em Jaime"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 11", cols:[
+        {n:0,l:"Bugigangas",s:"nenhum"},
+        {n:0,l:"Relíquias",s:"nenhum"},
+        {n:0,l:"Artefatos",s:"nenhum"},
+        {n:0,l:"Total",s:"0 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:12, name:"Abertando o Nó", sub:"2024 · Mansão Gerant (arquivo) · Personagem: Madi/Linda",
+    pills:["p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 12", run:[1],
+       steps:[
+         {n:1, t:"MADI/CHRIS, poderá haver algumas formas de se começar esse capítulo, enfim. Não importa quem você controle, você seguirá pelo corredor para encontrar uma saída"},
+         {n:2, t:"Vá até a mesa em frente à mesa e pegue o livro. Você terá que virar a página para encontrar uma chave e também uma <span class='hl'>Página Grimório [Artefato contador de histórias 9/10]</span>."},
+         {n:2.5, t:"<img src='Images/Artefato20.png' alt='Artefato 20' width='1207' height='675' title='Página Grimório' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:3, t:"Em uma das tabelas, você verá um toca-fitas que reproduz uma gravação de Augustine interagindo com Frank Stone, o que parece impossível considerando a idade que ela parece, e obter o <span class='hl'>Fita de sessão [Artefato campeão 9/10]</span>."},
+         {n:3.5, t:"<img src='Images/Artefato21.png' alt='Artefato 21' width='1207' height='675' title='Fita de sessão' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:4, t:"Continue descendo o corredor e você verá a <span class='hl'>Boneca Gêmea [Relíquia 9/10]</span> em uma mesa lateral à direita. Viktor irá pular, tornando a interação com os gêmeos tão assustadora quanto em Dead by Daylight."},
+         {n:4.5, t:"<img src='Images/Rellik09.png' alt='Relíquia 09' width='1207' height='675' title='Boneca Gêmea' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:5, t:"Na mesa à esquerda dos gêmeos, você também verá uma caixa de bugigangas. Abra-a para obter a <span class='hl'>Faca de Sacrifício [Brinquedo 11/12]</span>. Depois de coletá-la, volte pelo corredor e vá até as portas duplas."},
+         {n:5.5, t:"<img src='Images/Bugiganga11.png' alt='Bugiganga 11' width='1207' height='675' title='Faca de Sacrifício' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:6, t:"Chegou no momento em que todos eles se encontrarão."},
+       ],
+       alert:{t:"warn", msg:"<strong>Reel de Filme — ARMADILHA:</strong> Interagir com o reel no fundo do arquivo avança o capítulo imediatamente. Certifique-se de coletar TODOS os artefatos e a Bugiganga ANTES de tocá-lo. Haverá um <span class='hl'>PINGENTE</span> em um dos quartos, lembre-se de pega-lo para oferecer ao Stan."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MORTES)", runs:[2],
+       alert:{t:"warn", msg:""},
+       steps:[
+         {n:1, t:"Nesse epísodio não se ocorre muito diferente do que já ocorreu"},
+       ]
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Stan estapeado--Madi morta--Stan sozinho no projetor"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 12", cols:[
+        {n:1,l:"Bugiganga",s:"Sacrificial Knife"},
+        {n:1,l:"Relíquia",s:"Twins (Gêmeos)"},
+        {n:2,l:"Artefatos",s:"Murder Mill #8,9,10; Narradora #8 (se diário)"},
+        {n:4,l:"Total",s:"6 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:13, name:"Siderúrgica Mortal", sub:"2024 · Sistema de drenos · Personagem: Sam",
+    pills:["p-troph","p-col","p-miss"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 1 (ARTISTA DA FUGA)", runs:[1],
+       steps:[
+         {n:1, t:"Você não fará muita coisa nesta câmara da fornalha, exceto tentar salvar quem caiu e está sendo alvo de Frank Stone. Você jogará como Linda e usará a mesma técnica de câmera para afastar o Assassino. Se você falhar, quem estiver no chão será morto."},
+         {n:2, t:"Salve a todos e conseguirá a rota da run. Continuando, você terá controle com SAM, ele estará em uma situação de vida ou morte."},
+         {n:2.5, t:"<img src='Images/VidaouMorte.png' alt='Sam contra o Frank' width='1207' height='675' title='Morte ou vida' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:3, t:"Após isso, Frank é afastado e você sai com a câmera e depois segue pela janela à direita, com a luz laranja embaixo. Há uma <span class='hl'>Boneca Espiritual [Relíquia 10/12]</span> deitada no chão assim que você atravessa a janela."},
+         {n:3.5, t:"<img src='Images/Rellik10.png' alt='Relíquia 10' width='1207' height='675' title='Boneca da saga' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:4, t:"Continue descendo o corredor e você encontrará Jaime (caso ele ainda esteja vivo na sua jogabilidade). Para salvá-lo, você precisa ser rápido, pois Frank Stone aparecerá. Uma boa estratégia é afastá-lo com a câmera por um instante, rebobiná-la imediatamente e, em seguida, afastá-lo novamente."},
+         {n:5, t:"Ainda há Chris e Linda para salvar, caso ainda estejam vivos na sua jogabilidade. Volte ao corredor original, passando pela boneca e pela janela."},
+         {n:6, t:"Chris estará em um beco a esquerda em algum canto no esgoto enquanto Linda, você a encontrará seguindo o rastro de sangue pelo chão, ajude ambas."},
+         {t:"<span class='choice-made'>⚠️ SAM ENFRAQUECEU FRANK STONE </span>"},
+         {n:7, t:"Se você não matou Sam, e ele conseguir afastar Frank aqui, todos estarão vivos, e Sam terá capturado o assassino em uma tira de filme."},
+       ],
+       alert:{t:"info", msg:"<strong>Artista da Fuga ou Memento Mori?</strong> Escolha qual obter na Run 1 e deixe o oposto para o Cutting Room Floor. Se esta é sua Run 1 de sobrevivência, fique com Artista da Fuga para manter Jaime vivo."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 2 (MEMENTO MORI)", runs:[2],
+       steps:[
+         {n:1, t:"Se você não conseguir afastar Frank Stone no primeiro encontro, Sam será morto e Robert terá que pegar a câmera. Isso também significa que você não pode falhar ao salvar Chris ou Jaime no bueiro."},
+         {n:2, t:"Este resultado só pode acontecer se Sam foi morto no primeiro encontro com Frank Stone no bueiro. Robert cuidará de Frank e o capturará diante das câmeras com magia cinematográfica, como Linda chama."},       ],
+       alert:{t:"warn", msg:"<strong>Memento Mori e Artista da Fuga são MUTUAMENTE EXCLUSIVOS.</strong> Se você obteve Artista da Fuga na Run 1, obtenha Memento Mori aqui na Run 2. Os dois nunca podem ser desbloqueados na mesma jogatada."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CRF — TROFÉU RESTANTE)", runs:[3],
+       steps:[
+         {n:1, t:"Use o Cutting Room Floor para voltar ao ponto de decisão da câmera no Cap. 13. Escolha o <strong>resultado oposto</strong> ao que você obteve nas runs anteriores."},
+         {n:2, t:"Se você obteve Artista da Fuga antes → falhe a câmera agora para Memento Mori. Se obteve Memento Mori → passe os QTEs para Artista da Fuga."},
+         {n:3, t:"Jogue sequencialmente a partir deste ponto até o final do Cap. 14 para o CRF registrar o ramo narrativo."},
+       ],
+       alert:{t:"info", msg:"<strong>CRF:</strong> Após mudar a escolha, o jogo exige que você jogue do Cap. 13 ao 14 sequencialmente. Não é possível pular direto para o final."}
+      },
+      {lbl:"OBJETIVO DO CAPÍTULO — RUN 3 (CUTTING ROOM FLOOR)", runs:[3],
+       alert:{t:"info", msg:""},
+       steps:[
+        {n:1, t:"Não afastar Frank--Jaime morto--Afastar Frank--Sam confronta--Sam morto--Jaime salvo--Linda falha--Linda morta--Jaime salvo com câmera--Chris escondida--Sam derrota Frank"}, 
+       ]
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 13", cols:[
+        {n:1,l:"Bugiganga",s:"#11"},
+        {n:1,l:"Relíquia",s:"#9 Spirit"},
+        {n:0,l:"Artefatos",s:"nenhum"},
+        {n:0,l:"Total",s:"2 de 54"}
+      ]}
+    ]
+  },
+  {
+    n:14, name:"O Massacre da Mansão Gerant", sub:"2024 · Mansão + Floresta · TODOS os personagens",
+    pills:["p-gen","p-troph","p-col","p-miss","p-surv"],
+    secs:[
+      {lbl:"OBJETIVO DO CAPÍTULO 14 (RUN 1)", runs:[1],
+       steps:[
+         {n:1, t:"Todos os envolvidos na sua jogada (Linda, Chris, Sam, Madi e/ou Stan) estarão de volta à sala de vidro, assistindo à exibição do filme. Sam pode acusar Agostinho ou ataque Stan. Se você decidir atacar Stan, Sam terá a oportunidade de socá-lo (novamente, uma experiência muito divertida)."},
+         {n:2, t:"No entanto, à medida que o filme avança, Frank Stone começará a aparecer. Alguém terá que ser consumido por Frank Stone, pois isso é inevitável. Aqui estão as situações em que cada personagem pode ser sacrificado e morto."},
+         {n:2.5, t:"<img src='Images/Informação01.png' alt='Dica importante' width='1207' height='675' title='Opções de fuga ou morte' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:3, t:"Com Linda/Madi. Existem três maneiras essa primeira cena de perseguição por Frank Stone pode acabar. Linda e Madi sozinhas ou juntas (dependendo se alguma delas morreu). Tenha em mente que esta perseguição tem um limite de tempo de cinco minutos na vida real. No momento em que esse tempo acabar, Frank Stone virá atrás de você, quer você tenha consertado o gerador ou não, e você poderá obter morto aqui."},
+         {n:4, t:"Outra coisa a ter em mente é que existem dois itens colecionáveis nesta seção, independentemente de com quem você esteja jogando. Primeiro, vire à direita na esquina e você verá uma caixa de bugigangas sobre outras caixas. Abra-a para obter o <span class='hl'>Martelo de Ferreiro [Bugiganga 12/12]</span>."},
+         {n:4.5, t:"<img src='Images/Bugiganga12.png' alt='Bugiganga 12' width='1207' height='675' title='Martelo de Ferreiro' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:5, t:"Agora entre na sala com o gerador. Aqui você encontrará um Cartão de identificação [Artefato do campeão 10/10] para completar a coleção."},
+         {n:5.5, t:"<img src='Images/Artefato 22.png' alt='Artefato 22' width='1207' height='675' title='Artefato do Campeão' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:6, t:"Depois de fazer isso, encontre o dois geradores peças que você usará para consertar o gerador (elas também estão no mesmo local, não importa com quem você jogue). Este é o <span class='hl'>último gerador do jogo (03/03), então depois de consertá-lo</span>, você obterá uma conquista. <span class='hl'>Importante pra troféu.</span>"},
+         {n:6.5, t:"<img src='Images/Gerador03.png' alt='Gerador 03' width='1207' height='675' title='Não erre nenhum QTE' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {t:"<span class='choice-made'>⚠️ MADI E LINDA JUNTAS </span>"},
+         {n:7, t:"Se Madi e Linda estiverem juntas, ambas irão para a sala do gerador no fim do corredor, e Linda irá consertá-lo."},
+         {n:8, t:"De volta ao corredor, Frank vai atravessar a parede e encurralar Madi. Para ambos escaparem, Linda deve ajudar Madi e distrair o Assassino em vez de fugir para o elevador."},
+         {n:9, t:"Com Chris viva,Se Chris ainda estiver em 2024, ela voltará para a sala de projeção. Ela se aproximará da tela para verificar se consegue atravessá-la. No entanto, há um problema: a única maneira de Chris passar com segurança é se ela não tiver pego o talismã nem o espelho de bolso. Caso esteja com um desses itens, ela será queimada e morrerá. "},
+         {n:10, t:"Quando isso for feito, qualquer um dos seus personagens que tiver sobrevivido estará caminhando pela floresta e descobrirá o que aconteceu com os rolos de filme em 1980."},
+         {n:11, t:"Se você vir um espaço apertado com uma fogueira logo atrás, não vá pra lá. Em vez disso, vá para o certo e através do porta branca onde você pode pegar um <span class='hl'>Boneca trapaceira [Rellik 11/12]</span>."},
+         {n:11.5, t:"<img src='Images/Rellik11.png' alt='Relíquia 11' width='1207' height='675' title='Boneca trapaceira' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:12, t:"Agora volte e você verá um pedra com anel nele. Isto é <span class='hl'>Anel de Augustine [Artefato do Contador de Histórias 10/10]</span> e, convenientemente, o último dos Artefatos que você pode pegar no jogo."},
+         {n:12.5, t:"<img src='Images/Artefato 23.png' alt='Artefato 23' width='1207' height='675' title='Anel de Augustine' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+         {n:12, t:"Depois disso, você também poderá ver tanto a jovem quanto a velha Augustine (dona da loja de curiosidades) no Horologium, com a Entidade agora se espalhando pelo mundo. Conforme a câmera se move, você também coletará a última boneca do jogo, o <span class='hl'>Campeão Frank Stone [Relíquia 12/12]</span>."},
+         {n:12.5, t:"<img src='Images/Rellik12.png' alt='Relíquia 12' width='1207' height='675' title='Campeão Frank Stone' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
+       ],
+       alert:{t:"warn", msg:"<strong>Capítulo com mais mortes possíveis do jogo:</strong> Chris, Sam, Linda e Madi podem todos morrer aqui em sequência. Fique atento aos QTEs e nunca falhe os Skill Checks do gerador. No início, quando Frank emerge, Stan é o único que pode morrer, sem que a perca do troféu ocorra, fique atento a isso."}
+      },
+      {lbl:"MORTES FINAIS (RUN 2)", runs:[2],
+       alert:{t:"warn", msg:"<strong>Run 2 — Cap. 14 é o capítulo com mais mortes possíveis.</strong> Falhe os QTEs e Skill Checks nos momentos abaixo para garantir as mortes de todos os personagens restantes."},
+       steps:[
+         {n:1, t:"Salve antes de começar esse capítulo que tem bastante troféu por opção aqui, foque nisso e depois continue a run de matança normalmente."},
+         {n:2, t:"Se você não escolher entre subir ou descer, Frank Stone entrará no elevador e o nocauteará. Dessa forma, Linda vai conseguir capturado e sacrificado no gancho para o Entidade. Este é um ramo diferente de ela ter acabado de ser morta."},
+         {n:3, t:"Se Linda fugir, ela não irá muito longe. Frank irá matá-la antes que ela consiga chegar a algum lugar e, em seguida, capturará Madi. Isso levará Madi a ser sacrificada no gancho da Entidade. Este é um ramo diferente em comparação com o de Madi simplesmente ser morta diretamente."},
+       ]
+      },
+      {lbl:"CRF — TROFÉUS RESTANTES (RUN 3)", runs:[3],
+       alert:{t:"info", msg:"<strong>Run 3 / CRF:</strong> Use esta run para obter Fogo Amigo ou Fagocitose (o que não obteve antes), além de qualquer colecionável perdido do Cap. 14."},
+       steps:[
+         {n:1, t:"No CRF, volte ao ponto da hipnotização de Madi por Augustine. Escolha a opção oposta à que você fez anteriormente: se usou Fogo Amigo antes → deixe Fagocitose acontecer. Se usou Fagocitose → mande Sam atirar em Madi."},
+         {n:2, t:"Se falta o <span class='hl'>Artefato Campeão #10</span> ou qualquer Relíquia do Cap. 14, colete-os nesta run."},
+         {n:3, t:"Assista os créditos completos — a <span class='hl'>Relíquia #12 (The Champion)</span> aparece após os créditos e é necessária para o troféu Plangonologista."},
+         {n:14, t:"Stan socado--Salvar Stan--Madi hipnotizada--Madi consumida--Madi morta--Linda morta--Falhar gerador--Fixar gerador--Madi capturada--Aceitar Augustine--Recusar Augustine--Sam sacrificado--Stan salvo--Final"}
+       ]
+      },
+      {lbl:"NA FLORESTA — ÚLTIMOS COLECIONÁVEIS", runs:[1,2,3],
+       steps:[
+         {n:1, t:"Após os 4 flashbacks do Drugstore, chegue à bifurcação. <strong>Vire à DIREITA</strong> em direção à porta branca — entre e colete o <span class='hl'>Relíquia #11 (Trickster)</span>."},
+         {n:2, t:"Antes da fenda na rocha, examine um toco de árvore — <span class='hl'>Artefato Narradora #10 (Anel Ensanguentado)</span>."},
+         {n:3, t:"Passe pela fenda para a fogueira — cena final. Troféu <span class='hl'>A Fogueira</span>."},
+         {n:4, t:"<span class='wn'>ASSISTA OS CRÉDITOS COMPLETOS.</span> Após os créditos há uma cena pós-crédito — ao final, o <span class='hl'>Relíquia #12 (The Champion/Frank Stone)</span> aparece automaticamente. Troféu <span class='hl'>Plangonologista</span>."},
+       ],
+       alert:{t:"ok", msg:"<strong>Troféu Entidade Descontente:</strong> Se Madi, Chris, Sam e Linda chegaram à fogueira vivos, o troféu de todos sobreviverem é desbloqueado aqui. Jaime conta como personagem de 1980 — ele precisa ter sido salvo no Cap. 13."}
+      },
+      {lbl:"COLECIONÁVEIS DO CAPÍTULO 14", cols:[
+        {n:1,l:"Bugiganga",s:"Blacksmith's Hammer"},
+        {n:2,l:"Relíquias",s:"#11 Trickster, #12 Champion (pós-crédito)"},
+        {n:2,l:"Artefatos",s:"Campeão #10 (ID Card), Narradora #10 (Anel)"},
+        {n:0,l:"Total",s:"5 de 54"}
+      ]}
+    ]
+  },
+];
+
+const TIPS = [
+  {ico:"🎬", title:"Sala de Montagem (CRF)", text:"Após terminar o jogo, o Cutting Room Floor mostra todos os 224 ramos narrativos. Use-o para troféus conflitantes (Artista da Fuga ↔ Memento Mori) sem refazer do zero. O jogo exige jogar sequencialmente a partir do ponto de retorno até o fim."},
+  {ico:"🎯", title:"Dificuldade Observador", text:"Jogue sempre na dificuldade Observador (Observer). Ela dá mais tempo nos QTEs e nos Skill Checks, tornando muito mais fácil manter personagens vivos e consertar geradores sem erro."},
+  {ico:"📏", title:"Skill Checks — Zona Branca", text:"Cada Skill Check tem duas zonas: semitransparente (sucesso comum) e branca (ótimo). Para o troféu 'É Questão de Reflexos', você precisa de 10 acertos na zona branca. Geradores são os melhores momentos para treinar."},
+  {ico:"💾", title:"Salve em Vários Slots", text:"Antes do Cap. 3 (escolha da Farmácia), antes do Cap. 5 (confronto com Frank) e antes do Cap. 13 (decisão de Jaime), salve em slots separados. Economiza horas de replay."},
+  {ico:"💍", title:"Colar de Madi — Setup de Caps. 9/12", text:"Para os troféus Fogo Amigo e Fagocitose, Madi precisa ter o colar no Cap. 14. Configure isso no Cap. 9 (não dê o colar para ninguém) e no Cap. 12 (não transfira). Linda também NÃO pode ter a arma de Sam."},
+  {ico:"📋", title:"Menu de Colecionáveis", text:"O menu mostra exatamente quais colecionáveis foram coletados. No Cap. 11 (respiro narrativo), abra o menu e confirme o que falta antes de entrar no clímax dos Caps. 12-14."},
+  {ico:"🔄", title:"Troféus Exclusivos — Planejamento", text:"3 pares são mutuamente exclusivos: Dinheiro Fácil ↔ Desconto dos Cinco Dedos (Cap. 3), Artista da Fuga ↔ Memento Mori (Cap. 13), Fogo Amigo ↔ Fagocitose (Cap. 14). Planejar qual obter em cada run poupa tempo."},
+  {ico:"📷", title:"Câmera — Nunca Falhe", text:"Para 'Medo de Câmera', não falhe NENHUM momento de câmera em todo o jogo. O Cap. 7 tem o confronto mais difícil: grave Frank, pare antes de esgotar a bateria, rebobine imediatamente e repita."},
+];
+
+const MISSABLES = [
+  "Ao longo do jogo: Nunca falhar câmera — troféu Medo de Câmera",
+  "Ao longo do jogo: Maximizar relacionamento Jaime/Chris — troféu Poder de Dois",
+  "Cap. 1 (Prólogo): Ser gentil com Tom E Cap. 5: jogar fita cassete — troféu Vivendo e Aprendendo",
+  "Cap. 2: Parar para pegar Linda na estrada — troféu Colegas de Viagem",
+  "Cap. 2: Tocar piano (Ré♭→Dó→Ré♭→Si♭) — troféu Tema",
+  "Cap. 3: No Capítulo 1, falhe todos os QTEs como Sam. No Capítulo 3, com Jaime, escolha RELUCTANT → COMPLIANT. Depois disso, Sam oferece o suborno e você ganha o troféu.",
+  "Cap. 3: Jogar arcade e pontuar 5.020+ — troféu Herói 8 Bit",
+  "Cap. 3: Roubar dinheiro da Bonnie, Quando Bonnie entra no quarto, seja Jovial com ela para deixá-la com raiva. Ela vai embora e você pode revistar a bolsa dela e roubar o dinheiro. — troféu Desconto dos Cinco Dedos",
+  "Cap. 3: Ir à Farmácia primeiro para garantir foguetes de Jaime (salva Chris no Cap. 5), fogos de artifício dependem de ter dinheiro suficiente (R$20), não de ir à farmácia primeiro. Se você roubou $20 de Bonnie, Jaime comprará fogos de artifício.",
+  "Cap. 5: Gerador 1 — nunca falhar Skill Check durante o reparo, O gerador do Cap. 5 é o único que não pode ser perdido; os do Cap. 7 e Cap. 14 são os perdíveis.",
+  "Cap. 5: NÃO quebrar o pé de cabra (necessário para acessar Galpão de Fundição e Bugiganga)",
+  "Cap. 5: As Bugigangas 5 e 6 são separadas pela escolha do caminho (pular a cerca ou atravessar o córrego), e se você pegar uma, não pode pegar a outra.",
+  "Cap. 7: Gerador 2 — A condição correta é escapar de Frank Stone com sucesso no Cap. 7 para acessar o gerador.",
+  "Cap. 8: Capítulo 8, após escapar de Frank Stone (se ele te pegar, você perde essa bugiganga), vá lá fora e equilibre-se na viga à sua direita para alcançá-la",
+  "Cap. 9: O colar de Merlin fica no Capítulo 9, após consertar a caldeira, nos próximos corredores à direita, em frente a uma janela com luz vermelha.",
+  "Cap. 12: Pingente de Madi — manter com ela (Fogo Amigo / Fagocitose)",
+  "Cap. 13: Artista da Fuga OU Memento Mori — exclusivos entre si(ou pega um troféu ou outro)",
+  "Cap. 14: Fogo Amigo OU Fagocitose — exclusivos entre si (ou pega um troféu ou outro)",
+  "Cap. 14: Gerador 3 — Linda/Madi devem estar vivas - O troféu Tinkerer (Reparar todos os geradores) requer os 3 geradores.",
+  "Cap. 14: Assistir créditos COMPLETOS para Relíquia #12 (The Champion)",
+
+];
+
+/* ── PILL LABELS ── */
+const PILL_LABELS = {
+  "p-col":"COLECIONÁVEIS",
+  "p-troph":"TROFÉUS",
+  "p-miss":"PERDÍVEL",
+  "p-surv":"SOBREVIVÊNCIA",
+  "p-gen":"GERADOR"
+};
+
+const RANK_LABELS = {
+  plat:"🏆 PLATINA",
+  gold:"🥇 OURO",
+  silv:"🥈 PRATA",
+  bron:"🥉 BRONZE"
+};
+
+/* ── TABS ── */
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('on');
+  });
+});
+
+/* ── CHAPTERS ── */
+const container = document.getElementById('chapters-container');
+CAPS.forEach(ch => {
+  const pillsHTML = ch.pills.map(p => `<span class="pill ${p}">${PILL_LABELS[p]||p}</span>`).join('');
+  const acc = document.createElement('div');
+  acc.className = 'ch-acc';
+  acc.innerHTML = `
+    <button class="ch-head" data-n="${ch.n}">
+      <div class="ch-nn">${String(ch.n).padStart(2,'0')}</div>
+      <div class="ch-meta">
+        <div class="ch-name">${ch.name}</div>
+        <div class="ch-sub">${ch.sub}</div>
+      </div>
+      <div class="ch-pills">${pillsHTML}</div>
+      <span class="ch-chev">▼</span>
+    </button>
+    <div class="ch-body" id="ch-body-${ch.n}">
+      ${ch.secs.map(sec => buildSec(sec)).join('')}
+    </div>
+  `;
+  container.appendChild(acc);
+  const btn = acc.querySelector('.ch-head');
+  btn.addEventListener('click', () => {
+    const body = document.getElementById('ch-body-' + ch.n);
+    const isOpen = body.classList.contains('on');
+    body.classList.toggle('on', !isOpen);
+    btn.classList.toggle('on', !isOpen);
+  });
+});
+
+function buildSec(sec) {
+  const runsAttr = sec.runs ? sec.runs.join(',') : '1,2,3';
+  let html = `<div class="sec" data-runs="${runsAttr}"><div class="sec-lbl">${sec.lbl}</div>`;
+  if (sec.alert) {
+    html += `<div class="a-${sec.alert.t}">${sec.alert.msg}</div>`;
+  }
+  if (sec.steps) {
+    html += `<ul class="steps">`;
+    sec.steps.forEach(s => {
+      const num = s.n ? `<span class="sn">${s.n}</span>` : '';
+      html += `<li class="step">${num}<span>${s.t}</span></li>`;
+    });
+    html += `</ul>`;
+  }
+  if (sec.cols) {
+    html += `<div class="col-grid">`;
+    sec.cols.forEach(c => {
+      html += `<div class="col-cell">
+        <div class="col-n${c.n===0?' zero':''}">${c.n}</div>
+        <div class="col-lbl">${c.l}</div>
+        <span class="col-sub">${c.s}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+/* ── RUN FILTER ── */
+const RUN_LABELS = {1:"Todos Sobrevivem + Colecionáveis",2:"Todos Morrem",3:"Sala de Montagem — Limpeza"};
+document.querySelectorAll('.run-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.run-btn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const r = parseInt(btn.dataset.run);
+    document.getElementById('run-label').textContent = RUN_LABELS[r];
+    document.getElementById('run2-alert').style.display = r===2 ? '' : 'none';
+    document.getElementById('run3-alert').style.display = r===3 ? '' : 'none';
+
+    // Show/hide sections based on their data-runs attribute
+    document.querySelectorAll('#chapters-container .sec').forEach(sec => {
+      const runs = sec.dataset.runs ? sec.dataset.runs.split(',').map(Number) : [1,2,3];
+      sec.style.display = runs.includes(r) ? '' : 'none';
+    });
+  });
+});
+
+/* ── TROPHIES ── */
+const tbody = document.getElementById('trophies-tbody');
+TROPHIES.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td style="font-size:18px;text-align:center">${t.ico}</td>
+    <td>${t.name}</td>
+    <td style="font-size:12px;color:var(--dim);font-style:italic">${t.how}</td>
+    <td class="td-rank"><span class="rk-${t.rank}">${RANK_LABELS[t.rank]}</span></td>
+    <td>${t.miss ? '<span class="td-miss">⚠ PERDÍVEL</span>' : ''}</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+/* ── TIPS ── */
+const tipsGrid = document.getElementById('tips-grid');
+TIPS.forEach(tip => {
+  const card = document.createElement('div');
+  card.className = 'tip-card';
+  card.innerHTML = `<div class="tip-ttl">${tip.ico} ${tip.title}</div><p>${tip.text}</p>`;
+  tipsGrid.appendChild(card);
+});
+
+/* ── MISSABLES ── */
+const missGrid = document.getElementById('missables-grid');
+const done = {};
+function updateProgress() {
+  const count = Object.values(done).filter(Boolean).length;
+  document.getElementById('done-count').textContent = `${count} / ${MISSABLES.length}`;
+  document.getElementById('pb-fill').style.width = `${(count/MISSABLES.length)*100}%`;
+}
+MISSABLES.forEach((m, i) => {
+  const item = document.createElement('div');
+  item.className = 'tr-item';
+  item.dataset.i = i;
+  item.innerHTML = `<div class="tr-box"></div><div class="tr-text">${m}</div>`;
+  item.addEventListener('click', () => {
+    done[i] = !done[i];
+    item.classList.toggle('done', done[i]);
+    item.querySelector('.tr-box').textContent = done[i] ? '✓' : '';
+    updateProgress();
+  });
+  missGrid.appendChild(item);
+});
+</script>
+</body>
+</html>
