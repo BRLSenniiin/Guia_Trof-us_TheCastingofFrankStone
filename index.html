@@ -202,6 +202,83 @@ body::before{
 .rk-gold{background:#2a1e06;color:#c8a84b;}
 .rk-silv{background:#1a2535;color:#7aaabb;}
 .rk-bron{background:#2a1e10;color:#a07858;}
+.trophy-ico{width:34px;height:34px;object-fit:contain;display:block;margin:0 auto;}
+.trophy-desc{display:block;font-size:11px;color:var(--sepia);font-style:italic;margin-top:3px;}
+.tr-ico-mini{width:22px;height:22px;object-fit:contain;flex-shrink:0;margin-top:1px;border-radius:2px;}
+.miss-excl{display:block;font-size:10px;color:var(--rust2);margin-top:2px;font-style:normal;}
+.coll-note-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:8px;}
+.coll-note{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sepia2);padding:8px 10px;font-size:12px;color:var(--dim);line-height:1.5;}
+
+/* ═══════════════ CAMINHOS (árvore de decisões interativa) ═══════════════ */
+.fs-cm-app{height:78vh;min-height:520px;max-height:720px;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border);border-radius:4px;background:#1c1712;margin:0;}
+.fs-cm-app,.fs-cm-app *{-webkit-tap-highlight-color:transparent;}
+.fs-cm-header{background:linear-gradient(180deg,#2a231b 0%,#1c1712 100%);padding:10px 14px;border-bottom:2px solid rgba(155,44,44,.3);display:flex;flex-direction:column;gap:8px;z-index:10;box-shadow:0 4px 15px rgba(0,0,0,.6);}
+.fs-cm-header-top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.fs-cm-title-group h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:1px;color:var(--sepia2);text-transform:uppercase;}
+.fs-cm-title-group span{font-size:.62rem;color:var(--rust2);display:block;font-weight:700;font-family:'Inconsolata',monospace;}
+.fs-cm-hud-panel{display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.35);padding:6px 10px;border-radius:4px;border:1px solid rgba(204,196,180,.25);flex-wrap:wrap;gap:6px;}
+.fs-cm-tension-meter{display:flex;align-items:center;gap:8px;}
+.fs-cm-tension-label{font-family:'Inconsolata',monospace;font-size:.62rem;font-weight:700;color:#cfc7ba;text-transform:uppercase;letter-spacing:1px;}
+.fs-cm-tension-bar-bg{width:90px;height:8px;background:#2a231b;border:1px solid #4a3f30;border-radius:2px;overflow:hidden;}
+.fs-cm-tension-bar-fill{height:100%;width:50%;background:linear-gradient(90deg,var(--rust2) 0%,var(--sepia2) 50%,var(--green2) 100%);transition:width .4s ease-in-out;}
+.fs-cm-tension-value{font-family:'Oswald',sans-serif;font-size:.78rem;font-weight:700;color:var(--sepia2);min-width:34px;}
+.fs-cm-btn-reset{background:rgba(155,44,44,.18);border:1px solid var(--rust2);color:#e8a5a0;padding:4px 10px;border-radius:3px;font-family:'Inconsolata',monospace;font-weight:700;font-size:.65rem;cursor:pointer;letter-spacing:.5px;flex-shrink:0;}
+.fs-cm-preset-bar{display:flex;gap:6px;flex-wrap:wrap;}
+.fs-cm-btn-preset{background:rgba(122,96,64,.25);border:1px solid var(--sepia2);color:#f0ede6;padding:4px 8px;border-radius:3px;font-family:'Inconsolata',monospace;font-size:.62rem;font-weight:700;cursor:pointer;}
+.fs-cm-btn-preset:active{background:var(--sepia2);color:#1c1712;}
+.fs-cm-chapter-picker{position:absolute;top:10px;left:10px;z-index:6;width:172px;max-width:calc(100% - 20px);display:flex;flex-direction:column;gap:4px;background:rgba(20,17,13,.94);backdrop-filter:blur(6px);padding:6px 8px;border-radius:5px;border:1px solid rgba(204,196,180,.25);box-shadow:0 4px 14px rgba(0,0,0,.7);}
+.fs-cm-picker-label{font-family:'Inconsolata',monospace;font-size:.58rem;color:#cfc7ba;letter-spacing:1px;white-space:nowrap;}
+.fs-cm-picker-select{width:100%;max-width:100%;background:#241e17;border:1px solid #4a3f30;color:var(--sepia2);font-family:'Inconsolata',monospace;font-size:.68rem;font-weight:700;padding:5px 6px;border-radius:4px;cursor:pointer;box-sizing:border-box;}
+.fs-cm-picker-select option:disabled{color:#5a5348;}
+.fs-cm-picker-flash{position:absolute;right:10px;top:-8px;background:#2a231b;border:1px solid var(--rust2);color:#e8a5a0;font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:3px;}
+.fs-cm-zoom-controls{position:absolute;bottom:14px;right:14px;z-index:6;display:flex;align-items:center;gap:4px;background:rgba(20,17,13,.94);backdrop-filter:blur(6px);border:1px solid rgba(204,196,180,.25);border-radius:6px;padding:4px 6px;box-shadow:0 4px 14px rgba(0,0,0,.7);}
+.fs-cm-zoom-btn{background:#2a231b;border:1px solid #4a3f30;color:var(--sepia2);width:24px;height:24px;border-radius:4px;font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+.fs-cm-zoom-btn.fs-cm-zoom-reset{font-size:.7rem;color:#cfc7ba;}
+.fs-cm-zoom-val{font-family:'Inconsolata',monospace;font-size:.62rem;color:#f0ede6;min-width:32px;text-align:center;}
+#fs-cm-workspace{flex:1;position:relative;overflow:auto;background-color:#1c1712;background-image:radial-gradient(rgba(184,150,106,.1) 1px,transparent 1px),linear-gradient(to right,rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.02) 1px,transparent 1px);background-size:20px 20px,60px 60px,60px 60px;-webkit-overflow-scrolling:touch;cursor:grab;}
+#fs-cm-workspace.fs-cm-grabbing{cursor:grabbing;}
+svg#fs-cm-svg-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+path.fs-cm-connection{stroke:#4a3f30;stroke-width:2;fill:none;transition:stroke .3s;}
+path.fs-cm-connection.active{stroke:var(--green2);stroke-width:2.5;filter:drop-shadow(0px 0px 3px var(--green2));}
+path.fs-cm-connection.tier-green{stroke:var(--green2);filter:drop-shadow(0px 0px 3px var(--green2));}
+path.fs-cm-connection.tier-yellow{stroke:var(--sepia2);filter:drop-shadow(0px 0px 3px var(--sepia2));}
+path.fs-cm-connection.tier-orange{stroke:#b8763a;filter:drop-shadow(0px 0px 3px #b8763a);}
+path.fs-cm-connection.tier-red{stroke:var(--rust2);filter:drop-shadow(0px 0px 3px var(--rust2));}
+path.fs-cm-connection.gameover{stroke:var(--rust2);stroke-width:2.5;}
+path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
+#fs-cm-nodes-container{position:absolute;padding:24px 16px;display:flex;flex-direction:row;gap:48px;align-items:center;min-height:100%;min-width:max-content;z-index:2;transform-origin:top left;transition:transform .15s ease-out;}
+.fs-cm-tree-column{display:flex;flex-direction:column;gap:16px;justify-content:center;position:relative;z-index:2;}
+.fs-cm-node-card{background:rgba(28,23,18,.96);border:1px solid #4a3f30;border-left:3px solid var(--sepia2);border-radius:4px;width:195px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.8);backdrop-filter:blur(4px);transition:all .2s ease;position:relative;}
+.fs-cm-node-card.selected{border-color:var(--sepia2);border-left-color:var(--sepia2);box-shadow:0 0 12px rgba(184,150,106,.3);}
+.fs-cm-node-card.dimmed-node{opacity:.45;filter:grayscale(40%);}
+.fs-cm-node-card.gameover-node{border-left-color:var(--rust2);}
+.fs-cm-node-card.gameover-node.selected{border-color:var(--rust2);}
+.fs-cm-node-card.victory-node{border-left-color:var(--green2);}
+.fs-cm-node-card.victory-node.selected{border-color:var(--green2);}
+.fs-cm-node-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.fs-cm-node-id{font-family:'Inconsolata',monospace;font-size:.55rem;color:#948a78;}
+.fs-cm-tension-tag{font-family:'Inconsolata',monospace;font-size:.6rem;font-weight:700;padding:1px 4px;border-radius:2px;}
+.fs-cm-tag-pos{background:rgba(61,138,82,.18);color:#8fd6a0;}
+.fs-cm-tag-neg{background:rgba(155,44,44,.18);color:#e8a5a0;}
+.fs-cm-tag-neutral{background:rgba(148,163,184,.12);color:#948a78;}
+.fs-cm-trophy-badge{display:flex;align-items:center;gap:4px;background:rgba(184,150,106,.15);border:1px solid rgba(184,150,106,.4);color:var(--sepia2);padding:3px 6px;border-radius:3px;font-size:.62rem;font-weight:700;margin-bottom:6px;line-height:1.1;}
+.fs-cm-node-title{font-family:'Oswald',sans-serif;font-size:.82rem;font-weight:600;color:#f0ede6;margin-bottom:4px;line-height:1.15;}
+.fs-cm-node-text{font-size:.72rem;color:#a89e8c;line-height:1.3;margin-bottom:8px;}
+.fs-cm-node-options{display:flex;flex-direction:column;gap:5px;}
+.fs-cm-option-btn{background:#241e17;border:1px solid #4a3f30;color:#f0ede6;padding:6px 8px;border-radius:3px;font-size:.7rem;font-weight:600;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;line-height:1.2;transition:all .2s ease;}
+.fs-cm-option-btn:active{background:rgba(184,150,106,.2);border-color:var(--sepia2);}
+.fs-cm-option-btn.chosen{background:rgba(184,150,106,.18);border-color:var(--sepia2);color:var(--sepia2);}
+.fs-cm-option-btn.locked{background:rgba(0,0,0,.3);border:1px solid #4a3f30;color:#5a5348;cursor:not-allowed;opacity:.65;}
+.fs-cm-option-btn.locked .fs-cm-lock-icon{font-size:.75rem;}
+.fs-cm-status-msg{font-family:'Oswald',sans-serif;font-size:.65rem;font-weight:700;padding:4px;border-radius:3px;text-align:center;}
+.fs-cm-status-msg.gameover{background:rgba(155,44,44,.22);color:#e8a5a0;border:1px solid var(--rust2);}
+.fs-cm-status-msg.victory{background:rgba(61,138,82,.2);color:#8fd6a0;border:1px solid var(--green2);}
+.fs-cm-convergence-note{background:rgba(184,150,106,.08);border:1px dashed var(--sepia2);border-radius:5px;padding:8px 10px;font-size:.66rem;line-height:1.4;color:#cfc7ba;}
+.fs-cm-conv-title{font-family:'Oswald',sans-serif;font-size:.65rem;color:var(--sepia2);letter-spacing:.5px;margin-bottom:4px;}
+.fs-cm-conv-row{margin-top:3px;}
+.fs-cm-conv-row.fs-cm-conv-follow{color:#8fd6a0;}
+.fs-cm-conv-row.fs-cm-conv-locked{color:#948a78;}
+@media (max-width:600px){.fs-cm-app{height:72vh;}}
 
 /* TRACKER */
 .tr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px;margin-bottom:20px;}
@@ -299,6 +376,7 @@ body::before{
   <div class="tabs">
     <button class="tab on" data-tab="runs">Visão Geral — 3 Runs</button>
     <button class="tab" data-tab="caps">14 Capítulos</button>
+    <button class="tab" data-tab="caminhos">🗺️ Caminhos</button>
     <button class="tab" data-tab="trophies">Troféus PT-BR</button>
     <button class="tab" data-tab="tips">Dicas</button>
     <button class="tab" data-tab="missables">⚠ PERDÍVEIS</button>
@@ -393,10 +471,65 @@ body::before{
     <div id="chapters-container"></div>
   </div>
 
+  <!-- ── CAMINHOS (árvore de decisões interativa) ── -->
+  <div id="panel-caminhos" class="tab-panel">
+    <div class="a-info mb-16">
+      Explore como cada escolha dentro de um capítulo afeta o rumo da história de Sam e quais troféus
+      cada rota prepara, trava ou conquista — sem precisar alternar entre as outras abas. Comece pelo
+      capítulo <strong class="hl">"A Bocarra Ardente"</strong> (Prólogo); os demais capítulos no seletor
+      ainda estão sendo montados e aparecem marcados como <strong style="color:var(--sepia)">🔒 Em breve</strong>.
+    </div>
+    <div class="a-ok mb-16">
+      <strong>✓ Caps. 1 e 2 revisados e verificados (09/2026)</strong> contra fontes cruzadas: GameSpew,
+      TheGamer, Pro Game Guides, Sportskeeda, Neoseeker (walkthrough + troféus), Steam Guides
+      (ThePugHybrid 100% e Cutting Room Floor) e PSNProfiles. A versão anterior do Cap. 1 tinha 2
+      escolhas que não existem no jogo real — já corrigidas.
+    </div>
+
+    <div class="fs-cm-app">
+      <div class="fs-cm-header">
+        <div class="fs-cm-header-top">
+          <div class="fs-cm-title-group">
+            <h2>THE CASTING OF FRANK STONE — CAMINHOS</h2>
+            <span>🏆 ROTEIRO DA PLATINA INTEGRADO</span>
+          </div>
+          <button class="fs-cm-btn-reset" onclick="fsCmResetNarrative()">RESETAR</button>
+        </div>
+        <div id="fs-cm-preset-bar" class="fs-cm-preset-bar"></div>
+        <div class="fs-cm-hud-panel">
+          <div class="fs-cm-tension-meter">
+            <span class="fs-cm-tension-label">TENSÃO</span>
+            <div class="fs-cm-tension-bar-bg"><div id="fs-cm-tension-fill" class="fs-cm-tension-bar-fill"></div></div>
+          </div>
+          <span id="fs-cm-tension-val" class="fs-cm-tension-value">50%</span>
+          <span id="fs-cm-dark-tag" style="display:none;font-family:'Inconsolata',monospace;font-size:0.6rem;font-weight:700;color:var(--rust2);background:rgba(155,44,44,.14);border:1px solid var(--rust2);border-radius:3px;padding:2px 5px;margin-left:6px;">🌑 SOMBRIO</span>
+        </div>
+      </div>
+
+      <div id="fs-cm-workspace">
+        <div id="fs-cm-nodes-container">
+          <svg id="fs-cm-svg-canvas"></svg>
+        </div>
+
+        <div class="fs-cm-chapter-picker">
+          <span class="fs-cm-picker-label">CAPÍTULO</span>
+          <select id="fs-cm-picker-select" class="fs-cm-picker-select" onchange="fsCmSelectChapter(this.value)"></select>
+          <div id="fs-cm-picker-flash" class="fs-cm-picker-flash" style="display:none;">🔒 Em breve</div>
+        </div>
+
+        <div class="fs-cm-zoom-controls">
+          <span id="fs-cm-zoom-val" class="fs-cm-zoom-val">100%</span>
+          <button class="fs-cm-zoom-btn fs-cm-zoom-reset" onclick="fsCmZoomReset()" aria-label="Resetar zoom">⟲</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /caminhos -->
+
   <!-- ── TROFÉUS ── -->
   <div id="panel-trophies" class="tab-panel">
     <div class="a-info mb-16">
-      <strong>Nomes em Português do Brasil</strong> conforme o guia oficial PT-BR do Steam (Luke-Son) e verificados contra a lista do PSNProfiles. Troféus marcados com ⚠ são perdíveis ou mutuamente exclusivos.
+      <strong>Nomes, ícones e descrições oficiais em Português do Brasil</strong> conforme a localização PT-BR do PlayStation, extraídos da lista oficial do Exophase. O "como obter" é elaborado por este guia com base no Steam Guide (ThePugHybrid) e checagens cruzadas. Troféus marcados com ⚠ são perdíveis ou mutuamente exclusivos.
     </div>
     <table class="t-table">
       <thead>
@@ -425,17 +558,32 @@ body::before{
 
     <div class="pb-wrap">
       <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;">Rastreador de Perdíveis</div>
-      <div class="pb-lbl"><span>Concluídos</span><span id="done-count">0 / 20</span></div>
+      <div class="pb-lbl"><span>Concluídos</span><span id="done-count">0 / 19</span></div>
       <div class="pb-bar"><div class="pb-fill" id="pb-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="a-info mb-14" style="margin-top:12px;">
+      Lista com os <strong>19 troféus perdíveis</strong> do jogo, em ordem de capítulo (do mais próximo ao mais distante), cruzada entre o Steam Guide (ThePugHybrid) e a lista oficial de troféus PT-BR do Exophase.
     </div>
 
     <div class="tr-grid" id="missables-grid"></div>
 
+    <div class="a-warn mt-8">
+      <strong>⚠ DIVERGÊNCIA ENTRE FONTES:</strong> este guia originalmente listava <strong>Stan, o Fragmentado</strong> no Cap. 8. O Steam Guide (ThePugHybrid) e vídeos de troféu no YouTube/Exophase indicam que ele ocorre no <strong>Cap. 10</strong> (mesma decisão de mandar Chris de volta a 1980 ou não). A ordem acima usa Cap. 10 por ter duas fontes independentes confirmando; a seção de capítulos do guia não foi alterada nesta atualização.
+    </div>
+
     <div class="a-info mt-8">
-      <strong>3 PARES DE TROFÉUS MUTUAMENTE EXCLUSIVOS:</strong><br>
+      <strong>4 PARES DE TROFÉUS MUTUAMENTE EXCLUSIVOS:</strong><br>
       1. <strong>Dinheiro Fácil</strong> ↔ <strong>Desconto dos Cinco Dedos</strong> (Cap. 3 — suborno vs roubo)<br>
       2. <strong>Artista da Fuga</strong> ↔ <strong>Memento Mori</strong> (Cap. 13 — salvar vs matar Jaime)<br>
-      3. <strong>Fogo Amigo</strong> ↔ <strong>Fagocitose</strong> (Cap. 14 — atirar em Madi vs deixar absorver)
+      3. <strong>Fogo Amigo</strong> ↔ <strong>Fagocitose</strong> (Cap. 14 — atirar em Madi vs deixar absorver)<br>
+      4. <strong>Entidade Descontente</strong> ↔ <strong>Assassino Impiedoso</strong> (final — todos sobrevivem vs todos morrem)
+    </div>
+
+    <div class="pb-wrap" style="margin-top:18px;">
+      <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;">Notas de Colecionáveis Perdíveis</div>
+      <div style="font-size:12px;color:var(--dim);font-style:italic;margin-bottom:6px;">Itens do guia original que afetam colecionáveis (não troféus) — mantidos aqui separados da lista de troféus acima.</div>
+      <div class="coll-note-grid" id="collectible-notes-grid"></div>
     </div>
   </div>
 
@@ -453,39 +601,39 @@ body::before{
 <script>
 /* ── DATA ── */
 const TROPHIES = [
-  {ico:"🏆", name:"A Forma de Frank Stone",        how:"Obtenha todos os outros troféus.",                                                rank:"plat", miss:false},
-  {ico:"😤", name:"Entidade Descontente",           how:"Todos os 5 personagens sobrevivem: Madi, Jaime, Chris, Sam e Linda.",             rank:"gold", miss:true},
-  {ico:"💀", name:"Assassino Impiedoso",             how:"Todos os 5 personagens morrem ao longo do jogo.",                                rank:"gold", miss:true},
-  {ico:"👁",  name:"Onisciente",                    how:"Desbloqueie todos os 224 ramos na Sala de Montagem (Cutting Room Floor).",       rank:"gold", miss:false},
-  {ico:"🎬", name:"A Fogueira",                     how:"Conclua a história pela primeira vez.",                                          rank:"gold", miss:false},
-  {ico:"🧳", name:"O Lugar Disso É No Museu",       how:"Colete todos os 30 Artefatos (10 Murder Mill + 10 Campeão + 10 Narradora).",    rank:"silv", miss:false},
-  {ico:"🗡",  name:"Siderúrgica Mortal",             how:"Colete todos os 10 Artefatos Murder Mill.",                                     rank:"silv", miss:false},
-  {ico:"📜", name:"O Campeão",                      how:"Colete todos os 10 Artefatos O Campeão.",                                       rank:"silv", miss:false},
-  {ico:"📖", name:"A Narradora",                    how:"Colete todos os 10 Artefatos A Narradora.",                                     rank:"silv", miss:false},
-  {ico:"🪆", name:"Plangonologista",                how:"Colete todos os 12 Relíquias.",                                                   rank:"silv", miss:false},
-  {ico:"🔑", name:"Instinto do Saqueador",          how:"Colete todos os 12 Bugigangas.",                                                  rank:"silv", miss:false},
-  {ico:"🌿", name:"Poder de Dois",                  how:"Maximize o relacionamento entre Jaime e Chris.",                                rank:"silv", miss:true},
-  {ico:"🔧", name:"Aprimorador",                    how:"Conserte todos os 3 geradores (Caps. 5, 7 e 14) sem falhar um único Skill Check.", rank:"silv", miss:true},
-  {ico:"🪝", name:"Artista da Fuga",                how:"Cap. 13: Sam usa a câmera com sucesso e liberta Jaime do gancho.",               rank:"silv", miss:true},
-  {ico:"☠",  name:"Memento Mori",                   how:"Cap. 13: Sam falha com a câmera e Frank Stone arranca a mandíbula de Jaime.",   rank:"silv", miss:true},
-  {ico:"🔫", name:"Fogo Amigo",                     how:"Cap. 14: Sam atira em Madi enquanto ela está hipnotizada.",                     rank:"silv", miss:true},
-  {ico:"🌀", name:"Fagocitose",                     how:"Cap. 14: Madi hipnotizada é absorvida por Frank Stone.",                        rank:"silv", miss:true},
-  {ico:"⏳", name:"De Volta Para o... Passado",     how:"Cap. 10: Chris volta com sucesso para 1980.",                                   rank:"silv", miss:true},
-  {ico:"🎹", name:"Tema",                           how:"Cap. 2: Toque a melodia correta no piano — Dó♭, Dó, Dó♭, Si♭.",               rank:"bron", miss:true},
-  {ico:"🎮", name:"Herói 8 Bit",                    how:"Cap. 3: Obtenha a maior pontuação (5.040+) no arcade do Drugstore.",           rank:"bron", miss:true},
-  {ico:"🚗", name:"Colegas de Viagem",              how:"Cap. 2: Madi para o carro e pega Linda como carona.",                          rank:"bron", miss:true},
-  {ico:"💰", name:"Dinheiro Fácil",                 how:"Cap. 3: Jaime aceita o suborno de Sam.",                                       rank:"bron", miss:true},
-  {ico:"✋", name:"Desconto dos Cinco Dedos",        how:"Cap. 3: Jaime rouba dinheiro da Bonnie.",                                      rank:"bron", miss:true},
-  {ico:"🐶", name:"Cão Malvado",                    how:"Cap. 9: Encontre a coleira de Merlin (cachorro de Sam).",                      rank:"bron", miss:false},
-  {ico:"🍺", name:"Vivendo e Aprendendo",           how:"Prólogo + Cap. 5: Sam é gentil com Tom; Jaime encontra a fita cassete.",       rank:"bron", miss:true},
-  {ico:"🔒", name:"Abra-te, Sésamo",               how:"Cap. 6: Resolva o puzzle do portão.",                                          rank:"bron", miss:false},
-  {ico:"⚙",  name:"Stan, O Fragmentado",            how:"Cap. 8: Stan é cortado em pedaços no Horologium.",                            rank:"bron", miss:true},
-  {ico:"🏃", name:"Salvador",                       how:"Prólogo: Sam passa todos os QTEs e atira em Frank Stone.",                     rank:"bron", miss:false},
-  {ico:"✅", name:"Que Perícia",                    how:"Passe 5 Skill Checks seguidos com sucesso.",                                   rank:"bron", miss:false},
-  {ico:"⭐", name:"É Questão de Reflexos",          how:"Passe 10 Skill Checks ótimos (zona branca) ao longo do jogo.",                 rank:"bron", miss:false},
-  {ico:"📷", name:"Medo de Câmera",                 how:"Nunca falhe um momento de câmera ao longo de todo o jogo.",                   rank:"bron", miss:true},
-  {ico:"🔄", name:"odassaP ...o arap atloV eD",    how:"Cap. 10: Chris vai para 1980 mas algo sai errado (deixe-a ir sem sucesso).",   rank:"bron", miss:true},
-  {ico:"🔫", name:"Não É Nada Pessoal",             how:"Cap. 8/14: Linda rouba a arma de Sam e depois atira em Augustine.",           rank:"bron", miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/7704ged8.png?20f861f74634a9bad32275348afbe9f2', name:'O Criador', desc:'Coletou todos os troféus.', how:'Obtenha todos os outros troféus.', rank:'plat', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/557364bd.png?20f861f74634a9bad32275348afbe9f2', name:'Salvador', desc:'Sam impediu Frank Stone.', how:'Prólogo: Sam passa todos os QTEs e atira em Frank Stone.', rank:'bron', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/003dbg1e.png?20f861f74634a9bad32275348afbe9f2', name:'Dinheiro Fácil', desc:'Jaime aceitou o suborno de Sam.', how:'Cap. 1: falhe os QTEs como Sam. Cap. 3: escolha RELUTANTE → COMPLACENTE e aceite o suborno.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/8j56eg4d.png?20f861f74634a9bad32275348afbe9f2', name:'Colegas de Viagem', desc:'Madi deu carona à mochileira.', how:'Cap. 2: Madi para o carro e pega Linda como carona.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/ee31646d.png?20f861f74634a9bad32275348afbe9f2', name:'Tema', desc:'Tocou um tema familiar no piano.', how:'Cap. 2: Toque a melodia correta no piano — Ré♭, Dó, Ré♭, Si♭.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/40e14340.png?20f861f74634a9bad32275348afbe9f2', name:'Herói 8 Bit', desc:'Conquistou a pontuação mais alta na máquina de fliperama.', how:'Cap. 3: Obtenha a maior pontuação (5.020+) no arcade do Drugstore.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/6d75b6b7.png?20f861f74634a9bad32275348afbe9f2', name:'Desconto dos Cinco Dedos', desc:'Jaime roubou dinheiro de Bonnie.', how:'Cap. 3: seja Jovial com Bonnie até irritá-la, depois revire a bolsa dela e roube o dinheiro.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/b8g6e0e6.png?20f861f74634a9bad32275348afbe9f2', name:'Vivendo e Aprendendo', desc:'Descobriu que Tom parou de beber graças à bondade de Sam.', how:'Prólogo + Cap. 5: Sam é gentil com Tom; Jaime encontra e toca a fita cassete.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/gj13geg5.png?20f861f74634a9bad32275348afbe9f2', name:'Poder de Dois', desc:'Maximizou o relacionamento de Jaime e Chris.', how:'Maximize o relacionamento entre Jaime e Chris (decisivo até o Cap. 5).', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/dg014548.png?20f861f74634a9bad32275348afbe9f2', name:'Abre-te, Sésamo', desc:'Resolveu o enigma do portão.', how:'Cap. 6: Resolva o puzzle do portão.', rank:'bron', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/j0654j44.png?20f861f74634a9bad32275348afbe9f2', name:'Stan, o Fragmentado', desc:'Stan foi feito em pedacinhos no horológio.', how:'Cap. 10: com Chris ficando em 2024, falhe o QTE que salva Stan no horológio.', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/1370gdge.png?20f861f74634a9bad32275348afbe9f2', name:'De Volta para o... Passado', desc:'Chris conseguiu voltar para 1980.', how:'Cap. 10: Chris volta com sucesso para 1980 (acerte os QTEs).', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/3570jeje.png?20f861f74634a9bad32275348afbe9f2', name:'odassaP ...o arap atloV eD', desc:'Chris voltou para 1980, mas algo deu errado.', how:'Cap. 10: Chris tenta voltar para 1980 mas falha os QTEs (deixe-a ir sem sucesso).', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/7704geg8.png?20f861f74634a9bad32275348afbe9f2', name:'Cão Malvado', desc:'Achou a coleira de Merlin.', how:'Cap. 9: Encontre a coleira de Merlin (cachorro de Sam).', rank:'bron', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/40e1434g.png?20f861f74634a9bad32275348afbe9f2', name:'Artista da Fuga', desc:'Soltou Jaime do gancho.', how:'Cap. 13: Sam usa a câmera com sucesso e liberta Jaime do gancho.', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/6d75b6b1.png?20f861f74634a9bad32275348afbe9f2', name:'Memento Mori', desc:'Jaime perdeu a mandíbula para Frank Stone.', how:'Cap. 13: Sam falha com a câmera e Frank Stone arranca a mandíbula de Jaime.', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/b8g6e0ed.png?20f861f74634a9bad32275348afbe9f2', name:'Aprimorador', desc:'Consertou todos os geradores.', how:'Conserte os 3 geradores (Caps. 5, 7 e 14) sem falhar um único Skill Check.', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/gj13ge80.png?20f861f74634a9bad32275348afbe9f2', name:'Não É Nada Pessoal', desc:'Baleou Augustine.', how:'Cap. 8: Linda rouba a arma de Sam. Cap. 14: Linda atira em Augustine.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/dg0145dg.png?20f861f74634a9bad32275348afbe9f2', name:'Fogo Amigo', desc:'Madi foi hipnotizada e absorvida por Frank Stone.', how:'Cap. 14: Sam atira em Madi enquanto ela está hipnotizada.', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/j0654j86.png?20f861f74634a9bad32275348afbe9f2', name:'Fagocitose', desc:'Madi foi hipnotizada e absorvida por Frank Stone.', how:'Cap. 14: Madi hipnotizada é absorvida por Frank Stone (não faça nada).', rank:'silv', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/1370gde0.png?20f861f74634a9bad32275348afbe9f2', name:'Instinto do Saqueador', desc:'Coletou todas as Bugigangas.', how:'Colete todas as 12 Bugigangas.', rank:'silv', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/3570jed6.png?20f861f74634a9bad32275348afbe9f2', name:'O Lugar Disso É No Museu', desc:'Coletou todos os Artefatos.', how:'Colete todos os 30 Artefatos (10 Murder Mill + 10 Campeão + 10 Narradora).', rank:'silv', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/7704ge6d.png?20f861f74634a9bad32275348afbe9f2', name:'Entidade Descontente', desc:'Todos sobreviveram.', how:'Todos os 5 personagens sobrevivem: Madi, Jaime, Chris, Sam e Linda.', rank:'gold', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/55736416.png?20f861f74634a9bad32275348afbe9f2', name:'Assassino Impiedoso', desc:'Madison, Jaime, Chris, Sam e Linda morreram.', how:'Todos os 5 personagens morrem ao longo do jogo.', rank:'gold', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/003dbg66.png?20f861f74634a9bad32275348afbe9f2', name:'A Fogueira', desc:'Concluiu a história.', how:'Conclua a história pela primeira vez.', rank:'gold', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/8j56egbg.png?20f861f74634a9bad32275348afbe9f2', name:'Plangonologista', desc:'Coletou todas as Relíquias.', how:'Colete todas as 12 Relíquias.', rank:'silv', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/ee3164j7.png?20f861f74634a9bad32275348afbe9f2', name:'O Campeão', desc:'Coletou todos os artefatos do Campeão.', how:'Colete todos os 10 Artefatos O Campeão.', rank:'silv', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/40e143jg.png?20f861f74634a9bad32275348afbe9f2', name:'A Narradora', desc:'Coletou todos os artefatos da Narradora.', how:'Colete todos os 10 Artefatos A Narradora.', rank:'silv', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/6d75b6e1.png?20f861f74634a9bad32275348afbe9f2', name:'Siderúrgica Mortal', desc:'Coletou todos os artefatos da Siderúrgica Mortal.', how:'Colete todos os 10 Artefatos Murder Mill.', rank:'silv', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/b8g6e0bd.png?20f861f74634a9bad32275348afbe9f2', name:'Que Perícia!', desc:'Teve sucesso em 5 Testes de Perícia seguidos.', how:'Passe 5 Skill Checks seguidos com sucesso.', rank:'bron', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/gj13gee0.png?20f861f74634a9bad32275348afbe9f2', name:'É Questão de Reflexos', desc:'Teve sucesso em 10 Ótimos Testes de Perícia.', how:'Passe 10 Skill Checks ótimos (zona branca) ao longo do jogo.', rank:'bron', miss:false},
+  {img:'https://m.exophase.com/psn/awards/s/dg01455g.png?20f861f74634a9bad32275348afbe9f2', name:'Medo de Câmera', desc:'Expulsou o Assassino com a câmera 8 mm.', how:'Nunca falhe um momento de câmera ao longo de todo o jogo.', rank:'bron', miss:true},
+  {img:'https://m.exophase.com/psn/awards/s/j0654jj6.png?20f861f74634a9bad32275348afbe9f2', name:'Onisciente', desc:'Desbloqueou todas as ramificações da Sala de Montagem.', how:'Desbloqueie todos os 224 ramos na Sala de Montagem (Cutting Room Floor).', rank:'gold', miss:false},
 ];
 
 const CAPS = [
@@ -1152,30 +1300,36 @@ const TIPS = [
 ];
 
 const MISSABLES = [
-  "Ao longo do jogo: Nunca falhar câmera — troféu Medo de Câmera",
-  "Ao longo do jogo: Maximizar relacionamento Jaime/Chris — troféu Poder de Dois",
-  "Cap. 1 (Prólogo): Ser gentil com Tom E Cap. 5: jogar fita cassete — troféu Vivendo e Aprendendo",
-  "Cap. 2: Parar para pegar Linda na estrada — troféu Colegas de Viagem",
-  "Cap. 2: Tocar piano (Ré♭→Dó→Ré♭→Si♭) — troféu Tema",
-  "Cap. 3: No Capítulo 1, falhe todos os QTEs como Sam. No Capítulo 3, com Jaime, escolha RELUCTANT → COMPLIANT. Depois disso, Sam oferece o suborno e você ganha o troféu.",
-  "Cap. 3: Jogar arcade e pontuar 5.020+ — troféu Herói 8 Bit",
-  "Cap. 3: Roubar dinheiro da Bonnie, Quando Bonnie entra no quarto, seja Jovial com ela para deixá-la com raiva. Ela vai embora e você pode revistar a bolsa dela e roubar o dinheiro. — troféu Desconto dos Cinco Dedos",
-  "Cap. 3: Ir à Farmácia primeiro para garantir foguetes de Jaime (salva Chris no Cap. 5), fogos de artifício dependem de ter dinheiro suficiente (R$20), não de ir à farmácia primeiro. Se você roubou $20 de Bonnie, Jaime comprará fogos de artifício.",
-  "Cap. 5: Gerador 1 — nunca falhar Skill Check durante o reparo, O gerador do Cap. 5 é o único que não pode ser perdido; os do Cap. 7 e Cap. 14 são os perdíveis.",
-  "Cap. 5: NÃO quebrar o pé de cabra (necessário para acessar Galpão de Fundição e Bugiganga)",
-  "Cap. 5: As Bugigangas 5 e 6 são separadas pela escolha do caminho (pular a cerca ou atravessar o córrego), e se você pegar uma, não pode pegar a outra.",
-  "Cap. 7: Gerador 2 — A condição correta é escapar de Frank Stone com sucesso no Cap. 7 para acessar o gerador.",
-  "Cap. 8: Capítulo 8, após escapar de Frank Stone (se ele te pegar, você perde essa bugiganga), vá lá fora e equilibre-se na viga à sua direita para alcançá-la",
-  "Cap. 9: O colar de Merlin fica no Capítulo 9, após consertar a caldeira, nos próximos corredores à direita, em frente a uma janela com luz vermelha.",
-  "Cap. 12: Pingente de Madi — manter com ela (Fogo Amigo / Fagocitose)",
-  "Cap. 13: Artista da Fuga OU Memento Mori — exclusivos entre si(ou pega um troféu ou outro)",
-  "Cap. 14: Fogo Amigo OU Fagocitose — exclusivos entre si (ou pega um troféu ou outro)",
-  "Cap. 14: Gerador 3 — Linda/Madi devem estar vivas - O troféu Tinkerer (Reparar todos os geradores) requer os 3 geradores.",
-  "Cap. 14: Assistir créditos COMPLETOS para Relíquia #12 (The Champion)",
-
+  {img:'https://m.exophase.com/psn/awards/s/003dbg1e.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 1 → 3', name:'Dinheiro Fácil', note:'No Cap. 1, falhe os QTEs de Sam contra Frank Stone. No Cap. 3, escolha RELUTANTE → COMPLACENTE com Jaime até Sam oferecer o suborno — aceite-o.', excl:'Exclusivo com Desconto dos Cinco Dedos (mesma cena, escolha só um dos dois).'},
+  {img:'https://m.exophase.com/psn/awards/s/b8g6e0e6.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 1 → 5', name:'Vivendo e Aprendendo', note:'No Prólogo, seja gentil com Tom e incentive-o a buscar ajuda. No Cap. 5, encontre a fita cassete nos jornais e toque-a no rádio.', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/8j56eg4d.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 2', name:'Colegas de Viagem', note:'Ao dirigir e avistar a mochileira (Linda) na estrada, escolha PARAR para dar carona.', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/ee31646d.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 2', name:'Tema', note:'Suba as escadas ao chegar na mansão, pegue a partitura e toque no piano a sequência Ré♭ → Dó → Ré♭ → Si♭. Se pular esta sala, o troféu só é recuperável via Cutting Room Floor.', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/40e14340.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 3', name:'Herói 8 Bit', note:'No arcade do Drugstore, consiga uma pontuação de 5.020 ou mais no jogo estilo Space Invaders.', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/6d75b6b7.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 3', name:'Desconto dos Cinco Dedos', note:'Seja Jovial com Bonnie até irritá-la; quando ela sair, revire a bolsa dela e roube o dinheiro.', excl:'Exclusivo com Dinheiro Fácil — só é possível se você não tiver aceitado o suborno de Sam antes.'},
+  {img:'https://m.exophase.com/psn/awards/s/gj13geg5.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 5', name:'Poder de Dois', note:'O relacionamento entre Jaime e Chris precisa estar maximizado até o fim do Cap. 5 — escolhas positivas e de apoio ao longo dos Caps. 1-5 são decisivas.', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/b8g6e0ed.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 5 → 7 → 14', name:'Aprimorador', note:'Repare os 3 geradores sem falhar nenhum Skill Check: Gerador 1 (Cap. 5, não pode ser perdido), Gerador 2 (Cap. 7, requer escapar de Frank Stone) e Gerador 3 (Cap. 14, exige Linda e Madi vivas).', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/gj13ge80.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 8 → 14', name:'Não É Nada Pessoal', note:'No Cap. 8, jogando com Linda, roube a arma de Sam. No Cap. 14, com o gerador reparado, escolha descer no elevador e complete o QTE para atirar em Augustine.', excl:null},
+  {img:'https://m.exophase.com/psn/awards/s/j0654j44.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 10', name:'Stan, o Fragmentado', note:'Escolha manter Chris em 2024 (não mandá-la de volta a 1980) e falhe o QTE que salva Stan no horológio.', excl:'Ligado à mesma decisão de De Volta para o... Passado / odassaP — fontes divergem sobre o capítulo exato (ver aviso abaixo da lista).'},
+  {img:'https://m.exophase.com/psn/awards/s/1370gdge.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 10', name:'De Volta para o... Passado', note:'Escolha mandar Chris de volta a 1980 e acerte os QTEs da máquina.', excl:'Exclusivo com odassaP ...o arap atloV eD e ligado à mesma decisão de Stan, o Fragmentado.'},
+  {img:'https://m.exophase.com/psn/awards/s/3570jeje.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 10', name:'odassaP ...o arap atloV eD', note:'Escolha mandar Chris de volta a 1980, mas falhe os QTEs da máquina.', excl:'Exclusivo com De Volta para o... Passado.'},
+  {img:'https://m.exophase.com/psn/awards/s/dg0145dg.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 12 → 14', name:'Fogo Amigo', note:'Madi precisa ter bebido no Cap. 2 e mantido o colar/pingente no Cap. 12. No Cap. 14, quando ela for hipnotizada, escolha atirar nela como Sam.', excl:'Exclusivo com Fagocitose.'},
+  {img:'https://m.exophase.com/psn/awards/s/j0654j86.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 12 → 14', name:'Fagocitose', note:'Madi precisa ter bebido no Cap. 2 e mantido o colar/pingente no Cap. 12. No Cap. 14, quando ela for hipnotizada, não faça nada — deixe-a ser absorvida por Frank Stone.', excl:'Exclusivo com Fogo Amigo.'},
+  {img:'https://m.exophase.com/psn/awards/s/40e1434g.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 13', name:'Artista da Fuga', note:'Como Sam, revise bem os drenos e use a câmera com sucesso para libertar Jaime do gancho.', excl:'Exclusivo com Memento Mori.'},
+  {img:'https://m.exophase.com/psn/awards/s/6d75b6b1.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 13', name:'Memento Mori', note:'Como Sam, falhe ao usar a câmera para salvar Jaime — Frank Stone arranca sua mandíbula.', excl:'Exclusivo com Artista da Fuga.'},
+  {img:'https://m.exophase.com/psn/awards/s/7704ge6d.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 14 (final)', name:'Entidade Descontente', note:'Todos os 5 personagens (Madi, Jaime, Chris, Sam e Linda) precisam sobreviver até o final. Use o Cutting Room Floor para corrigir erros antes do fim.', excl:'Exclusivo com Assassino Impiedoso.'},
+  {img:'https://m.exophase.com/psn/awards/s/55736416.png?20f861f74634a9bad32275348afbe9f2', ch:'Cap. 14 (final)', name:'Assassino Impiedoso', note:'Todos os 5 personagens (Madi, Jaime, Chris, Sam e Linda) precisam morrer ao longo do jogo.', excl:'Exclusivo com Entidade Descontente.'},
+  {img:'https://m.exophase.com/psn/awards/s/dg01455g.png?20f861f74634a9bad32275348afbe9f2', ch:'Ao longo do jogo', name:'Medo de Câmera', note:'Nunca falhe um momento de câmera do início ao fim. O confronto do Cap. 7 é o mais difícil: grave Frank Stone, pare antes da bateria acabar e rebobine imediatamente.', excl:null},
 ];
 
-/* ── PILL LABELS ── */
+const COLLECTIBLE_NOTES = [
+  'Cap. 3: Ir à Farmácia primeiro para garantir foguetes de Jaime (salva Chris no Cap. 5); os fogos dependem de ter dinheiro suficiente (R$20), não da ordem das lojas. Se você roubou R$20 de Bonnie, Jaime compra os fogos.',
+  'Cap. 5: NÃO quebrar o pé de cabra (necessário para acessar o Galpão de Fundição e uma Bugiganga).',
+  'Cap. 5: As Bugigangas 5 e 6 são separadas pela escolha do caminho (pular a cerca ou atravessar o córrego) — pegando uma, a outra fica inacessível nessa run.',
+  'Cap. 8: após escapar de Frank Stone (se ele te pegar, a bugiganga é perdida), vá lá fora e equilibre-se na viga à direita para alcançá-la.',
+  'Cap. 9: o colar de Merlin fica após consertar a caldeira, nos corredores seguintes à direita, em frente a uma janela com luz vermelha.',
+  'Cap. 14: assista aos créditos COMPLETOS para desbloquear a Relíquia #12 (The Champion), na cena pós-créditos.',
+];
+
 const PILL_LABELS = {
   "p-col":"COLECIONÁVEIS",
   "p-troph":"TROFÉUS",
@@ -1284,8 +1438,8 @@ const tbody = document.getElementById('trophies-tbody');
 TROPHIES.forEach(t => {
   const tr = document.createElement('tr');
   tr.innerHTML = `
-    <td style="font-size:18px;text-align:center">${t.ico}</td>
-    <td>${t.name}</td>
+    <td style="text-align:center"><img class="trophy-ico" src="${t.img}" alt="${t.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'🏆',style:'font-size:18px'}))"></td>
+    <td>${t.name}<span class="trophy-desc">${t.desc}</span></td>
     <td style="font-size:12px;color:var(--dim);font-style:italic">${t.how}</td>
     <td class="td-rank"><span class="rk-${t.rank}">${RANK_LABELS[t.rank]}</span></td>
     <td>${t.miss ? '<span class="td-miss">⚠ PERDÍVEL</span>' : ''}</td>
@@ -1314,7 +1468,8 @@ MISSABLES.forEach((m, i) => {
   const item = document.createElement('div');
   item.className = 'tr-item';
   item.dataset.i = i;
-  item.innerHTML = `<div class="tr-box"></div><div class="tr-text">${m}</div>`;
+  const exclHTML = m.excl ? `<span class="miss-excl">⇄ ${m.excl}</span>` : '';
+  item.innerHTML = `<img class="tr-ico-mini" src="${m.img}" alt="${m.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'🏆',style:'font-size:16px'}))"><div class="tr-box"></div><div class="tr-text"><strong>${m.ch}</strong> — ${m.name}: ${m.note}${exclHTML}</div>`;
   item.addEventListener('click', () => {
     done[i] = !done[i];
     item.classList.toggle('done', done[i]);
@@ -1323,6 +1478,722 @@ MISSABLES.forEach((m, i) => {
   });
   missGrid.appendChild(item);
 });
+
+/* ── NOTAS DE COLECIONÁVEIS PERDÍVEIS (preservadas do guia original) ── */
+const collNotesGrid = document.getElementById('collectible-notes-grid');
+if (collNotesGrid) {
+  COLLECTIBLE_NOTES.forEach(n => {
+    const div = document.createElement('div');
+    div.className = 'coll-note';
+    div.textContent = n;
+    collNotesGrid.appendChild(div);
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   CAMINHOS — árvore de decisões interativa
+   (mesmo motor usado no guia de Indigo Prophecy do autor,
+   portado com prefixo fsCm/FS_CM para não colidir com o
+   resto do script deste guia, e retemado com as cores do
+   projeto — papel/sépia/rust — em vez do neon do original)
+   ═══════════════════════════════════════════════ */
+const FS_CM_STORAGE_PREFIX = "guia-frankstone-caminhos-";
+
+function fsCmLoadPath(chapterId) {
+  try {
+    const raw = localStorage.getItem(FS_CM_STORAGE_PREFIX + chapterId);
+    if (!raw) return ["start"];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) && parsed.length ? parsed : ["start"];
+  } catch {
+    return ["start"];
+  }
+}
+
+function fsCmSavePath() {
+  try {
+    localStorage.setItem(FS_CM_STORAGE_PREFIX + fsCmSelectedChapterId, JSON.stringify(fsCmActivePath));
+  } catch { /* localStorage indisponível — segue sem salvar */ }
+}
+
+/* ─── Capítulo 1: A Bocarra Ardente (Prólogo — Sam Green, 1963) ───
+   Reconstruído e verificado em 09/2026 contra 6 fontes cruzadas:
+   GameSpew (walkthrough completo), TheGamer (Cap. 1 + Biggest Choices),
+   Pro Game Guides (walkthrough/endings/achievements), Neoseeker
+   (walkthrough + guia de troféus), Steam Guide 100% (ThePugHybrid,
+   id 3323909480) e PSNProfiles. Corrige a versão anterior deste
+   capítulo, que tinha 2 escolhas inventadas (gentileza com Tom logo
+   no início da conversa, e "quebrar ou preservar" o pé de cabra) —
+   nenhuma das duas existe no jogo real. */
+const FS_CM_TREE_CAP1 = {
+  level1: [
+    {
+      id: "start", title: "1. Portão do Moinho",
+      text: "Sam Green (policial) chega à Siderúrgica Cedar em 1963 e conversa com Tom Holt, o vigia noturno, sobre o caso do garoto desaparecido.",
+      delta: 0,
+      options: [
+        { label: "SÉRIO → CURIOSO (checar registros)", target: "registros_falsificados" },
+        { label: "Qualquer outra combinação", target: "conversa_padrao" }
+      ]
+    }
+  ],
+  level2: [
+    {
+      id: "registros_falsificados", title: "Registros Falsificados",
+      text: "Sam escolhe SÉRIO e depois CURIOSO, pedindo pra checar os registros do moinho. Descobre que alguém andou falsificando as entradas do livro de ponto.",
+      delta: 5,
+      options: [{ label: "Confrontar Tom (ACUSATÓRIO)", target: "acusatorio" }]
+    },
+    {
+      id: "conversa_padrao", title: "Conversa Padrão",
+      text: "Sem checar os registros, a conversa segue o caminho mais comum — nada é revelado sobre o livro de ponto.",
+      delta: 0,
+      options: [{ label: "Entrar no moinho", target: "mill_explore" }]
+    }
+  ],
+  level3: [
+    {
+      id: "acusatorio", title: "Opção Acusatória Desbloqueada",
+      text: "Com essa munição, Sam confronta Tom — que admite estar encobrindo um funcionário, \"Hank\" ou \"Fred\" (uma pista do nome real de Frank Stone).",
+      delta: 5,
+      converge: true,
+      options: [{ label: "Entrar no moinho", target: "mill_explore" }]
+    }
+  ],
+  level4: [
+    {
+      id: "mill_explore", title: "2. Explorando o Moinho",
+      text: "Sam acha a Bugiganga 1/12 (Iridescent King) na cerca, entra por uma janela e pega o Artefato do Campeão #1 no arquivo. Reencontra Tom, que procura seu cachorro Merlin — e puxa uma ORELHA humana de uma pilha de carne encontrada por ele.",
+      delta: 0,
+      converge: true,
+      options: [{ label: "Seguir até a grade", target: "drink_choice" }]
+    }
+  ],
+  level5: [
+    {
+      id: "drink_choice", title: "3. O Pedido de Tom",
+      text: "Antes de ir chamar o xerife, Tom pede pra tomar um trago pra se acalmar.",
+      delta: 0,
+      converge: true,
+      options: [
+        { label: "Solidário (persuadir a não beber)", target: "tom_supportive" },
+        { label: "Frustrado (reagir mal)", target: "tom_frustrated" }
+      ]
+    }
+  ],
+  level6: [
+    {
+      id: "tom_supportive", title: "Solidário com Tom",
+      text: "Sam convence Tom a não beber. 🔗 É essa escolha (não a conversa inicial) que fecha \"Lumpkin e Livin'\" no Cap. 5, quando a fita da entrevista revela que Tom parou de beber.",
+      delta: 10,
+      options: [{ label: "Usar o pé de cabra na grade", target: "grate_qte" }]
+    },
+    {
+      id: "tom_frustrated", title: "Frustrado com Tom",
+      text: "Sam reage mal ao pedido. Na fita do Cap. 5, Tom vai aparecer ainda bebendo demais até pra contar a história — travando 🔗 \"Lumpkin e Livin'\" nesta run.",
+      delta: -10,
+      options: [{ label: "Usar o pé de cabra na grade", target: "grate_qte" }]
+    }
+  ],
+  level7: [
+    {
+      id: "grate_qte", title: "4. Abrindo a Grade",
+      text: "Sam acha um pé de cabra numa cerca próxima e o usa na grade — um QTE de apertar o botão repetidamente até ela abrir (não é uma escolha; só existe essa via).",
+      delta: 0,
+      converge: true,
+      options: [{ label: "Descer para os túneis", target: "tunnel_flashlight" }]
+    }
+  ],
+  level8: [
+    {
+      id: "tunnel_flashlight", title: "5. Teste de Perícia na Fresta",
+      text: "Nos túneis, Sam acha a Bugiganga 2/12, o Artefato #2 e o Rellik do Hillbilly (fan service de Dead by Daylight). Ao se espremer numa fresta apertada, surge um Teste de Perícia.",
+      delta: 0,
+      converge: true,
+      options: [
+        { label: "Passar no teste", target: "flashlight_ok" },
+        { label: "Falhar no teste", target: "flashlight_broken" }
+      ]
+    }
+  ],
+  level9: [
+    {
+      id: "flashlight_ok", title: "Lanterna Preservada",
+      text: "Sam passa ileso e segue com a lanterna intacta — ela poderá ser usada pra cegar Frank Stone no confronto final.",
+      delta: 10,
+      options: [{ label: "Subir até a fornalha", target: "fornalha" }]
+    },
+    {
+      id: "flashlight_broken", title: "Lanterna Quebrada",
+      text: "Sam se machuca e a lanterna quebra. Sem ela, a opção de cegar Frank Stone no confronto final simplesmente não vai aparecer.",
+      delta: -10,
+      options: [{ label: "Subir até a fornalha", target: "fornalha" }]
+    }
+  ],
+  level10: [
+    {
+      id: "fornalha", title: "6. Confronto na Fornalha",
+      text: "Frank Stone tenta jogar um bebê no fogo. Sequência de QTEs: mirar e acertar a máscara dele, cegá-lo com a lanterna (só se ela sobreviveu à fresta), se soltar de um cano preso, e sacar a arma. (Subir por rampa ou escada é só estético — não muda nada.)",
+      delta: 0,
+      converge: true,
+      options: [
+        { label: "Passar em todos os QTEs", target: "salvador" },
+        { label: "Falhar de propósito", target: "baby_dies" }
+      ]
+    }
+  ],
+  level11: [
+    {
+      id: "salvador", title: "ROTA: Sam Impede Frank Stone",
+      text: "Sam acerta todos os QTEs, atira em Frank Stone e salva o bebê.",
+      type: "victory",
+      trophy: "🏆 \"Salvador\"",
+      delta: 15
+    },
+    {
+      id: "baby_dies", title: "ROTA: O Bebê Morre",
+      text: "Falhar de propósito faz Frank Stone matar o bebê antes que Sam consiga impedi-lo. Sam sobrevive, mas fica marcado — pré-requisito de 🔗 \"Dinheiro Fácil\": no Cap. 3, seja RELUTANTE → COMPLACENTE com Jaime até Sam oferecer o suborno, e aceite.",
+      type: "victory",
+      trophy: "🔗 Setup: Dinheiro Fácil (fecha no Cap. 3)",
+      delta: -15
+    }
+  ]
+};
+
+/* ─── Capítulo 2: Na Casa das Trevas (Madi/Jaime, 2024 → 1980) ───
+   Verificado em 09/2026 contra 7 fontes cruzadas: GameSpew, TheGamer
+   (Cap. 2 + Biggest Choices), Pro Game Guides, Sportskeeda, Neoseeker
+   (walkthrough + troféus), Steam Guides (ThePugHybrid 100% e Cutting
+   Room Floor map) e a Wiki da franquia. Só inclui ramificações com
+   consequência real e documentada — a reação de Jaime ao fim do
+   capítulo (Desafiador/Defensivo/Arrependido/Frustrado) é mostrada
+   como texto, não como escolha clicável, porque nenhuma fonte
+   confirma que ela muda o rumo da história (é só cor de diálogo). */
+const FS_CM_TREE_CAP2 = {
+  level1: [
+    {
+      id: "start", title: "1. Sonho e a Estrada",
+      text: "Madi acorda de um pesadelo (o teto do quarto sumiu) e, dirigindo até a Mansão Gerant, avista uma mochileira com o carro quebrado tentando pegar carona.",
+      delta: 0,
+      options: [
+        { label: "Parar (pegar carona)", target: "hitchhiker_stop" },
+        { label: "Seguir dirigindo", target: "hitchhiker_drive" }
+      ]
+    }
+  ],
+  level2: [
+    {
+      id: "hitchhiker_stop", title: "Carona para Linda",
+      text: "Madi para o carro e pega Linda (diretora de cinema) como carona. No caminho dá pra perguntar sobre a profissão dela, revelando que ela é cineasta.",
+      delta: 10,
+      trophy: "🏆 \"Colegas de Viagem\"",
+      options: [{ label: "Chegar à mansão", target: "manor_arrival" }]
+    },
+    {
+      id: "hitchhiker_drive", title: "Seguir Sozinha",
+      text: "Madi não para. Chega à mansão sozinha e explora a primeira parte da casa por conta própria — Linda só aparece bem mais tarde, irritada por ter sido deixada na estrada, e Stan fica incrédulo por ela ter abandonado a diretora.",
+      delta: -10,
+      options: [{ label: "Chegar à mansão", target: "manor_arrival" }]
+    }
+  ],
+  level3: [
+    {
+      id: "manor_arrival", title: "2. Dentro da Mansão",
+      text: "Madi sobe as escadas, acha a partitura de \"Tema de uma Sobrevivente\" e toca a sequência certa no piano (Ré♭-Dó-Ré♭-Si♭) — abrindo uma passagem secreta.",
+      delta: 5,
+      trophy: "🏆 \"Tema\"",
+      converge: true,
+      options: [{ label: "Explorar a passagem secreta", target: "reliks_room" }]
+    }
+  ],
+  level4: [
+    {
+      id: "reliks_room", title: "3. Passagem Secreta e Stan",
+      text: "Madi desce pela passagem, acha o Rellik 2/12, encontra Stan e logo depois Augustine, que chega pra recebê-los.",
+      delta: 0,
+      converge: true,
+      options: [
+        { label: "Aceitar a bebida de Augustine", target: "drink_accept" },
+        { label: "Recusar a bebida", target: "drink_decline" }
+      ]
+    }
+  ],
+  level5: [
+    {
+      id: "drink_accept", title: "Aceita a Bebida",
+      text: "Madi bebe da mesma taça do seu pesadelo — uma descoberta sinistra. 🔗 Isso é pré-requisito de \"Fogo Amigo\" e \"Fagocitose\" no Cap. 14 (Madi precisa ter bebido aqui), e do caminho \"Madi consumida\" no Cutting Room Floor (com o pingente no Cap. 12).",
+      delta: -10,
+      options: [{ label: "Corte para 1980", target: "jaime_confront" }]
+    },
+    {
+      id: "drink_decline", title: "Recusa a Bebida",
+      text: "Madi recusa — \"Não, tudo bem\". Caminho mais seguro, sem a visão sinistra, mas trava \"Fogo Amigo\" e \"Fagocitose\" nesta run (a menos que rejogue via Cutting Room Floor).",
+      delta: 10,
+      options: [{ label: "Corte para 1980", target: "jaime_confront" }]
+    }
+  ],
+  level6: [
+    {
+      id: "jaime_confront", title: "4. 1980 — O Xerife Interrompe a Filmagem",
+      text: "Corte para 1980: Linda, Chris e Jaime estão filmando na siderúrgica abandonada quando o Xerife Sam (o mesmo do Cap. 1, agora 17 anos mais velho) os expulsa. Na confusão, a câmera quebra — QTE de apertar o quadrado repetidamente. Depois, Jaime reage: Desafiador (\"Prefiro morrer!\"), Defensivo (\"Chris, confio no julgamento da Linda\"), Arrependido (\"Sentimos muito\") ou Frustrado (\"O que fazemos com uma câmera quebrada?\") — nenhuma fonte confirma que essas 4 opções mudam o rumo da história, então ficam registradas aqui só como sabor de diálogo. A câmera quebrada é o gancho que abre o Cap. 3 (precisar de dinheiro pra consertá-la ou comprar outra).",
+      delta: 0,
+      converge: true
+    }
+  ]
+};
+
+const FS_CM_TREES = {
+  cap1: FS_CM_TREE_CAP1,
+  cap2: FS_CM_TREE_CAP2
+};
+
+/* Lista de capítulos pra navegação — só o Cap. 1 tem árvore pronta por
+   enquanto. Pra ligar um novo capítulo: monte o bloco (padrão acima
+   em FS_CM_TREE_CAP1), registre em FS_CM_TREES e marque available:true. */
+const FS_CM_CHAPTERS = [
+  { id: "cap1", name: "1. A Bocarra Ardente", available: true },
+  { id: "cap2", name: "2. Na Casa das Trevas", available: true },
+  { id: "cap3", name: "3. Curiosidade na Rua Principal", available: false },
+  { id: "cap4", name: "4. Estas Paredes Têm Olhos", available: false },
+  { id: "cap5", name: "5. O Fantasma da Siderúrgica Cedar", available: false },
+  { id: "cap6", name: "6. Além do Portão", available: false },
+  { id: "cap7", name: "7. Um Local Perigoso", available: false },
+  { id: "cap8", name: "8. Mansão Misteriosa", available: false },
+  { id: "cap9", name: "9. Descida dos Condenados", available: false },
+  { id: "cap10", name: "10. Na Casa da Loucura", available: false },
+  { id: "cap11", name: "11. Todos os Caminhos Se Cruzam", available: false },
+  { id: "cap12", name: "12. Abertando o Nó", available: false },
+  { id: "cap13", name: "13. Siderúrgica Mortal", available: false },
+  { id: "cap14", name: "14. O Massacre da Mansão Gerant", available: false }
+];
+
+/* Rotas-preset: sequências inteiras de escolhas já prontas até um
+   troféu específico (ou até o setup de um troféu que só fecha num
+   capítulo futuro), sem precisar navegar nó por nó. */
+const FS_CM_PRESETS = {
+  cap1: [
+    { id: "salvador_limpo", label: "🏆 Salvador (rota completa)", path: ["start", "registros_falsificados", "acusatorio", "mill_explore", "drink_choice", "tom_supportive", "grate_qte", "tunnel_flashlight", "flashlight_ok", "fornalha", "salvador"] },
+    { id: "setup_dinheiro_facil", label: "🔗 Setup Dinheiro Fácil", path: ["start", "conversa_padrao", "mill_explore", "drink_choice", "tom_frustrated", "grate_qte", "tunnel_flashlight", "flashlight_broken", "fornalha", "baby_dies"] }
+  ],
+  cap2: [
+    { id: "colegas_tema", label: "🏆 Colegas de Viagem + Tema", path: ["start", "hitchhiker_stop", "manor_arrival", "reliks_room", "drink_decline", "jaime_confront"] },
+    { id: "setup_fogo_fagocitose", label: "🔗 Setup Fogo Amigo/Fagocitose", path: ["start", "hitchhiker_drive", "manor_arrival", "reliks_room", "drink_accept", "jaime_confront"] }
+  ]
+};
+
+let fsCmSelectedChapterId = "cap1";
+let fsCmActivePath = fsCmLoadPath(fsCmSelectedChapterId);
+
+let fsCmZoomLevel = 1;
+const FS_CM_ZOOM_MIN = 0.3;
+const FS_CM_ZOOM_MAX = 2.2;
+const FS_CM_DARK_THRESHOLD = 15;
+
+function fsCmZoomAt(newLevel, clientX, clientY) {
+  const workspace = document.getElementById("fs-cm-workspace");
+  const container = document.getElementById("fs-cm-nodes-container");
+  const clamped = Math.min(FS_CM_ZOOM_MAX, Math.max(FS_CM_ZOOM_MIN, newLevel));
+  if (clamped === fsCmZoomLevel) return;
+
+  const wsRect = workspace.getBoundingClientRect();
+  const mouseX = clientX - wsRect.left;
+  const mouseY = clientY - wsRect.top;
+
+  const contentX = (workspace.scrollLeft + mouseX) / fsCmZoomLevel;
+  const contentY = (workspace.scrollTop + mouseY) / fsCmZoomLevel;
+
+  fsCmZoomLevel = clamped;
+  container.style.transform = `scale(${fsCmZoomLevel})`;
+  document.getElementById("fs-cm-zoom-val").textContent = `${Math.round(fsCmZoomLevel * 100)}%`;
+
+  workspace.scrollLeft = contentX * fsCmZoomLevel - mouseX;
+  workspace.scrollTop = contentY * fsCmZoomLevel - mouseY;
+
+  // Não precisa mais redesenhar as conexões aqui: o SVG mora dentro do
+  // mesmo container que recebe este transform:scale(), então as linhas
+  // escalam junto com os cartões automaticamente. Recalcular a cada
+  // passo de zoom era justamente o que causava o "bugging" das linhas.
+}
+
+function fsCmZoomReset() {
+  const workspace = document.getElementById("fs-cm-workspace");
+  const wsRect = workspace.getBoundingClientRect();
+  fsCmZoomAt(1, wsRect.left + wsRect.width / 2, wsRect.top + wsRect.height / 2);
+}
+
+function fsCmSetupWheelZoom() {
+  const workspace = document.getElementById("fs-cm-workspace");
+  workspace.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const step = e.deltaY < 0 ? 0.08 : -0.08;
+    fsCmZoomAt(+(fsCmZoomLevel + step).toFixed(2), e.clientX, e.clientY);
+  }, { passive: false });
+}
+
+function fsCmSetupPinchZoom() {
+  const workspace = document.getElementById("fs-cm-workspace");
+  let pinchStartDist = null;
+  let pinchStartLevel = 1;
+
+  function touchDistance(touches) {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+  function touchMidpoint(touches) {
+    return { x: (touches[0].clientX + touches[1].clientX) / 2, y: (touches[0].clientY + touches[1].clientY) / 2 };
+  }
+
+  workspace.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 2) { pinchStartDist = touchDistance(e.touches); pinchStartLevel = fsCmZoomLevel; }
+  }, { passive: true });
+
+  workspace.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 2 && pinchStartDist) {
+      e.preventDefault();
+      const newDist = touchDistance(e.touches);
+      const ratio = newDist / pinchStartDist;
+      const mid = touchMidpoint(e.touches);
+      fsCmZoomAt(+(pinchStartLevel * ratio).toFixed(2), mid.x, mid.y);
+    }
+  }, { passive: false });
+
+  workspace.addEventListener("touchend", (e) => {
+    if (e.touches.length < 2) pinchStartDist = null;
+  }, { passive: true });
+}
+
+function fsCmSetupDragPan() {
+  const workspace = document.getElementById("fs-cm-workspace");
+  const DRAG_SPEED = 1.5;
+  let isDown = false;
+  let startX = 0, startY = 0, startScrollLeft = 0, startScrollTop = 0;
+
+  workspace.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    if (e.target.closest(".fs-cm-node-card") || e.target.closest("button")) return;
+    isDown = true;
+    startX = e.clientX; startY = e.clientY;
+    startScrollLeft = workspace.scrollLeft; startScrollTop = workspace.scrollTop;
+    workspace.classList.add("fs-cm-grabbing");
+  });
+
+  window.addEventListener("pointermove", (e) => {
+    if (!isDown || e.pointerType !== "mouse") return;
+    const dx = (e.clientX - startX) * DRAG_SPEED;
+    const dy = (e.clientY - startY) * DRAG_SPEED;
+    workspace.scrollLeft = startScrollLeft - dx;
+    workspace.scrollTop = startScrollTop - dy;
+  });
+
+  window.addEventListener("pointerup", () => {
+    if (!isDown) return;
+    isDown = false;
+    workspace.classList.remove("fs-cm-grabbing");
+  });
+}
+
+// Preenche o <select> nativo com os 14 capítulos. Trocamos a lista
+// deslizante (altura fixa + translateY) por um <select> nativo porque,
+// com nomes de capítulo mais longos que o projeto de referência, aquele
+// esquema estourava a caixa e bagunçava a tela — o <select> do navegador
+// nunca estoura o layout da página, então esse problema não pode mais acontecer.
+let fsCmPickerFlashTimeout = null;
+
+function fsCmRenderChapterSelect() {
+  const select = document.getElementById("fs-cm-picker-select");
+  select.innerHTML = FS_CM_CHAPTERS.map(ch =>
+    `<option value="${ch.id}" ${ch.available ? "" : "disabled"}>${ch.available ? "▶" : "🔒"} ${ch.name}</option>`
+  ).join("");
+  select.value = fsCmSelectedChapterId;
+}
+
+function fsCmSelectChapter(id) {
+  const ch = FS_CM_CHAPTERS.find(c => c.id === id);
+  const select = document.getElementById("fs-cm-picker-select");
+  if (!ch || !ch.available) {
+    if (select) select.value = fsCmSelectedChapterId; // reverte a seleção visual
+    const flash = document.getElementById("fs-cm-picker-flash");
+    flash.style.display = "block";
+    clearTimeout(fsCmPickerFlashTimeout);
+    fsCmPickerFlashTimeout = setTimeout(() => { flash.style.display = "none"; }, 1800);
+    return;
+  }
+  fsCmSelectedChapterId = id;
+  fsCmActivePath = fsCmLoadPath(id);
+  if (select) select.value = id;
+  fsCmRenderPresetBar();
+  fsCmRenderGraph();
+}
+
+function fsCmRenderPresetBar() {
+  const bar = document.getElementById("fs-cm-preset-bar");
+  const presets = FS_CM_PRESETS[fsCmSelectedChapterId] || [];
+  bar.innerHTML = presets.map(p =>
+    `<button class="fs-cm-btn-preset" onclick="fsCmLoadPreset('${p.id}')">${p.label}</button>`
+  ).join("");
+}
+
+function fsCmLoadPreset(presetId) {
+  const presets = FS_CM_PRESETS[fsCmSelectedChapterId] || [];
+  const preset = presets.find(p => p.id === presetId);
+  if (!preset) return;
+  fsCmActivePath = preset.path.slice();
+  fsCmSavePath();
+  fsCmRenderGraph();
+}
+
+function fsCmCalculateTension() {
+  let tension = 50;
+  fsCmActivePath.forEach(id => {
+    const node = fsCmFindNodeById(id);
+    if (node && node.delta) tension += node.delta;
+  });
+  return Math.min(Math.max(tension, 0), 100);
+}
+
+function fsCmTensionAtIndex(uptoIndex) {
+  let tension = 50;
+  for (let i = 0; i <= uptoIndex && i < fsCmActivePath.length; i++) {
+    const node = fsCmFindNodeById(fsCmActivePath[i]);
+    if (node && node.delta) tension += node.delta;
+  }
+  return Math.min(Math.max(tension, 0), 100);
+}
+
+function fsCmTensionTierClass(tension) {
+  if (tension >= 70) return "tier-green";
+  if (tension >= 40) return "tier-yellow";
+  if (tension >= 16) return "tier-orange";
+  return "tier-red";
+}
+
+function fsCmUpdateHUD() {
+  const currentTension = fsCmCalculateTension();
+  const fill = document.getElementById("fs-cm-tension-fill");
+  const val = document.getElementById("fs-cm-tension-val");
+  const darkTag = document.getElementById("fs-cm-dark-tag");
+
+  fill.style.width = `${currentTension}%`;
+  val.textContent = `${currentTension}%`;
+
+  if (currentTension >= 70) val.style.color = "var(--green2)";
+  else if (currentTension >= 35) val.style.color = "var(--sepia2)";
+  else val.style.color = "var(--rust2)";
+
+  if (darkTag) darkTag.style.display = currentTension <= FS_CM_DARK_THRESHOLD ? "inline-block" : "none";
+}
+
+function fsCmIsEdgeActive(sourceId, targetId) {
+  for (let i = 0; i < fsCmActivePath.length - 1; i++) {
+    if (fsCmActivePath[i] === sourceId && fsCmActivePath[i + 1] === targetId) return true;
+  }
+  return false;
+}
+
+function fsCmGetConvergenceNote(node) {
+  if (!node.converge) return null;
+  if (node.id === "fornalha") {
+    let html = `<div class="fs-cm-convergence-note">`;
+    html += `<div class="fs-cm-conv-title">📍 Ponto de Convergência</div>`;
+    html += `<div class="fs-cm-conv-row fs-cm-conv-follow">Este é o confronto final do Cap. 1 — passar toda a sequência de QTEs fecha 🏆 "Salvador" nesta run.</div>`;
+    html += `<div class="fs-cm-conv-row fs-cm-conv-locked">Falhar de propósito trava "Salvador", mas prepara 🔗 "Dinheiro Fácil" pro Cap. 3.</div>`;
+    html += `</div>`;
+    return html;
+  }
+  return null;
+}
+
+function fsCmRenderGraph() {
+  const container = document.getElementById("fs-cm-nodes-container");
+  // Remove só as colunas antigas — o SVG de conexões mora dentro deste
+  // mesmo container (para escalar junto no zoom) e não pode ser apagado
+  // aqui, senão fica órfão e as linhas somem depois do primeiro redesenho.
+  container.querySelectorAll(".fs-cm-tree-column").forEach(col => col.remove());
+
+  const tree = FS_CM_TREES[fsCmSelectedChapterId];
+  Object.keys(tree).forEach((levelKey) => {
+    const column = document.createElement("div");
+    column.className = "fs-cm-tree-column";
+
+    tree[levelKey].forEach(node => {
+      const isSelected = fsCmActivePath.includes(node.id);
+      const nodeIndex = fsCmActivePath.indexOf(node.id);
+      const hasDecisionBeenMade = nodeIndex !== -1 && nodeIndex < fsCmActivePath.length - 1;
+      const chosenTarget = hasDecisionBeenMade ? fsCmActivePath[nodeIndex + 1] : null;
+
+      const isGameOver = node.type === "gameover";
+      const isVictory = node.type === "victory";
+
+      let statusClass = "";
+      if (isGameOver) statusClass = "gameover-node";
+      if (isVictory) statusClass = "victory-node";
+
+      if (isSelected) statusClass += " selected";
+      else statusClass += " dimmed-node";
+
+      let tensionTag = "";
+      if (node.delta > 0) tensionTag = `<span class="fs-cm-tension-tag fs-cm-tag-pos">+${node.delta}</span>`;
+      else if (node.delta < 0) tensionTag = `<span class="fs-cm-tension-tag fs-cm-tag-neg">${node.delta}</span>`;
+      else tensionTag = `<span class="fs-cm-tension-tag fs-cm-tag-neutral">0</span>`;
+
+      let trophyHTML = "";
+      if (node.trophy) trophyHTML = `<div class="fs-cm-trophy-badge"><span>${node.trophy}</span></div>`;
+
+      const card = document.createElement("div");
+      card.className = `fs-cm-node-card ${statusClass}`;
+      card.id = node.id;
+
+      let optionsHTML = "";
+      if (node.options && node.options.length > 0) {
+        optionsHTML = `<div class="fs-cm-node-options">` +
+          node.options.map(opt => {
+            const isOptionChosen = chosenTarget === opt.target;
+            const isOptionLocked = !isSelected || (hasDecisionBeenMade && !isOptionChosen);
+
+            if (isOptionChosen) {
+              return `<button class="fs-cm-option-btn chosen" title="Clique para desativar e testar outra rota"
+                        onclick="fsCmSelectBranch('${node.id}', '${opt.target}')">
+                        <span>${opt.label}</span><span>✓</span></button>`;
+            } else if (isOptionLocked) {
+              return `<button class="fs-cm-option-btn locked" disabled title="Desative a escolha ativa acima para reabrir este caminho">
+                        <span>${opt.label}</span><span class="fs-cm-lock-icon">🔒</span></button>`;
+            } else {
+              return `<button class="fs-cm-option-btn" onclick="fsCmSelectBranch('${node.id}', '${opt.target}')">
+                        <span>${opt.label}</span><span>➔</span></button>`;
+            }
+          }).join("") + `</div>`;
+      } else if (isGameOver) {
+        optionsHTML = `<div class="fs-cm-status-msg gameover">❌ FIM DE JOGO</div>`;
+      } else if (isVictory) {
+        optionsHTML = `<div class="fs-cm-status-msg victory">🏆 CONCLUÍDO</div>`;
+      }
+
+      card.innerHTML = `
+        <div class="fs-cm-node-header">
+          <span class="fs-cm-node-id">${node.id.toUpperCase()}</span>
+          ${tensionTag}
+        </div>
+        ${trophyHTML}
+        <div class="fs-cm-node-title">${node.title}</div>
+        <div class="fs-cm-node-text">${node.text}</div>
+        ${optionsHTML}
+      `;
+
+      column.appendChild(card);
+
+      if (isSelected) {
+        const noteHTML = fsCmGetConvergenceNote(node);
+        if (noteHTML) {
+          const noteWrap = document.createElement("div");
+          noteWrap.innerHTML = noteHTML;
+          column.appendChild(noteWrap.firstElementChild);
+        }
+      }
+    });
+
+    container.appendChild(column);
+  });
+
+  fsCmUpdateHUD();
+  setTimeout(fsCmDrawConnections, 50);
+}
+
+function fsCmSelectBranch(sourceId, targetId) {
+  const sourceIndex = fsCmActivePath.indexOf(sourceId);
+  if (sourceIndex !== -1) {
+    if (fsCmActivePath[sourceIndex + 1] === targetId) {
+      fsCmActivePath = fsCmActivePath.slice(0, sourceIndex + 1);
+    } else {
+      fsCmActivePath = fsCmActivePath.slice(0, sourceIndex + 1);
+      fsCmActivePath.push(targetId);
+    }
+  }
+  fsCmSavePath();
+  fsCmRenderGraph();
+}
+
+function fsCmResetNarrative() {
+  fsCmActivePath = ["start"];
+  fsCmSavePath();
+  fsCmRenderGraph();
+}
+
+function fsCmDrawConnections() {
+  const svg = document.getElementById("fs-cm-svg-canvas");
+  const container = document.getElementById("fs-cm-nodes-container");
+  if (!svg || !container) return;
+
+  // O SVG mora dentro do mesmo container que recebe o transform:scale()
+  // do zoom, então usamos offsetLeft/offsetTop (coordenadas de layout,
+  // sempre relativas ao container e imunes à escala visual do zoom) em
+  // vez de getBoundingClientRect(). Isso faz as linhas escalarem junto
+  // com os cartões automaticamente, sem recálculo em cada passo de zoom
+  // — e sem o desalinhamento que isso causava antes.
+  svg.innerHTML = "";
+
+  const tree = FS_CM_TREES[fsCmSelectedChapterId];
+  Object.keys(tree).forEach(levelKey => {
+    tree[levelKey].forEach(node => {
+      if (!node.options) return;
+      const sourceEl = document.getElementById(node.id);
+      if (!sourceEl) return;
+
+      node.options.forEach(opt => {
+        const targetEl = document.getElementById(opt.target);
+        if (!targetEl) return;
+
+        const x1 = sourceEl.offsetLeft + sourceEl.offsetWidth;
+        const y1 = sourceEl.offsetTop + sourceEl.offsetHeight / 2;
+        const x2 = targetEl.offsetLeft;
+        const y2 = targetEl.offsetTop + targetEl.offsetHeight / 2;
+
+        const dx = (x2 - x1) * 0.5;
+        const pathData = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", pathData);
+
+        const isActivePath = fsCmIsEdgeActive(node.id, opt.target);
+        let pathClass = "fs-cm-connection";
+        if (isActivePath) {
+          pathClass += " active";
+          const targetNodeObj = fsCmFindNodeById(opt.target);
+          if (targetNodeObj && (targetNodeObj.type === "gameover" || targetNodeObj.type === "victory")) {
+            if (targetNodeObj.type === "gameover") pathClass += " gameover";
+            if (targetNodeObj.type === "victory") pathClass += " victory";
+          } else {
+            const targetIndex = fsCmActivePath.indexOf(opt.target);
+            const tensionHere = fsCmTensionAtIndex(targetIndex);
+            pathClass += " " + fsCmTensionTierClass(tensionHere);
+          }
+        }
+
+        path.setAttribute("class", pathClass);
+        svg.appendChild(path);
+      });
+    });
+  });
+}
+
+function fsCmFindNodeById(id) {
+  const tree = FS_CM_TREES[fsCmSelectedChapterId];
+  for (let level in tree) {
+    const found = tree[level].find(n => n.id === id);
+    if (found) return found;
+  }
+  return null;
+}
+
+window.addEventListener("resize", fsCmDrawConnections);
+
+fsCmSetupWheelZoom();
+fsCmSetupPinchZoom();
+fsCmSetupDragPan();
+fsCmRenderChapterSelect();
+fsCmRenderPresetBar();
+fsCmRenderGraph();
+
 </script>
 </body>
 </html>
