@@ -210,7 +210,12 @@ body::before{
 .coll-note{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sepia2);padding:8px 10px;font-size:12px;color:var(--dim);line-height:1.5;}
 
 /* ═══════════════ CAMINHOS (árvore de decisões interativa) ═══════════════ */
-.fs-cm-app{height:78vh;min-height:520px;max-height:720px;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border);border-radius:4px;background:#1c1712;margin:0;}
+.fs-cm-app{height:78vh;min-height:520px;max-height:720px;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border);border-radius:4px;background:#1c1712;margin:0;position:relative;}
+.fs-cm-conv-marker{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:rgba(184,150,106,.22);border:1px solid var(--sepia2);color:var(--sepia2);font-size:.6rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;z-index:3;}
+.fs-cm-conv-marker:active{background:var(--sepia2);color:#1c1712;}
+.fs-cm-popup{position:absolute;z-index:30;max-width:230px;background:#241e17;border:1px solid var(--sepia2);border-radius:6px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.8);font-size:.68rem;line-height:1.4;color:#e8e2d6;}
+.fs-cm-popup-close{position:absolute;top:4px;right:6px;background:none;border:none;color:#948a78;font-size:.85rem;cursor:pointer;line-height:1;padding:2px;}
+.fs-cm-popup-title{font-family:'Oswald',sans-serif;font-size:.68rem;color:var(--sepia2);letter-spacing:.5px;margin-bottom:5px;padding-right:14px;}
 .fs-cm-app,.fs-cm-app *{-webkit-tap-highlight-color:transparent;}
 .fs-cm-header{background:linear-gradient(180deg,#2a231b 0%,#1c1712 100%);padding:10px 14px;border-bottom:2px solid rgba(155,44,44,.3);display:flex;flex-direction:column;gap:8px;z-index:10;box-shadow:0 4px 15px rgba(0,0,0,.6);}
 .fs-cm-header-top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
@@ -235,7 +240,7 @@ body::before{
 .fs-cm-zoom-btn{background:#2a231b;border:1px solid #4a3f30;color:var(--sepia2);width:24px;height:24px;border-radius:4px;font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
 .fs-cm-zoom-btn.fs-cm-zoom-reset{font-size:.7rem;color:#cfc7ba;}
 .fs-cm-zoom-val{font-family:'Inconsolata',monospace;font-size:.62rem;color:#f0ede6;min-width:32px;text-align:center;}
-#fs-cm-workspace{flex:1;position:relative;overflow:auto;background-color:#1c1712;background-image:radial-gradient(rgba(184,150,106,.1) 1px,transparent 1px),linear-gradient(to right,rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.02) 1px,transparent 1px);background-size:20px 20px,60px 60px,60px 60px;-webkit-overflow-scrolling:touch;cursor:grab;}
+#fs-cm-workspace{flex:1;position:relative;overflow:auto;background-color:#1c1712;background-image:radial-gradient(rgba(184,150,106,.1) 1px,transparent 1px),linear-gradient(to right,rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.02) 1px,transparent 1px);background-size:20px 20px,60px 60px,60px 60px;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
 #fs-cm-workspace.fs-cm-grabbing{cursor:grabbing;}
 svg#fs-cm-svg-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
 path.fs-cm-connection{stroke:#4a3f30;stroke-width:2;fill:none;transition:stroke .3s;}
@@ -262,6 +267,7 @@ path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
 .fs-cm-tag-neg{background:rgba(155,44,44,.18);color:#e8a5a0;}
 .fs-cm-tag-neutral{background:rgba(148,163,184,.12);color:#948a78;}
 .fs-cm-trophy-badge{display:flex;align-items:center;gap:4px;background:rgba(184,150,106,.15);border:1px solid rgba(184,150,106,.4);color:var(--sepia2);padding:3px 6px;border-radius:3px;font-size:.62rem;font-weight:700;margin-bottom:6px;line-height:1.1;}
+.fs-cm-crf-badge{display:flex;align-items:center;gap:4px;background:rgba(61,138,82,.14);border:1px solid rgba(61,138,82,.45);color:var(--green2);padding:3px 6px;border-radius:3px;font-size:.6rem;font-weight:700;margin-bottom:6px;line-height:1.1;}
 .fs-cm-node-title{font-family:'Oswald',sans-serif;font-size:.82rem;font-weight:600;color:#f0ede6;margin-bottom:4px;line-height:1.15;}
 .fs-cm-node-text{font-size:.72rem;color:#a89e8c;line-height:1.3;margin-bottom:8px;}
 .fs-cm-node-options{display:flex;flex-direction:column;gap:5px;}
@@ -273,11 +279,6 @@ path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
 .fs-cm-status-msg{font-family:'Oswald',sans-serif;font-size:.65rem;font-weight:700;padding:4px;border-radius:3px;text-align:center;}
 .fs-cm-status-msg.gameover{background:rgba(155,44,44,.22);color:#e8a5a0;border:1px solid var(--rust2);}
 .fs-cm-status-msg.victory{background:rgba(61,138,82,.2);color:#8fd6a0;border:1px solid var(--green2);}
-.fs-cm-convergence-note{background:rgba(184,150,106,.08);border:1px dashed var(--sepia2);border-radius:5px;padding:8px 10px;font-size:.66rem;line-height:1.4;color:#cfc7ba;}
-.fs-cm-conv-title{font-family:'Oswald',sans-serif;font-size:.65rem;color:var(--sepia2);letter-spacing:.5px;margin-bottom:4px;}
-.fs-cm-conv-row{margin-top:3px;}
-.fs-cm-conv-row.fs-cm-conv-follow{color:#8fd6a0;}
-.fs-cm-conv-row.fs-cm-conv-locked{color:#948a78;}
 @media (max-width:600px){.fs-cm-app{height:72vh;}}
 
 /* TRACKER */
@@ -482,8 +483,16 @@ path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
     <div class="a-ok mb-16">
       <strong>✓ Caps. 1 e 2 revisados e verificados (09/2026)</strong> contra fontes cruzadas: GameSpew,
       TheGamer, Pro Game Guides, Sportskeeda, Neoseeker (walkthrough + troféus), Steam Guides
-      (ThePugHybrid 100% e Cutting Room Floor) e PSNProfiles. A versão anterior do Cap. 1 tinha 2
-      escolhas que não existem no jogo real — já corrigidas.
+      (ThePugHybrid 100% e mapa completo da Cutting Room Floor), PSNProfiles e TrueAchievements.
+      A versão anterior do Cap. 1 tinha 2 escolhas que não existem no jogo real — já corrigidas.
+    </div>
+    <div class="a-info mb-16">
+      <span class="fs-cm-crf-badge" style="display:inline-flex;">🎞️ Ramificação Cutting Room Floor</span>
+      marca nós confirmados como uma das <strong>224 ramificações</strong> que contam pro troféu
+      <strong class="hl">"Onisciente"</strong> (a platina exige desbloquear todas elas, não só bater o jogo
+      uma vez). Só uso esse selo quando pelo menos duas fontes confirmam que aquele ponto específico é
+      rastreado na Sala de Montagem — o resto da árvore mostra escolhas reais da história que talvez não
+      sejam contadas separadamente ali.
     </div>
 
     <div class="fs-cm-app">
@@ -1517,229 +1526,114 @@ function fsCmSavePath() {
 }
 
 /* ─── Capítulo 1: A Bocarra Ardente (Prólogo — Sam Green, 1963) ───
-   Reconstruído e verificado em 09/2026 contra 6 fontes cruzadas:
-   GameSpew (walkthrough completo), TheGamer (Cap. 1 + Biggest Choices),
-   Pro Game Guides (walkthrough/endings/achievements), Neoseeker
-   (walkthrough + guia de troféus), Steam Guide 100% (ThePugHybrid,
-   id 3323909480) e PSNProfiles. Corrige a versão anterior deste
-   capítulo, que tinha 2 escolhas inventadas (gentileza com Tom logo
-   no início da conversa, e "quebrar ou preservar" o pé de cabra) —
-   nenhuma das duas existe no jogo real. */
+   Reconstruído em 09/2026 com granularidade completa, cruzando o guia
+   passo a passo N/224 da Cutting Room Floor (Google Doc) com o guia
+   em PT-BR da TrueAchievements/Trophies Hunter (usuário aliennoises) —
+   ambos rastreiam exatamente quais escolhas contam pras 224 ramificações
+   do troféu "Onisciente". Isso revelou que o confronto final tem 3
+   checagens INDEPENDENTES (cegar Frank, soltar do cano, salvar o bebê),
+   não uma só como na versão anterior — e que existem ramificações reais
+   no pé de cabra (quebrar/usar) e na escolha Rampa/Escada que tinham
+   sido descartadas por engano como "só estética". */
 const FS_CM_TREE_CAP1 = {
   level1: [
-    {
-      id: "start", title: "1. Portão do Moinho",
-      text: "Sam Green (policial) chega à Siderúrgica Cedar em 1963 e conversa com Tom Holt, o vigia noturno, sobre o caso do garoto desaparecido.",
-      delta: 0,
-      options: [
-        { label: "SÉRIO → CURIOSO (checar registros)", target: "registros_falsificados" },
-        { label: "Qualquer outra combinação", target: "conversa_padrao" }
-      ]
-    }
+    { id: 'start', title: '1. Diário de Bordo', text: 'Sam Green chega à Siderúrgica Cedar em 1963 e conversa com Tom Holt, o vigia noturno, sobre o garoto desaparecido.', delta: 0, options: [{ label: 'SÉRIO → CURIOSO (checar registros)', target: 'registros_falsificados' }, { label: 'Qualquer outra combinação', target: 'conversa_padrao' }] },
   ],
   level2: [
-    {
-      id: "registros_falsificados", title: "Registros Falsificados",
-      text: "Sam escolhe SÉRIO e depois CURIOSO, pedindo pra checar os registros do moinho. Descobre que alguém andou falsificando as entradas do livro de ponto.",
-      delta: 5,
-      options: [{ label: "Confrontar Tom (ACUSATÓRIO)", target: "acusatorio" }]
-    },
-    {
-      id: "conversa_padrao", title: "Conversa Padrão",
-      text: "Sem checar os registros, a conversa segue o caminho mais comum — nada é revelado sobre o livro de ponto.",
-      delta: 0,
-      options: [{ label: "Entrar no moinho", target: "mill_explore" }]
-    }
+    { id: 'registros_falsificados', title: 'Diário de Bordo Checado', text: 'Sam escolhe SÉRIO e depois CURIOSO, pedindo pra checar os registros do moinho — a primeira ramificação da Sala de Montagem do jogo.', delta: 5, crf: true, options: [{ label: 'Confrontar Tom (ACUSATÓRIO)', target: 'acusatorio' }] },
+    { id: 'conversa_padrao', title: 'Conversa Padrão', text: 'Sem checar os registros, a conversa segue o caminho mais comum — nada é revelado sobre o livro de ponto.', delta: 0, crf: true, options: [{ label: 'Entrar no moinho', target: 'mill_explore' }] },
   ],
   level3: [
-    {
-      id: "acusatorio", title: "Opção Acusatória Desbloqueada",
-      text: "Com essa munição, Sam confronta Tom — que admite estar encobrindo um funcionário, \"Hank\" ou \"Fred\" (uma pista do nome real de Frank Stone).",
-      delta: 5,
-      converge: true,
-      options: [{ label: "Entrar no moinho", target: "mill_explore" }]
-    }
+    { id: 'acusatorio', title: 'Registros Falsificados', text: 'Dentro do Diário de Bordo: QUESTIONANDO, ACUSATÓRIO (descobre que alguém falsificou as entradas) ou REPROVADOR ("Andou bebendo?" — uma menção precoce à bebida de Tom, distinta da escolha mais importante que vem depois). Depois: INSISTENTE ou SEVERO (mais uma descoberta).', delta: 5, converge: true, options: [{ label: 'Entrar no moinho', target: 'mill_explore' }] },
   ],
   level4: [
-    {
-      id: "mill_explore", title: "2. Explorando o Moinho",
-      text: "Sam acha a Bugiganga 1/12 (Iridescent King) na cerca, entra por uma janela e pega o Artefato do Campeão #1 no arquivo. Reencontra Tom, que procura seu cachorro Merlin — e puxa uma ORELHA humana de uma pilha de carne encontrada por ele.",
-      delta: 0,
-      converge: true,
-      options: [{ label: "Seguir até a grade", target: "drink_choice" }]
-    }
+    { id: 'mill_explore', title: '2. Explorando o Moinho', text: 'Sam acha a Bugiganga 1/12 (Iridescent King) na cerca, entra por uma janela e pega o Artefato do Campeão #1 no arquivo. Reencontra Tom (que procura o cachorro Merlin) e puxa uma ORELHA humana de uma pilha de carne. Diálogo final aqui (Dispensivo/Inquieto) sem consequência documentada.', delta: 0, converge: true, options: [{ label: 'Ir até a grade do pátio', target: 'crowbar_qte' }] },
   ],
   level5: [
-    {
-      id: "drink_choice", title: "3. O Pedido de Tom",
-      text: "Antes de ir chamar o xerife, Tom pede pra tomar um trago pra se acalmar.",
-      delta: 0,
-      converge: true,
-      options: [
-        { label: "Solidário (persuadir a não beber)", target: "tom_supportive" },
-        { label: "Frustrado (reagir mal)", target: "tom_frustrated" }
-      ]
-    }
+    { id: 'crowbar_qte', title: '3. Pé de Cabra na Grade', text: 'Sam acha um pé de cabra numa cerca próxima e tenta abrir a grade com ele — um QTE de apertar o botão que pode ser passado ou falhado de verdade (não é garantido).', delta: 0, converge: true, options: [{ label: 'Passar no QTE', target: 'crowbar_used' }, { label: 'Falhar no QTE', target: 'crowbar_broken' }] },
   ],
   level6: [
-    {
-      id: "tom_supportive", title: "Solidário com Tom",
-      text: "Sam convence Tom a não beber. 🔗 É essa escolha (não a conversa inicial) que fecha \"Lumpkin e Livin'\" no Cap. 5, quando a fita da entrevista revela que Tom parou de beber.",
-      delta: 10,
-      options: [{ label: "Usar o pé de cabra na grade", target: "grate_qte" }]
-    },
-    {
-      id: "tom_frustrated", title: "Frustrado com Tom",
-      text: "Sam reage mal ao pedido. Na fita do Cap. 5, Tom vai aparecer ainda bebendo demais até pra contar a história — travando 🔗 \"Lumpkin e Livin'\" nesta run.",
-      delta: -10,
-      options: [{ label: "Usar o pé de cabra na grade", target: "grate_qte" }]
-    }
+    { id: 'crowbar_used', title: 'Pé de Cabra Usado', text: 'Sam abre a grade com sucesso, sem danificar a ferramenta.', delta: 10, crf: true, options: [{ label: 'Descer para a Drenagem Pluvial', target: 'tom_reaction' }] },
+    { id: 'crowbar_broken', title: 'Pé de Cabra Quebrado', text: 'Sam falha o QTE e força a grade — o pé de cabra quebra no processo.', delta: -10, crf: true, options: [{ label: 'Descer para a Drenagem Pluvial', target: 'tom_reaction' }] },
   ],
   level7: [
-    {
-      id: "grate_qte", title: "4. Abrindo a Grade",
-      text: "Sam acha um pé de cabra numa cerca próxima e o usa na grade — um QTE de apertar o botão repetidamente até ela abrir (não é uma escolha; só existe essa via).",
-      delta: 0,
-      converge: true,
-      options: [{ label: "Descer para os túneis", target: "tunnel_flashlight" }]
-    }
+    { id: 'tom_reaction', title: '4. Antes de Descer', text: 'Antes de ir para a drenagem pluvial, surge uma conversa independente sobre a bebida de Tom (essa sim é a que conta pra Sala de Montagem — não a menção anterior no Diário de Bordo).', delta: 0, converge: true, options: [{ label: 'Confiar em Tom (REASSURING)', target: 'tom_trust' }, { label: 'Ficar agressivo (SCORNFUL/FRUSTRATED)', target: 'tom_irritated' }] },
   ],
   level8: [
-    {
-      id: "tunnel_flashlight", title: "5. Teste de Perícia na Fresta",
-      text: "Nos túneis, Sam acha a Bugiganga 2/12, o Artefato #2 e o Rellik do Hillbilly (fan service de Dead by Daylight). Ao se espremer numa fresta apertada, surge um Teste de Perícia.",
-      delta: 0,
-      converge: true,
-      options: [
-        { label: "Passar no teste", target: "flashlight_ok" },
-        { label: "Falhar no teste", target: "flashlight_broken" }
-      ]
-    }
+    { id: 'tom_trust', title: 'Confie no Tom', text: 'Sam tranquiliza Tom em vez de brigar. 🔗 Isso é o que fecha "Tom Sóbrio" no Cap. 5, quando a fita da entrevista revela que ele parou de beber.', delta: 10, crf: true, options: [{ label: 'Entrar na Drenagem Pluvial', target: 'storm_drain' }] },
+    { id: 'tom_irritated', title: 'Sam se Irritou', text: 'Sam fica agressivo com Tom ("Quer ser lembrado como um bêbado?"). Na fita do Cap. 5, Tom vai aparecer bebendo demais — travando 🔗 "Tom Sóbrio" nesta run.', delta: -10, crf: true, options: [{ label: 'Entrar na Drenagem Pluvial', target: 'storm_drain' }] },
   ],
   level9: [
-    {
-      id: "flashlight_ok", title: "Lanterna Preservada",
-      text: "Sam passa ileso e segue com a lanterna intacta — ela poderá ser usada pra cegar Frank Stone no confronto final.",
-      delta: 10,
-      options: [{ label: "Subir até a fornalha", target: "fornalha" }]
-    },
-    {
-      id: "flashlight_broken", title: "Lanterna Quebrada",
-      text: "Sam se machuca e a lanterna quebra. Sem ela, a opção de cegar Frank Stone no confronto final simplesmente não vai aparecer.",
-      delta: -10,
-      options: [{ label: "Subir até a fornalha", target: "fornalha" }]
-    }
+    { id: 'storm_drain', title: '5. Drenagem Pluvial', text: 'Sam acha 2 colecionáveis e o Rellik do Hillbilly nos túneis. Ao se espremer numa fresta, é empurrado pelo vapor de um cano — surge um Teste de Perícia.', delta: 0, converge: true, options: [{ label: 'Passar no teste (mantém a lanterna)', target: 'flashlight_ok' }, { label: 'Falhar no teste (perde a lanterna)', target: 'flashlight_broken' }] },
   ],
   level10: [
-    {
-      id: "fornalha", title: "6. Confronto na Fornalha",
-      text: "Frank Stone tenta jogar um bebê no fogo. Sequência de QTEs: mirar e acertar a máscara dele, cegá-lo com a lanterna (só se ela sobreviveu à fresta), se soltar de um cano preso, e sacar a arma. (Subir por rampa ou escada é só estético — não muda nada.)",
-      delta: 0,
-      converge: true,
-      options: [
-        { label: "Passar em todos os QTEs", target: "salvador" },
-        { label: "Falhar de propósito", target: "baby_dies" }
-      ]
-    }
+    { id: 'flashlight_ok', title: 'Lanterna Preservada', text: 'Sam passa ileso e segue com a lanterna intacta — ela poderá cegar Frank Stone mais adiante.', delta: 10, crf: true, options: [{ label: 'Subir até a Câmara da Fornalha', target: 'furnace_arrival' }] },
+    { id: 'flashlight_broken', title: 'Lanterna Quebrada', text: 'O vapor empurra Sam com mais força, ele se machuca e a lanterna quebra — sem ela, cegar Frank Stone não vai ser opção.', delta: -10, crf: true, options: [{ label: 'Subir até a Câmara da Fornalha', target: 'furnace_arrival' }] },
   ],
   level11: [
-    {
-      id: "salvador", title: "ROTA: Sam Impede Frank Stone",
-      text: "Sam acerta todos os QTEs, atira em Frank Stone e salva o bebê.",
-      type: "victory",
-      trophy: "🏆 \"Salvador\"",
-      delta: 15
-    },
-    {
-      id: "baby_dies", title: "ROTA: O Bebê Morre",
-      text: "Falhar de propósito faz Frank Stone matar o bebê antes que Sam consiga impedi-lo. Sam sobrevive, mas fica marcado — pré-requisito de 🔗 \"Dinheiro Fácil\": no Cap. 3, seja RELUTANTE → COMPLACENTE com Jaime até Sam oferecer o suborno, e aceite.",
-      type: "victory",
-      trophy: "🔗 Setup: Dinheiro Fácil (fecha no Cap. 3)",
-      delta: -15
-    }
-  ]
+    { id: 'furnace_arrival', title: '6. Câmara da Fornalha', text: 'Sam chega à câmara onde Frank Stone está com um bebê. Antes do confronto, uma escolha puramente estética: subir por Rampa ou Escada — ambas levam à mesma cena, mas contam como ramificações separadas na Sala de Montagem.', delta: 0, converge: true, options: [{ label: 'Escolher a Rampa', target: 'ramp_choice' }, { label: 'Escolher a Escada', target: 'ladder_choice' }] },
+  ],
+  level12: [
+    { id: 'ramp_choice', title: 'Furnace Ramp', text: 'Sam sobe pela rampa. Skill check pra evitar destroços caindo (retry se falhar, sem consequência de história).', delta: 0, crf: true, options: [{ label: 'Confrontar Frank Stone', target: 'blind_attempt' }] },
+    { id: 'ladder_choice', title: 'Escolheu a Escada', text: 'Sam sobe pela escada. Mesmo destino da rampa, só muda a cor da cena.', delta: 0, crf: true, options: [{ label: 'Confrontar Frank Stone', target: 'blind_attempt' }] },
+  ],
+  level13: [
+    { id: 'blind_attempt', title: '7. Confronto — Cegar Frank Stone', text: 'Sam atira no visor do assassino, ergue a lanterna (se ainda tiver) e mira no rosto de Frank Stone pra cegá-lo. É a 1ª de 3 checagens independentes desse confronto — cada uma com seu próprio resultado, sem depender das outras.', delta: 0, converge: true, convergeNote: 'As 3 checagens da fornalha (cegar, soltar do cano, salvar o bebê) são independentes entre si — falhar uma não significa falhar as outras. É por isso que a Sala de Montagem trata cada uma como uma ramificação própria.', options: [{ label: 'Passar (cegar Frank Stone)', target: 'stone_blinded' }, { label: 'Falhar (Frank arranca o olho de Sam)', target: 'eye_gouged' }] },
+  ],
+  level14: [
+    { id: 'stone_blinded', title: 'Cegueira de Pedra', text: 'Sam consegue cegar Frank Stone com a lanterna.', delta: 10, crf: true, options: [{ label: 'Continuar a luta', target: 'pipe_attempt' }] },
+    { id: 'eye_gouged', title: 'Olho Arrancado', text: 'Sam falha e Frank Stone arranca seu olho no confronto.', delta: -10, crf: true, options: [{ label: 'Continuar a luta', target: 'pipe_attempt' }] },
+  ],
+  level15: [
+    { id: 'pipe_attempt', title: '8. Confronto — Soltar do Cano', text: 'Sam fica preso contra um cano durante a luta — 2ª checagem independente do confronto.', delta: 0, converge: true, options: [{ label: 'Passar (se solta sem se machucar)', target: 'pipe_ok' }, { label: 'Falhar (lesão no ombro)', target: 'pipe_injured' }] },
+  ],
+  level16: [
+    { id: 'pipe_ok', title: 'Empurrado do Cano', text: 'Sam se solta do cano sem dano permanente.', delta: 10, crf: true, options: [{ label: 'Continuar a luta', target: 'baby_attempt' }] },
+    { id: 'pipe_injured', title: 'Ferido Gravemente', text: 'Sam falha e machuca o ombro de forma permanente. 🔗 É ESTA lesão específica — não o resultado do bebê — que abre a possibilidade do suborno de Sam no Cap. 3 ("Dinheiro Fácil").', delta: -10, crf: true, options: [{ label: 'Continuar a luta', target: 'baby_attempt' }] },
+  ],
+  level17: [
+    { id: 'baby_attempt', title: '9. Confronto — Salvar o Bebê', text: 'Sam sacar a arma e tenta salvar o bebê antes que Frank Stone o jogue no fogo — 3ª e última checagem independente do confronto.', delta: 0, converge: true, convergeNote: 'Esta é a única das 3 checagens que muda o final do capítulo: passar fecha "Salvador"; falhar mata o bebê. As outras duas (cegar e soltar do cano) só mudam pequenos detalhes de continuidade — a lesão do ombro é a que importa pro Cap. 3.', options: [{ label: 'Passar (salva o bebê)', target: 'salvador' }, { label: 'Falhar de propósito (bebê morre)', target: 'baby_dies' }] },
+  ],
+  level18: [
+    { id: 'salvador', title: 'ROTA: Sam Impede Frank Stone', text: 'Sam atira em Frank Stone e salva o bebê.', trophy: '🏆 "Salvador"', delta: 15, crf: true, type: 'victory' },
+    { id: 'baby_dies', title: 'ROTA: O Bebê Morre', text: 'Frank Stone mata o bebê antes que Sam consiga impedi-lo. 🔗 Combinado com "Ferido Gravemente" (lesão no ombro), isso abre o suborno de Sam no Cap. 3 — RELUTANTE → COMPLACENTE com Jaime até ele oferecer o dinheiro, e aceite pra fechar "Dinheiro Fácil".', trophy: '🔗 Setup: Dinheiro Fácil (fecha no Cap. 3, precisa também de "Ferido Gravemente")', delta: -15, crf: true, type: 'victory' },
+  ],
 };
 
 /* ─── Capítulo 2: Na Casa das Trevas (Madi/Jaime, 2024 → 1980) ───
-   Verificado em 09/2026 contra 7 fontes cruzadas: GameSpew, TheGamer
-   (Cap. 2 + Biggest Choices), Pro Game Guides, Sportskeeda, Neoseeker
-   (walkthrough + troféus), Steam Guides (ThePugHybrid 100% e Cutting
-   Room Floor map) e a Wiki da franquia. Só inclui ramificações com
-   consequência real e documentada — a reação de Jaime ao fim do
-   capítulo (Desafiador/Defensivo/Arrependido/Frustrado) é mostrada
-   como texto, não como escolha clicável, porque nenhuma fonte
-   confirma que ela muda o rumo da história (é só cor de diálogo). */
+   Reconstruído em 09/2026 com base no .txt de achados do usuário,
+   cruzando TrueAchievements, TrophiesHunter e o guia N/224 do Google
+   Docs — agora com os números exatos de ramificação (12 a 18 na rota
+   principal, 177 a 179 na rota alternativa) e uma escolha nova que
+   tinha passado batido: perguntar a profissão de Linda (Cineasta,
+   15/224) só aparece se você parou pra pegá-la, e "Linda Chega
+   Depois" (178/224) é uma ramificação própria da rota de não parar. */
 const FS_CM_TREE_CAP2 = {
   level1: [
-    {
-      id: "start", title: "1. Sonho e a Estrada",
-      text: "Madi acorda de um pesadelo (o teto do quarto sumiu) e, dirigindo até a Mansão Gerant, avista uma mochileira com o carro quebrado tentando pegar carona.",
-      delta: 0,
-      options: [
-        { label: "Parar (pegar carona)", target: "hitchhiker_stop" },
-        { label: "Seguir dirigindo", target: "hitchhiker_drive" }
-      ]
-    }
+    { id: 'start', title: '1. Memória Desbotada e Estrada Solitária', text: 'Madi acorda de um pesadelo (Memória Desbotada, 12/224) e, dirigindo pela estrada solitária (13/224), avista uma mochileira tentando pegar carona.', delta: 0, options: [{ label: 'Parar (pegar carona)', target: 'hitchhiker_stop' }, { label: 'Seguir dirigindo', target: 'hitchhiker_drive' }] },
   ],
   level2: [
-    {
-      id: "hitchhiker_stop", title: "Carona para Linda",
-      text: "Madi para o carro e pega Linda (diretora de cinema) como carona. No caminho dá pra perguntar sobre a profissão dela, revelando que ela é cineasta.",
-      delta: 10,
-      trophy: "🏆 \"Colegas de Viagem\"",
-      options: [{ label: "Chegar à mansão", target: "manor_arrival" }]
-    },
-    {
-      id: "hitchhiker_drive", title: "Seguir Sozinha",
-      text: "Madi não para. Chega à mansão sozinha e explora a primeira parte da casa por conta própria — Linda só aparece bem mais tarde, irritada por ter sido deixada na estrada, e Stan fica incrédulo por ela ter abandonado a diretora.",
-      delta: -10,
-      options: [{ label: "Chegar à mansão", target: "manor_arrival" }]
-    }
+    { id: 'hitchhiker_stop', title: 'Carona Puxada (14/224)', text: 'Madi para o carro e pega a mochileira — que se revela ser Linda, indo pro mesmo destino.', trophy: '🏆 "Colegas de Viagem"', delta: 10, crf: true, options: [{ label: 'Perguntar o que ela faz da vida (CURIOSO)', target: 'filmmaker_yes' }, { label: 'Perguntar sobre a mansão (APREENSIVO)', target: 'filmmaker_no' }] },
+    { id: 'hitchhiker_drive', title: 'Seguiu em Frente (177/224)', text: 'Madi não para e segue sozinha até a mansão.', delta: -10, crf: true, options: [{ label: 'Chegar à mansão sozinha', target: 'linda_late' }] },
   ],
   level3: [
-    {
-      id: "manor_arrival", title: "2. Dentro da Mansão",
-      text: "Madi sobe as escadas, acha a partitura de \"Tema de uma Sobrevivente\" e toca a sequência certa no piano (Ré♭-Dó-Ré♭-Si♭) — abrindo uma passagem secreta.",
-      delta: 5,
-      trophy: "🏆 \"Tema\"",
-      converge: true,
-      options: [{ label: "Explorar a passagem secreta", target: "reliks_room" }]
-    }
+    { id: 'filmmaker_yes', title: 'Cineasta (15/224)', text: 'Madi pergunta sobre a profissão de Linda — ela revela que é cineasta de filmes de terror. Aprofunda o relacionamento das duas.', delta: 10, crf: true, options: [{ label: 'Chegar à mansão', target: 'manor_arrival' }] },
+    { id: 'filmmaker_no', title: 'Pergunta Sobre a Mansão', text: 'Madi pergunta sobre a mansão em vez da profissão de Linda — sem o mesmo aprofundamento de relacionamento (essa opção não tem número de ramificação confirmado nas fontes).', delta: 0, options: [{ label: 'Chegar à mansão', target: 'manor_arrival' }] },
+    { id: 'linda_late', title: 'Linda Chega Depois (178/224)', text: 'Bem mais tarde, já na mansão, Linda chega andando — irritada por ter sido deixada pra trás. Ao encontrar Stan, essa rota libera a opção DEFENSIVO ("Nunca pego caroneiros!"), que não aparece se você parou pra pegá-la antes.', delta: -10, crf: true, options: [{ label: 'Continuar explorando a mansão', target: 'manor_arrival' }] },
   ],
   level4: [
-    {
-      id: "reliks_room", title: "3. Passagem Secreta e Stan",
-      text: "Madi desce pela passagem, acha o Rellik 2/12, encontra Stan e logo depois Augustine, que chega pra recebê-los.",
-      delta: 0,
-      converge: true,
-      options: [
-        { label: "Aceitar a bebida de Augustine", target: "drink_accept" },
-        { label: "Recusar a bebida", target: "drink_decline" }
-      ]
-    }
+    { id: 'manor_arrival', title: '2. Saguão da Mansão (16/224)', text: 'Madi sobe as escadas, acha a partitura, toca a sequência certa no piano — 🏆 "Tema" — abrindo uma passagem secreta com o Rellik 2/12 (The Huntress). Encontra Stan (CASUAL/APREENSIVO/INTERESSADO — sem consequência de história confirmada nas fontes).', trophy: '🏆 "Tema"', delta: 5, converge: true, convergeNote: 'O Saguão (16/224), a Sala de Estar (17/224) e a chegada de Linda são pontos automáticos que acontecem em qualquer rota — só as escolhas de diálogo (parar ou não pra carona, aceitar ou não a bebida) é que mudam de fato quais das 224 ramificações você desbloqueia.', options: [{ label: 'Encontrar Augustine na sala de estar', target: 'drink_choice' }] },
   ],
   level5: [
-    {
-      id: "drink_accept", title: "Aceita a Bebida",
-      text: "Madi bebe da mesma taça do seu pesadelo — uma descoberta sinistra. 🔗 Isso é pré-requisito de \"Fogo Amigo\" e \"Fagocitose\" no Cap. 14 (Madi precisa ter bebido aqui), e do caminho \"Madi consumida\" no Cutting Room Floor (com o pingente no Cap. 12).",
-      delta: -10,
-      options: [{ label: "Corte para 1980", target: "jaime_confront" }]
-    },
-    {
-      id: "drink_decline", title: "Recusa a Bebida",
-      text: "Madi recusa — \"Não, tudo bem\". Caminho mais seguro, sem a visão sinistra, mas trava \"Fogo Amigo\" e \"Fagocitose\" nesta run (a menos que rejogue via Cutting Room Floor).",
-      delta: 10,
-      options: [{ label: "Corte para 1980", target: "jaime_confront" }]
-    }
+    { id: 'drink_choice', title: '3. Sala de Estar (17/224)', text: 'Madi pega o livro Epic of Gilgamesh e o pôster do Murder Mill no armário. Augustine chega e oferece uma bebida a Madi.', delta: 0, converge: true, convergeNote: 'Dica de quem já mapeou a Sala de Montagem: se for repetir o capítulo pra pegar as duas ramificações, deixe a recusa da bebida por último — não precisa gastar uma run só pra isso.', options: [{ label: 'Aceitar (RELAXED)', target: 'drink_accept' }, { label: 'Recusar (RELUCTANT)', target: 'drink_decline' }] },
   ],
   level6: [
-    {
-      id: "jaime_confront", title: "4. 1980 — O Xerife Interrompe a Filmagem",
-      text: "Corte para 1980: Linda, Chris e Jaime estão filmando na siderúrgica abandonada quando o Xerife Sam (o mesmo do Cap. 1, agora 17 anos mais velho) os expulsa. Na confusão, a câmera quebra — QTE de apertar o quadrado repetidamente. Depois, Jaime reage: Desafiador (\"Prefiro morrer!\"), Defensivo (\"Chris, confio no julgamento da Linda\"), Arrependido (\"Sentimos muito\") ou Frustrado (\"O que fazemos com uma câmera quebrada?\") — nenhuma fonte confirma que essas 4 opções mudam o rumo da história, então ficam registradas aqui só como sabor de diálogo. A câmera quebrada é o gancho que abre o Cap. 3 (precisar de dinheiro pra consertá-la ou comprar outra).",
-      delta: 0,
-      converge: true
-    }
-  ]
+    { id: 'drink_accept', title: 'Bebida Aceita (18/224)', text: 'Madi aceita — "Vou querer o que o Stan estiver tomando." 🔗 Pré-requisito de "Fogo Amigo" e "Fagocitose" no Cap. 14, e do caminho "Madi consumida" no Cutting Room Floor (com o pingente no Cap. 12).', delta: -10, crf: true, options: [{ label: 'Corte para 1980', target: 'jaime_confront' }] },
+    { id: 'drink_decline', title: 'Bebida Recusada (179/224)', text: 'Madi recusa — "Não, tudo bem." Caminho mais seguro, mas trava "Fogo Amigo" e "Fagocitose" nesta run (a menos que rejogue via Cutting Room Floor).', delta: 10, crf: true, options: [{ label: 'Corte para 1980', target: 'jaime_confront' }] },
+  ],
+  level7: [
+    { id: 'jaime_confront', title: '4. 1980 — O Xerife Interrompe a Filmagem', text: 'Corte para 1980: Linda, Chris e Jaime estão filmando na siderúrgica abandonada quando o Xerife Sam (o mesmo do Cap. 1, agora 17 anos mais velho) os expulsa. Na confusão, a câmera quebra — QTE de apertar o quadrado repetidamente. Depois, Jaime reage: Desafiador ("Prefiro morrer!"), Defensivo ("Chris, confio no julgamento da Linda"), Arrependido ("Sentimos muito") ou Frustrado ("O que fazemos com uma câmera quebrada?") — nenhuma fonte confirma que essas 4 opções mudam o rumo da história, então ficam registradas aqui só como sabor de diálogo. A câmera quebrada é o gancho que abre o Cap. 3.', delta: 0, converge: true },
+  ],
 };
 
 const FS_CM_TREES = {
@@ -1772,12 +1666,12 @@ const FS_CM_CHAPTERS = [
    capítulo futuro), sem precisar navegar nó por nó. */
 const FS_CM_PRESETS = {
   cap1: [
-    { id: "salvador_limpo", label: "🏆 Salvador (rota completa)", path: ["start", "registros_falsificados", "acusatorio", "mill_explore", "drink_choice", "tom_supportive", "grate_qte", "tunnel_flashlight", "flashlight_ok", "fornalha", "salvador"] },
-    { id: "setup_dinheiro_facil", label: "🔗 Setup Dinheiro Fácil", path: ["start", "conversa_padrao", "mill_explore", "drink_choice", "tom_frustrated", "grate_qte", "tunnel_flashlight", "flashlight_broken", "fornalha", "baby_dies"] }
+    { id: "salvador_limpo", label: "🏆 Salvador (rota limpa)", path: ["start", "registros_falsificados", "acusatorio", "mill_explore", "crowbar_qte", "crowbar_used", "tom_reaction", "tom_trust", "storm_drain", "flashlight_ok", "furnace_arrival", "ramp_choice", "blind_attempt", "stone_blinded", "pipe_attempt", "pipe_ok", "baby_attempt", "salvador"] },
+    { id: "setup_dinheiro_facil", label: "🔗 Setup Dinheiro Fácil", path: ["start", "conversa_padrao", "mill_explore", "crowbar_qte", "crowbar_broken", "tom_reaction", "tom_irritated", "storm_drain", "flashlight_broken", "furnace_arrival", "ladder_choice", "blind_attempt", "eye_gouged", "pipe_attempt", "pipe_injured", "baby_attempt", "baby_dies"] }
   ],
   cap2: [
-    { id: "colegas_tema", label: "🏆 Colegas de Viagem + Tema", path: ["start", "hitchhiker_stop", "manor_arrival", "reliks_room", "drink_decline", "jaime_confront"] },
-    { id: "setup_fogo_fagocitose", label: "🔗 Setup Fogo Amigo/Fagocitose", path: ["start", "hitchhiker_drive", "manor_arrival", "reliks_room", "drink_accept", "jaime_confront"] }
+    { id: "colegas_tema", label: "🏆 Colegas de Viagem + Tema", path: ["start", "hitchhiker_stop", "filmmaker_yes", "manor_arrival", "drink_decline", "jaime_confront"] },
+    { id: "setup_fogo_fagocitose", label: "🔗 Setup Fogo Amigo/Fagocitose", path: ["start", "hitchhiker_drive", "linda_late", "manor_arrival", "drink_accept", "jaime_confront"] }
   ]
 };
 
@@ -1871,7 +1765,8 @@ function fsCmSetupDragPan() {
 
   workspace.addEventListener("pointerdown", (e) => {
     if (e.pointerType !== "mouse" || e.button !== 0) return;
-    if (e.target.closest(".fs-cm-node-card") || e.target.closest("button")) return;
+    if (e.target.closest(".fs-cm-node-card") || e.target.closest("button") || e.target.closest("select") || e.target.closest(".fs-cm-chapter-picker") || e.target.closest(".fs-cm-zoom-controls")) return;
+    e.preventDefault();
     isDown = true;
     startX = e.clientX; startY = e.clientY;
     startScrollLeft = workspace.scrollLeft; startScrollTop = workspace.scrollTop;
@@ -1993,18 +1888,62 @@ function fsCmIsEdgeActive(sourceId, targetId) {
 
 function fsCmGetConvergenceNote(node) {
   if (!node.converge) return null;
-  if (node.id === "fornalha") {
-    let html = `<div class="fs-cm-convergence-note">`;
-    html += `<div class="fs-cm-conv-title">📍 Ponto de Convergência</div>`;
-    html += `<div class="fs-cm-conv-row fs-cm-conv-follow">Este é o confronto final do Cap. 1 — passar toda a sequência de QTEs fecha 🏆 "Salvador" nesta run.</div>`;
-    html += `<div class="fs-cm-conv-row fs-cm-conv-locked">Falhar de propósito trava "Salvador", mas prepara 🔗 "Dinheiro Fácil" pro Cap. 3.</div>`;
-    html += `</div>`;
-    return html;
-  }
-  return null;
+  // Cada nó de convergência pode trazer seu próprio texto em
+  // "convergeNote"; se não tiver um customizado, cai no texto padrão
+  // do próprio nó — assim não preciso mais de um caso especial por id
+  // conforme a árvore cresce com mais pontos de convergência.
+  const body = node.convergeNote || node.text;
+  return `<div class="fs-cm-popup-title">📍 Ramificação</div><div>${body}</div>`;
+}
+
+function fsCmShowConvergencePopup(evt, nodeId) {
+  evt.stopPropagation();
+  const node = fsCmFindNodeById(nodeId);
+  if (!node) return;
+  const noteHTML = fsCmGetConvergenceNote(node);
+  if (!noteHTML) return;
+
+  fsCmCloseConvergencePopup();
+
+  const app = document.querySelector(".fs-cm-app");
+  const appRect = app.getBoundingClientRect();
+  const clickX = evt.clientX - appRect.left;
+  const clickY = evt.clientY - appRect.top;
+
+  const popup = document.createElement("div");
+  popup.className = "fs-cm-popup";
+  popup.id = "fs-cm-active-popup";
+  popup.innerHTML = `<button class="fs-cm-popup-close" onclick="fsCmCloseConvergencePopup()">✕</button>${noteHTML}`;
+
+  app.appendChild(popup);
+
+  // Mantém o popup dentro dos limites do quadro, ajustando se estourar
+  // a borda direita ou inferior a partir do ponto clicado.
+  const popupWidth = popup.offsetWidth;
+  const popupHeight = popup.offsetHeight;
+  let left = clickX + 10;
+  let top = clickY + 10;
+  if (left + popupWidth > appRect.width - 8) left = Math.max(8, clickX - popupWidth - 10);
+  if (top + popupHeight > appRect.height - 8) top = Math.max(8, clickY - popupHeight - 10);
+  popup.style.left = `${left}px`;
+  popup.style.top = `${top}px`;
+
+  setTimeout(() => document.addEventListener("click", fsCmOutsidePopupClick), 0);
+}
+
+function fsCmOutsidePopupClick(evt) {
+  const popup = document.getElementById("fs-cm-active-popup");
+  if (popup && !popup.contains(evt.target)) fsCmCloseConvergencePopup();
+}
+
+function fsCmCloseConvergencePopup() {
+  const popup = document.getElementById("fs-cm-active-popup");
+  if (popup) popup.remove();
+  document.removeEventListener("click", fsCmOutsidePopupClick);
 }
 
 function fsCmRenderGraph() {
+  fsCmCloseConvergencePopup();
   const container = document.getElementById("fs-cm-nodes-container");
   // Remove só as colunas antigas — o SVG de conexões mora dentro deste
   // mesmo container (para escalar junto no zoom) e não pode ser apagado
@@ -2040,6 +1979,9 @@ function fsCmRenderGraph() {
       let trophyHTML = "";
       if (node.trophy) trophyHTML = `<div class="fs-cm-trophy-badge"><span>${node.trophy}</span></div>`;
 
+      let crfHTML = "";
+      if (node.crf) crfHTML = `<div class="fs-cm-crf-badge"><span>🎞️ Ramificação Cutting Room Floor</span></div>`;
+
       const card = document.createElement("div");
       card.className = `fs-cm-node-card ${statusClass}`;
       card.id = node.id;
@@ -2069,27 +2011,23 @@ function fsCmRenderGraph() {
         optionsHTML = `<div class="fs-cm-status-msg victory">🏆 CONCLUÍDO</div>`;
       }
 
+      let convMarkerHTML = "";
+      if (node.converge) convMarkerHTML = `<button class="fs-cm-conv-marker" title="Ver ramificação" onclick="fsCmShowConvergencePopup(event, '${node.id}')">📍</button>`;
+
       card.innerHTML = `
+        ${convMarkerHTML}
         <div class="fs-cm-node-header">
           <span class="fs-cm-node-id">${node.id.toUpperCase()}</span>
           ${tensionTag}
         </div>
         ${trophyHTML}
+        ${crfHTML}
         <div class="fs-cm-node-title">${node.title}</div>
         <div class="fs-cm-node-text">${node.text}</div>
         ${optionsHTML}
       `;
 
       column.appendChild(card);
-
-      if (isSelected) {
-        const noteHTML = fsCmGetConvergenceNote(node);
-        if (noteHTML) {
-          const noteWrap = document.createElement("div");
-          noteWrap.innerHTML = noteHTML;
-          column.appendChild(noteWrap.firstElementChild);
-        }
-      }
     });
 
     container.appendChild(column);
@@ -2119,17 +2057,28 @@ function fsCmResetNarrative() {
   fsCmRenderGraph();
 }
 
+function fsCmOffsetRelativeTo(el, ancestor) {
+  // offsetLeft/offsetTop só valem em relação ao offsetParent MAIS PRÓXIMO
+  // do elemento — se qualquer wrapper no meio do caminho (como as colunas,
+  // que têm position:relative pra ficar acima do SVG) virar offsetParent,
+  // as coordenadas cruas passam a ser relativas a ELE, não ao container
+  // principal, e as linhas saem do lugar. Somando a cadeia toda até o
+  // container, o cálculo fica correto não importa quantos wrappers
+  // posicionados existam no meio.
+  let x = 0, y = 0, node = el;
+  while (node && node !== ancestor) {
+    x += node.offsetLeft;
+    y += node.offsetTop;
+    node = node.offsetParent;
+  }
+  return { x, y };
+}
+
 function fsCmDrawConnections() {
   const svg = document.getElementById("fs-cm-svg-canvas");
   const container = document.getElementById("fs-cm-nodes-container");
   if (!svg || !container) return;
 
-  // O SVG mora dentro do mesmo container que recebe o transform:scale()
-  // do zoom, então usamos offsetLeft/offsetTop (coordenadas de layout,
-  // sempre relativas ao container e imunes à escala visual do zoom) em
-  // vez de getBoundingClientRect(). Isso faz as linhas escalarem junto
-  // com os cartões automaticamente, sem recálculo em cada passo de zoom
-  // — e sem o desalinhamento que isso causava antes.
   svg.innerHTML = "";
 
   const tree = FS_CM_TREES[fsCmSelectedChapterId];
@@ -2143,10 +2092,12 @@ function fsCmDrawConnections() {
         const targetEl = document.getElementById(opt.target);
         if (!targetEl) return;
 
-        const x1 = sourceEl.offsetLeft + sourceEl.offsetWidth;
-        const y1 = sourceEl.offsetTop + sourceEl.offsetHeight / 2;
-        const x2 = targetEl.offsetLeft;
-        const y2 = targetEl.offsetTop + targetEl.offsetHeight / 2;
+        const srcPos = fsCmOffsetRelativeTo(sourceEl, container);
+        const tgtPos = fsCmOffsetRelativeTo(targetEl, container);
+        const x1 = srcPos.x + sourceEl.offsetWidth;
+        const y1 = srcPos.y + sourceEl.offsetHeight / 2;
+        const x2 = tgtPos.x;
+        const y2 = tgtPos.y + targetEl.offsetHeight / 2;
 
         const dx = (x2 - x1) * 0.5;
         const pathData = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
