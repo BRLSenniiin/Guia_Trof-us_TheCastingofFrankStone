@@ -1596,7 +1596,7 @@ const FS_CM_TREE_CAP1 = {
   ],
   level18: [
     { id: 'salvador', title: 'ROTA: Sam Impede Frank Stone', text: 'Sam atira em Frank Stone e salva o bebê.', trophy: '🏆 "Salvador"', delta: 15, crf: true, type: 'victory' },
-    { id: 'baby_dies', title: 'ROTA: O Bebê Morre', text: 'Frank Stone mata o bebê antes que Sam consiga impedi-lo. 🔗 Combinado com "Ferido Gravemente" (lesão no ombro), isso abre o suborno de Sam no Cap. 3 — RELUTANTE → COMPLACENTE com Jaime até ele oferecer o dinheiro, e aceite pra fechar "Dinheiro Fácil".', trophy: '🔗 Setup: Dinheiro Fácil (fecha no Cap. 3, precisa também de "Ferido Gravemente")', delta: -15, crf: true, type: 'victory' },
+    { id: 'baby_dies', title: 'ROTA: O Bebê Morre', text: 'Frank Stone mata o bebê antes que Sam consiga impedi-lo. 🔗 O guia Steam "All Seeing" (fonte dedicada a pré-requisitos de conquista) confirma que só o bebê ter morrido já é suficiente pra abrir o suborno de Sam no Cap. 3 — RELUTANTE → COMPLACENTE com Jaime até ele oferecer o dinheiro, e aceite pra fechar "Dinheiro Fácil". Eu tinha registrado antes que "Ferido Gravemente" (lesão no ombro) também seria necessário; mantenho essa possibilidade como não descartada, mas a única condição confirmada por uma fonte dedicada a pré-requisitos é a morte do bebê.', trophy: '🔗 Setup: Dinheiro Fácil (fecha no Cap. 3 — bebê morto é a condição confirmada; lesão no ombro pode ou não ser adicional, não descartada)', delta: -15, crf: true, type: 'victory' },
   ],
 };
 
@@ -1649,58 +1649,63 @@ const FS_CM_TREE_CAP3 = {
   ],
   level2: [
     { id: 'jaime_apologized', title: 'Jaime se Desculpou (20/224)', text: 'Escolha recomendada pelas fontes — a rota RELUTANTE trava certas cenas mais adiante. Depois: DECEPCIONADO ("Acho que é isso", sobe relação com Sam, sem troféu) vs FRUSTRADO ("O que fazemos com uma câmera quebrada?").', delta: 10, crf: true, options: [{ label: 'Ir pra garagem de Chris', target: 'casa_rivera' }] },
-    { id: 'jaime_reluctant', title: 'Jaime Ficou Relutante', text: 'Trava temporariamente certas cenas nesta run. 🔗 Sam fica impaciente com a atitude de Jaime — combinado com uma lesão do Cap. 1 ("Ferido Gravemente"), é isso que abre a possibilidade do suborno abaixo. Este ramo específico não tem número N/224 confirmado nesta lista (que só documentou a rota Apologético) — vem de uma pesquisa cruzada anterior (Steam Guide + PSNProfiles).', delta: -10, options: [{ label: 'Sam tenta o suborno (se aplicável)', target: 'bribe_offer' }] },
+    { id: 'jaime_reluctant', title: 'Jaime Ficou Relutante', text: 'Trava temporariamente certas cenas nesta run. 🔗 Sam fica impaciente com a atitude de Jaime — segundo o guia Steam "All Seeing" (dedicado a pré-requisitos de conquista), o bebê ter morrido no Cap. 1 já é suficiente pra abrir o suborno abaixo; a combinação com "Ferido Gravemente" que eu tinha registrado antes não está descartada, mas também não é a condição confirmada por essa fonte mais precisa. Este ramo específico não tem número N/224 confirmado nesta lista (que só documentou a rota Apologético) — vem de uma pesquisa cruzada anterior (Steam Guide + PSNProfiles).', delta: -10, options: [{ label: 'Sam tenta o suborno (se aplicável)', target: 'bribe_offer' }] },
   ],
   level3: [
-    { id: 'bribe_offer', title: 'Suborno de Sam', text: 'Só ocorre se Sam tiver saído marcado do Cap. 1 ("Ferido Gravemente", o ombro machucado). Ele oferece dinheiro pro grupo ir embora.', delta: 0, converge: true, convergeNote: 'Esta cena só existe numa combinação específica de estados vindos do Cap. 1 junto com a escolha Relutante aqui — quem seguiu Apologético nunca vê esse suborno.', options: [{ label: 'Aceitar o suborno', target: 'easy_money' }, { label: 'Recusar o suborno', target: 'refuse_bribe' }] },
+    { id: 'bribe_offer', title: 'Suborno de Sam', text: 'Segundo o guia Steam "All Seeing", só ocorre se o bebê tiver morrido no Cap. 1. Sam oferece dinheiro pro grupo ir embora.', delta: 0, converge: true, convergeNote: 'Esta cena só existe numa combinação específica de estados vindos do Cap. 1 junto com a escolha Relutante aqui — quem seguiu Apologético nunca vê esse suborno.', options: [{ label: 'Aceitar o suborno', target: 'easy_money' }, { label: 'Recusar o suborno', target: 'refuse_bribe' }] },
   ],
   level4: [
-    { id: 'easy_money', title: 'ROTA: Aceita o Suborno', text: 'Jaime aceita o dinheiro de Sam. O grupo já tem verba pra câmera — a cena de Bonnie nem aparece.', trophy: '🏆 "Dinheiro Fácil"', delta: -10, options: [{ label: 'Ir direto à Rua Principal', target: 'street_choice' }] },
+    { id: 'easy_money', title: 'ROTA: Aceita o Suborno', text: 'Jaime aceita o dinheiro de Sam. O grupo já tem verba pra câmera — a cena de Bonnie nem aparece. Segundo o guia Steam "All Seeing", aceitando o suborno o grupo não chega a pedir dinheiro a Bonnie.', trophy: '🏆 "Dinheiro Fácil"', delta: -10, options: [{ label: 'Ir direto à Rua Principal', target: 'street_choice' }] },
     { id: 'refuse_bribe', title: 'Recusa o Suborno', text: 'Jaime recusa. Ainda precisa de dinheiro — segue pra garagem de Chris, igual quem escolheu Apologético.', delta: 5, options: [{ label: 'Ir pra garagem de Chris', target: 'casa_rivera' }] },
   ],
   level5: [
     { id: 'casa_rivera', title: '2. Casa Rivera (21/224)', text: 'Diálogo com Chris na garagem sobre as vítimas do Xerife Sam (PROBING/PUZZLED, sem consequência de história) e uma descoberta importante (EXCITED/FRUSTRATED).', delta: 0, converge: true, convergeNote: 'Tanto quem aceitou quanto quem recusou o suborno de Sam (quando aplicável) chegam aqui do mesmo jeito — a garagem de Chris é o próximo ponto em comum antes da cena de Bonnie.', options: [{ label: 'Ir pra garagem de Jaime', target: 'bonnie_setup' }] },
   ],
   level6: [
-    { id: 'bonnie_setup', title: '3. Garagem de Jaime — Preparando Bonnie', text: 'Diálogo JOVIAL/EMPÁTICO, CHOCADO/ESPERANÇOSO, SÉRIO/SOLIDÁRIO com a família — sem consequência de história confirmada, só aprofunda o relacionamento de Jaime.', delta: 0, converge: true, convergeNote: 'Chegando aqui vindo de qualquer caminho anterior, a preparação com a família é igual — a ramificação real só acontece na escolha seguinte: chamar Bonnie de volta ou roubar dela.', options: [{ label: 'Chamar Bonnie de volta (CALL)', target: 'call_bonnie' }, { label: 'Roubar o dinheiro (STEAL)', target: 'five_finger' }] },
+    { id: 'bonnie_setup', title: '3. Garagem de Jaime — Preparando Bonnie', text: 'Diálogo JOVIAL/EMPÁTICO, CHOCADO/ESPERANÇOSO, SÉRIO/SOLIDÁRIO com a família — sem consequência de história confirmada, só aprofunda o relacionamento de Jaime. O guia Steam "All Seeing" revela uma opção que eu não tinha registrado antes: em vez de roubar ou chamar Bonnie de volta de mãos vazias, dá pra PEDIR os $20 pra ela diretamente (rota honesta).', delta: 0, converge: true, convergeNote: 'Chegando aqui vindo de qualquer caminho anterior, a preparação com a família é igual — a ramificação real só acontece na escolha seguinte: pedir o dinheiro, chamar Bonnie de volta sem pedir, ou roubar dela.', options: [{ label: 'PEDIR os $20 pra Bonnie (honesto)', target: 'ask_bonnie' }, { label: 'Chamar Bonnie de volta sem pedir (CALL)', target: 'call_bonnie' }, { label: 'Roubar o dinheiro (STEAL)', target: 'five_finger' }] },
   ],
   level7: [
-    { id: 'call_bonnie', title: 'Chamou Bonnie de Volta', text: 'Jaime desiste de roubar. Linda aprova, mas a família ainda não tem tanto dinheiro pra câmera.', delta: 10, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
+    { id: 'ask_bonnie', title: 'Pediu os $20 pra Bonnie', text: 'Segundo o guia Steam "All Seeing", pedir os $20 diretamente é uma alternativa honesta ao roubo que garante o dinheiro suficiente pros Fogos de Artifício mais tarde na Drugstore — o mesmo efeito prático de "Dinheiro Roubado", mas sem baixar a relação com Linda. Nenhuma fonte cruzada confirma um número N/224 específico pra esta opção especificamente.', delta: 5, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
+    { id: 'call_bonnie', title: 'Chamou Bonnie de Volta (sem pedir dinheiro)', text: 'Jaime desiste de roubar e não pede o dinheiro diretamente — segundo o guia Steam "All Seeing", isso deixa Bonnie chateada e ela vai embora; o grupo então só consegue dinheiro se deixar o cronômetro acabar (Jaime vai pedir pro próprio pai, ganhando $10 — menos que os $20 necessários pros Fogos de Artifício) ou chamar por ela de novo.', delta: 0, options: [{ label: 'Deixar o tempo acabar — Jaime pede pro pai ($10)', target: 'dad_gives_ten' }, { label: 'Chamar por Bonnie de novo (rota não detalhada por nenhuma fonte)', target: 'call_bonnie_again_undocumented' }] },
     { id: 'five_finger', title: 'Dinheiro Roubado (22/224)', text: 'Jaime rouba $20 de Bonnie esperando consertar a câmera. Linda fica descontente com a escolha.', trophy: '🏆 "Desconto dos Cinco Dedos"', delta: -10, crf: true, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
   ],
   level8: [
-    { id: 'street_choice', title: '4. Rua Principal (23/224)', text: 'Chris escolhe qual loja visitar primeiro — decisão real que muda se sobra dinheiro pros Fogos de Artifício.', delta: 0, converge: true, convergeNote: 'Os caminhos que levam até aqui (suborno aceito, Bonnie roubada, ou Bonnie chamada de volta) se encontram neste ponto — só muda quanto dinheiro o grupo carrega, o que se reflete na escolha da loja.', options: [{ label: 'Drugstore primeiro', target: 'drugstore_chosen' }, { label: 'Loja de Curiosidades primeiro', target: 'curiosity_chosen' }] },
+    { id: 'dad_gives_ten', title: 'Pai de Jaime Dá $10', text: 'Segundo o guia Steam "All Seeing", com apenas $10 (em vez dos $20 necessários), o grupo não tem dinheiro suficiente pra comprar os Fogos de Artifício mais tarde na Drugstore, mesmo escolhendo essa loja primeiro.', delta: -5, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
+    { id: 'call_bonnie_again_undocumented', title: 'Rota Não Detalhada — Chamar Bonnie de Novo', text: 'Nenhuma fonte cruzada detalha o resultado exato de insistir e chamar Bonnie de volta depois que ela já saiu chateada. Fica em aberto.', delta: 0 },
   ],
   level9: [
-    { id: 'drugstore_chosen', title: 'Drugstore Escolhida (24/224)', text: 'Rota recomendada — é na Drugstore que dá pra comprar os Fogos de Artifício, importantes numa escolha do Cap. 5.', delta: 10, crf: true, options: [{ label: 'Entrar na farmácia', target: 'drugstore_scene' }] },
-    { id: 'curiosity_chosen', title: 'Loja de Curiosidades Primeiro', text: 'Indo direto pra cá, o dinheiro do grupo é gasto na câmera — não sobra nada pros Fogos de Artifício depois na Drugstore. Esta lista só documentou a rota via Drugstore, então este lado do par não tem número N/224 confirmado.', delta: -10, crf: true, options: [{ label: 'Entrar na loja de curiosidades', target: 'curiosity_scene_alt' }] },
+    { id: 'street_choice', title: '4. Rua Principal (23/224)', text: 'Chris escolhe qual loja visitar primeiro — decisão real que muda se sobra dinheiro pros Fogos de Artifício.', delta: 0, converge: true, convergeNote: 'Todos os caminhos de dinheiro (suborno aceito, $20 pedidos ou roubados de Bonnie, $10 do pai, ou nada) se encontram neste ponto — só muda quanto o grupo carrega, o que se reflete em quem consegue os Fogos de Artifício na Drugstore.', options: [{ label: 'Drugstore primeiro', target: 'drugstore_chosen' }, { label: 'Loja de Curiosidades primeiro', target: 'curiosity_chosen' }] },
   ],
   level10: [
-    { id: 'drugstore_scene', title: 'Farmácia do Calhern (25/224)', text: 'Diálogo ENCORAJADOR (sobe relação Jaime/Chris) vs PROVOCATIVO. Colecionáveis: revista Lost Movie Magazine e a Bugiganga 3/12 (Waterlogged Shoe). No fliperama Fear Trap, 5.030+ pontos rendem o troféu na hora.', trophy: '🏆 "Herói 8 Bit"', delta: 10, converge: true, convergeNote: 'Só é alcançado por quem escolheu a Drugstore primeiro — é aqui que se decide se sobra dinheiro pros Fogos de Artifício do Cap. 5.', options: [{ label: 'Falar com Linda sobre os fogos', target: 'firecrackers_choice' }] },
+    { id: 'drugstore_chosen', title: 'Drugstore Escolhida (24/224)', text: 'Rota recomendada — é na Drugstore que dá pra comprar os Fogos de Artifício, importantes numa escolha do Cap. 5. Segundo o guia Steam "All Seeing", só é possível comprá-los com $20 completos (pedidos ou roubados de Bonnie) — quem tem só os $10 do pai, ou aceitou o suborno de Sam, ou não tem nada, não consegue completar a compra mesmo escolhendo esta loja primeiro.', delta: 10, crf: true, options: [{ label: 'Entrar na farmácia', target: 'drugstore_scene' }] },
+    { id: 'curiosity_chosen', title: 'Loja de Curiosidades Primeiro', text: 'Indo direto pra cá, o dinheiro do grupo é gasto na câmera — não sobra nada pros Fogos de Artifício depois na Drugstore. Esta lista só documentou a rota via Drugstore, então este lado do par não tem número N/224 confirmado.', delta: -10, crf: true, options: [{ label: 'Entrar na loja de curiosidades', target: 'curiosity_scene_alt' }] },
   ],
   level11: [
-    { id: 'firecrackers_choice', title: 'Conversa com Linda', text: 'ROMÂNTICO ("Porque eu o amo") vs DEFENSIVO ("É o que os casais dizem") — o romântico baixa a relação com Linda, que acha cedo demais pra tanto sentimento.', delta: 0, converge: true, convergeNote: 'Esta conversa com Linda acontece independente do resultado no fliperama — o troféu "Herói 8 Bit" e a compra dos fogos não se cruzam.', options: [{ label: 'Comprar os fogos de artifício', target: 'firecrackers_bought' }] },
+    { id: 'drugstore_scene', title: 'Farmácia do Calhern (25/224)', text: 'Diálogo ENCORAJADOR (sobe relação Jaime/Chris) vs PROVOCATIVO. Colecionáveis: revista Lost Movie Magazine e a Bugiganga 3/12 (Waterlogged Shoe). No fliperama Fear Trap, 5.030+ pontos rendem o troféu na hora.', trophy: '🏆 "Herói 8 Bit"', delta: 10, converge: true, convergeNote: 'Só é alcançado por quem escolheu a Drugstore primeiro — é aqui que se decide se sobra dinheiro pros Fogos de Artifício do Cap. 5, e isso depende de ter os $20 completos (pedidos ou roubados), não os $10 do pai.', options: [{ label: 'Falar com Linda sobre os fogos', target: 'firecrackers_choice' }] },
   ],
   level12: [
-    { id: 'firecrackers_bought', title: 'Fogos Comprados (26/224)', text: 'O grupo compra os Fogos de Artifício automaticamente (só possível vindo da Drugstore com dinheiro sobrando) — item essencial numa escolha do Cap. 5.', delta: 10, crf: true, options: [{ label: 'Ir para a Loja de Curiosidades', target: 'curiosity_scene' }] },
+    { id: 'firecrackers_choice', title: 'Conversa com Linda', text: 'ROMÂNTICO ("Porque eu o amo") vs DEFENSIVO ("É o que os casais dizem") — o romântico baixa a relação com Linda, que acha cedo demais pra tanto sentimento.', delta: 0, converge: true, convergeNote: 'Esta conversa com Linda acontece independente do resultado no fliperama — o troféu "Herói 8 Bit" e a compra dos fogos não se cruzam.', options: [{ label: 'Comprar os fogos de artifício', target: 'firecrackers_bought' }] },
   ],
   level13: [
-    { id: 'curiosity_scene', title: '5. Loja de Curiosidades (27/224)', text: 'Diálogo sobre roubar da loja: CÍNICO/PEDANTE vs concordar em não roubar (sobe relação com Jaime). Colecionáveis: Lawyer Letter (Artefato d\'A Narradora) e o Rellik do Trapper.', delta: 10, converge: true, convergeNote: 'Quem veio da Drugstore chega aqui com os Fogos de Artifício garantidos; quem veio direto, não. Dali pra frente, a negociação da câmera é igual pros dois — a única diferença é o que já está na mochila.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
-    { id: 'curiosity_scene_alt', title: 'Loja de Curiosidades (sem os Fogos)', text: 'Mesma cena de antes, mas sem dinheiro sobrando pros Fogos de Artifício — já foi gasto aqui na câmera.', delta: 0, converge: true, convergeNote: 'Esta é a versão da Loja de Curiosidades pra quem NÃO passou pela Drugstore antes — mesma cena, mas sem os Fogos de Artifício na mochila. A negociação da câmera segue igual pros dois caminhos a partir daqui.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
+    { id: 'firecrackers_bought', title: 'Fogos Comprados (26/224)', text: 'O grupo compra os Fogos de Artifício automaticamente (só possível vindo da Drugstore com os $20 completos sobrando — pedidos ou roubados de Bonnie, não os $10 do pai nem o suborno aceito) — item essencial numa escolha do Cap. 5.', delta: 10, crf: true, options: [{ label: 'Ir para a Loja de Curiosidades', target: 'curiosity_scene' }] },
   ],
   level14: [
-    { id: 'camera_deal', title: '6. Negociando a Câmera', text: 'Ao pegar o carretel de filme, começa a negociação do preço da câmera de 8mm com a vendedora.', delta: 0, converge: true, convergeNote: 'Essas 4 ramificações do final da Loja de Curiosidades (28, 29, 149 e 150/224) têm os números mais bem confirmados do capítulo inteiro — vieram de uma lista separada da TrueAchievements dedicada só a essa cena.', options: [{ label: 'Aceitar o preço (APRECIATIVO)', target: 'price_accepted' }, { label: 'Regatear (DUVIDOSO)', target: 'price_haggled' }] },
+    { id: 'curiosity_scene', title: '5. Loja de Curiosidades (27/224)', text: 'Diálogo sobre roubar da loja: CÍNICO/PEDANTE vs concordar em não roubar (sobe relação com Jaime). Colecionáveis: Lawyer Letter (Artefato d\'A Narradora) e o Rellik do Trapper.', delta: 10, converge: true, convergeNote: 'Quem veio da Drugstore com os $20 completos chega aqui com os Fogos de Artifício garantidos; quem veio direto, ou tinha só $10/suborno, não. Dali pra frente, a negociação da câmera é igual pros dois — a única diferença é o que já está na mochila.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
+    { id: 'curiosity_scene_alt', title: 'Loja de Curiosidades (sem os Fogos)', text: 'Mesma cena de antes, mas sem dinheiro sobrando pros Fogos de Artifício — já foi gasto aqui na câmera.', delta: 0, converge: true, convergeNote: 'Esta é a versão da Loja de Curiosidades pra quem NÃO passou pela Drugstore antes — mesma cena, mas sem os Fogos de Artifício na mochila. A negociação da câmera segue igual pros dois caminhos a partir daqui.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
   ],
   level15: [
+    { id: 'camera_deal', title: '6. Negociando a Câmera', text: 'Ao pegar o carretel de filme, começa a negociação do preço da câmera de 8mm com a vendedora.', delta: 0, converge: true, convergeNote: 'Essas 4 ramificações do final da Loja de Curiosidades (28, 29, 149 e 150/224) têm os números mais bem confirmados do capítulo inteiro — vieram de uma lista separada da TrueAchievements dedicada só a essa cena.', options: [{ label: 'Aceitar o preço (APRECIATIVO)', target: 'price_accepted' }, { label: 'Regatear (DUVIDOSO)', target: 'price_haggled' }] },
+  ],
+  level16: [
     { id: 'price_accepted', title: 'Preço Aceito (150/224)', text: 'Sem regatear, a compra da câmera segue direto.', delta: 0, crf: true, options: [{ label: 'Fim do Cap. 3', target: 'end_cap3' }] },
     { id: 'price_haggled', title: 'Preço Regateado (28/224)', text: 'Regateando, a vendedora não abaixa o preço, mas oferece um espelho de bolso.', delta: 0, crf: true, converge: true, convergeNote: 'Regatear sempre leva ao oferecimento do espelho — quem aceita o preço cheio (Preço Aceito, 150/224) nunca vê essa oferta. As duas respostas ao espelho fecham o capítulo do mesmo jeito, só muda se ele volta no Cap. 14.', options: [{ label: 'Aceitar o espelho (POLIDO)', target: 'mirror_gifted' }, { label: 'Recusar o espelho (DUVIDOSO)', target: 'mirror_refused' }] },
   ],
-  level16: [
-    { id: 'mirror_gifted', title: 'Espelho Ganho (29/224)', text: 'Aceita o espelho de bolso — ele reaparece lá na frente, no Cap. 14.', trophy: '🔗 Espelho de Bolso (retorna no Cap. 14)', delta: 5, crf: true, options: [{ label: 'Fim do Cap. 3', target: 'end_cap3' }] },
-    { id: 'mirror_refused', title: 'Espelho Recusado (149/224)', text: 'Recusa o espelho — essa ramificação fica fechada nesta run.', delta: 0, crf: true, options: [{ label: 'Fim do Cap. 3', target: 'end_cap3' }] },
-  ],
   level17: [
-    { id: 'end_cap3', title: '7. Fim do Capítulo', text: 'O grupo volta pra garagem de Jaime com a câmera resolvida — gancho pro Cap. 5 (o Cap. 4 acontece em paralelo, com Linda em 2024).', delta: 0, converge: true, convergeNote: 'Todas as combinações possíveis de escolha deste capítulo (suborno ou não, Bonnie ou não, loja e preço) desembocam neste mesmo final — as diferenças ficam registradas na Sala de Montagem, não na cena que você vê aqui.' },
+    { id: 'mirror_gifted', title: 'Espelho Ganho (29/224)', text: 'Aceita o espelho de bolso — ele reaparece lá na frente, no Cap. 14: o guia Steam "All Seeing" confirma que Chris precisa ter recebido o pingente no Cap. 12 (ou regateado a câmera) E aceitado este espelho pra abrir a cena "Pingente/Espelho Queimado" com ela lá no capítulo final.', trophy: '🔗 Espelho de Bolso (retorna no Cap. 14 — combinado com o pingente do Cap. 12 em posse de Chris)', delta: 5, crf: true, options: [{ label: 'Fim do Cap. 3', target: 'end_cap3' }] },
+    { id: 'mirror_refused', title: 'Espelho Recusado (149/224)', text: 'Recusa o espelho — essa ramificação fica fechada nesta run, e a cena "Pingente/Espelho Queimado" do Cap. 14 não fica disponível por essa via.', delta: 0, crf: true, options: [{ label: 'Fim do Cap. 3', target: 'end_cap3' }] },
+  ],
+  level18: [
+    { id: 'end_cap3', title: '7. Fim do Capítulo', text: 'O grupo volta pra garagem de Jaime com a câmera resolvida — gancho pro Cap. 5 (o Cap. 4 acontece em paralelo, com Linda em 2024).', delta: 0, converge: true, convergeNote: 'Todas as combinações possíveis de escolha deste capítulo (suborno ou não, dinheiro pedido/roubado/dado pelo pai, loja e preço) desembocam neste mesmo final — as diferenças ficam registradas na Sala de Montagem, não na cena que você vê aqui.' },
   ],
 };
 
@@ -1838,7 +1843,7 @@ const FS_CM_TREE_CAP5 = {
     { id: 'machine_shop_intro', title: '9. Loja de Máquinas — Tutorial da Câmera (44/224 ou 45/224)', text: 'Troca pra Chris. Tutorial da câmera: filme o brilho verde estranho até a barra esvaziar — esse mecanismo volta a valer a partir do Cap. 7, contra o próprio Frank Stone. Na Passagem seguinte (45/224 ou 46/224), um buraco na parede à direita esconde o Rellik The Clown (5/12 — TA e Docs concordam, sem discrepância). Destrave a porta da Casting Foundry com a chave pega na galeria pluvial e resolva uma sequência de plataforma com prateleiras/carrinho pra pegar a Iridescent Head — contador 7/12 (TA), posição final 4º (TA e Docs concordam).', delta: 0, options: [{ label: 'Entrar na Loja de Máquinas com Jaime', target: 'robert_generator' }] },
   ],
   level12: [
-    { id: 'robert_generator', title: '10. Gerador — Conversa com Robert', text: 'Troca pra Jaime. IMPACIENTE ("Quero uns minutos a sós com a Chris") é a escolha da rota normal; AGRESSIVO ("Está dando em cima da minha namorada?") é o 4º e último passo da corrente oculta dos sentimentos por Linda — só escolha assim se completou CONTIDO + INSEGURO + MESQUINHO antes.', delta: 0, options: [{ label: 'IMPACIENTE (rota normal)', target: 'generator_repair' }, { label: 'AGRESSIVO (corrente oculta completa)', target: 'generator_repair' }] },
+    { id: 'robert_generator', title: '10. Gerador — Conversa com Robert', text: 'Troca pra Jaime. IMPACIENTE ("Quero uns minutos a sós com a Chris") é a escolha da rota normal; AGRESSIVO ("Está dando em cima da minha namorada?", acusando Robert de dar em cima de Chris) é o 4º e último passo da corrente oculta dos sentimentos por Linda — só escolha assim se completou CONTIDO + INSEGURO + MESQUINHO antes. O guia Steam "All Seeing" acrescenta um pré-requisito que eu não tinha registrado: é preciso também manter uma relação positiva entre Jaime e Chris ao longo do capítulo pra essa corrente funcionar — não é só a sequência exata de falas.', delta: 0, options: [{ label: 'IMPACIENTE (rota normal)', target: 'generator_repair' }, { label: 'AGRESSIVO (corrente oculta completa, precisa também de relação Jaime/Chris positiva)', target: 'generator_repair' }] },
   ],
   level13: [
     { id: 'generator_repair', title: '11. Reparando o Gerador', text: 'Pegue as 2 peças da máquina espalhadas pela sala e conserte o gerador — um mini-jogo de vários testes de habilidade em sequência (o mesmo sistema usado depois em Dead by Daylight). Acertar 5 seguidos rende 🏆 "Skills? Check!"; 10 Testes Ótimos rendem 🏆 "It\'s All in the Reflexes" — dá pra soltar o botão de reparo e recomeçar sem perder o progresso da conquista, então dá pra farmar aqui com calma. Este é também o 1º de 3 geradores do jogo pra 🏆 "Tinkerer".', delta: 0, converge: true, convergeNote: 'A escolha entre IMPACIENTE e AGRESSIVO na conversa com Robert não muda nada na mecânica do reparo em si — as duas rotas se encontram aqui de novo. A diferença de verdade só vai aparecer no Covil, quando a corrente oculta (se completa) libera uma opção de diálogo exclusiva.', options: [{ label: 'Pegar a chave e subir no trem', target: 'boxcar_choice' }] },
@@ -2001,6 +2006,563 @@ const FS_CM_TREE_CAP7 = {
   ],
 };
 
+/* ─── Capítulo 8: Mansão Misteriosa (Linda/Madison, 2024 — com um intervalo em 1980) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
+   Trophies Hunter PT-BR, Google Docs (N/224), três blocos da TrueAchievements
+   (resumo + dois detalhados — "Manter Madi viva/Diário" e "Matar Madi/Bolsa"),
+   além de TheGamer, Neoseeker (walkthrough, colecionáveis E o guia de
+   finais), Nintendosmash e a Fandom Wiki oficial.
+
+   O deslocamento de "+1" entre TA e Docs (desde o Cap. 5) se mantém
+   perfeitamente estável em TODOS os marcos deste capítulo — não repito a
+   ressalva em cada nó. E a sequência dos números "alternativos" da TA
+   continua exatamente de onde parou no Cap. 7: 202 (Linda Impaled) →
+   203-204/224 aqui (Madi Killed, Linda Took Gun). Sétimo e oitavo pontos
+   de dados seguidos confirmando o mesmo padrão sequencial.
+
+   MAIOR DESCOBERTA DO CAPÍTULO — um payoff direto do Cap. 5 que nenhuma
+   fonte do .txt mencionava: segundo a Fandom Wiki e o Nintendosmash, é o
+   sucesso de Madi no QTE do interruptor do horologium que resgata Chris
+   do limbo do portal onde ela foi sugada no fim do Cap. 5 — ela reaparece
+   em 2024 logo na cutscene seguinte. Se Madi falha (e morre), nenhuma
+   fonte confirma se Chris ainda consegue voltar.
+
+   Também vale registrar, pra quando chegarmos no Cap. 14: o guia de
+   finais da Neoseeker confirma que a sobrevivência de Madi aqui (matá-la
+   de propósito x mantê-la viva) é uma das decisões-chave que definem
+   qual final de Madison/Linda/Sam é possível lá na frente. Fica anotado,
+   não construído — fora de escopo por enquanto. */
+const FS_CM_TREE_CAP8 = {
+  level1: [
+    { id: 'start', title: '1. Corredores (60/224 ou 61/224)', text: 'Auto-unlock Corridors. Linda encontra Sam no Santuário — os dois não se falam há 20 anos, e Sam está convencido de que a lenda de Murder Mill é real: o filme é amaldiçoado. Ele reconhece Stan e o acusa de ter roubado o pedaço do filme de Robert num momento de fraqueza, partindo pra cima dele (o soco erra). Stan sai bravo, e Linda manda Madi atrás dele. Diálogo sem ramificação real: NOSTÁLGICA/CHOCADA, CÉTICA/PREOCUPADA, DEFENSIVA/HESITANTE (a TrueAchievements confirma que a opção oposta em cada wheel só baixa a relação Sam/Linda, sem mudar a história).', delta: 0, options: [{ label: 'Trocar para Madison e seguir Stan', target: 'madison_corridor' }] },
+  ],
+  level2: [
+    { id: 'madison_corridor', title: '2. Corredor — Seguindo Stan (61/224 ou 62/224)', text: 'Auto-unlock Corridor. Siga o caminho à esquerda atrás de Stan. Examine a TV e desligue-a — o layout do corredor muda depois disso. Continue até as escadas e pegue, à esquerda antes de descer, o artefato Shrine (Storyteller 6/10 — TA e Docs concordam, sem discrepância). Desça e atravesse a porta de metal no fim do corredor.', delta: 0, options: [{ label: 'Interagir com o console do Horologium', target: 'ring_puzzle' }] },
+  ],
+  level3: [
+    { id: 'ring_puzzle', title: '3. Quebra-Cabeça dos Anéis do Horologium', text: 'No console, gire os anéis até alinhar as luzes com o anel externo fixo — o padrão é aleatório a cada partida, então não existe solução fixa pra dar aqui. Repita esse processo 3 vezes, puxando uma alavanca depois de cada solução pra desativar um anel (as alavancas ficam em plataformas ao redor da sala). Depois da 3ª alavanca, uma caixa se abre no centro da sala — interaja com ela pra iniciar um QTE de apertar botão repetidamente, com 2 tentativas.', delta: 0, options: [{ label: 'Passar no QTE (2 tentativas)', target: 'madi_switch_success' }, { label: 'Falhar as 2 tentativas de propósito', target: 'madi_killed' }] },
+  ],
+  level4: [
+    { id: 'madi_switch_success', title: 'Madi Acionou o Interruptor (62/224 ou 63/224)', text: 'Madi consegue liberar a energia acumulada no horologium com sucesso. Segundo a Fandom Wiki e o Nintendosmash, é justamente esse gesto que resgata Chris do limbo do portal onde ela foi sugada no fim do Cap. 5 — Chris reaparece em 2024 logo na cutscene seguinte.', delta: 15, crf: true, options: [{ label: 'Continuar — intervalo em Cedar Hills', target: 'chapter_x_transition' }] },
+    { id: 'madi_killed', title: 'Madi Morta (203/224 — só a TA documenta, dando sequência aos 192-202 dos capítulos anteriores)', text: 'Madi falha as duas tentativas do QTE — segundo a Fandom Wiki, ela envelhece rapidamente e morre. Nenhuma fonte cruzada confirma se Chris ainda consegue ser resgatada do portal nessa rota. O guia de finais da Neoseeker chega a recomendar matar Madi assim de propósito bem cedo, dependendo de qual final específico do Cap. 14 você estiver mirando — mas isso é assunto pra quando chegarmos lá.', delta: -20, crf: true, options: [{ label: 'Continuar — intervalo em Cedar Hills', target: 'chapter_x_transition' }] },
+  ],
+  level5: [
+    { id: 'chapter_x_transition', title: '4. Intervalo "Capítulo X" em Cedar Hills, 1980 (63/224-64/224 ou 64/224-65/224)', text: 'Uma cutscene rápida — chamada de "Chapter X" nos guias por algum motivo — mostra Robert procurando o próprio pai em Cedar Hills, interagindo com o dono da Loja de Curiosidades (o mesmo lugar do Cap. 3). Depois disso, o jogo volta pra Linda em 2024, no Corredor, com um auto-unlock antecipado de Archive.', delta: 0, converge: true, convergeNote: 'Madi ter sobrevivido ou morrido no interruptor não muda esse intervalo — as duas rotas seguem pro mesmo trecho com Robert antes de voltar pra Linda.', options: [{ label: 'Voltar ao Corredor com Linda', target: 'linda_corridor_dialogue' }] },
+  ],
+  level6: [
+    { id: 'linda_corridor_dialogue', title: '5. Corredor — Seguindo Sam', text: 'EXIGENTE ("Você ainda me deve respostas") ou SOMBRIA ("Ela me prometeu liberdade") — sem consequência de história confirmada. Linda e Sam exploram a mansão conversando sobre Madi, Bonnie e o filme; Sam insinua que os eventos de 1980 estão acontecendo "ao mesmo tempo" que o presente — uma pista sobre a natureza multiversal da história (o próprio TheGamer nota que Augustine, mais adiante, fala abertamente sobre mundos diferentes se misturando e a Entidade). Num cruzamento de corredor, Sam desmaia.', delta: 0, options: [{ label: 'Reagir ao desmaio de Sam', target: 'pouch_diary_choice' }] },
+  ],
+  level7: [
+    { id: 'pouch_diary_choice', title: '6. Escolha Cronometrada — Bolsa ou Diário', text: 'Com Sam desmaiado, escolha real e decisiva: BOLSA abre a possibilidade de roubar a arma de Sam; DIÁRIO dá uma Descoberta e abre um arco exclusivo com uma carta que revela quem é Logan Chen. A TrueAchievements descreve as duas como "caminhos de cena independentes" — não dá pra ter as duas coisas na mesma run.', delta: 0, options: [{ label: 'BOLSA — chance de pegar a arma', target: 'pouch_route' }, { label: 'DIÁRIO — Descoberta + arco da carta', target: 'diary_route' }] },
+  ],
+  level8: [
+    { id: 'pouch_route', title: 'Rota da Bolsa — A Arma de Sam', text: 'Escolhendo BOLSA, vem um teste de habilidade rápido (passe nele) e depois a opção de ROUBAR A ARMA E FICAR COM ELA — liberando Linda Took Gun (204/224, só a TA documenta, dando sequência à numeração suspeita). Nenhuma fonte cruzada documenta uma alternativa a "ficar com a arma" nessa escolha. Depois: RESISTENTE ("Você não está facilitando") — sem carta, então o arco de Logan Chen não vai acontecer nessa run.', delta: 10, crf: true, options: [{ label: 'Entrar no arquivo escondido', target: 'archive_explore' }] },
+    { id: 'diary_route', title: 'Rota do Diário — Descoberta e Fuga (65/224 ou 66/224)', text: 'Escolhendo DIÁRIO, Linda ganha uma Descoberta e enfrenta dois testes de habilidade seguidos — passe os dois pra liberar Linda Stole Letter. Depois: SOLIDÁRIA ("Vou te ajudar, Sam", a única que sobe a relação Sam/Linda), PREOCUPADA ("Olhei seu diário", também uma Descoberta) ou RESISTENTE — as duas últimas baixam a relação.', delta: 10, crf: true, options: [{ label: 'Entrar no arquivo escondido', target: 'archive_explore' }] },
+  ],
+  level9: [
+    { id: 'archive_explore', title: '7. Explorando o Arquivo Escondido (66/224 ou 67/224)', text: 'Bolsa ou Diário levam ao mesmo arquivo secreto atrás de uma porta escondida na parede. Colecionáveis: T-Shirt (Murder Mill, contador 8/10 na TA, posição final 10º — TA e Docs concordam), Fake Prop Arm (Murder Mill, contador 9/10 TA, posição final 8º — TA e Docs concordam; segundo o Neoseeker, nesta versão é o OUTRO braço do Jaime que aparece arranjado no boneco, um detalhe multiversal), Rellik The Nurse (7/12, sem discrepância entre fontes), Flawed Lamp (Storyteller 7/10, sem discrepância). No projetor de filme, assista à fita pra liberar Linda Watched Film e o colecionável Alt Movie Scene (Murder Mill, 10º e último — fecha 🏆 "Murder Mill" com todos os artefatos da categoria); segundo o Neoseeker, essa cena alternativa mostra Jaime e Bonnie atuando no lugar de Jaime e Chris, mais uma pista multiversal. Se Linda tiver a carta (rota Diário), ela a lê automaticamente aqui, liberando o artefato Logan Chen Letter (Storyteller 8/10).', delta: 0, converge: true, convergeNote: 'A exploração do arquivo em si é igual nas duas rotas — a diferença real só aparece depois: sem a carta (rota Bolsa), não existe cena de confronto sobre Logan Chen, e o capítulo termina por aqui mesmo.', options: [{ label: 'Com a carta (rota Diário) — confrontar Sam sobre Logan Chen', target: 'sam_confrontation_choice' }, { label: 'Sem a carta (rota Bolsa) — fim do capítulo', target: 'end_cap8_pouch_ending' }] },
+  ],
+  level10: [
+    { id: 'end_cap8_pouch_ending', title: 'Fim do Capítulo (rota Bolsa, sem confronto)', text: 'Sem a carta em mãos, não existe gancho pra perguntar sobre Logan Chen. O capítulo termina logo depois de assistir ao filme no projetor.', delta: 0, type: 'victory' },
+    { id: 'sam_confrontation_choice', title: '8. Confrontar Sam sobre a Carta (68/224 ou 69/224)', text: 'Com a carta lida (Linda Read Letter), surge a escolha final do capítulo: ENFURECIDA ("É melhor você parar de mentir"), PROBING ("Quem é Logan Chen?", uma Descoberta que só aparece com a carta em mãos e — segundo a TrueAchievements — abre um caminho de história único, sinalizado por um ícone de lupa ao lado da opção) ou APOLOGÉTICA ("Desculpa, só estou meio abalada"). A TrueAchievements recomenda fortemente PROBING.', delta: 0, options: [{ label: 'PROBING — "Quem é Logan Chen?" (caminho único)', target: 'linda_confronted_sam' }, { label: 'ENFURECIDA ou APOLOGÉTICA (sem caminho único documentado)', target: 'end_cap8_no_confrontation' }] },
+  ],
+  level11: [
+    { id: 'linda_confronted_sam', title: 'Linda Confrontou Sam (69/224 ou 70/224)', text: 'Escolhendo PROBING, Linda pergunta diretamente sobre Logan Chen — abrindo o caminho único de história citado pela TrueAchievements. Uma cutscene longa encerra o capítulo com grandes revelações sobre a natureza do filme Murder Mill e sua importância entre várias dimensões — Augustine entra num monólogo sobre mundos diferentes se misturando e a Entidade (segundo o TheGamer).', delta: 10, type: 'victory' },
+    { id: 'end_cap8_no_confrontation', title: 'Fim do Capítulo (sem confronto direto)', text: 'Escolhendo ENFURECIDA ou APOLOGÉTICA em vez de PROBING, nenhuma fonte cruzada documenta o que muda especificamente — só fica confirmado que o caminho único sobre Logan Chen não se abre. O capítulo termina do mesmo jeito, só que sem essa revelação específica.', delta: 0, type: 'victory' },
+  ],
+};
+
+/* ─── Capítulo 9: Descida dos Condenados / Terreno de Caça (Linda, 1980) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
+   Trophies Hunter PT-BR, Google Docs (N/224), dois blocos da
+   TrueAchievements, além de Neoseeker (walkthrough E colecionáveis),
+   Sportskeeda e o guia de finais da própria Neoseeker.
+
+   CORREÇÃO IMPORTANTE ao que vínhamos documentando desde o Cap. 4: a
+   TrueAchievements finalmente identifica de forma explícita, neste
+   capítulo, o que é aquela numeração "suspeita" (192 em diante) que
+   vínhamos tratando como hipótese de "segunda passagem via Cutting Room
+   Floor". O texto da própria TA diz literalmente: "see The Casting of
+   Frank Stone, Playthrough Two (Part 2) for that series of events" —
+   ou seja, NÃO é uma segunda passagem dentro do mesmo save via CRF, é
+   uma SEGUNDA CAMPANHA COMPLETA E SEPARADA que a TA documenta num guia
+   à parte, escolhendo sistematicamente as opções opostas às da campanha
+   principal. Isso explica perfeitamente por que os números sobem em
+   sequência crescente capítulo a capítulo (194-199 no Cap. 5, 200-201
+   no Cap. 6, 202 no Cap. 7, 203-204 no Cap. 8, agora 205-206 aqui) —
+   é só o contador dessa segunda campanha avançando normalmente, história
+   a história, junto com a campanha principal.
+
+   Este é o primeiro capítulo do jogo que muda de NOME dependendo de uma
+   escolha anterior: se Linda escapou do galpão de vagões no Cap. 7, o
+   capítulo se chama "Descent of the Damned" e ela explora sozinha o
+   Prédio da Administração; se ela foi fisgada no Cap. 7, o capítulo vira
+   "Hunting Ground", bem mais curto, com Bonnie desenganchando Linda e
+   fugindo de Frank Stone de novo. A Sportskeeda confirma ainda um
+   segundo cruzamento dentro dessa rota: a cena de resgatar Jaime no
+   muro só acontece se ele tiver sobrevivido ao confronto do Cap. 5 —
+   se ele já tinha morrido lá, essa cena inteira é pulada. */
+const FS_CM_TREE_CAP9 = {
+  level1: [
+    { id: 'start', title: '1. Um Capítulo Totalmente Diferente — Depende do Cap. 7', text: 'Este não é um novo diálogo pra escolher agora — é o pagamento automático de como o Cap. 7 terminou. A TrueAchievements confirma que, se Linda foi fisgada por Frank Stone lá, o Cap. 9 muda completamente, até de nome: em vez de "Descent of the Damned", ele vira "Hunting Ground", numa sequência bem mais curta.', delta: 0, options: [{ label: 'Linda escapou no Cap. 7 — Descida dos Condenados', target: 'underbelly_start' }, { label: 'Linda foi fisgada no Cap. 7 — Terreno de Caça', target: 'hunting_ground_start' }] },
+  ],
+  level2: [
+    { id: 'underbelly_start', title: '2. Subterrâneo — Sozinha no Prédio da Administração (70/224 ou 71/224)', text: 'Auto-unlock Underbelly. Linda se separou dos outros e foi parar sozinha no antigo Prédio da Administração, tentando achar o caminho de volta. Aperte-se pela fresta na parede pra chegar ao banheiro e siga pela porta imediatamente à direita.', delta: 0, options: [{ label: 'Explorar o vestiário', target: 'locker_room' }] },
+    { id: 'hunting_ground_start', title: '2. Terreno de Caça — Bonnie Resgata Linda (205/224 — só documentado na "Playthrough Two" da TA)', text: 'Bonnie consegue desenganchar Linda, e as duas saem do pátio juntas numa cutscene. Do lado de fora, Frank Stone reaparece, e as duas precisam escalar às pressas uma saliência pra escapar de novo — Linda puxa Bonnie pra cima logo em seguida.', delta: 0, options: [{ label: 'Continuar', target: 'jaime_alive_check' }] },
+  ],
+  level3: [
+    { id: 'locker_room', title: '3. Vestiário — Chave e Colecionável', text: 'Vire à direita e rasteje por baixo dos armários caídos até achar um armário de arquivo — abra pra pegar a Chave. Volte, rasteje de novo pelos armários caídos, siga pela parede oposta e aperte-se por outra fresta até uma segunda fileira de armários. Use a chave num deles pra pegar o Grandmother Letter (Champion 7/10 — TA e Docs concordam, sem discrepância desta vez).', delta: 0, options: [{ label: 'Seguir até a sala das caldeiras', target: 'boiler_room' }] },
+    { id: 'jaime_alive_check', title: '3. Jaime Ainda Vivo? — Depende do Cap. 5', text: 'De novo, não é uma escolha nova — é o pagamento automático do confronto do Cap. 5. Se Jaime sobreviveu (fugiu ou usou os Fogos de Artifício), ele também está tentando escapar e precisa de ajuda pra subir o mesmo muro, abrindo uma cena de resgate real. Se ele já tinha morrido no Cap. 5, essa cena inteira é pulada e o capítulo termina logo em seguida.', delta: 0, options: [{ label: 'Jaime vivo — cena de resgate no muro', target: 'jaime_wall_qte' }, { label: 'Jaime já estava morto — capítulo termina aqui', target: 'end_hunting_ground_no_jaime' }] },
+  ],
+  level4: [
+    { id: 'boiler_room', title: '4. Sala das Caldeiras — Duas Válvulas', text: 'Interaja com uma caldeira pra atualizar o objetivo: faltam 2 peças/válvulas. Uma está numa cabine de chuveiro perto do banheiro; a outra está dentro de um armário do vestiário (volte lá pra pegá-la). Com as duas em mãos, volte à sala das caldeiras, encaixe-as e gire as rodas pra cessar o vapor que bloqueia a passagem.', delta: 0, options: [{ label: 'Descer as escadas até os túneis', target: 'tunnels_merlin' }] },
+    { id: 'jaime_wall_qte', title: '4. Resgatando Jaime no Muro', text: 'Escolha real e decisiva: passar no QTE de apertar botão (seguido de um teste de habilidade) faz Linda conseguir puxar Jaime pra cima também — o trio (Linda, Bonnie e Jaime) fica a salvo por enquanto, e o capítulo termina logo em seguida (a TrueAchievements descreve como "capítulo curto" nessa rota). Falhar as duas coisas de propósito faz Jaime morrer na frente de Linda e Bonnie. A Trophies Hunter PT-BR recomenda especificamente deixar Jaime morrer aqui — sem detalhar exatamente por qual motivo (troféu ou final específico), então fica só registrado como recomendação, não como certeza do porquê.', delta: 0, options: [{ label: 'Passar no QTE — Jaime sobrevive', target: 'end_hunting_ground_jaime_alive' }, { label: 'Falhar de propósito — Jaime morre', target: 'jaime_killed' }] },
+  ],
+  level5: [
+    { id: 'tunnels_merlin', title: '5. Túneis — A Coleira de Merlin', text: 'Siga pelos túneis (esquerda, depois direita) até um beco sem saída com uma coleira de cachorro no chão. Pegue e gire pra ler a plaquinha — quando Linda disser "Merlin" em voz alta, é sinal de que foi lido certo, liberando 🏆 "Bad Dog".', trophy: '🏆 "Bad Dog"', delta: 10, options: [{ label: 'Continuar pelos túneis', target: 'franks_nest' }] },
+    { id: 'jaime_killed', title: 'Jaime Morto (206/224 — só documentado na "Playthrough Two" da TA)', text: 'Falhando o apertar-botão e o teste de habilidade seguinte, Jaime morre na frente de Linda e Bonnie. O capítulo termina logo em seguida.', delta: -20, type: 'victory' },
+    { id: 'end_hunting_ground_jaime_alive', title: 'Trio a Salvo (rota Jaime vivo)', text: 'Linda consegue puxar Jaime pra cima também. Os três — Linda, Bonnie e Jaime — ficam a salvo por enquanto. Capítulo curto, termina logo em seguida.', delta: 15, type: 'victory' },
+    { id: 'end_hunting_ground_no_jaime', title: 'Fim do Capítulo (sem Jaime)', text: 'Como Jaime já tinha morrido no Cap. 5, a cena de resgate no muro nem acontece — Linda e Bonnie escapam sozinhas e o capítulo termina por aqui mesmo, bem mais curto que a rota "Descent of the Damned".', delta: 0, type: 'victory' },
+  ],
+  level6: [
+    { id: 'franks_nest', title: '6. O Ninho de Frank', text: 'Continue pelo longo espaço apertado até quase alcançar uma escada — mas NÃO suba ainda. Vire e abra a porta mais próxima pra outro espaço apertado, chegando a uma sala escondida: pegue o livro na mesa pra abrir e receber Frank\'s Journal (Champion 8/10 — sem discrepância entre TA e Docs). Mova o painel de metal no fundo pra revelar o ninho de Frank Stone — onde ele mantinha suas vítimas presas — e pegue o rellik na jaula: The Doctor (8/12, sem discrepância). Segundo o Neoseeker, este rellik só existe nesta rota — quem foi fisgado no Cap. 7 e jogou "Hunting Ground" não tem acesso a ele.', delta: 0, options: [{ label: 'Destrancar a porta e subir a escada', target: 'ladder_exit' }] },
+  ],
+  level7: [
+    { id: 'ladder_exit', title: '7. Fim do Capítulo — A Escada', text: 'Destranque a porta oposta ao espaço apertado, siga pelo caminho à direita e suba a escada no fim — uma cutscene encerra o Capítulo 9.', delta: 0, type: 'victory' },
+  ],
+};
+
+/* ─── Capítulo 10: Na Casa da Loucura (Chris, 2024) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
+   Trophies Hunter PT-BR, Google Docs (N/224), três blocos da
+   TrueAchievements, além de Neoseeker, Nintendosmash, GameSpot, Prima
+   Games e a Fandom Wiki oficial — essas últimas quatro foram essenciais
+   pra corrigir uma leitura errada que eu tinha feito do .txt original.
+
+   CORREÇÃO IMPORTANTE: nas notas compactas de CRF do TrophiesHunter/TA,
+   eu tinha lido a sequência "arrancar a barra → Stan cai → QTE pra
+   salvá-lo" como parte do ramo em que Chris FICA em 2024. Cruzando com
+   o Nintendosmash, o GameSpot e o Prima Games, essa sequência é do ramo
+   OPOSTO — quando Chris escolhe VOLTAR pra 1980 (ESPERANÇOSA), não
+   ficar (COM MEDO). O ramo de ficar tem seu próprio perigo pro Stan,
+   bem mais simples: só um teste de habilidade único pra segurá-lo antes
+   dos anéis giratórios o esmagarem. São dois perigos diferentes pro
+   Stan, um em cada ramo — não o mesmo perigo documentado duas vezes.
+
+   O deslocamento de "+1" entre TA e Docs continua estável (71TA=72Docs,
+   73TA=74Docs, 74TA=75Docs). A numeração da "Playthrough Two" da TA
+   segue a sequência de onde parou no Cap. 9: 207 e 210/224 aqui (o
+   próprio texto da TA sugere que existem conquistas intermediárias sem
+   nome entre 206 e 210 que não detalhei o suficiente pra nomear com
+   segurança — fica sinalizado como lacuna, não preenchido por suposição).
+
+   CORREÇÃO (09/2026, cruzando com o guia dedicado "TrueAchievements —
+   All Seeing"): a rota de retorno a 1980 não tem 2 desfechos, tem 3,
+   cada um com nome próprio: passar no QTE do cano = Chris Chose to
+   Return (157) + Chris Left the Present (158), seguindo viva pro Cap. 11;
+   falhar os dois QTEs (cano e queda de Stan) e escolher AJUDAR STAN =
+   Failed to Return (154), um desfecho à parte; falhar os dois QTEs e
+   escolher IR = Something Went Wrong (155), que só confirma a morte de
+   Chris já no Cap. 11 (Chris Died, 156, com a conquista "Back to the...
+   Past"), não imediatamente aqui no Cap. 10 como eu tinha registrado
+   antes. Ajustei a árvore abaixo pra refletir os 3 desfechos.
+
+   Sobre a nota anterior deste comentário (quem é o corpo encontrado ao
+   voltar): o Cap. 11 já confirma que é o corpo de Jaime, não o de Madi
+   como eu tinha hipotetizado — a correção já está aplicada lá. */
+const FS_CM_TREE_CAP10 = {
+  level1: [
+    { id: 'start', title: '1. Horologium (71/224 ou 72/224)', text: 'Auto-unlock Horologium. Chris é libertada do sarcófago — o pagamento direto do QTE de Madi no Cap. 8: se Madi sobreviveu lá, é ela quem abre o sarcófago e Chris sai na hora; se Madi morreu no Cap. 8, essa libertação fica pra agora mesmo, já no início deste capítulo. Se Madi estiver viva, ela e Chris conversam — Chris a confunde com Bonnie a princípio, e ao saber que Bonnie era mãe de Madi, reage com SÉRIA ou CONFUSA (segundo o Neoseeker; a ligação familiar exata por trás dessa fala não fica totalmente clara nas fontes, então não vou forçar uma interpretação). Stan entra correndo, paranoico, perguntando quem é Chris e como ela chegou ali.', delta: 0, options: [{ label: 'Decidir o que fazer com Chris', target: 'main_choice' }] },
+  ],
+  level2: [
+    { id: 'main_choice', title: '2. A Escolha Principal — Ficar em 2024 ou Voltar a 1980', text: 'Escolha real e estrutural — segundo o Neoseeker, "todos os capítulos daqui pra frente são afetados" por ela: ESPERANÇOSA ("Eu tenho que tentar", Chris quer voltar pra 1980 pra ajudar os amigos) ou COM MEDO ("Não me faça voltar!", Chris quer ficar em 2024).', delta: 0, options: [{ label: 'ESPERANÇOSA — Voltar para 1980', target: 'return_1980_bar_qte' }, { label: 'COM MEDO — Ficar em 2024', target: 'stay_2024_stan_check' }] },
+  ],
+  level3: [
+    { id: 'stay_2024_stan_check', title: 'Chris Ficou (73/224 ou 74/224)', text: 'Chris decide ficar em 2024. Stan, ainda paranoico, acaba entrando de novo na área dos anéis giratórios do horologium — surge um teste de habilidade rápido pra puxar/segurar Stan antes que os anéis o alcancem.', delta: 10, crf: true, options: [{ label: 'Passar — Stan é salvo', target: 'stan_saved_stay' }, { label: 'Falhar de propósito — Stan é esmagado', target: 'stan_crushed_stay' }] },
+    { id: 'return_1980_bar_qte', title: '3. Voltando a 1980 — A Alavanca Quebrada (207/224 — só a "Playthrough Two" da TA nomeia este marco)', text: 'Chris decide voltar. Um marco chamado Chris Found Corpse é liberado automaticamente assim que essa rota começa — o Cap. 11 confirma (via Nintendosmash, TheGamer e Sportskeeda) que, se Jaime morreu no confronto do Cap. 5, é o corpo mutilado dele que Chris encontra aqui. Chris tenta reabrir o sarcófago pra voltar, mas a alavanca quebra — ela precisa arrancar um cano de metal do parapeito pra usar no lugar dela, num QTE de apertar botão.', delta: 0, options: [{ label: 'Passar — retorno tranquilo', target: 'chris_returns_smooth' }, { label: 'Falhar — Stan tenta ajudar e acaba caindo', target: 'stan_fall_qte' }] },
+  ],
+  level4: [
+    { id: 'stan_saved_stay', title: 'Stan Salvo (74/224 ou 75/224)', text: 'Chris consegue puxar Stan pra longe dos anéis a tempo. Fica registrado: Stan agradece a Chris por salvar sua vida. Segundo a TrueAchievements, manter Stan vivo aqui abre bem mais conteúdo de "All Seeing" nos capítulos seguintes do que matá-lo teria aberto.', delta: 15, type: 'victory' },
+    { id: 'stan_crushed_stay', title: 'Stan Esmagado (210/224 — só a "Playthrough Two" da TA, com o troféu/conquista "Stan of Cleaves")', text: 'Falhando o teste de propósito, Stan é dilacerado pelos anéis giratórios do horologium, segundo a Fandom Wiki. Libera a conquista "Stan of Cleaves" nessa rota. O capítulo termina/transiciona pro Cap. 11 do mesmo jeito, só que sem Stan.', delta: -20, type: 'victory' },
+    { id: 'stan_fall_qte', title: '4. Stan Cai do Parapeito', text: 'Falhando o QTE do cano, é Stan quem se adianta pra pegá-lo no lugar de Chris — mas acaba caindo de um parapeito no processo. Surge um segundo QTE de apertar botão pra tentar salvá-lo. O guia dedicado "TrueAchievements — All Seeing" confirma que falhar os DOIS QTEs (o do cano e este) é o que abre a escolha final entre ajudar Stan ou ir embora — cada uma levando a um desfecho nomeado diferente.', delta: 0, options: [{ label: 'Passar — Stan é salvo, retorno segue normal', target: 'chris_returns_smooth' }, { label: 'Falhar os dois QTEs e escolher AJUDAR STAN', target: 'failed_to_return' }, { label: 'Falhar os dois QTEs e escolher IR (abandonar Stan)', target: 'something_went_wrong' }] },
+  ],
+  level5: [
+    { id: 'chris_returns_smooth', title: 'Chris Escolheu Voltar (157/224 e 158/224 — "Playthrough Two" da TA)', text: 'Passando no QTE do cano (sem precisar da ajuda de Stan), Chris entra no sarcófago e atravessa o portal de volta a 1980, sã e salva. Libera Chris Chose to Return (157/224) e Chris Left the Present (158/224). Uma figura misteriosa emerge do mesmo portal na mansão de 2024, no lugar dela, encerrando o capítulo com um gancho direto pro Cap. 11 — onde Chris segue viva, liberando Chris Returned (159/224) e Machine Shop (160/224) logo na sequência.', delta: 10, type: 'victory' },
+    { id: 'failed_to_return', title: 'Falha em Retornar (154/224 — "Playthrough Two" da TA)', text: 'Falhando os dois QTEs (cano e queda de Stan) e escolhendo ajudar Stan mesmo assim, o resultado é Failed to Return — um desfecho à parte, diferente de "Something Went Wrong". O guia dedicado "TrueAchievements — All Seeing" só confirma o nome e o número deste marco, sem detalhar exatamente o que acontece com Chris ou com Stan na cena a partir daqui — fica em aberto.', delta: -20, type: 'gameover' },
+    { id: 'something_went_wrong', title: 'Algo Deu Errado (155/224 — "Playthrough Two" da TA)', text: 'Falhando os dois QTEs e escolhendo IR (abandonar Stan à própria sorte), Chris ainda consegue atravessar o portal — mas algo deu errado. O guia dedicado "TrueAchievements — All Seeing" confirma que a morte de Chris só é finalizada logo no início do Cap. 11 (é preciso esperar o portal se fechar antes de sair da cena), liberando Chris Died (156/224) e a conquista "Back to the... Past". O destino de Stan nessa rota não é reafirmado de forma explícita por nenhuma fonte cruzada, mas é razoável supor que ele também não sobrevive, já que foi deixado pra trás caindo.', delta: -30, type: 'gameover' },
+  ],
+};
+
+/* ─── Capítulo 11: Todos os Caminhos Se Cruzam (Chris/Linda, 1980) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário — bem
+   mais magro que o normal aqui (Trophies Hunter não tinha nada, TA quase
+   nada) — cruzando com TheGamer, Neoseeker, Nintendosmash, Sportskeeda
+   e a Fandom Wiki oficial, que fizeram praticamente todo o trabalho
+   pesado deste capítulo.
+
+   Capítulo bem curto e quase todo automático — a própria TrueAchievements
+   descreve como "só cutscenes" na maioria das rotas. O deslocamento de
+   "+1" entre TA e Docs se mantém (75TA=76Docs, Reunion). A numeração da
+   "Playthrough Two" segue a sequência: 208/224 aqui (Chris Punched
+   Jaime), dando continuidade a 206/207 dos capítulos anteriores.
+
+   ATUALIZAÇÃO (09/2026): a correção pendente que eu tinha registrado
+   aqui sobre o Cap. 10 (de quem é o corpo encontrado por Chris) já foi
+   aplicada — o Cap. 10 agora reflete a mesma informação que já estava
+   correta aqui: é o corpo de Jaime, não o de Madi. */
+const FS_CM_TREE_CAP11 = {
+  level1: [
+    { id: 'start', title: '1. Reencontro (75/224 ou 76/224)', text: 'Auto-unlock Reunion. Este capítulo inteiro é moldado pelo que já aconteceu antes — não é uma escolha nova, é o pagamento de várias decisões anteriores (Cap. 5, Cap. 7 e Cap. 10) se cruzando de uma vez, como o próprio nome do capítulo sugere.', delta: 0, options: [{ label: 'Chris ficou em 2024 ou morreu tentando voltar (Cap. 10)', target: 'cutscene_only_end' }, { label: 'Chris voltou viva para 1980 (Cap. 10)', target: 'chris_returns_machine_shop' }] },
+  ],
+  level2: [
+    { id: 'cutscene_only_end', title: 'Só Cutscene — Sem Chris', text: 'Segundo a TrueAchievements, o Neoseeker e a Fandom Wiki, se Chris ficou em 2024 ou morreu deformada tentando voltar, este capítulo vira só uma cutscene, sem nenhuma jogabilidade: você assiste, pela perspectiva de Linda, o grupo sobrevivente discutindo como escapar pela galeria pluvial.', delta: 0, type: 'victory' },
+    { id: 'chris_returns_machine_shop', title: '2. Loja de Máquinas — Reencontro Condicional', text: 'Chris volta com sucesso ao Prédio da Administração de 1980. Segundo o Nintendosmash, o TheGamer e a Sportskeeda, o que ela encontra depende diretamente do destino de Jaime no confronto do Cap. 5: se ele sobreviveu, a cena segue calma; se ele morreu lá, é o corpo mutilado dele que Chris encontra primeiro.', delta: 0, options: [{ label: 'Jaime vivo (Cap. 5) — cena calma', target: 'furnace_reunion' }, { label: 'Jaime morto (Cap. 5) — Chris encontra o corpo', target: 'furnace_reunion' }] },
+  ],
+  level3: [
+    { id: 'furnace_reunion', title: '3. Câmara da Fornalha — Depende do Cap. 7', text: 'Chris sai da loja de máquinas e segue até a Câmara da Fornalha. Segundo a Fandom Wiki, o que acontece aqui depende se Linda foi fisgada por Frank Stone no Cap. 7: se não foi, Linda agarra Chris por trás numa cutscene, e surge um diálogo PERTURBADA/INSISTENTE (Chris explicando que foi levada pra "algum outro lugar"). Se Linda foi fisgada, a cena muda — segundo a mesma fonte, é Chris quem entra sorrateiramente na câmara e encontra o sobrevivente que restou, mas nenhuma fonte cruzada detalha essa variante o suficiente pra descrever com precisão.', delta: 0, converge: true, convergeNote: 'Jaime estar vivo ou morto não muda esta cena em si — a diferença de como Chris chegou até aqui (calma ou já sabendo do corpo) só afeta o tom da conversa, não a mecânica desse reencontro com Linda.', options: [{ label: 'Linda não foi fisgada (Cap. 7) — reencontro direto', target: 'jaime_punch_check' }, { label: 'Linda foi fisgada (Cap. 7) — variante não detalhada', target: 'end_cap11_hooked_variant' }] },
+  ],
+  level4: [
+    { id: 'jaime_punch_check', title: '4. Reencontro com Jaime — Abraço ou Soco', text: 'Se Jaime estiver vivo, Chris o encontra na cena seguinte. Se ele fugiu no confronto do Cap. 5 (em vez de enfrentar Frank Stone), surge um QTE de socar Jaime — segundo o Nintendosmash, acertar ou errar esse QTE não muda nada mecanicamente (o soco acontece de qualquer jeito), mas o TheGamer confirma que dar o soco baixa a relação entre Jaime e Chris. Se Jaime confrontou Frank Stone no Cap. 5 (com ou sem sucesso nos fogos de artifício), essa opção de soco não aparece — só um abraço.', delta: 0, options: [{ label: 'Jaime fugiu no Cap. 5 — Chris o soca', target: 'end_cap11_punched' }, { label: 'Jaime confrontou no Cap. 5 — só abraço', target: 'end_cap11_hug' }] },
+  ],
+  level5: [
+    { id: 'end_cap11_hooked_variant', title: 'Fim do Capítulo (variante — Linda fisgada)', text: 'Como Linda foi fisgada no Cap. 7, a cena de reencontro segue um caminho diferente do documentado acima — nenhuma fonte cruzada detalha o suficiente pra descrever com precisão o que muda no diálogo ou nas opções disponíveis aqui. Fica em aberto até alguma fonte nova documentar essa variante especificamente.', delta: 0, type: 'victory' },
+    { id: 'end_cap11_punched', title: 'Chris Socou Jaime (208/224 — só a "Playthrough Two" da TA)', text: 'Chris acerta (ou tenta acertar, já que o resultado do QTE não muda o desfecho) um soco em Jaime por ele ter fugido em vez de tentar salvá-la no Cap. 5. A relação entre os dois cai. Uma última cutscene encerra o capítulo, levando pro Cap. 12.', delta: -10, type: 'victory' },
+    { id: 'end_cap11_hug', title: 'Reencontro com Abraço', text: 'Como Jaime confrontou Frank Stone no Cap. 5 em vez de fugir, o reencontro com Chris é só de abraço, sem QTE de soco. Uma última cutscene encerra o capítulo, levando pro Cap. 12.', delta: 10, type: 'victory' },
+  ],
+};
+
+/* ─── Capítulo 12: Fechando o Nó (Madison/Chris/Linda, 2024) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
+   Trophies Hunter PT-BR, Google Docs (N/224), três blocos da
+   TrueAchievements, além de TheGamer, Neoseeker e a Fandom Wiki oficial
+   (páginas de Madison, Chris e Linda) — essas últimas três resolveram
+   uma ambiguidade grande que o .txt sozinho não deixava clara.
+
+   QUEM VIVE ESSE CAPÍTULO NÃO É FIXO: segundo a Fandom Wiki e o
+   Neoseeker, existe uma ordem de prioridade — Madison (se sobreviveu ao
+   Cap. 8) é quem vive a cena por padrão; se ela morreu mas Chris ficou
+   em 2024 (Cap. 10), é Chris quem assume o papel; só se NENHUMA das
+   duas estiver disponível (Madi morta E Chris já de volta a 1980) é que
+   Linda assume — e nesse caso o capítulo fica bem mais curto, pulando
+   toda a exploração do quarto/pingente. O Neoseeker confirma a condição
+   exata: "Stan e Linda vivos, Madi morta, Chris de volta ao passado."
+
+   O pingente encontrado aqui é uma escolha real com peso enorme pro
+   final do jogo — a TrueAchievements recomenda deixar Madi ficar com
+   ele especificamente pra manter em aberto a possibilidade da conquista
+   "Entity Displeased" (todo mundo sobrevive) lá no Cap. 14. Fica
+   registrado aqui como aviso, não construído — o Cap. 14 é outra hora.
+
+   Deslocamento de "+1" entre TA e Docs se mantém (76TA=77Docs). A
+   numeração da "Playthrough Two" segue a sequência: 209/224 aqui (Stan
+   Slapped), dando continuidade a 208 do Cap. 11. */
+const FS_CM_TREE_CAP12 = {
+  level1: [
+    { id: 'start', title: '1. Quem Vive Este Capítulo? — Depende dos Anteriores (76/224-77/224 ou 77/224-78/224)', text: 'Auto-unlock Observation e Corridor. Segundo a Fandom Wiki, existe uma ordem de prioridade pra decidir quem está no corredor agora: Madison (se sobreviveu ao Cap. 8) é a primeira opção; se ela morreu mas Chris ficou em 2024 (em vez de voltar a 1980 no Cap. 10), é Chris quem assume; só se as duas estiverem indisponíveis (Madi morta E Chris já de volta a 1980) é que Linda assume — e aí o capítulo muda bastante, ficando bem mais curto.', delta: 0, options: [{ label: 'Madison viva, ou Chris ficou em 2024 — exploração completa do quarto', target: 'corridor_explore' }, { label: 'Nem Madison nem Chris disponíveis — só Linda, capítulo curto', target: 'linda_only_start' }] },
+  ],
+  level2: [
+    { id: 'corridor_explore', title: '2. Quarto — Em Busca de uma Saída', text: 'Siga até a bifurcação, vá à esquerda e entre no quarto. Pegue o livro no canto e vire as páginas pra achar a Chave — isso também libera Grimoire Page (Storyteller 9/10, sem discrepância entre TA e Docs). Use a chave na caixinha de música na cômoda pra tocar uma melodia e abrir uma porta secreta. Segundo a TrueAchievements, quando é Chris (no lugar de Madison) quem vive essa cena, a versão é mais resumida — a passagem secreta se abre do mesmo jeito, mas a TA não detalha os colecionáveis do corredor seguinte nessa variante especificamente (pode ser que só não tenham repetido a informação por já estar coberta na rota principal, não necessariamente que os itens estejam ausentes).', delta: 0, options: [{ label: 'Pegar o pingente na cômoda ao lado da cama', target: 'pendant_choice' }] },
+    { id: 'linda_only_start', title: '2. Só Linda — Discussão com Sam (209/224 — "Playthrough Two" da TA)', text: 'Sem Madison nem Chris disponíveis, Linda e Sam discutem sozinhos no corredor antes de Stan chegar. EXIGENTE ("Prove uma coisa que você me disse que é verdade!") ou DISPENSATIVA — a TrueAchievements documenta EXIGENTE, e a DISPENSATIVA (segundo o TheGamer) baixa a relação com Sam.', delta: 0, options: [{ label: 'Continuar — Stan chega', target: 'stan_slap_qte' }] },
+  ],
+  level3: [
+    { id: 'pendant_choice', title: '3. O Pingente — Escolha Real com Peso no Final do Jogo', text: 'Interagir com o pingente na cômoda ao lado da cama abre uma escolha de três opções: ASSERTIVA ("Eu encontrei...", fica com o pingente pra si mesma — a TrueAchievements recomenda fortemente esta opção pra manter em aberto o final "Entity Displeased" no Cap. 14, mesmo custando um pouco da relação com Chris), INDIFERENTE ("Tá bom Stan, fica com você", dá o pingente pro Stan) ou INSEGURA ("A Chris que devia ficar com ele", dá pra Chris). Nenhuma fonte cruzada detalha consequências específicas pras duas últimas além de "quem fica com o pingente" — só a recomendação da TA pra ASSERTIVA vem com justificativa clara.', delta: 0, options: [{ label: 'ASSERTIVA — fica com o pingente (recomendado pra "Entity Displeased")', target: 'hallway_collectibles' }, { label: 'INDIFERENTE — dá pro Stan', target: 'hallway_collectibles' }, { label: 'INSEGURA — dá pra Chris', target: 'hallway_collectibles' }] },
+    { id: 'stan_slap_qte', title: '3. Estapear Stan (ou não)', text: 'Quando Stan entra na sala, surge um QTE: Linda tem a opção de estapeá-lo. O Neoseeker descreve como algo que "não afeta a história, mas dá uma satisfação"; o TheGamer, por outro lado, afirma que estapear Stan "muda o destino" — as duas fontes discordam no quanto isso pesa mecanicamente, então fica registrado como incerteza, não como fato fechado.', delta: 0, options: [{ label: 'Passar no QTE — Estapear Stan', target: 'end_cap12_linda_slap' }, { label: 'Falhar de propósito — Não estapear', target: 'end_cap12_linda_noslap' }] },
+  ],
+  level4: [
+    { id: 'hallway_collectibles', title: '4. Corredor Secreto — Colecionáveis', text: 'Pela passagem secreta, desça as escadas e siga pelo corredor: toque a fita cassete numa mesa pra liberar Session Tape (Champion 9/10, sem discrepância); pegue a boneca na mesa seguinte pra liberar o Rellik The Twins (9/12, sem discrepância); e a caixinha na mesa depois dela pra liberar Sacrificial Knife (contador 10/12 na TA, posição final 11º — TA e Docs concordam).', delta: 0, converge: true, convergeNote: 'As três opções do pingente (ficar com ele, dar pro Stan, dar pra Chris) levam ao mesmo corredor de colecionáveis em seguida — a diferença de quem está com o pingente só vai pesar lá na frente, no Cap. 14.', options: [{ label: 'Voltar e entrar pela porta dupla', target: 'sam_confrontation' }] },
+  ],
+  level5: [
+    { id: 'sam_confrontation', title: '5. Confronto com Sam', text: 'Uma cutscene longa mostra Sam confrontando o grupo com suas acusações. RESISTENTE ("Você não pode provar nada disso") ou SOLIDÁRIA ("Acho que o Sam pode estar certo") — sem consequência de história confirmada por nenhuma fonte cruzada.', delta: 0, options: [{ label: 'Continuar', target: 'final_dialogue_choice' }] },
+  ],
+  level6: [
+    { id: 'final_dialogue_choice', title: '6. Reação Final — Depende de Quem Está Presente', text: 'EMPÁTICA ("Como você poderia saber?") ou ULTRAJADA ("Seu verme desgraçado!"). Segundo o TheGamer, se é Madison quem está vivendo essa cena, nenhuma das duas opções muda o destino ou as relações; mas se é Chris quem está no lugar dela, o destino muda de verdade — sem detalhar exatamente como.', delta: 0, options: [{ label: 'EMPÁTICA', target: 'end_cap12_ch13' }, { label: 'ULTRAJADA', target: 'end_cap12_ch13_alt' }] },
+  ],
+  level7: [
+    { id: 'end_cap12_ch13', title: 'Fim do Capítulo — EMPÁTICA', text: 'O grupo assiste à exibição do filme Murder Mill no observatório — momento em que ficam sabendo que os eventos do filme não batem com as próprias memórias, revelando que foram reunidos de linhas temporais diferentes. Uma cutscene longa encerra o capítulo, levando pro Cap. 13 (o capítulo final em 1980).', delta: 0, type: 'victory' },
+    { id: 'end_cap12_ch13_alt', title: 'Fim do Capítulo — ULTRAJADA', text: 'Mesmo desfecho de cena — a exibição do filme no observatório e a revelação das linhas temporais divergentes —, só que com uma reação mais hostil de quem estiver no papel. Se for Chris no lugar de Madison, essa escolha teria mudado algo no destino, segundo o TheGamer, sem detalhar o quê. Leva pro Cap. 13 do mesmo jeito.', delta: 0, type: 'victory' },
+    { id: 'end_cap12_linda_slap', title: 'Stan Estapeado (209/224 — "Playthrough Two" da TA)', text: 'Linda acerta o tapa em Stan. Depois disso, Sam pede o pedaço do filme de cada um — só pra todos descobrirem, sem perceber ainda, que Augustine já tinha roubado os pedaços de cada um deles de forma estranha. O grupo (o que sobrar dele) segue pro observatório assistir à exibição, encerrando o capítulo rumo ao Cap. 13.', delta: 5, type: 'victory' },
+    { id: 'end_cap12_linda_noslap', title: 'Sem Tapa em Stan', text: 'Falhando o QTE de propósito, Linda não chega a estapear Stan. O resto da cena segue igual — Sam pede o pedaço do filme de cada um, e o grupo segue pro observatório, encerrando o capítulo rumo ao Cap. 13.', delta: 0, type: 'victory' },
+  ],
+};
+
+/* ─── Capítulo 13: Siderúrgica Mortal (Linda/Sam, 1980, com um corte pra 2024) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
+   Trophies Hunter PT-BR, Google Docs (N/224) e quatro blocos da
+   TrueAchievements. É o capítulo com a ramificação mais densa desde o
+   Cap. 5 — dá nome ao próprio jogo (Murder Mill é o filme amador que o
+   grupo estava gravando em 1980).
+
+   Deslocamento de "+1" entre TA e Docs se mantém firme do início ao fim
+   (78TA=79Docs até 88TA=89Docs). A numeração da "Playthrough Two" segue
+   perfeitamente de onde parou no Cap. 12: 211-214/224 aqui, com um salto
+   até 221/224 numa variante específica — o próprio hiato (215-220 não
+   aparecem em nenhuma fonte cruzada) sugere que existem mais conquistas
+   intermediárias dessa segunda campanha que eu não tenho detalhe
+   suficiente pra nomear com segurança; fica como lacuna sinalizada, não
+   preenchida por suposição.
+
+   UM PONTO DE TENSÃO ENTRE FONTES que prefiro registrar em vez de
+   resolver à força: o parágrafo da Trophies Hunter sobre o final da
+   perseguição no dreno pluvial menciona "Robert entrará e derrotará
+   Stone" — mas os marcos exatos da TrueAchievements e do Google Docs
+   (que bati e conferi com cuidado) mostram claramente Sam Weakened
+   Stone / Sam Defeated Stone como a rota principal documentada, com
+   Robert Weakened Stone aparecendo só na rota alternativa em que Sam já
+   morreu antes. A tradução compacta da Trophies Hunter pode estar
+   generalizando as duas rotas num só parágrafo. Priorizei os marcos
+   numerados (mais precisos) sobre o resumo em prosa.
+
+   ATUALIZAÇÃO (09/2026, cruzando com o guia PSNProfiles "All Seeing"):
+   essa fonte CONFIRMA a leitura acima (Sam derrota Stone na rota
+   principal, Robert só na rota Sam-morto) — não era generalização da
+   Trophies Hunter, era mesmo a rota certa. Também revelou: a rota
+   INDIGNADA na exibição libera um marco chamado Sam Confronted; e que
+   o desfecho de "Sam Nocauteado" depende do destino de Jaime no dreno
+   pluvial (já corrigido abaixo). Uma coisa que a fonte menciona mas eu
+   NÃO consegui encaixar com confiança: existe um fio inteiro em que Sam
+   encontra Chris escondida no dreno pluvial (só se ela tiver voltado a
+   1980 com sucesso no Cap. 10) e diz pra ela ficar escondida — isso
+   parece rodar em paralelo à exploração normal, mas não tenho detalhe
+   suficiente sobre onde exatamente ele se encaixa pra adicionar como
+   nó próprio sem arriscar inventar uma sequência errada. Fica
+   sinalizado como lacuna conhecida. */
+const FS_CM_TREE_CAP13 = {
+  level1: [
+    { id: 'start', title: '1. Câmara da Fornalha — Proteger Jaime (78/224 ou 79/224)', text: 'Auto-unlock Furnace. Assim que Linda retoma o controle, é preciso focar a câmera em Frank Stone imediatamente pra afastá-lo de quem estiver no chão. O guia PSNProfiles "All Seeing" confirma o que a Trophies Hunter só insinuava: normalmente é Jaime quem corre risco aqui, mas se Chris tiver sido mandada de volta a 1980 (Cap. 10) E Jaime já tiver morrido antes (Cap. 5), é CHRIS quem está no chão e corre risco no lugar dele.', delta: 0, options: [{ label: 'Usar a câmera — proteger quem estiver no chão', target: 'jaime_saved_furnace' }, { label: 'Não usar a câmera — deixar a pessoa morrer', target: 'jaime_killed_furnace' }] },
+  ],
+  level2: [
+    { id: 'jaime_saved_furnace', title: 'Frank Afastado (79/224 ou 80/224)', text: 'Linda afasta Frank Stone a tempo, salvando Jaime (ou Chris, na variante condicional) — a relação sobe. Logo em seguida, um marco chamado Bonnie Hooked é liberado automaticamente (parece ser um evento de história fixo, não ligado a essa escolha).', delta: 15, crf: true, options: [{ label: 'Corte para 2024 — Observatório', target: 'screening_choice' }] },
+    { id: 'jaime_killed_furnace', title: 'Jaime ou Chris Morto na Fornalha (211/224 pra Jaime — "Playthrough Two" da TA)', text: 'Não usando a câmera, Frank Stone mata quem estiver no chão — Jaime na rota normal ([Jaime Killed]), ou Chris especificamente ([Chris Killed]) se ela tiver sido mandada de volta a 1980 no Cap. 10 e Jaime já tivesse morrido antes, segundo o PSNProfiles. Bonnie Hooked ainda é liberado logo em seguida, do mesmo jeito.', delta: -20, type: 'gameover' },
+  ],
+  level3: [
+    { id: 'screening_choice', title: '2. Observatório, 2024 — A Exibição (81/224 ou 82/224)', text: 'Corte pra Linda no Observatório em 2024. Auto-unlock Screening. Escolha real de três opções: CONFORTANTE ("Não olha, Madi", libera Madi Comfortada e sobe a relação com Madison — recomendada pelo Google Docs), INDIGNADA ("Isso nunca aconteceu!", libera o marco Sam Confronted, confirmado pelo guia dedicado "TrueAchievements — All Seeing" e pelo PSNProfiles) ou HORRORIZADA ("É isso que ela andou fazendo", só documentada pela TrueAchievements na rota em que Jaime morreu na fornalha — não fica claro se está de fato condicionada a essa morte ou se é só mais uma opção disponível sempre).', delta: 0, options: [{ label: 'CONFORTANTE — libera Madi Comfortada', target: 'sam_furnace_start' }, { label: 'INDIGNADA — libera Sam Confronted', target: 'sam_furnace_start' }, { label: 'HORRORIZADA', target: 'sam_furnace_start' }] },
+  ],
+  level4: [
+    { id: 'sam_furnace_start', title: '3. De Volta a 1980 — Sam na Câmara da Fornalha (83/224-84/224 ou 84/224-85/224)', text: 'As três reações da exibição levam ao mesmo lugar: de volta a 1980, agora como Sam. Auto-unlock Haunted, depois Stormdrain (após uma cutscene nas portas duplas).', delta: 0, converge: true, convergeNote: 'As três opções da exibição em 2024 não mudam nada na continuação da história de Sam — as três se encontram aqui.', options: [{ label: 'Entrar no dreno pluvial', target: 'storm_drain_first_encounter' }] },
+  ],
+  level5: [
+    { id: 'storm_drain_first_encounter', title: '4. Primeiro Encontro com Frank no Dreno Pluvial', text: 'Pegue a câmera no chão perto do aperto na parede. Ao emergir, Frank Stone aparece nesta parte do corredor — escolha real e decisiva: usar a câmera pra afugentá-lo, ou deixá-lo atacar Sam diretamente.', delta: 0, options: [{ label: 'Usar a câmera — Sam sobrevive', target: 'jaime_rescue_qte' }, { label: 'Não usar — Sam morre aqui mesmo', target: 'sam_died_early' }] },
+  ],
+  level6: [
+    { id: 'jaime_rescue_qte', title: '5. Encontrando Jaime no Dreno', text: 'Pule pela janela onde Frank apareceu, pegue o Rellik The Spirit (10/12, sem discrepância entre TA e Docs) e siga até ouvir Jaime no fim do corredor. Quando Frank Stone aparecer de novo, é preciso focar a câmera nele de novo pra salvar Jaime.', delta: 0, options: [{ label: 'Passar — Jaime salvo', target: 'jaime_saved_stormdrain' }, { label: 'Falhar de propósito — Jaime morre aqui', target: 'jaime_died_stormdrain_undocumented' }] },
+    { id: 'sam_died_early', title: 'Sam Morto Cedo (212/224 — "Playthrough Two" da TA)', text: 'Sem usar a câmera, Frank Stone mata Sam logo no primeiro encontro do dreno pluvial (dá pra correr direto pro brilho vermelho pra acelerar isso, segundo a TA). Com Sam fora de cena, o resto do capítulo muda de rumo.', delta: -20, crf: true, options: [{ label: 'Continuar — Robert entra em cena', target: 'robert_weakened_stone' }] },
+  ],
+  level7: [
+    { id: 'jaime_saved_stormdrain', title: 'Jaime Salvo no Dreno (85/224 ou 86/224 — Troféu "Escape Artist")', text: 'Sam consegue afastar Frank Stone a tempo de salvar Jaime pela segunda vez no capítulo, liberando o troféu "Escape Artist" e subindo a relação entre os dois.', trophy: '🏆 "Escape Artist"', delta: 15, crf: true, options: [{ label: 'Continuar pelo dreno até encontrar Linda', target: 'sam_finds_linda' }] },
+    { id: 'jaime_died_stormdrain_undocumented', title: 'Jaime Morto no Dreno (marco não nomeado)', text: 'Falhando o QTE de propósito, Jaime morre aqui — a Trophies Hunter PT-BR confirma que essa rota existe e libera uma conquista, mas não nomeia qual nem detalha como o capítulo continua a partir daqui. Nenhuma outra fonte cruzada preenche essa lacuna, então fica em aberto: o capítulo certamente prossegue (já que uma conquista é liberada, não um fim de jogo), mas não dá pra confirmar os detalhes da continuação com segurança.', delta: -20 },
+    { id: 'robert_weakened_stone', title: '6. Robert Enfraquece Frank Stone (213/224 — automático, "Playthrough Two" da TA)', text: 'Com Sam já morto, é Robert quem aparece pra enfraquecer Frank Stone nessa cutscene, automaticamente.', delta: 0, options: [{ label: 'QTE final — Linda contra Frank Stone', target: 'linda_final_qte' }] },
+  ],
+  level8: [
+    { id: 'sam_finds_linda', title: '7. Sam Encontra Linda', text: 'Volte à bifurcação e siga pelo caminho principal. Frank Stone aparece mais uma vez no corredor — este é o 2º confronto direto de Sam com ele (o resgate de Jaime foi separado). O guia dedicado "TrueAchievements — All Seeing" confirma: passar no 1º confronto do dreno mas falhar neste 2º é o que mata Sam aqui — uma leitura minha da fonte, já que ela não nomeia explicitamente qual encontro é "o segundo"; sinalizo essa interpretação como razoável, não como certeza absoluta.', delta: 10, options: [{ label: 'Usar a câmera — Sam sobrevive, segue até Linda', target: 'sam_weakens_stone' }, { label: 'Não usar — Sam morre neste 2º confronto', target: 'sam_killed_second_encounter' }] },
+    { id: 'linda_final_qte', title: '8. QTE Final — Linda Contra Frank Stone', text: 'Depois de uma sequência de cutscenes, surge um QTE de apertar botão repetidamente — o desfecho final do capítulo nesta rota depende dele.', delta: 0, options: [{ label: 'Passar o QTE', target: 'linda_defeated_stone' }, { label: 'Falhar de propósito', target: 'linda_failed' }] },
+  ],
+  level9: [
+    { id: 'sam_killed_second_encounter', title: 'Sam Morto no 2º Confronto', text: 'Passando o 1º confronto do dreno pluvial mas falhando este 2º, Sam morre aqui — confirmado pelo guia dedicado "TrueAchievements — All Seeing" como uma combinação específica ("succeed first stand off with Frank but fail the second"). Nenhuma fonte cruzada nomeia um marco N/224 específico pra esta morte em particular (distinta de "Sam Died", que é a morte no 1º confronto).', delta: -20, type: 'gameover' },
+    { id: 'sam_weakens_stone', title: 'Sam Enfraquece Frank Stone (86/224 ou 87/224)', text: 'Sam consegue enfraquecer Frank Stone com a câmera. Auto-unlock Final Stand (87/224 ou 88/224) logo em seguida. Este é o 3º e último confronto direto de Sam com Frank Stone.', delta: 10, options: [{ label: 'Última chance com a câmera — Sam derrota Stone', target: 'sam_defeats_stone' }, { label: 'Falhar de propósito — Sam é nocauteado, Linda assume', target: 'sam_knocked_aside' }] },
+    { id: 'linda_defeated_stone', title: 'Linda Derrotou Stone (221/224 — "Playthrough Two" da TA)', text: 'Linda consegue usar a câmera com sucesso pra capturar Frank Stone de vez, mesmo com Sam já morto e Robert apenas o tendo enfraquecido antes. Uma cutscene encerra o capítulo, levando pro Cap. 14.', delta: 15, type: 'victory' },
+    { id: 'linda_failed', title: 'Linda Falhou (214/224 — "Playthrough Two" da TA)', text: 'Falhando o QTE de apertar botão, Linda não consegue capturar Frank Stone. A TrueAchievements não deixa claro se isso significa a morte de Linda ali mesmo ou só um resultado narrativo pior — o capítulo ainda leva pro Cap. 14 numa cutscene, então não parece ser um fim de jogo direto, mas a gravidade exata fica em aberto.', delta: -25, type: 'victory' },
+  ],
+  level10: [
+    { id: 'sam_defeats_stone', title: 'Sam Derrotou Stone — Fim do Capítulo (88/224 ou 89/224)', text: 'Sam usa a câmera pela última vez e consegue capturar Frank Stone de vez dentro do filme. Jaime chega bem a tempo de testemunhar Sam capturando Frank Stone. Uma cutscene encerra o capítulo, levando pro Cap. 14.', delta: 15, type: 'victory' },
+    { id: 'sam_knocked_aside', title: 'Sam Nocauteado (167/224 — "Playthrough Two" da TA)', text: 'Falhando a câmera no confronto final, Sam é jogado longe (não morre, só fica incapacitado) — libera Sam Knocked Aside. Linda precisa pegar a câmera caída no chão e tentar afugentar Frank Stone sozinha. O guia PSNProfiles "All Seeing" revela que o desfecho a partir daqui depende do destino de Jaime no dreno pluvial: se ele já tinha morrido lá, uma falha de Linda aqui é mais branda (Linda Failed + Robert entra e derrota Stone mesmo assim); se Jaime foi salvo, a mesma falha de Linda é fatal de verdade (Linda Killed, sem Robert por perto pra salvar a situação).', delta: -10, options: [{ label: 'Linda usa a câmera com sucesso', target: 'linda_weakened_stone' }, { label: 'Linda falha em usar a câmera (Jaime morreu antes — Linda Failed)', target: 'linda_failed_robert_saves' }, { label: 'Linda falha em usar a câmera (Jaime foi salvo antes — Linda Killed)', target: 'linda_grabbed_final' }] },
+  ],
+  level11: [
+    { id: 'linda_weakened_stone', title: 'Linda Enfraquece Stone (168/224 — "Playthrough Two" da TA)', text: 'Com Sam nocauteado, Linda consegue usar a câmera com sucesso, enfraquecendo Frank Stone sozinha. Segundo o guia dedicado "TrueAchievements — All Seeing", o capítulo ainda pode terminar mal daqui se Linda falhar o QTE de apertar botão que vem em seguida.', delta: 10, options: [{ label: 'QTE final de apertar botão', target: 'linda_final_qte' }] },
+    { id: 'linda_failed_robert_saves', title: 'Linda Falhou, mas Robert Salva a Situação', text: 'Com Jaime já morto antes no dreno pluvial, falhar aqui como Linda não é fatal — segundo o PSNProfiles, ela apenas "Falha" (Linda Failed) e Robert entra em cena logo depois, derrotando Frank Stone mesmo assim (Robert Defeated Stone). O capítulo termina levando pro Cap. 14.', delta: -10, type: 'victory' },
+    { id: 'linda_grabbed_final', title: 'Frank Agarra Linda (169/224 — "Playthrough Two" da TA)', text: 'Com Jaime já salvo antes no dreno pluvial, falhar em usar a câmera aqui é fatal de verdade — Frank Stone agarra Linda. O guia dedicado "TrueAchievements — All Seeing" e o PSNProfiles confirmam que falhar o QTE de apertar botão que se segue mata Linda de vez, fechando Linda Killed.', delta: 0, options: [{ label: 'Falhar o QTE de apertar botão', target: 'linda_killed_final' }] },
+  ],
+  level12: [
+    { id: 'linda_killed_final', title: 'Linda Morta (169/224 — "Playthrough Two" da TA)', text: 'Falhando o QTE final depois de Sam ser nocauteado, Frank agarrar Linda e Jaime já ter sido salvo antes, ela morre aqui — Linda Killed. Uma cadeia de falhas bem diferente da rota "Linda Falhou" (214/224), que acontece só quando Sam já estava morto desde o início do capítulo.', delta: -30, type: 'gameover' },
+  ],
+};
+
+/* ─── Capítulo 14: O Massacre da Mansão Gerant (Sam/Linda/Madison/Chris, 2024) ───
+   Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
+   Trophies Hunter PT-BR, Google Docs (N/224) e três blocos da
+   TrueAchievements. Capítulo final do jogo — a própria Trophies Hunter
+   avisa que "é aqui que várias decisões de todo o jogo se misturam".
+
+   Deslocamento de "+1" entre TA e Docs se mantém do início ao fim
+   (89TA=90Docs até 104TA=105Docs). E é AQUI que o contador de 224
+   finalmente se fecha: a rota alternativa da TrueAchievements (que
+   vínhamos acompanhando desde os 192-193 do Cap. 4) termina em
+   Linda Survived (224/224) — o próprio marco "All Seeing", de conclusão
+   total. Fechando o círculo que abrimos lá atrás.
+
+   DUAS GRANDES ROTAS DOCUMENTADAS:
+   1) "Entity Displeased" (todo mundo sobrevive) — a rota principal,
+      documentada em detalhe pela TA e pelo Docs. Cada personagem tem seu
+      próprio momento de vida-ou-morte; a TA confirma explicitamente qual
+      escolha é a segura em cada um.
+   2) A rota em que Sam se sacrifica por Linda no início, levando a um
+      final alternativo (Linda Shot Augustine → Chris Returned? → Linda
+      Survived, 222-224/224) — capítulo final da "Playthrough Two"/rota
+      alternativa da TA, documentado de forma bem mais resumida.
+
+   Existe ainda uma TERCEIRA rota (ir pelo elevador em vez de ajudar Madi)
+   documentada só pela Trophies Hunter, de forma resumida, levando a
+   "Madi Traída" no Altar — não tenho o mesmo nível de detalhe de diálogo
+   ou testes de habilidade que tenho pra rota principal, então essa parte
+   fica marcadamente mais enxuta.
+
+   CALLBACK ENORME PRA CHAPTER 2: a TrueAchievements confirma que a
+   escolha segura de Madi no Horologium (INCERTA, aceitar a proposta)
+   só é segura por causa de uma escolha de bebida lá no Capítulo 2 —
+   12 capítulos de distância entre o setup e o pagamento. Não tenho os
+   detalhes exatos de qual escolha do Cap. 2 garante essa "imunidade"
+   à mão nesta sessão, então fica sinalizado como callback confirmado,
+   sem apontar o nó exato do Cap. 2 responsável.
+
+   CORREÇÕES E ADIÇÕES (09/2026, cruzando com o guia Steam "All Seeing",
+   dedicado a pré-requisitos de conquista): esse guia revelou uma camada
+   inteira de estados que eu não tinha — "capturado", "hipnotizado" e
+   "sacrificado" como destinos possíveis pra Madi/Linda/Sam, além de:
+   - A escolha do elevador tem uma 3ª opção que eu não tinha (não fazer
+     nada), levando a "Madi/Linda Captured".
+   - Falhar o reparo do gerador NÃO é uma rota sem nome como eu tinha
+     registrado — é "Linda Killed, Madi Escaped", confirmado.
+   - Escolher o elevador também mata Linda ("Linda Killed, Madi
+     Captured") antes mesmo da proposta de Augustine continuar.
+   - "Linda Shot Augustine" tem pré-requisitos exatos: Linda precisa ter
+     pego a arma de Sam antes (do Cap. 8) E Madi precisa estar morta.
+   - Existe uma variante em que é CHRIS (não Stan) quem é agarrada por
+     Frank Stone no início do capítulo, se Stan já estiver morto antes
+     de chegar aqui — e outra em que é MADI, se ela tiver aceitado a
+     bebida do Cap. 2 e ficado com o pingente do Cap. 12.
+   - "Sam Used Machine" acontece automaticamente se Madi E Linda
+     estiverem mortas ou capturadas.
+   Existem ainda mais nuances que o guia Steam menciona (Madi
+   hipnotizada, a distinção exata de "quem é agarrado no átrio x na
+   porta") que não consegui encaixar com confiança total na estrutura
+   de nós — ficam sinalizadas como lacunas abaixo, não inventadas.
+
+   CORREÇÃO IMPORTANTE (09/2026, cruzando com o guia PSNProfiles "All
+   Seeing", que documenta 3 campanhas completas + uma lista das 16
+   variações de final possíveis): eu tinha ligado "Linda Shot Augustine"
+   exclusivamente à rota em que Sam se sacrifica logo no início do
+   capítulo. Isso está ERRADO — o PSNProfiles mostra essa conquista
+   sendo alcançada numa campanha em que Stan é SALVO (ou seja, Sam não
+   precisa ter se sacrificado por ninguém) e Madi acaba consumida mais
+   tarde no Horologium. O pré-requisito real, batendo com o guia Steam,
+   é só: Madi consumida/morta E Linda com a arma de Sam (do Cap. 8) —
+   não depende do destino de Stan/Sam no início do capítulo. Ajustei os
+   nós abaixo pra não afirmar mais esse vínculo errado, mas não tive
+   como reconectar com segurança total esse trecho à espinha dorsal
+   principal da árvore (a cadeia real de causas entre "Madi consumida"
+   e "descer pelo elevador como Linda" tem passos que o PSNProfiles
+   descreve de forma bem mais comprimida do que consigo reconstruir com
+   confiança) — fica sinalizado como reconstrução parcial, não completa.
+
+   O PSNProfiles também confirma a existência de um estado "Madi
+   Hipnotizada" bem mais rico do que eu tinha: ela pode ficar hipnotizada
+   e então ser CONSUMIDA (se Sam atirar em Frank Stone) ou BALEADA por
+   Sam (Madi Shot → Linda Consumed). Não reconstruí esse fio inteiro —
+   fica registrado aqui como camada confirmada, mas não modelada, do
+   mesmo jeito que fiz com outras lacunas profundas deste capítulo.
+
+   AS 16 VARIAÇÕES DE FINAL (lista fechada do PSNProfiles, referência
+   pra qualquer trabalho futuro de detalhar os finais do jogo — não
+   construídas aqui, só documentadas): Ninguém sobrevive · Madi, Sam e
+   Chris sobrevivem · Só Chris sobrevive · Só Linda sobrevive · Só Madi
+   sobrevive · Só Sam sobrevive · Sam e Chris sobrevivem · Linda e Chris
+   sobrevivem · Linda e Sam sobrevivem · Linda, Sam e Chris sobrevivem ·
+   Madi e Chris sobrevivem · Madi e Sam sobrevivem · Madi e Linda
+   sobrevivem · Madi, Linda e Chris sobrevivem · Madi, Linda e Sam
+   sobrevivem · Todo mundo sobrevive (a única que a árvore abaixo chega
+   a construir por completo, no nó "everyone_survived_ending"). */
+const FS_CM_TREE_CAP14 = {
+  level1: [
+    { id: 'start', title: '1. Observatório — Sam Confronta (89/224 ou 90/224)', text: 'Auto-unlock Curtain Call. Escolha real: ACUSAR AUGUSTINE ou CONFRONTAR STAN. A TrueAchievements escolhe CONFRONTAR STAN "pra montar a sequência seguinte" — nenhuma fonte cruzada documenta o que ACUSAR AUGUSTINE leva.', delta: 0, options: [{ label: 'ACUSAR AUGUSTINE (rota não documentada)', target: 'accuse_augustine_undocumented' }, { label: 'CONFRONTAR STAN', target: 'stan_punch_combat' }] },
+  ],
+  level2: [
+    { id: 'accuse_augustine_undocumented', title: 'Rota Não Documentada — Acusar Augustine', text: 'Nenhuma fonte cruzada — nem TA, nem Docs, nem Trophies Hunter, nem os resultados que busquei — detalha o que acontece escolhendo acusar Augustine em vez de confrontar Stan. Fica em aberto.', delta: 0 },
+    { id: 'stan_punch_combat', title: 'Stan Socado (90/224 ou 91/224)', text: 'Passando na sequência de combate, Sam acerta um soco em Stan. Logo em seguida, Frank Stone agarra Stan — surge um QTE de apertar botão repetidamente pra tentar libertá-lo.', delta: 0, options: [{ label: 'Continuar — decidir o destino de Stan', target: 'stan_grab_qte' }] },
+  ],
+  level3: [
+    { id: 'stan_grab_qte', title: '2. O QTE de Libertar Stan', text: 'Escolha real e decisiva: falhar de propósito deixa Stan sendo agarrado por Frank Stone; passar (libertando Stan) faz Frank Stone agarrar Linda no lugar dele em seguida, movendo o mesmo dilema pra ela. O guia Steam "All Seeing" revela que Stan/Linda não são as únicas vítimas possíveis aqui: se Stan já estiver morto antes de chegar neste capítulo (por algum caminho anterior), é Chris quem é agarrada automaticamente no lugar dele (Chris Consumed); e se Madi tiver aceitado a bebida do Cap. 2 e ficado com o pingente do Cap. 12, ela também pode ser a agarrada (Madi Consumed). Não tenho detalhe suficiente pra encaixar essas duas variantes como opções separadas com segurança — ficam sinalizadas aqui como possibilidades confirmadas, não construídas como nós próprios.', delta: 0, options: [{ label: 'Falhar de propósito — Stan continua agarrado', target: 'stan_timed_choice' }, { label: 'Passar — libertar Stan (Frank agarra Linda no lugar)', target: 'linda_timed_choice' }] },
+  ],
+  level4: [
+    { id: 'stan_timed_choice', title: 'Escolha Cronometrada — Salvar Stan?', text: 'SACRIFICAR-SE ou AFASTAR-SE. A TrueAchievements documenta AFASTAR-SE como a rota da "Entity Displeased" (Stan não conta pra essa conquista de qualquer forma). SACRIFICAR-SE aqui especificamente por Stan não é detalhado por nenhuma fonte cruzada.', delta: 0, options: [{ label: 'SACRIFICAR-SE (rota não documentada)', target: 'sam_sacrifice_undocumented_stan' }, { label: 'AFASTAR-SE', target: 'stan_consumed' }] },
+    { id: 'linda_timed_choice', title: 'Escolha Cronometrada — Salvar Linda?', text: 'SACRIFICAR-SE ou AFASTAR-SE. A TrueAchievements documenta SACRIFICAR-SE aqui como o início de um final inteiro alternativo (Sam morre salvando Linda). AFASTAR-SE nesse ponto específico (deixando Linda ser consumida em vez de Stan) não é detalhado por nenhuma fonte cruzada.', delta: 0, options: [{ label: 'SACRIFICAR-SE — Sam morre salvando Linda', target: 'sam_sacrifices_for_linda' }, { label: 'AFASTAR-SE (rota não documentada)', target: 'linda_death_undocumented' }] },
+  ],
+  level5: [
+    { id: 'sam_sacrifice_undocumented_stan', title: 'Rota Não Documentada — Sam Tenta Salvar Stan', delta: 0 },
+    { id: 'stan_consumed', title: 'Stan Consumido (91/224 ou 92/224)', text: 'Sam não consegue ajudar a tempo, e Stan é puxado pela projeção de Frank Stone. Sam segue vivo — essencial pra rota "Entity Displeased" que continua a partir daqui.', delta: -10, crf: true, options: [{ label: 'Trocar para Linda no corredor', target: 'linda_corridor_start' }] },
+    { id: 'sam_sacrifices_for_linda', title: 'Sam se Sacrifica por Linda', text: 'Sam escolhe se sacrificar, salvando Linda no lugar de si mesmo. Essa escolha abre um final inteiro alternativo, bem mais resumido nas fontes cruzadas, culminando no fechamento total do contador de 224 marcos.', delta: -20, type: 'gameover' },
+    { id: 'linda_death_undocumented', title: 'Rota Não Documentada — Linda é Consumida', delta: 0 },
+  ],
+  level6: [
+    { id: 'linda_corridor_start', title: '3. Corredor — Linda Precisa Energizar o Elevador (92/224 ou 93/224)', text: 'Auto-unlock Hunted. Pegue a Blacksmith\'s Hammer numa caixinha — o último Bugiganga do jogo (Docs registra como 12/12; a TrueAchievements, de forma um pouco inconsistente com o padrão de contagem que vínhamos vendo, dá o contador E a posição final como 11/12, sem bater exatamente com o "12/12" do Docs — fica registrado como uma pequena discrepância não totalmente resolvida). Entre pela porta com a maçaneta comprida (não a redonda) pra uma cutscene, chegando à sala do gerador.', delta: 0, options: [{ label: 'Consertar o gerador', target: 'generator_final_repair' }] },
+  ],
+  level7: [
+    { id: 'generator_final_repair', title: '4. O Último Gerador do Jogo', text: 'Pegue o ID Card numa bancada — o 10º e último artefato da categoria Champion, fechando 🏆 "The Champion". Pegue as 2 peças do gerador espalhadas pela sala e volte pra consertá-lo. Passar aqui fecha 🏆 "Tinkerer" (os 3 geradores do jogo). O guia Steam "All Seeing" confirma o que eu tinha registrado como não-documentado: falhar demais aqui mata Linda, mas Madi consegue fugir sozinha — não é uma rota sem nome, é "Linda Killed, Madi Escaped".', trophy: '🏆 "The Champion" + 🏆 "Tinkerer" (se for o 3º gerador consertado)', delta: 10, options: [{ label: 'Passar o reparo', target: 'help_madi_choice' }, { label: 'Falhar demais de propósito', target: 'linda_killed_madi_escaped' }] },
+  ],
+  level8: [
+    { id: 'help_madi_choice', title: 'Gerador Consertado (93/224 ou 94/224)', text: 'Escolha cronometrada real com 3 saídas — o guia Steam "All Seeing" revela uma opção que eu não tinha: AJUDAR MADI (rota "todos sobrevivem"), IR PARA O ELEVADOR (rota alternativa com Augustine, e o Steam confirma que isso também mata Linda no processo — "Linda Killed, Madi Captured") ou NÃO FAZER NADA (deixar o tempo acabar sem escolher, levando a "Madi/Linda Captured" — as duas capturadas, sem a morte de Linda que a rota do elevador causa).', delta: 0, options: [{ label: 'AJUDAR MADI — rota "todos sobrevivem"', target: 'both_escaped' }, { label: 'IR PARA O ELEVADOR — mata Linda, Madi capturada', target: 'elevator_augustine_route' }, { label: 'NÃO FAZER NADA — as duas capturadas', target: 'madi_linda_captured' }] },
+    { id: 'linda_killed_madi_escaped', title: 'Linda Morta, Madi Escapou', text: 'Falhando demais o reparo do gerador, Linda morre ali mesmo, mas Madi consegue fugir sozinha — confirmado pelo guia Steam "All Seeing" como "Linda Killed, Madi Escaped". Segundo a mesma fonte, se tanto Madi quanto Linda acabarem mortas ou capturadas (o que não é bem o caso aqui, já que Madi escapa), Sam usaria a máquina automaticamente mais adiante — mas como Madi está livre nesta rota específica, esse gatilho não se aplica.', delta: -25, type: 'gameover' },
+  ],
+  level9: [
+    { id: 'both_escaped', title: 'Ambas Escaparam (94/224 ou 95/224)', text: 'Linda arrisca a própria segurança pra proteger Madi — a relação entre as duas sobe. Frank Stone perde o controle do próprio hospedeiro brevemente, deixando as duas escaparem.', delta: 15, crf: true, options: [{ label: 'Trocar para Madison no Horologium', target: 'madi_horologium_choice' }] },
+    { id: 'elevator_augustine_route', title: '5. Rota Alternativa — Descendo pelo Elevador', text: 'Escolhendo o elevador, o guia Steam "All Seeing" confirma que Linda morre no processo, e Madi é capturada ("Linda Killed, Madi Captured") — um resultado bem mais grave do que eu tinha registrado antes (que só mencionava a rota seguindo pra proposta de Augustine, sem deixar claro que Linda não sobrevive a essa escolha). A partir daqui, como Madi capturada, a Trophies Hunter PT-BR documenta de forma resumida: aceitar a proposta de Augustine, e depois escolher ficar com ela quando surgir outra oportunidade.', delta: -20, options: [{ label: 'Aceitar a proposta de Augustine', target: 'madi_betrayed_ending' }] },
+    { id: 'madi_linda_captured', title: 'Madi e Linda Capturadas', text: 'Não fazendo nada durante o QTE cronometrado, Frank Stone consegue capturar as duas — Madi e Linda — sem que nenhuma delas morra ou escape. Confirmado pelo guia Steam "All Seeing" como "Madi/Linda Captured". Com as duas fora de cena, a mesma fonte indica que Sam usa a máquina do horologium sozinho em seguida.', delta: -15, options: [{ label: 'Sam usa a máquina sozinho', target: 'sam_used_machine' }] },
+  ],
+  level10: [
+    { id: 'madi_betrayed_ending', title: 'Madi Traída — Fim Alternativo (Altar)', text: 'Escolhendo ficar com Augustine, a história chega ao Altar com o marco "Madi Traída". O guia Steam "All Seeing" dá a condição exata: Madi precisa aceitar a proposta de Augustine SEM ter o pingente e SEM ter aceitado a bebida do Cap. 2 (ou seja, sem a "imunidade" que a deixaria segura recusando no Horologium) — a Trophies Hunter PT-BR confirma que dá pra continuar jogando a partir daqui pra alcançar esse final específico, mas sem detalhar exatamente o que acontece depois.', delta: -20, type: 'victory' },
+    { id: 'madi_horologium_choice', title: '6. Horologium — A Proposta de Augustine (95/224 ou 96/224)', text: 'FURIOSA ("Vai se fuder") ou INCERTA ("...eu aceito"). A TrueAchievements é direta: qualquer escolha que não seja INCERTA mata Madi aqui — especificamente por causa de uma bebida que ela tomou lá no Capítulo 2, 12 capítulos atrás, e do pingente do Cap. 12. Não tenho os detalhes exatos de qual escolha do Cap. 2 garante essa "imunidade" à mão nesta sessão, então fica registrado como um callback confirmado, sem apontar o nó exato do Cap. 2 responsável. O guia Steam "All Seeing" ainda menciona uma variante "Madi Hipnotizada" (condicional a ter bebida+pingente e NÃO ser baleada por Sam antes deste ponto) que não consigo encaixar com confiança na estrutura abaixo — fica sinalizada, não construída.', delta: 0, options: [{ label: 'INCERTA — "...eu aceito" (segura)', target: 'madi_accepted' }, { label: 'FURIOSA — "Vai se fuder" (mata Madi, salvo imunidade do Cap. 2)', target: 'madi_death_undocumented' }] },
+  ],
+  level11: [
+    { id: 'madi_accepted', title: 'Madi Aceitou a Proposta (95/224 ou 96/224)', text: 'Madi decide que aceitar a proposta de Augustine é a única saída desse pesadelo. Ela segue viva.', delta: 5, crf: true, options: [{ label: 'Trocar para Linda no Santuário', target: 'linda_sanctum_flee' }] },
+    { id: 'madi_death_undocumented', title: 'Rota Não Documentada — Madi Morre no Horologium', delta: -20 },
+  ],
+  level12: [
+    { id: 'linda_sanctum_flee', title: '7. Santuário — Correndo de Frank Stone', text: 'Um teste de habilidade seguido de um QTE de apertar botão (passe os dois). Escolha cronometrada: FUGIR (segura, segundo a TrueAchievements) ou TENTAR AJUDAR (rota não documentada por nenhuma fonte cruzada, provavelmente mais arriscada).', delta: 0, options: [{ label: 'FUGIR (segura)', target: 'linda_escaped' }, { label: 'TENTAR AJUDAR (rota não documentada)', target: 'linda_death_undocumented_2' }] },
+  ],
+  level13: [
+    { id: 'linda_escaped', title: 'Linda Escapou (96/224 ou 97/224)', text: 'Linda foge de Frank Stone, deixando a mansão pra trás. Ela segue viva.', delta: 10, crf: true, options: [{ label: 'Trocar para Sam no corredor', target: 'sam_corridor_checks' }] },
+    { id: 'linda_death_undocumented_2', title: 'Rota Não Documentada — Linda Morre no Santuário', delta: -20 },
+  ],
+  level14: [
+    { id: 'sam_corridor_checks', title: '8. Corredor — Sam Distrai Frank Stone', text: 'Uma sequência rápida de 4 testes de habilidade seguidos — é preciso passar em todos os 4 pra Sam escapar com sucesso, distraindo Frank Stone de Linda.', delta: 0, options: [{ label: 'Passar os 4 testes', target: 'sam_escaped' }, { label: 'Falhar algum de propósito', target: 'sam_captured' }] },
+  ],
+  level15: [
+    { id: 'sam_escaped', title: 'Sam Escapou (97/224 ou 98/224)', text: 'Sam escapa por pouco depois de distrair Frank Stone de Linda. Ele segue vivo.', delta: 10, crf: true, options: [{ label: 'Trocar para Madison no Átrio', target: 'madi_atrium_choice' }] },
+    { id: 'sam_captured', title: 'Sam Capturado', text: 'Falhando algum dos 4 testes de propósito, Frank Stone captura Sam em vez de matá-lo — o guia Steam "All Seeing" confirma o termo exato: "Sam Captured", não "Sam Killed". Segundo a mesma fonte, personagens capturados podem levar a finais de sacrifício mais adiante (Madi/Linda/Sam Sacrificed), mas a continuação exata a partir deste ponto específico não é detalhada.', delta: -20 },
+  ],
+  level16: [
+    { id: 'madi_atrium_choice', title: '9. Átrio — Última Chance de Madi', text: 'SOMBRIA ("Sim") ou RESISTENTE ("Eu não consigo"). A TrueAchievements confirma: a outra opção (SOMBRIA) mata Madi aqui.', delta: 0, options: [{ label: 'RESISTENTE — "Eu não consigo" (segura)', target: 'madi_atrium_safe' }, { label: 'SOMBRIA — "Sim" (mata Madi)', target: 'madi_death_undocumented_2' }] },
+  ],
+  level17: [
+    { id: 'madi_atrium_safe', title: 'Madi Escapou (do Átrio)', text: 'Escolhendo RESISTENTE, Madi segue viva, uma etapa mais perto de escapar de vez da mansão.', delta: 10, options: [{ label: 'Trocar para Chris no Observatório', target: 'chris_observatory_choice' }] },
+    { id: 'madi_death_undocumented_2', title: 'Rota Não Documentada — Madi Morre no Átrio', delta: -20 },
+  ],
+  level18: [
+    { id: 'chris_observatory_choice', title: '10. Observatório — A Escolha de Chris', text: 'DEIXAR ou FORÇAR PASSAGEM. A TrueAchievements é específica: DEIXAR é seguro se Chris estiver segurando o Espelho ou o Pingente (e ela está, nesta rota) — caso contrário, a outra ação a mataria. O PSNProfiles refina isso: FORÇAR PASSAGEM segurando o Pingente (do Cap. 12) libera "Pendant Burned Chris"; segurando o Espelho (do Cap. 3) libera "Mirror Burned Chris" — dois marcos com nomes diferentes pro mesmo tipo de consequência, dependendo de qual item ela carrega.', delta: 0, options: [{ label: 'DEIXAR (segura, com Espelho/Pingente em mãos)', target: 'chris_stayed_present' }, { label: 'FORÇAR PASSAGEM (queima Chris — nome do marco depende do item)', target: 'chris_death_undocumented' }] },
+  ],
+  level19: [
+    { id: 'chris_stayed_present', title: 'Chris Ficou no Presente (98/224 ou 99/224)', text: 'Chris volta pro filme projetado, mas deixa a mansão, procurando outra saída. Ela segue viva.', delta: 10, crf: true, options: [{ label: 'Trocar para Madison nos Bosques', target: 'madi_woods_start' }] },
+    { id: 'chris_death_undocumented', title: 'Pingente/Espelho Queima Chris', text: 'Forçando passagem enquanto segura o Pingente ou o Espelho, Chris acaba queimada — "Pendant Burned Chris" ou "Mirror Burned Chris", dependendo do item, segundo o PSNProfiles e o guia Steam "All Seeing". Nenhuma fonte cruzada detalha se isso significa morte imediata ou só um ferimento grave que ela carrega adiante.', delta: -20 },
+  ],
+  level20: [
+    { id: 'madi_woods_start', title: '11. Bosques — Uma Cutscene Enorme (99/224-103/224 ou 100/224-104/224)', text: 'Numa única cutscene longa, cinco marcos se liberam em sequência automática, fruto de todas as escolhas feitas até aqui: Altar, Augustine Traída, A Fogueira, Madi Escapou e Bosques. De volta ao controle, quatro flashbacks nas bancas de prescrição recontam a história compartilhada de 1980 (Sam/Robert/Linda/Jaime revelam o filme, descobrem Frank Stone preso nele, decidem dividir os pedaços e se separam prometendo mantê-los longe um do outro). No fim do caminho, um toco de árvore entre dois trajetos guarda Bloodied Ring — o 10º e último artefato Storyteller, fechando 🏆 "The Storyteller" E, sendo o 30º artefato no total, 🏆 "That Belongs in a Museum" completo. À direita, uma porta avulsa esconde o Rellik The Trickster (11/12).', trophy: '🏆 "The Storyteller" + 🏆 "That Belongs in a Museum"', delta: 0, options: [{ label: 'Voltar e seguir pelo caminho à esquerda — aperto entre as rochas', target: 'everyone_survived_ending' }] },
+  ],
+  level21: [
+    { id: 'everyone_survived_ending', title: 'Todo Mundo Sobreviveu — Final "Entity Displeased" (104/224 ou 105/224)', text: 'Mantendo Madison, as duas versões de Linda, as duas versões de Sam, Jaime e Chris todos vivos (Stan e Bonnie não contam pra essa conquista), os créditos rolam, fechando 🏆 "The Campfire" (completar a história) e 🏆 "Entity Displeased" (todo mundo sobrevive). Depois dos créditos, uma cutscene final libera Figure Emerges (105/224 ou 106/224) e o último Rellik do jogo, The Champion (12/12), fechando 🏆 "Plangonologist" — todos os relliks coletados.', trophy: '🏆 "The Campfire" + 🏆 "Entity Displeased" + 🏆 "Plangonologist"', delta: 30, type: 'victory' },
+  ],
+  level22: [
+    { id: 'linda_corridor_alt', title: '4-alt. Corredor — Uma Rota Alternativa Pouco Clara', text: 'O PSNProfiles mostra que dá pra chegar num corredor/sala de gerador parecido com este por mais de um caminho — inclusive um em que Stan é salvo e Sam segue vivo, não necessariamente pela rota do sacrifício de Sam que eu tinha ligado aqui antes (isso estava errado, já corrigido). O que parece constante nessa variante é: Madi acaba consumida no Horologium mais tarde, e Linda (com a arma de Sam do Cap. 8 em mãos) reparando o gerador sozinha e escolhendo DESCER em vez de Ajudar Madi/Elevador. Não tenho confiança total pra reconstruir a sequência exata de causas entre esses pontos, então deixo esse nó como uma ponte aproximada, não uma reconstrução completa.', delta: 0, options: [{ label: 'Consertar o gerador e escolher DESCER', target: 'linda_shot_augustine' }] },
+  ],
+  level23: [
+    { id: 'linda_shot_augustine', title: 'Linda Atirou em Augustine (222/224 — "Playthrough Two" da TA, Troféu "Nothing Personal")', text: 'Passando na sequência de combate seguinte, Linda atira em Augustine, fechando o troféu "Nothing Personal". O guia Steam "All Seeing" e o PSNProfiles concordam nas duas condições reais: Madi precisa estar consumida/morta E Linda precisa ter pego a arma de Sam antes (do Cap. 8, na rota Bolsa/"ficar com a arma") — não depende de Sam ter se sacrificado por ninguém, como eu tinha errado antes. Depois do tiro, um teste de habilidade seguido de um QTE de apertar botão (passe os dois).', trophy: '🏆 "Nothing Personal"', delta: 20, options: [{ label: 'Trocar para Chris no Observatório', target: 'chris_push_through' }] },
+  ],
+  level24: [
+    { id: 'chris_push_through', title: 'Chris Voltou? (223/224 — "Playthrough Two" da TA)', text: 'Nesta rota, Chris escolhe FORÇAR PASSAGEM em vez de DEIXAR, liberando o marco "Chris Returned?" — o próprio nome do marco (com ponto de interrogação) sugere ambiguidade sobre o resultado exato, que nenhuma fonte cruzada esclarece mais a fundo.', delta: 0, options: [{ label: 'Trocar para Linda nos Bosques', target: 'linda_woods_final' }] },
+  ],
+  level25: [
+    { id: 'linda_woods_final', title: 'Linda Sobreviveu — Fechamento Total (224/224, Troféu "All Seeing")', text: 'Os mesmos quatro flashbacks nas bancas de prescrição se repetem, e no fim do caminho, seguindo pela esquerda e pelo aperto entre as rochas, a cutscene final desta rota libera Linda Survived — o marco 224 de 224, fechando de vez o contador "All Seeing" que vínhamos acompanhando desde o Cap. 1. Esta é a conquista de completude total do jogo.', trophy: '🏆 "All Seeing" (224/224 — conclusão total)', delta: 20, type: 'victory' },
+    { id: 'sam_used_machine', title: 'Sam Usou a Máquina', text: 'Segundo o guia Steam "All Seeing", se Madi E Linda acabarem mortas ou capturadas (como no caso de "Madi e Linda Capturadas" logo depois do QTE do elevador), Sam usa a máquina do horologium sozinho, automaticamente. Nenhuma fonte cruzada detalha o resultado final exato dessa rota específica — fica em aberto, sinalizada como o desfecho mais provável a partir de "Madi e Linda Capturadas", sem forçar uma continuação que eu não consigo confirmar.', delta: 0, type: 'victory' },
+  ],
+};
+
 const FS_CM_TREES = {
   cap1: FS_CM_TREE_CAP1,
   cap2: FS_CM_TREE_CAP2,
@@ -2008,7 +2570,14 @@ const FS_CM_TREES = {
   cap4: FS_CM_TREE_CAP4,
   cap5: FS_CM_TREE_CAP5,
   cap6: FS_CM_TREE_CAP6,
-  cap7: FS_CM_TREE_CAP7
+  cap7: FS_CM_TREE_CAP7,
+  cap8: FS_CM_TREE_CAP8,
+  cap9: FS_CM_TREE_CAP9,
+  cap10: FS_CM_TREE_CAP10,
+  cap11: FS_CM_TREE_CAP11,
+  cap12: FS_CM_TREE_CAP12,
+  cap13: FS_CM_TREE_CAP13,
+  cap14: FS_CM_TREE_CAP14
 };
 
 /* Lista de capítulos pra navegação — só o Cap. 1 tem árvore pronta por
@@ -2022,13 +2591,13 @@ const FS_CM_CHAPTERS = [
   { id: "cap5", name: "5. O Fantasma da Siderúrgica Cedar", available: true },
   { id: "cap6", name: "6. Além do Portão", available: true },
   { id: "cap7", name: "7. Um Local Perigoso", available: true },
-  { id: "cap8", name: "8. Mansão Misteriosa", available: false },
-  { id: "cap9", name: "9. Descida dos Condenados", available: false },
-  { id: "cap10", name: "10. Na Casa da Loucura", available: false },
-  { id: "cap11", name: "11. Todos os Caminhos Se Cruzam", available: false },
-  { id: "cap12", name: "12. Abertando o Nó", available: false },
-  { id: "cap13", name: "13. Siderúrgica Mortal", available: false },
-  { id: "cap14", name: "14. O Massacre da Mansão Gerant", available: false }
+  { id: "cap8", name: "8. Mansão Misteriosa", available: true },
+  { id: "cap9", name: "9. Descida dos Condenados", available: true },
+  { id: "cap10", name: "10. Na Casa da Loucura", available: true },
+  { id: "cap11", name: "11. Todos os Caminhos Se Cruzam", available: true },
+  { id: "cap12", name: "12. Abertando o Nó", available: true },
+  { id: "cap13", name: "13. Siderúrgica Mortal", available: true },
+  { id: "cap14", name: "14. O Massacre da Mansão Gerant", available: true }
 ];
 
 /* Rotas-preset: sequências inteiras de escolhas já prontas até um
