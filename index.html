@@ -1557,11 +1557,11 @@ const FS_CM_TREE_CAP1 = {
     { id: 'crowbar_broken', title: 'Pé de Cabra Quebrado (170/224)', text: 'Sam falha o QTE e força a grade — o pé de cabra quebra no processo.', delta: -10, crf: true, options: [{ label: 'Descer para a Drenagem Pluvial', target: 'tom_reaction' }] },
   ],
   level7: [
-    { id: 'tom_reaction', title: '4. Antes de Descer', text: 'Antes de ir para a drenagem pluvial, surge uma conversa independente sobre a bebida de Tom.', delta: 0, converge: true, convergeNote: 'Não importa se o pé de cabra foi usado ou quebrado — essa conversa acontece do mesmo jeito pros dois lados. Esta é a conversa que conta pra Sala de Montagem — não a menção à bebida vista antes, no Diário de Bordo. É aqui, e não antes, que se decide o destino de "Tom Sóbrio" no Cap. 5.', options: [{ label: 'Confiar em Tom (REASSURING)', target: 'tom_trust' }, { label: 'Ficar agressivo (SCORNFUL/FRUSTRATED)', target: 'tom_irritated' }] },
+    { id: 'tom_reaction', title: '4. Antes de Descer', text: 'Antes de ir para a drenagem pluvial, surge uma conversa independente sobre a bebida de Tom.', delta: 0, converge: true, convergeNote: 'Não importa se o pé de cabra foi usado ou quebrado — essa conversa acontece do mesmo jeito pros dois lados. Esta é a conversa que conta pra Sala de Montagem — não a menção à bebida vista antes, no Diário de Bordo. É aqui, e não antes, que se decide o destino de "Tom Sóbrio" no Cap. 5.', options: [{ label: 'ÁSPERO — "Quer ser lembrado como um bêbado?" (SCORNFUL)', target: 'tom_trust' }, { label: 'IRRITADO — "Essa é a última coisa que você precisa!" (FRUSTRATED)', target: 'tom_irritated' }] },
   ],
   level8: [
-    { id: 'tom_trust', title: 'Confie no Tom (5/224)', text: 'Sam tranquiliza Tom em vez de brigar. 🔗 Isso é o que fecha "Tom Sóbrio" no Cap. 5, quando a fita da entrevista revela que ele parou de beber.', delta: 10, crf: true, options: [{ label: 'Entrar na Drenagem Pluvial', target: 'storm_drain' }] },
-    { id: 'tom_irritated', title: 'Sam se Irritou (171/224)', text: 'Sam fica agressivo com Tom ("Quer ser lembrado como um bêbado?"). Na fita do Cap. 5, Tom vai aparecer bebendo demais — travando 🔗 "Tom Sóbrio" nesta run.', delta: -10, crf: true, options: [{ label: 'Entrar na Drenagem Pluvial', target: 'storm_drain' }] },
+    { id: 'tom_trust', title: 'Confie no Tom (5/224)', text: 'Sam usa a fala mais dura de propósito ("Quer ser lembrado como um bêbado?") — se ela não estiver disponível, RECONFORTANTE serve de substituta com o mesmo efeito. 🔗 Isso é o que fecha "Tom Sóbrio" no Cap. 5, quando a fita da entrevista revela que ele parou de beber.', delta: 10, crf: true, options: [{ label: 'Entrar na Drenagem Pluvial', target: 'storm_drain' }] },
+    { id: 'tom_irritated', title: 'Sam se Irritou (171/224)', text: 'Sam escolhe a fala irritada ("Essa é a última coisa que você precisa!") em vez de confrontar Tom com dureza. Na fita do Cap. 5, Tom vai aparecer bebendo demais — travando 🔗 "Tom Sóbrio" nesta run.', delta: -10, crf: true, options: [{ label: 'Entrar na Drenagem Pluvial', target: 'storm_drain' }] },
   ],
   level9: [
     { id: 'storm_drain', title: '5. Drenagem Pluvial (6/224)', text: 'Sam acha 2 colecionáveis e o Rellik do Hillbilly nos túneis. Ao se espremer numa fresta, é empurrado pelo vapor de um cano — surge um Teste de Perícia.', delta: 0, crf: true, converge: true, convergeNote: 'Os dois lados da conversa com Tom desembocam igual aqui. O próximo ponto de escolha real é o Teste de Perícia na fresta, que decide se Sam chega à fornalha com ou sem lanterna.', options: [{ label: 'Passar no teste (mantém a lanterna)', target: 'flashlight_ok' }, { label: 'Falhar no teste (perde a lanterna)', target: 'flashlight_broken' }] },
@@ -1607,52 +1607,63 @@ const FS_CM_TREE_CAP1 = {
    principal, 177 a 179 na rota alternativa) e uma escolha nova que
    tinha passado batido: perguntar a profissão de Linda (Cineasta,
    15/224) só aparece se você parou pra pegá-la, e "Linda Chega
-   Depois" (178/224) é uma ramificação própria da rota de não parar. */
+   Depois" (178/224) é uma ramificação própria da rota de não parar.
+   Atualizado em 09/2026: Memória Desbotada (12/224) e Estrada
+   Solitária (13/224) eram um único card fundido — a TrueAchievements
+   confirma que são dois auto-unlocks em cenas separadas (o pesadelo
+   dentro de casa, depois já na estrada), então viraram dois cards. */
 const FS_CM_TREE_CAP2 = {
   level1: [
-    { id: 'start', title: '1. Memória Desbotada e Estrada Solitária', text: 'Madi acorda de um pesadelo (Memória Desbotada, 12/224) e, dirigindo pela estrada solitária (13/224), avista uma mochileira tentando pegar carona.', delta: 0, crf: true, options: [{ label: 'Parar (pegar carona)', target: 'hitchhiker_stop' }, { label: 'Seguir dirigindo', target: 'hitchhiker_drive' }] },
+    { id: 'start', title: '1. Memória Desbotada (12/224)', text: 'O capítulo abre com Madi presa num pesadelo recorrente: uma sequência de portas idênticas até desembocar numa floresta e uma televisão ligada sozinha.', delta: 0, crf: true, options: [{ label: 'Acordar e seguir para a estrada', target: 'lonely_road' }] },
   ],
   level2: [
+    { id: 'lonely_road', title: '2. Estrada Solitária (13/224)', text: 'De volta ao controle, Madi dirige à noite rumo à mansão e avista uma mochileira pedindo carona na beira da estrada.', delta: 0, crf: true, options: [{ label: 'Parar (pegar carona)', target: 'hitchhiker_stop' }, { label: 'Seguir dirigindo', target: 'hitchhiker_drive' }] },
+  ],
+  level3: [
     { id: 'hitchhiker_stop', title: 'Carona Puxada (14/224)', text: 'Madi para o carro e pega a mochileira — que se revela ser Linda, indo pro mesmo destino.', trophy: '🏆 "Colegas de Viagem"', delta: 10, crf: true, options: [{ label: 'Perguntar o que ela faz da vida (CURIOSO)', target: 'filmmaker_yes' }, { label: 'Perguntar sobre a mansão (APREENSIVO)', target: 'filmmaker_no' }] },
     { id: 'hitchhiker_drive', title: 'Seguiu em Frente (177/224)', text: 'Madi não para e segue sozinha até a mansão.', delta: -10, crf: true, options: [{ label: 'Chegar à mansão sozinha', target: 'linda_late' }] },
   ],
-  level3: [
+  level4: [
     { id: 'filmmaker_yes', title: 'Cineasta (15/224)', text: 'Madi pergunta sobre a profissão de Linda — ela revela que é cineasta de filmes de terror. Aprofunda o relacionamento das duas.', delta: 10, crf: true, options: [{ label: 'Chegar à mansão', target: 'manor_arrival' }] },
     { id: 'filmmaker_no', title: 'Pergunta Sobre a Mansão', text: 'Madi pergunta sobre a mansão em vez da profissão de Linda — sem o mesmo aprofundamento de relacionamento (essa opção não tem número de ramificação confirmado nas fontes).', delta: 0, options: [{ label: 'Chegar à mansão', target: 'manor_arrival' }] },
     { id: 'linda_late', title: 'Linda Chega Depois (178/224)', text: 'Bem mais tarde, já na mansão, Linda chega andando — irritada por ter sido deixada pra trás. Ao encontrar Stan, essa rota libera a opção DEFENSIVO ("Nunca pego caroneiros!"), que não aparece se você parou pra pegá-la antes.', delta: -10, crf: true, options: [{ label: 'Continuar explorando a mansão', target: 'manor_arrival' }] },
   ],
-  level4: [
-    { id: 'manor_arrival', title: '2. Saguão da Mansão (16/224)', text: 'Madi sobe as escadas, acha a partitura, toca a sequência certa no piano — 🏆 "Tema" — abrindo uma passagem secreta com o Rellik 2/12 (The Huntress). Encontra Stan (CASUAL/APREENSIVO/INTERESSADO — sem consequência de história confirmada nas fontes).', trophy: '🏆 "Tema"', delta: 5, crf: true, converge: true, convergeNote: 'O Saguão (16/224), a Sala de Estar (17/224) e a chegada de Linda são pontos automáticos que acontecem em qualquer rota — só as escolhas de diálogo (parar ou não pra carona, aceitar ou não a bebida) é que mudam de fato quais das 224 ramificações você desbloqueia.', options: [{ label: 'Encontrar Augustine na sala de estar', target: 'drink_choice' }] },
-  ],
   level5: [
-    { id: 'drink_choice', title: '3. Sala de Estar (17/224)', text: 'Madi pega o livro Epic of Gilgamesh e o pôster do Murder Mill no armário. Augustine chega e oferece uma bebida a Madi.', delta: 0, crf: true, converge: true, convergeNote: 'Dica de quem já mapeou a Sala de Montagem: se for repetir o capítulo pra pegar as duas ramificações, deixe a recusa da bebida por último — não precisa gastar uma run só pra isso.', options: [{ label: 'Aceitar (RELAXED)', target: 'drink_accept' }, { label: 'Recusar (RELUCTANT)', target: 'drink_decline' }] },
+    { id: 'manor_arrival', title: '3. Saguão da Mansão (16/224)', text: 'Madi sobe as escadas, acha a partitura, toca a sequência certa no piano — 🏆 "Tema" — abrindo uma passagem secreta com o Rellik 2/12 (The Huntress). Encontra Stan (CASUAL/APREENSIVO/INTERESSADO — sem consequência de história confirmada nas fontes).', trophy: '🏆 "Tema"', delta: 5, crf: true, converge: true, convergeNote: 'O Saguão (16/224), a Sala de Estar (17/224) e a chegada de Linda são pontos automáticos que acontecem em qualquer rota — só as escolhas de diálogo (parar ou não pra carona, aceitar ou não a bebida) é que mudam de fato quais das 224 ramificações você desbloqueia.', options: [{ label: 'Encontrar Augustine na sala de estar', target: 'drink_choice' }] },
   ],
   level6: [
+    { id: 'drink_choice', title: '4. Sala de Estar (17/224)', text: 'Madi pega o livro Epic of Gilgamesh e o pôster do Murder Mill no armário. Augustine chega e oferece uma bebida a Madi.', delta: 0, crf: true, converge: true, convergeNote: 'Dica de quem já mapeou a Sala de Montagem: se for repetir o capítulo pra pegar as duas ramificações, deixe a recusa da bebida por último — não precisa gastar uma run só pra isso.', options: [{ label: 'Aceitar (RELAXED)', target: 'drink_accept' }, { label: 'Recusar (RELUCTANT)', target: 'drink_decline' }] },
+  ],
+  level7: [
     { id: 'drink_accept', title: 'Bebida Aceita (18/224)', text: 'Madi aceita — "Vou querer o que o Stan estiver tomando." 🔗 Pré-requisito de "Fogo Amigo" e "Fagocitose" no Cap. 14, e do caminho "Madi consumida" no Cutting Room Floor (com o pingente no Cap. 12).', delta: -10, crf: true, options: [{ label: 'Corte para 1980', target: 'jaime_confront' }] },
     { id: 'drink_decline', title: 'Bebida Recusada (179/224)', text: 'Madi recusa — "Não, tudo bem." Caminho mais seguro, mas trava "Fogo Amigo" e "Fagocitose" nesta run (a menos que rejogue via Cutting Room Floor).', delta: 10, crf: true, options: [{ label: 'Corte para 1980', target: 'jaime_confront' }] },
   ],
-  level7: [
-    { id: 'jaime_confront', title: '4. 1980 — O Xerife Interrompe a Filmagem', text: 'Corte para 1980: Linda, Chris e Jaime estão filmando na siderúrgica abandonada quando o Xerife Sam (o mesmo do Cap. 1, agora 17 anos mais velho) os expulsa. Na confusão, a câmera quebra — QTE de apertar o quadrado repetidamente. Depois, Jaime reage: Desafiador ("Prefiro morrer!"), Defensivo ("Chris, confio no julgamento da Linda"), Arrependido ("Sentimos muito") ou Frustrado ("O que fazemos com uma câmera quebrada?") — nenhuma fonte confirma que essas 4 opções mudam o rumo da história, então ficam registradas aqui só como sabor de diálogo. A câmera quebrada é o gancho que abre o Cap. 3.', delta: 0, converge: true, convergeNote: 'Seja qual for a decisão sobre a bebida da Augustine, o corte pra 1980 acontece do mesmo jeito. Este é o último nó do capítulo — não há mais pontos de escolha documentados depois dele.' },
+  level8: [
+    { id: 'jaime_confront', title: '5. 1980 — O Xerife Interrompe a Filmagem', text: 'Corte para 1980: Linda, Chris e Jaime estão filmando na siderúrgica abandonada quando o Xerife Sam (o mesmo do Cap. 1, agora 17 anos mais velho) os expulsa. Na confusão, a câmera quebra — QTE de apertar o quadrado repetidamente. Depois, Jaime reage: Desafiador ("Prefiro morrer!"), Defensivo ("Chris, confio no julgamento da Linda"), Arrependido ("Sentimos muito") ou Frustrado ("O que fazemos com uma câmera quebrada?") — nenhuma fonte confirma que essas 4 opções mudam o rumo da história, então ficam registradas aqui só como sabor de diálogo. A câmera quebrada é o gancho que abre o Cap. 3.', delta: 0, converge: true, convergeNote: 'Seja qual for a decisão sobre a bebida da Augustine, o corte pra 1980 acontece do mesmo jeito. Este é o último nó do capítulo — não há mais pontos de escolha documentados depois dele.' },
   ],
 };
 
 /* ─── Capítulo 3: Curiosidade na Rua Principal (Jaime/Chris, 1980) ───
    Construído em 09/2026 direto do .txt de achados do usuário, cruzando
    TrueAchievements, TrophiesHunter, o guia N/224 do Google Docs e o
-   walkthrough dedicado do Neoseeker. É o capítulo mais bem documentado
-   até agora: 9 ramificações com número N/224 confirmado, incluindo os
-   4 finais da Loja de Curiosidades (28, 29, 149 e 150/224), tirados de
-   uma lista da TrueAchievements dedicada só àquela cena específica. */
+   walkthrough dedicado do Neoseeker. Atualizado em 09/2026 com a
+   checklist "Cutting Room Floor" dedicada da TrueAchievements, que
+   lista as 25 ramificações do capítulo com a condição exata de cada
+   uma — resolveu duas atribuições que estavam incertas ou trocadas
+   (180/224 "Sam Defied" é a sequência SEM ESPERANÇA→DEFENSIVO→
+   RELUTANTE em si, não a cena do suborno que vem depois; 183/224
+   "Jaime Honest" é chamar Bonnie de volta sem pedir dinheiro, não
+   parte do pedido direto dos $20 que já tinha o 184/224 certo). */
 const FS_CM_TREE_CAP3 = {
   level1: [
     { id: 'start', title: '1. Galpão de Armazenamento (19/224)', text: 'Jaime solta o braço num QTE de apertar botão durante a filmagem. Segue diálogo que afeta relacionamentos: DESAFIADOR ("Prefiro morrer!", sobe Chris — importante pra "Poder de Dois") vs SEM ESPERANÇA ("Pega ela!"); depois COMPACENTE ("respeita a diretora", desce Linda/sobe Chris) vs DEFENSIVO ("confio no julgamento da Linda", efeito oposto).', delta: 0, crf: true, options: [{ label: 'APOLOGÉTICO ("Sentimos muito")', target: 'jaime_apologized' }, { label: 'RELUTANTE ("Se não conseguirmos as últimas cenas...")', target: 'jaime_reluctant' }] },
   ],
   level2: [
     { id: 'jaime_apologized', title: 'Jaime se Desculpou (20/224)', text: 'Escolha recomendada pelas fontes — a rota RELUTANTE trava certas cenas mais adiante. Depois: DECEPCIONADO ("Acho que é isso", sobe relação com Sam, sem troféu) vs FRUSTRADO ("O que fazemos com uma câmera quebrada?").', delta: 10, crf: true, options: [{ label: 'Ir pra garagem de Chris', target: 'casa_rivera' }] },
-    { id: 'jaime_reluctant', title: 'Jaime Ficou Relutante', text: 'Trava temporariamente certas cenas nesta run. 🔗 Sam fica impaciente com a atitude de Jaime — segundo o guia Steam "All Seeing" (dedicado a pré-requisitos de conquista), o bebê ter morrido no Cap. 1 já é suficiente pra abrir o suborno abaixo; a combinação com "Ferido Gravemente" que eu tinha registrado antes não está descartada, mas também não é a condição confirmada por essa fonte mais precisa. Este ramo específico não tem número N/224 confirmado nesta lista (que só documentou a rota Apologético) — vem de uma pesquisa cruzada anterior (Steam Guide + PSNProfiles). ATENÇÃO 09/2026: o guia N/224 dedicado da TrueAchievements lista um "180 — Sam Defied" no Cap. 3 ("Sam reage/defende sua posição de forma desafiadora"), mas a descrição não bate com confiança neste nó (que é sobre Jaime, não Sam) — fica sinalizado como não resolvido em vez de forçar o número aqui.', delta: -10, options: [{ label: 'Sam tenta o suborno (se aplicável)', target: 'bribe_offer' }] },
+    { id: 'jaime_reluctant', title: 'Jaime Ficou Relutante (180/224)', text: 'Jaime reage com a sequência SEM ESPERANÇA → DEFENSIVO → RELUTANTE. Trava temporariamente certas cenas nesta run.', delta: -10, crf: true, options: [{ label: 'Sam tenta o suborno (se aplicável)', target: 'bribe_offer' }] },
   ],
   level3: [
-    { id: 'bribe_offer', title: 'Suborno de Sam (180/224 — candidato mais provável, não 100% confirmado)', text: 'Segundo o guia Steam "All Seeing", só ocorre se o bebê tiver morrido no Cap. 1. Sam oferece dinheiro pro grupo ir embora. Número atribuído em 09/2026: o guia N/224 dedicado da TrueAchievements lista "180 — Sam Defied" ("Sam reage/defende sua posição de forma desafiadora") logo antes de Bribe Taken (181) e Bribe Refused (182) — a posição na sequência e o conteúdo (Sam se impondo e oferecendo o suborno) batem bem, mas a fonte não descreve a fala literal, então trato como forte candidato, não certeza absoluta.', delta: 0, converge: true, convergeNote: 'Esta cena só existe numa combinação específica de estados vindos do Cap. 1 junto com a escolha Relutante aqui — quem seguiu Apologético nunca vê esse suborno.', options: [{ label: 'Aceitar o suborno', target: 'easy_money' }, { label: 'Recusar o suborno', target: 'refuse_bribe' }] },
+    { id: 'bribe_offer', title: 'Suborno de Sam', text: 'Só acontece se o bebê tiver morrido no Cap. 1 — Sam oferece dinheiro pro grupo ir embora. Não tem número N/224 próprio: é o gancho pras duas ramificações abaixo (Suborno Aceito/Recusado).', delta: 0, converge: true, convergeNote: 'Esta cena só existe numa combinação específica de estados vindos do Cap. 1 junto com a escolha Relutante aqui — quem seguiu Apologético nunca vê esse suborno.', options: [{ label: 'Aceitar o suborno', target: 'easy_money' }, { label: 'Recusar o suborno', target: 'refuse_bribe' }] },
   ],
   level4: [
     { id: 'easy_money', title: 'ROTA: Aceita o Suborno (181/224)', text: 'Jaime aceita o dinheiro de Sam. O grupo já tem verba pra câmera — a cena de Bonnie nem aparece. Segundo o guia Steam "All Seeing", aceitando o suborno o grupo não chega a pedir dinheiro a Bonnie.', trophy: '🏆 "Dinheiro Fácil"', delta: -10, crf: true, options: [{ label: 'Ir direto à Rua Principal', target: 'street_choice' }] },
@@ -1665,8 +1676,8 @@ const FS_CM_TREE_CAP3 = {
     { id: 'bonnie_setup', title: '3. Garagem de Jaime — Preparando Bonnie', text: 'Diálogo JOVIAL/EMPÁTICO, CHOCADO/ESPERANÇOSO, SÉRIO/SOLIDÁRIO com a família — sem consequência de história confirmada, só aprofunda o relacionamento de Jaime. O guia Steam "All Seeing" revela uma opção que eu não tinha registrado antes: em vez de roubar ou chamar Bonnie de volta de mãos vazias, dá pra PEDIR os $20 pra ela diretamente (rota honesta).', delta: 0, converge: true, convergeNote: 'Chegando aqui vindo de qualquer caminho anterior, a preparação com a família é igual — a ramificação real só acontece na escolha seguinte: pedir o dinheiro, chamar Bonnie de volta sem pedir, ou roubar dela.', options: [{ label: 'PEDIR os $20 pra Bonnie (honesto)', target: 'ask_bonnie' }, { label: 'Chamar Bonnie de volta sem pedir (CALL)', target: 'call_bonnie' }, { label: 'Roubar o dinheiro (STEAL)', target: 'five_finger' }] },
   ],
   level7: [
-    { id: 'ask_bonnie', title: 'Pediu os $20 pra Bonnie (183/224 → 184/224)', text: 'Segundo o guia Steam "All Seeing", pedir os $20 diretamente é uma alternativa honesta ao roubo que garante o dinheiro suficiente pros Fogos de Artifício mais tarde na Drugstore — o mesmo efeito prático de "Dinheiro Roubado", mas sem baixar a relação com Linda. Números confirmados em 09/2026 contra o guia N/224 dedicado da TrueAchievements: 183/224 é o pedido honesto em si (Jaime Honest), 184/224 é Bonnie entregar o dinheiro (Bonnie Gave Money) — resultado automático da mesma escolha, sem QTE ou checagem intermediária.', delta: 5, crf: true, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
-    { id: 'call_bonnie', title: 'Chamou Bonnie de Volta (sem pedir dinheiro)', text: 'Jaime desiste de roubar e não pede o dinheiro diretamente — segundo o guia Steam "All Seeing", isso deixa Bonnie chateada e ela vai embora; o grupo então só consegue dinheiro se deixar o cronômetro acabar (Jaime vai pedir pro próprio pai, ganhando $10 — menos que os $20 necessários pros Fogos de Artifício) ou chamar por ela de novo.', delta: 0, options: [{ label: 'Deixar o tempo acabar — Jaime pede pro pai ($10)', target: 'dad_gives_ten' }, { label: 'Chamar por Bonnie de novo (rota não detalhada por nenhuma fonte)', target: 'call_bonnie_again_undocumented' }] },
+    { id: 'ask_bonnie', title: 'Pediu os $20 pra Bonnie (184/224)', text: 'Pedir os $20 diretamente é uma alternativa honesta ao roubo que garante o dinheiro suficiente pros Fogos de Artifício mais tarde na Drugstore — o mesmo efeito prático de "Dinheiro Roubado", mas sem baixar a relação com Linda.', delta: 5, crf: true, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
+    { id: 'call_bonnie', title: 'Chamou Bonnie de Volta (183/224)', text: 'Jaime desiste de roubar e chama Bonnie de volta sem pedir o dinheiro diretamente — ela fica chateada e vai embora; o grupo só consegue dinheiro se deixar o cronômetro acabar (Jaime pede pro próprio pai, ganhando $10 — menos que os $20 necessários pros Fogos de Artifício) ou chamar por ela de novo.', delta: 0, crf: true, options: [{ label: 'Deixar o tempo acabar — Jaime pede pro pai ($10)', target: 'dad_gives_ten' }, { label: 'Chamar por Bonnie de novo (rota não detalhada por nenhuma fonte)', target: 'call_bonnie_again_undocumented' }] },
     { id: 'five_finger', title: 'Dinheiro Roubado (22/224)', text: 'Jaime rouba $20 de Bonnie esperando consertar a câmera. Linda fica descontente com a escolha.', trophy: '🏆 "Desconto dos Cinco Dedos"', delta: -10, crf: true, options: [{ label: 'Ir para a Rua Principal', target: 'street_choice' }] },
   ],
   level8: [
@@ -1691,7 +1702,7 @@ const FS_CM_TREE_CAP3 = {
   ],
   level14: [
     { id: 'curiosity_scene', title: '5. Loja de Curiosidades (27/224)', text: 'Diálogo sobre roubar da loja: CÍNICO/PEDANTE vs concordar em não roubar (sobe relação com Jaime). Colecionáveis: Lawyer Letter (Artefato d\'A Narradora) e o Rellik do Trapper.', delta: 10, crf: true, converge: true, convergeNote: 'Quem veio da Drugstore com os $20 completos chega aqui com os Fogos de Artifício garantidos; quem veio direto, ou tinha só $10/suborno, não. Dali pra frente, a negociação da câmera é igual pros dois — a única diferença é o que já está na mochila.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
-    { id: 'curiosity_scene_alt', title: 'Loja de Curiosidades (sem os Fogos) (186/224)', text: 'Mesma cena de antes, mas sem dinheiro sobrando pros Fogos de Artifício — já foi gasto aqui na câmera.', delta: 0, crf: true, converge: true, convergeNote: 'Esta é a versão da Loja de Curiosidades pra quem NÃO passou pela Drugstore antes — mesma cena, mas sem os Fogos de Artifício na mochila. A negociação da câmera segue igual pros dois caminhos a partir daqui. GAP EM ABERTO (09/2026): o guia N/224 dedicado da TrueAchievements também lista um "191 — Drugstore" (entrar na Drugstore pela rota invertida) — não achei nenhum nó correspondente na árvore atual pra essa visita, então fica marcado como lacuna real de conteúdo, não como falta de rótulo.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
+    { id: 'curiosity_scene_alt', title: 'Loja de Curiosidades (sem os Fogos) (186/224)', text: 'Mesma cena de antes, mas sem dinheiro sobrando pros Fogos de Artifício — já foi gasto aqui na câmera.', delta: 0, crf: true, converge: true, convergeNote: 'Esta é a versão da Loja de Curiosidades pra quem NÃO passou pela Drugstore antes — mesma cena, mas sem os Fogos de Artifício na mochila. A negociação da câmera segue igual pros dois caminhos a partir daqui.', options: [{ label: 'Examinar o carretel de filme', target: 'camera_deal' }] },
   ],
   level15: [
     { id: 'camera_deal', title: '6. Negociando a Câmera', text: 'Ao pegar o carretel de filme, começa a negociação do preço da câmera de 8mm com a vendedora.', delta: 0, converge: true, convergeNote: 'Essas 4 ramificações do final da Loja de Curiosidades (28, 29, 149 e 150/224) têm os números mais bem confirmados do capítulo inteiro — vieram de uma lista separada da TrueAchievements dedicada só a essa cena.', options: [{ label: 'Aceitar o preço (APRECIATIVO)', target: 'price_accepted' }, { label: 'Regatear (DUVIDOSO)', target: 'price_haggled' }] },
@@ -1714,22 +1725,18 @@ const FS_CM_TREE_CAP3 = {
 
 /* ─── Capítulo 4: Estas Paredes Têm Olhos (Linda, 2024 — paralelo ao Cap. 3) ───
    Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
-   Pro Game Guides, GameSpew, TrueAchievements (dois blocos — um pra cada
-   lado da escolha "seguir Stan" x "ficar com Madi"), Trophies Hunter PT-BR
-   e o guia N/224 do Google Docs. Este capítulo tem o conflito de números
-   mais evidente do projeto até agora: a escolha "seguir Stan" x "ficar
-   com Madi" recebe os MESMOS números (31 e 32) atribuídos a marcos com
-   NOMES diferentes conforme a fonte (TrueAchievements: 31=Followed Stan,
-   32=Atrium; Google Docs: 31=Stayed With Madi, 32=Parlor), e a
-   TrueAchievements ainda registra "Stayed With Madi"/"Parlor" numa
-   segunda vez como 192/193 — números bem mais adiantados no contador
-   geral. A explicação mais provável (reforçada pela própria Trophies
-   Hunter, que recomenda ficar com Madi e depois voltar pelo Cutting
-   Room Floor pra pegar "Seguir Stan" também) é que o par 192/193 venha
-   de uma segunda passagem via Cutting Room Floor, já bem mais adiante
-   no contador cumulativo de 224 — mas isso é uma inferência, não uma
-   confirmação direta de nenhuma fonte, e está sinalizado como tal nos
-   nós abaixo. */
+   Pro Game Guides, GameSpew, TrueAchievements e Trophies Hunter PT-BR.
+   Atualizado em 09/2026: o checklist "Cutting Room Floor" dedicado da
+   TrueAchievements resolveu o conflito de números que existia aqui —
+   confirmado que 31=Followed Stan / 32=Atrium (rota Seguir Stan) e
+   192=Stayed With Madi / 193=Parlor (rota Ficar com Madi); os números
+   "31/32 pelo Google Docs" para a rota Madi estavam errados e foram
+   removidos. Átrio e Salão viraram cards próprios (antes só apareciam
+   citados dentro do texto de outro nó). Segue em aberto, sem forçar
+   número: se a rota Ficar com Madi repete a mesma conversa nostálgica
+   sobre Bonnie (Lembrança Compartilhada, 33/224) que a rota Seguir Stan
+   tem confirmada — nenhuma fonte cruzada confirma isso de um jeito ou
+   de outro. */
 const FS_CM_TREE_CAP4 = {
   level1: [
     { id: 'start', title: '1. Salão de Estar (30/224)', text: 'Ao iniciar o capítulo, o jogo libera automaticamente Gerant Manor (All Seeing: 30/224). É noite em 2024: Augustine saiu, Madi dorme, e Linda espera sentada no salão enquanto algo acontece. Diálogo de abertura sem ramificação real — COMPASSIVO ("Você está bem?", sobe a relação com Madi) ou INVESTIGATIVO ("Pesadelo?", tom mais neutro) — as duas opções levam pro mesmo próximo momento.', delta: 0, crf: true, options: [{ label: 'Continuar para a escolha sobre Stan', target: 'stan_madi_choice' }] },
@@ -1738,32 +1745,36 @@ const FS_CM_TREE_CAP4 = {
     { id: 'stan_madi_choice', title: '2. Escolha — Seguir Stan ou Ficar com Madi', text: 'Segunda leva de diálogo, e esta sim é a escolha real do capítulo (Path 1 x Path 2, segundo o Pro Game Guides): COMANDANTE ("O que você está esperando?") faz Linda sair do quarto atrás de Stan; DISPENSATIVO ("Estou bem aqui") faz Linda ficar no quarto com Madi.', delta: 0, options: [{ label: 'COMANDANTE — Seguir Stan (sair do quarto)', target: 'followed_stan' }, { label: 'DISPENSATIVO — Ficar com Madi', target: 'stayed_madi' }] },
   ],
   level3: [
-    { id: 'followed_stan', title: 'Seguiu Stan (31/224)', text: 'Linda sai do quarto atrás de Stan. Segundo a TrueAchievements, isso libera Followed Stan (All Seeing: 31/224) e, automaticamente durante a cutscene seguinte, Atrium (All Seeing: 32/224).', delta: 10, crf: true, options: [{ label: 'Explorar o salão com Stan', target: 'painting_room' }] },
-    { id: 'stayed_madi', title: 'Ficou com Madi (31/224 — Google Docs)', text: 'Linda fica no quarto com Madi. O Google Docs de 224 ramificações registra isso como Stayed With Madi (31/224), seguido de Parlor (32/224) — mas a TrueAchievements, num bloco separado do guia, associa esses dois mesmos nomes de marco aos números 192/224 e 193/224, bem mais adiantados. Não dá pra confirmar com certeza qual número está certo pra uma primeira passagem; a Trophies Hunter PT-BR recomenda ficar com Madi aqui e depois usar o Cutting Room Floor pra voltar e pegar "Seguir Stan" também, o que sugere que o par 192/193 possa vir dessa segunda passagem — mas isso é inferência, não confirmação. Bônus de completismo: ficar aqui dá uma segunda chance de pegar o livro Epic of Gilgamesh na mesa lateral, caso tenha perdido no Capítulo 2.', delta: -10, crf: true, options: [{ label: 'Falar com Madi e seguir para o Átrio', target: 'painting_room' }] },
+    { id: 'followed_stan', title: 'Seguiu Stan (31/224)', text: 'Linda sai do quarto atrás de Stan (COMANDANTE).', delta: 10, crf: true, options: [{ label: 'Continuar na cutscene', target: 'atrium' }] },
+    { id: 'stayed_madi', title: 'Ficou com Madi (192/224)', text: 'Linda fica no quarto com Madi (DISPENSATIVO — "Estou bem aqui"). Bônus de completismo: dá uma segunda chance de pegar o livro Epic of Gilgamesh na mesa lateral, caso tenha perdido no Capítulo 2.', delta: -10, crf: true, options: [{ label: 'Continuar na cutscene', target: 'parlor' }] },
   ],
   level4: [
-    { id: 'painting_room', title: '3. Sala Secreta do Retrato', text: 'Depois da conversa com Stan (ou de ficar com Madi), o jogo segue pro Átrio. Interaja com o grande retrato acima da lareira e foque na plaquinha na moldura — nela dá pra limpar o nome e apertar um botão escondido, abrindo uma passagem secreta ao lado do quadro. Dentro da sala secreta, um colecionável na mesa/armário no fundo dá Blueprints (The Storyteller 3/10) e conta pra Isso Pertence a um Museu (8/30).', delta: 0, converge: true, convergeNote: 'Seguir Stan ou ficar com Madi levam ao mesmo lugar em seguida — a cena do retrato e da sala secreta é idêntica pros dois lados. A diferença real fica só nos marcos numerados já registrados antes deste ponto: quem ficou com Madi passa por um marco extra ("Parlor", segundo o Google Docs) que não aparece documentado do mesmo jeito na rota de quem seguiu Stan, o que pode explicar por que a numeração das duas fontes diverge a partir daqui (Átrio sai como 32/224 pra TrueAchievements/rota Stan, mas conceitualmente ficaria 33/224 pra rota Madi/Google Docs).', options: [{ label: 'Sair da sala e subir a escadaria', target: 'stairs_comforting' }] },
+    { id: 'atrium', title: 'Átrio (32/224)', text: 'Auto-unlock durante a cutscene que segue a escolha de ir atrás de Stan.', delta: 0, crf: true, options: [{ label: 'Explorar o salão', target: 'painting_room' }] },
+    { id: 'parlor', title: 'Salão (193/224)', text: 'Auto-unlock junto com "Ficou com Madi" — as duas travam da mesma escolha (DISPENSATIVO), não são passos separados.', delta: 0, crf: true, options: [{ label: 'Explorar o salão', target: 'painting_room' }] },
   ],
   level5: [
-    { id: 'stairs_comforting', title: '4. Escadaria — Conversa Reconfortante', text: 'Saia da sala secreta pela mesma entrada, vire à direita e suba a escadaria à frente — isso dispara uma cutscene. Quando solicitado, selecione RECONFORTANTE ("Sinto muito que você tenha passado por isso"), que sobe a relação entre Linda e Madi. Nenhuma fonte cruzada documenta uma alternativa a essa escolha nesta cena.', delta: 10, options: [{ label: 'Subir até o segundo andar', target: 'face_of_evil' }] },
+    { id: 'painting_room', title: '3. Sala Secreta do Retrato', text: 'Depois da conversa com Stan (ou de ficar com Madi), o jogo segue pro Átrio/Salão. Interaja com o grande retrato acima da lareira e foque na plaquinha na moldura — nela dá pra limpar o nome e apertar um botão escondido, abrindo uma passagem secreta ao lado do quadro. Dentro da sala secreta, um colecionável na mesa/armário no fundo dá Blueprints (The Storyteller 3/10) e conta pra Isso Pertence a um Museu (8/30).', delta: 0, converge: true, convergeNote: 'Seguir Stan ou ficar com Madi levam ao mesmo lugar em seguida — a cena do retrato e da sala secreta é idêntica pros dois lados.', options: [{ label: 'Sair da sala e subir a escadaria', target: 'stairs_comforting' }] },
   ],
   level6: [
-    { id: 'face_of_evil', title: '5. Livro sobre Frank Stone', text: 'No patamar do segundo andar, dá pra interagir opcionalmente com a estátua à esquerda. Ignore o portão por enquanto e siga até a mesa iluminada no fundo do cômodo, onde há um livro sobre Frank Stone — pegue-o para receber Face of Evil (The Champion 4/10) e mais um ponto em Isso Pertence a um Museu (9/30). Nota da TrueAchievements: apesar do contador de coleta mostrar 4/10 nesse momento, esse artefato vai aparecer como o SEXTO da lista final de colecionáveis (os artefatos 3 e 5 ainda não foram perdidos — só serão pegos em outros pontos do jogo). O Pro Game Guides confirma essa mesma posição, chamando-o direto de "Champion Artifact 6 of 10".', delta: 0, options: [{ label: 'Voltar ao portão e falar com Madi', target: 'madi_talk_gate' }] },
+    { id: 'stairs_comforting', title: '4. Escadaria — Conversa Reconfortante', text: 'Saia da sala secreta pela mesma entrada, vire à direita e suba a escadaria à frente — isso dispara uma cutscene. Quando solicitado, selecione RECONFORTANTE ("Sinto muito que você tenha passado por isso"), que sobe a relação entre Linda e Madi. Nenhuma fonte cruzada documenta uma alternativa a essa escolha nesta cena.', delta: 10, options: [{ label: 'Subir até o segundo andar', target: 'face_of_evil' }] },
   ],
   level7: [
-    { id: 'madi_talk_gate', title: '6. O Portão e a Conversa com Madi', text: 'Volte e interaja com o portão curvo que tinha sido ignorado antes. Madison se afasta sozinha, falando consigo mesma. Dá pra explorar o armário e a caixinha de bugigangas no cômodo antes de se aproximar dela, mas é preciso já ter pego o colecionável Face of Evil pra poder puxar essa conversa com Madi.', delta: 0, options: [{ label: 'Falar com Madi', target: 'bonnie_story_choice' }] },
+    { id: 'face_of_evil', title: '5. Livro sobre Frank Stone', text: 'No patamar do segundo andar, dá pra interagir opcionalmente com a estátua à esquerda. Ignore o portão por enquanto e siga até a mesa iluminada no fundo do cômodo, onde há um livro sobre Frank Stone — pegue-o para receber Face of Evil (The Champion 4/10) e mais um ponto em Isso Pertence a um Museu (9/30). Nota da TrueAchievements: apesar do contador de coleta mostrar 4/10 nesse momento, esse artefato vai aparecer como o SEXTO da lista final de colecionáveis (os artefatos 3 e 5 ainda não foram perdidos — só serão pegos em outros pontos do jogo). O Pro Game Guides confirma essa mesma posição, chamando-o direto de "Champion Artifact 6 of 10".', delta: 0, options: [{ label: 'Voltar ao portão e falar com Madi', target: 'madi_talk_gate' }] },
   ],
   level8: [
-    { id: 'bonnie_story_choice', title: '7. Compartilhar (ou não) uma Lembrança de Bonnie', text: 'Escolha real de diálogo — Path 1 x Path 2 segundo o Pro Game Guides: NOSTÁLGICO ("Tem algo que eu nunca contei pra ninguém") faz Linda compartilhar uma lembrança sobre Bonnie, mãe de Madi; CORTANTE ("Não é uma boa ideia reviver o passado") recusa contar a história.', delta: 0, options: [{ label: 'NOSTÁLGICO — Compartilhar a lembrança de Bonnie', target: 'memory_shared' }, { label: 'CORTANTE — Recusar contar a história', target: 'memory_refused' }] },
+    { id: 'madi_talk_gate', title: '6. O Portão e a Conversa com Madi', text: 'Volte e interaja com o portão curvo que tinha sido ignorado antes. Madison se afasta sozinha, falando consigo mesma. Dá pra explorar o armário e a caixinha de bugigangas no cômodo antes de se aproximar dela, mas é preciso já ter pego o colecionável Face of Evil pra poder puxar essa conversa com Madi.', delta: 0, options: [{ label: 'Falar com Madi', target: 'bonnie_story_choice' }] },
   ],
   level9: [
-    { id: 'memory_shared', title: 'Lembrança Compartilhada (33/224 ou 34/224 — depende da rota)', text: 'Linda compartilha a lembrança de Bonnie com Madi, que fica grata pela história — a relação entre as duas sobe. As fontes voltam a divergir em uma casa: a TrueAchievements (documentando a rota "Seguiu Stan") registra esse marco como Memory Shared (33/224), enquanto o Google Docs (documentando a rota "Ficou com Madi") registra 34/224. A diferença de uma unidade bate com o marco extra de "Parlor" que só a rota de ficar com Madi tem documentado antes, então os dois números provavelmente descrevem o MESMO marco visto por rotas diferentes — não dois marcos distintos —, mas isso não está confirmado de forma direta em nenhuma das fontes.', delta: 10, crf: true, options: [{ label: 'Continuar a conversa', target: 'filmstrips_concern' }] },
-    { id: 'memory_refused', title: 'Lembrança Recusada', text: 'Linda recusa contar a história sobre Bonnie ("Não é uma boa ideia reviver o passado"). Nenhuma das fontes cruzadas documenta um número N/224 específico pra essa recusa — só o Pro Game Guides confirma que essa opção existe como caminho alternativo ao de compartilhar a lembrança, sem detalhar consequências além da própria escolha.', delta: -10, options: [{ label: 'Continuar a conversa', target: 'filmstrips_concern' }] },
+    { id: 'bonnie_story_choice', title: '7. Compartilhar (ou não) uma Lembrança de Bonnie', text: 'Escolha real de diálogo — Path 1 x Path 2 segundo o Pro Game Guides: NOSTÁLGICO ("Tem algo que eu nunca contei pra ninguém") faz Linda compartilhar uma lembrança sobre Bonnie, mãe de Madi; CORTANTE ("Não é uma boa ideia reviver o passado") recusa contar a história.', delta: 0, options: [{ label: 'NOSTÁLGICO — Compartilhar a lembrança de Bonnie', target: 'memory_shared' }, { label: 'CORTANTE — Recusar contar a história', target: 'memory_refused' }] },
   ],
   level10: [
-    { id: 'filmstrips_concern', title: '8. Preocupação com os Filmstrips', text: 'Escolha final do capítulo: PREOCUPADO ("Eles podem estar atrás dos filmstrips") é a via mais segura; SÉRIO ("Augustine esperava algo assim", ligado a um colecionável/marco chamado Discovery) só aparece em certas condições e, segundo a TrueAchievements, baixa a relação entre Madi e Linda quando escolhida.', delta: 0, converge: true, convergeNote: 'Compartilhar ou recusar a lembrança de Bonnie não muda o que vem a seguir — as duas rotas se encontram aqui, na conversa final sobre os filmstrips que fecha o capítulo.', options: [{ label: 'PREOCUPADO — via segura', target: 'end_cap4' }, { label: 'SÉRIO — "Descoberta" (se disponível)', target: 'end_cap4_serious' }] },
+    { id: 'memory_shared', title: 'Lembrança Compartilhada (33/224)', text: 'Linda compartilha a lembrança de Bonnie com Madi, que fica grata pela história — a relação entre as duas sobe. O checklist oficial confirma esse marco especificamente na cena do Átrio (rota Seguiu Stan). Não há confirmação de nenhuma fonte de que a rota Ficou com Madi/Salão repita essa mesma conversa — fica em aberto, não fabricado aqui.', delta: 10, crf: true, options: [{ label: 'Continuar a conversa', target: 'filmstrips_concern' }] },
+    { id: 'memory_refused', title: 'Lembrança Recusada', text: 'Linda recusa contar a história sobre Bonnie ("Não é uma boa ideia reviver o passado"). Nenhuma das fontes cruzadas documenta um número N/224 específico pra essa recusa — só o Pro Game Guides confirma que essa opção existe como caminho alternativo ao de compartilhar a lembrança, sem detalhar consequências além da própria escolha.', delta: -10, options: [{ label: 'Continuar a conversa', target: 'filmstrips_concern' }] },
   ],
   level11: [
+    { id: 'filmstrips_concern', title: '8. Preocupação com os Filmstrips', text: 'Escolha final do capítulo: PREOCUPADO ("Eles podem estar atrás dos filmstrips") é a via mais segura; SÉRIO ("Augustine esperava algo assim", ligado a um colecionável/marco chamado Discovery) só aparece em certas condições e, segundo a TrueAchievements, baixa a relação entre Madi e Linda quando escolhida.', delta: 0, converge: true, convergeNote: 'Compartilhar ou recusar a lembrança de Bonnie não muda o que vem a seguir — as duas rotas se encontram aqui, na conversa final sobre os filmstrips que fecha o capítulo.', options: [{ label: 'PREOCUPADO — via segura', target: 'end_cap4' }, { label: 'SÉRIO — "Descoberta" (se disponível)', target: 'end_cap4_serious' }] },
+  ],
+  level12: [
     { id: 'end_cap4', title: '9. Fim do Capítulo 4', text: 'Linda encerra a conversa com FLIPANTE ("Se essa trama ficar mais grossa..."), fechando o Capítulo 4. A história segue em paralelo pro Capítulo 5, que se passa em 1980 com Jaime, Chris e o restante do grupo.', delta: 0, type: 'victory' },
     { id: 'end_cap4_serious', title: 'Fim do Capítulo 4 (via "Descoberta")', text: 'Mesma cena final de encerramento, mas com a relação entre Madi e Linda mais baixa por causa da escolha SÉRIO logo antes. Termina do mesmo jeito, com FLIPANTE ("Se essa trama ficar mais grossa..."), fechando o capítulo.', delta: -10, type: 'victory' },
   ],
@@ -1876,7 +1887,7 @@ const FS_CM_TREE_CAP5 = {
     { id: 'confront_skillcheck', title: 'Enfrentando — Depende dos Fogos de Artifício', text: 'Segundo o Pro Game Guides/Nintendosmash: se Jaime NÃO tiver os Fogos de Artifício (perdidos na cena AUTORITÁRIO, ou nunca comprados no Cap. 3 por não ter ido à Drugstore primeiro), ele morre automaticamente ao enfrentar Frank Stone, sem nem chegar a um teste de habilidade. Se ele TIVER os fogos, surge um teste de habilidade real: passar usa os fogos e dá tempo de fugir; falhar todos os testes também mata Jaime, segundo a Trophies Hunter PT-BR e a TrueAchievements/Docs.', delta: 0, options: [{ label: 'Passar no teste (COM os fogos)', target: 'end_cap5_firecrackers_used' }, { label: 'Falhar no teste OU enfrentar sem fogos', target: 'end_cap5_jaime_dies' }] },
   ],
   level21: [
-    { id: 'end_cap5_firecrackers_used', title: 'Fogos de Artifício Usados (50/224 ou 51/224)', text: 'Jaime usa os Fogos de Artifício contra Frank Stone e consegue tempo pra fugir — Chris ainda é sugada pelo portal, encerrando o Capítulo 5. 🔗 Setup pro Cap. 7: segundo a Trophies Hunter PT-BR, deixar Frank Stone atacar Linda assim que ela entrar no galpão logo no início daquele capítulo faz ela ficar "fisgada" — fica anotado aqui pra quando chegarmos lá.', delta: 15, crf: true, type: 'victory' },
+    { id: 'end_cap5_firecrackers_used', title: 'Fogos de Artifício Usados (50/224)', text: 'Jaime usa os Fogos de Artifício contra Frank Stone e consegue tempo pra fugir — Chris ainda é sugada pelo portal, encerrando o Capítulo 5. 🔗 Setup pro Cap. 7: segundo a Trophies Hunter PT-BR, deixar Frank Stone atacar Linda assim que ela entrar no galpão logo no início daquele capítulo faz ela ficar "fisgada" — fica anotado aqui pra quando chegarmos lá.', delta: 15, crf: true, type: 'victory' },
     { id: 'end_cap5_jaime_dies', title: 'Jaime Morre (153/224 — combinado com Terminaram+Confrontar, segundo a TA)', text: 'Sem os fogos (ou falhando todos os testes mesmo com eles), Frank Stone mata Jaime durante o confronto. O guia dedicado "TrueAchievements — All Seeing" confirma o número 153/224 especificamente pra combinação Terminaram (151) + Fracasso nos Fogos de Artifício (152) + Jaime Morto (153), todos liberados na mesma sequência. Chris ainda é sugada pelo portal — o capítulo termina do mesmo jeito, só que com uma baixa a menos no elenco.', delta: -20, crf: true, type: 'gameover' },
     { id: 'end_cap5_flee', title: 'Fugiram (via segura)', text: 'Jaime simplesmente foge em vez de enfrentar Frank Stone — rota seguro documentada como o próprio final padrão do capítulo. Se veio pela corrente oculta dos Sentimentos por Linda, esse mesmo desfecho é nomeado Jaime Ran (199/224) pela TrueAchievements — mais um número da faixa suspeita dos 190. De qualquer forma, Chris é sugada pelo portal e o Capítulo 5 termina.', delta: 0, crf: true, type: 'victory' },
   ],
@@ -1884,22 +1895,20 @@ const FS_CM_TREE_CAP5 = {
 
 /* ─── Capítulo 6: Além do Portão (Madison/Linda, 2024) ───
    Construído em 09/2026 a partir do .txt de achados do usuário, cruzando
-   Trophies Hunter PT-BR, Google Docs (N/224), dois blocos da
-   TrueAchievements (um curto tipo "resumo" e dois detalhados — Cara/
-   Chutar e Cauda/Não-chutar), além de Neoseeker, TheGamer, Nintendosmash
-   e Sportskeeda. Capítulo bem mais curto que o Cap. 5 — a própria
-   Sportskeeda descreve como "não tem muitas escolhas de impacto".
+   Trophies Hunter PT-BR, TrueAchievements, Neoseeker, TheGamer,
+   Nintendosmash e Sportskeeda. Capítulo bem mais curto que o Cap. 5 — a
+   própria Sportskeeda descreve como "não tem muitas escolhas de impacto".
 
-   O deslocamento de "+1" entre TrueAchievements e Google Docs (que vem
-   desde o Cap. 5) continua aqui: TA registra Coin Toss Lost em 54/224,
-   o Docs em 55/224. E o padrão dos números "alternativos" da TA fica
-   ainda mais claro neste capítulo — Coin Toss Won/Intruder Revealed
-   saem como 200/224 e 201/224, dando SEQUÊNCIA direta aos 192-193 do
-   Cap. 4 e 194-199 do Cap. 5. Três capítulos seguidos com números que
-   se encaixam perfeitamente em ordem crescente é praticamente uma
-   confirmação de que esses blocos "alternativos" da TA documentam uma
-   ÚNICA segunda passagem contínua pelo jogo via Cutting Room Floor,
-   registrada capítulo a capítulo pelo mesmo autor.
+   Atualizado em 09/2026 com a checklist "Cutting Room Floor" dedicada
+   da TrueAchievements, que resolveu de vez a numeração: o marco
+   "Sanctum" é auto-desbloqueado DUAS vezes neste capítulo (51/224 na
+   entrada do capítulo, 53/224 quando Linda entra na sala de verdade
+   mais tarde), com "Atrium" (52/224) no meio — os três estavam com os
+   números embaralhados entre si nesta árvore antes desta correção. A
+   checklist também confirma que as 7 ramificações oficiais do capítulo
+   se esgotam na rota TRAVESSO (aposta da moeda + combate): 54/200
+   (moeda) e 55/201 (combate) — não sobra nenhuma ramificação numerada
+   pra RESPEITOSO, que deve ser só uma variação de tom sem card próprio.
 
    A conversa da moeda com Stan também ganhou uma camada que nenhuma das
    fontes do .txt trazia: segundo o TheGamer, a moeda de Stan tem as
@@ -1911,39 +1920,39 @@ const FS_CM_TREE_CAP5 = {
    velho, aparecendo de surpresa na mansão em 2024. */
 const FS_CM_TREE_CAP6 = {
   level1: [
-    { id: 'start', title: '1. Santuário (52/224)', text: 'Auto-unlock de um marco chamado Sanctum (52/224) logo no início do capítulo — mesmo que, na prática, quem começa a explorar primeiro seja Madison, lá no Átrio, e não no Santuário em si (que só é alcançado bem mais tarde, depois do quebra-cabeça do portão). Stan força a fechadura de uma grade na escadaria, liberando o andar de cima do Átrio pra Madison explorar.', delta: 0, crf: true, options: [{ label: 'Explorar o Átrio com Madison', target: 'madison_atrium' }] },
+    { id: 'start', title: '1. Santuário (51/224)', text: 'O checklist oficial confirma que "Sanctum" é auto-desbloqueado DUAS vezes neste capítulo, em momentos diferentes — este é o primeiro, logo na entrada do capítulo, mesmo que quem comece a explorar primeiro seja Madison, lá no Átrio, e não no Santuário em si (que só é alcançado bem mais tarde, depois do quebra-cabeça do portão). Stan força a fechadura de uma grade na escadaria, liberando o andar de cima do Átrio pra Madison explorar.', delta: 0, crf: true, options: [{ label: 'Explorar o Átrio com Madison', target: 'madison_atrium' }] },
   ],
   level2: [
-    { id: 'madison_atrium', title: '2. Átrio — Andar de Cima (53/224 — só o Google Docs numera este marco)', text: 'Madison sobe e explora o andar de cima do Átrio. Colecionáveis: o Rellik The Legion (6/12), e dois artefatos Murder Mill — Fanzine Review (3/10) e Deed of Sale (5/10, revela quanto Augustine pagou pelos pedaços do filme). No fim do balcão, pegue a Chave.', delta: 0, crf: true, options: [{ label: 'Usar a chave no armário', target: 'cabinet_diorama' }] },
+    { id: 'madison_atrium', title: '2. Átrio — Andar de Cima (52/224)', text: 'Madison sobe e explora o andar de cima do Átrio — segundo auto-unlock do capítulo, logo depois da cutscene inicial. Colecionáveis: o Rellik The Legion (6/12), e dois artefatos Murder Mill — Fanzine Review (3/10) e Deed of Sale (5/10, revela quanto Augustine pagou pelos pedaços do filme). No fim do balcão, pegue a Chave.', delta: 0, crf: true, options: [{ label: 'Usar a chave no armário', target: 'cabinet_diorama' }] },
   ],
   level3: [
     { id: 'cabinet_diorama', title: '3. Armário e Diorama', text: 'Volte ao andar de baixo e destranque o armário no canto direito com a chave — revela um diorama. Desça mais um andar (térreo) e pegue a estatueta de árvore na cômoda. Volte e coloque a árvore no diorama pra ganhar o Martelo de Brinquedo. Encaixe o martelo na mão livre da estátua do homem da motosserra, perto da escada do térreo, pra ganhar a peça giratória (Tumbler).', delta: 0, options: [{ label: 'Levar o Tumbler até o portão', target: 'gate_puzzle' }] },
   ],
   level4: [
-    { id: 'gate_puzzle', title: '4. Quebra-Cabeça do Portão', text: 'Encaixe o Tumbler no slot central do portão e gire os símbolos até a combinação certa. O Google Docs descreve como deslocamento a partir da posição inicial (Esquerda: Casa, 1 passo pra baixo · Meio: Árvore, 1 passo pra cima · Direita: Martelo, 1 passo pra baixo); a TrueAchievements descreve o resultado final direto (da esquerda pra direita: Casa, Árvore com Lenhador, Martelo de Brinquedo) — as duas descrições batem, só usam convenções diferentes. Resolver o quebra-cabeça libera 🏆 "Open Sesame".', trophy: '🏆 "Open Sesame"', delta: 10, options: [{ label: 'Entrar no Santuário como Linda', target: 'sanctum_explore' }] },
+    { id: 'gate_puzzle', title: '4. Quebra-Cabeça do Portão', text: 'Encaixe o Tumbler no slot central do portão e gire os símbolos até a combinação certa: da esquerda pra direita, Casa, Árvore com Lenhador, Martelo de Brinquedo. Resolver o quebra-cabeça libera 🏆 "Open Sesame" — automático pra quem resolve o quebra-cabeça, não depende de nenhuma escolha anterior.', trophy: '🏆 "Open Sesame"', delta: 10, options: [{ label: 'Entrar no Santuário como Linda', target: 'sanctum_explore' }] },
   ],
   level5: [
-    { id: 'sanctum_explore', title: '5. Santuário — O Relicário de Augustine (54/224 ou 55/224)', text: 'Troca de personagem: agora é Linda quem entra no Santuário de verdade. Examine a estátua alada Akkadiana — uma referência direta a House of Ashes (outro jogo da Dark Pictures) — pra pegar Demonic Statue (Storyteller). Colete também Fiction Book (Storyteller), Riot Broadcast (Murder Mill, tocando um gravador) e a bugiganga Victor\'s Soldier (9/12), todos com contador-na-hora e posição-final batendo entre TA e Docs, como já vem acontecendo desde o Cap. 5.', delta: 0, crf: true, converge: true, convergeNote: 'O quebra-cabeça do portão (resolvido por Madison) é o que dá acesso a esta sala — não existe caminho alternativo pra chegar ao Santuário neste capítulo, então esta convergência é mais uma troca de personagem do que uma bifurcação de verdade.', options: [{ label: 'Falar com Stan', target: 'stan_wager_choice' }] },
+    { id: 'sanctum_explore', title: '5. Santuário — O Relicário de Augustine (53/224)', text: 'Troca de personagem: agora é Linda quem entra no Santuário de verdade — terceiro e último auto-unlock do capítulo (segunda vez que "Sanctum" é o nome do marco, mas é um momento diferente do primeiro). Examine a estátua alada Akkadiana — uma referência direta a House of Ashes (outro jogo da Dark Pictures) — pra pegar Demonic Statue (Storyteller). Colete também Fiction Book (Storyteller), Riot Broadcast (Murder Mill, tocando um gravador) e a bugiganga Victor\'s Soldier (9/12).', delta: 0, crf: true, converge: true, convergeNote: 'O quebra-cabeça do portão (resolvido por Madison) é o que dá acesso a esta sala — não existe caminho alternativo pra chegar ao Santuário neste capítulo, então esta convergência é mais uma troca de personagem do que uma bifurcação de verdade.', options: [{ label: 'Falar com Stan', target: 'stan_wager_choice' }] },
   ],
   level6: [
-    { id: 'stan_wager_choice', title: '6. Conversa com Stan', text: 'RESPEITOSO ("Posso te oferecer minha amizade") ou TRAVESSO ("Uma apostinha?"). Nenhuma fonte cruzada — nem TA, nem Docs, nem Trophies Hunter, nem os resultados que puxei agora (Neoseeker, TheGamer, Nintendosmash, Sportskeeda) — documenta o que acontece escolhendo RESPEITOSO. Só a rota TRAVESSO está documentada, e é ela que leva à aposta da moeda.', delta: 0, options: [{ label: 'RESPEITOSO (rota não documentada)', target: 'respectful_undocumented' }, { label: 'TRAVESSO — Aceitar a aposta', target: 'coin_toss_choice' }] },
+    { id: 'stan_wager_choice', title: '6. Conversa com Stan', text: 'RESPEITOSO ("Posso te oferecer minha amizade") ou TRAVESSO ("Uma apostinha?"). O checklist oficial só lista ramificações numeradas saindo de TRAVESSO (as 7 do capítulo já batem certinho sem sobrar nenhuma pra RESPEITOSO) — ou seja, essa opção provavelmente é só uma variação de tom que pula a aposta, sem abrir um card próprio. Nenhuma fonte cruzada detalha o texto exato dessa conversa alternativa, então o conteúdo específico continua em aberto.', delta: 0, options: [{ label: 'RESPEITOSO (conteúdo exato não documentado)', target: 'respectful_undocumented' }, { label: 'TRAVESSO — Aceitar a aposta', target: 'coin_toss_choice' }] },
   ],
   level7: [
-    { id: 'respectful_undocumented', title: 'Rota Não Documentada', text: 'Nenhuma das fontes cruzadas registra o que acontece depois de escolher RESPEITOSO com Stan — pode ser que leve direto pro mesmo confronto com o intruso mais adiante, ou pule a aposta da moeda inteira, mas não dá pra confirmar sem alguém jogar essa rota especificamente. Fica em aberto até você (ou alguma fonte nova) documentar.', delta: 0 },
+    { id: 'respectful_undocumented', title: 'Rota Sem Card Próprio', text: 'Como as 7 ramificações numeradas do capítulo já se explicam inteiras pela rota TRAVESSO (aposta da moeda + combate), RESPEITOSO não deve abrir nenhum marco novo — só muda o tom da conversa antes de seguir pro mesmo confronto final. O texto exato dessa variante não está documentado em nenhuma fonte cruzada.', delta: 0, options: [{ label: 'Seguir para o confronto final', target: 'combat_event' }] },
   ],
   level8: [
     { id: 'coin_toss_choice', title: '7. A Aposta da Moeda', text: 'Segundo o TheGamer, a moeda de Stan é viciada — as duas faces são iguais. Escolher COROA faz Linda vencer a aposta, e ela descobre que Stan conseguiu seu pedaço do filme através de Robert Green. Escolher CARA faz Linda perder — mas ela percebe a trapaça da moeda dupla-face.', delta: 0, options: [{ label: 'CARA — Linda perde e descobre a trapaça', target: 'coin_lost' }, { label: 'COROA — Linda vence e descobre sobre Robert Green', target: 'coin_won' }] },
   ],
   level9: [
-    { id: 'coin_lost', title: 'Aposta Perdida (54/224 TA ou 55/224 Docs)', text: 'Linda escolhe CARA e perde a aposta — mas sai da conversa desconfiada da moeda de dois lados de Stan. Rota documentada tanto pela TrueAchievements quanto pelo Google Docs como principal.', delta: 5, crf: true, options: [{ label: 'Pegar o último colecionável e confrontar o intruso', target: 'combat_event' }] },
-    { id: 'coin_won', title: 'Aposta Vencida (200/224 — só a TA documenta, num bloco separado)', text: 'Linda escolhe COROA e vence — descobre que Stan conseguiu seu pedaço do filme de Murder Mill através de Robert Green. Continua a sequência numérica suspeita dos blocos "alternativos" da TA (192-193 no Cap. 4, 194-199 no Cap. 5, agora 200/224 aqui) — mais uma evidência de que é uma segunda passagem contínua via Cutting Room Floor, e não coincidência.', delta: 5, crf: true, options: [{ label: 'Pegar o último colecionável e confrontar o intruso', target: 'combat_event' }] },
+    { id: 'coin_lost', title: 'Aposta Perdida (54/224)', text: 'Linda escolhe CARA e perde a aposta (MISCHIEVOUS → HEADS) — mas sai da conversa desconfiada da moeda de dois lados de Stan.', delta: 5, crf: true, options: [{ label: 'Pegar o último colecionável e confrontar o intruso', target: 'combat_event' }] },
+    { id: 'coin_won', title: 'Aposta Vencida (200/224)', text: 'Linda escolhe COROA e vence (MISCHIEVOUS → TAILS) — descobre que Stan conseguiu seu pedaço do filme de Murder Mill através de Robert Green.', delta: 5, crf: true, options: [{ label: 'Pegar o último colecionável e confrontar o intruso', target: 'combat_event' }] },
   ],
   level10: [
-    { id: 'combat_event', title: '8. Confronto com o Intruso', text: 'Antes de interagir com a mesa no fundo da sala, pegue todos os outros colecionáveis primeiro — pegar o Broken Super 8 (Murder Mill, câmera quebrada) nessa mesa dispara a cutscene e encerra a exploração. Alguém invade o Santuário, começando um evento de combate por QTE.', delta: 0, converge: true, convergeNote: 'Ganhar ou perder a aposta da moeda não muda esse confronto — as duas rotas se encontram aqui. A diferença real fica só no resultado do próprio QTE, não na aposta anterior.', options: [{ label: 'Passar no QTE — Chutar o intruso', target: 'intruder_kicked' }, { label: 'Falhar de propósito — Deixar por isso mesmo', target: 'intruder_revealed' }] },
+    { id: 'combat_event', title: '8. Confronto com o Intruso', text: 'Antes de interagir com a mesa no fundo da sala, pegue todos os outros colecionáveis primeiro — pegar o Broken Super 8 (Murder Mill, câmera quebrada) nessa mesa dispara a cutscene e encerra a exploração. Alguém invade o Santuário, começando um evento de combate por QTE.', delta: 0, converge: true, convergeNote: 'Ganhar ou perder a aposta da moeda (ou ter escolhido RESPEITOSO antes) não muda esse confronto — todas as rotas se encontram aqui. A diferença real fica só no resultado do próprio QTE.', options: [{ label: 'Passar no QTE — Chutar o intruso', target: 'intruder_kicked' }, { label: 'Falhar de propósito — Deixar por isso mesmo', target: 'intruder_revealed' }] },
   ],
   level11: [
-    { id: 'intruder_kicked', title: 'Intruso Chutado (55/224 — só a TA documenta este nome)', text: 'Linda acerta o QTE e chuta o intruso pra longe. O capítulo termina logo em seguida — nenhuma fonte detalha se esse chute muda algo na identidade do intruso revelada no início do Cap. 7.', delta: 10, crf: true, type: 'victory' },
-    { id: 'intruder_revealed', title: 'Intruso Revelado (56/224 Docs ou 201/224 TA — dependendo da rota da moeda)', text: 'Errando o QTE de propósito, o intruso consegue se levantar e é revelado — segundo o TheGamer, é Sam, o xerife dos Capítulos 1 e 5, décadas mais velho, aparecendo de surpresa na mansão em 2024. Fecha o Capítulo 6 direto num gancho pro Capítulo 7.', delta: 0, crf: true, type: 'victory' },
+    { id: 'intruder_kicked', title: 'Intruso Chutado (55/224)', text: 'Linda acerta o QTE e chuta o intruso pra longe. O capítulo termina logo em seguida — nenhuma fonte detalha se esse chute muda algo na identidade do intruso revelada no início do Cap. 7.', delta: 10, crf: true, type: 'victory' },
+    { id: 'intruder_revealed', title: 'Intruso Revelado (201/224)', text: 'Errando o QTE de propósito, o intruso consegue se levantar e é revelado — segundo o TheGamer, é Sam, o xerife dos Capítulos 1 e 5, décadas mais velho, aparecendo de surpresa na mansão em 2024. Fecha o Capítulo 6 direto num gancho pro Capítulo 7.', delta: 0, crf: true, type: 'victory' },
   ],
 };
 
@@ -1991,15 +2000,15 @@ const FS_CM_TREE_CAP7 = {
     { id: 'camera_qte', title: '4. Câmera Contra Frank Stone — O Momento Decisivo', text: 'Levante a câmera e mire em Frank Stone. Esta é a escolha mecânica mais importante do capítulo: SEGURAR o gatilho de gravação até o medidor esvaziar, recarregar e focar de novo afugenta Frank Stone (🏆 "Camera Shy") e abre a rota de fuga do galpão. Só TOCAR o gatilho sem segurar faz Frank Stone continuar avançando até alcançar e empalar Linda, fisgando-a.', delta: 0, options: [{ label: 'SEGURAR o gatilho até o fim (afugentar)', target: 'wagon_shed_escape' }, { label: 'Só TOCAR o gatilho sem segurar (deixar alcançar)', target: 'linda_hooked' }] },
   ],
   level5: [
-    { id: 'linda_hooked', title: 'Linda Fisgada (202/224 — só a TA documenta, seguindo a sequência 192-201 dos capítulos anteriores)', text: 'Frank Stone alcança e empala Linda, terminando o capítulo por aqui. Não é um fim de jogo — segundo a Fandom Wiki oficial, essa escolha abre uma cena exclusiva mais tarde, no Capítulo 9 (Bonnie e Jaime desenganchando Linda, com um QTE de ajudar Jaime a subir um muro que, se falhado, mata Jaime — a mesma cena que já tínhamos anotado como possível setup no fim do Cap. 5). Linda também aparece com um curativo visível no Cap. 9 e ferida/machucada no Cap. 13 (Murder Mill), segundo a mesma fonte.', delta: -20, crf: true, type: 'victory' },
-    { id: 'wagon_shed_escape', title: '5. Fuga do Galpão de Vagões', text: 'Frank Stone é afugentado. Corra até o meio da sala e interaja com a plataforma elevatória (scissor lift) — ela precisa de energia. Siga a parede até o gerador perto de um barril em chamas; interagir com ele faz Frank Stone reaparecer, e a câmera precisa ser usada de novo pra afugentá-lo uma segunda vez. Pegue a Engrenagem (Cog) numa pilha de paletes perto da plataforma.', delta: 10, options: [{ label: 'Reparar o gerador com a engrenagem', target: 'generator_repair_result' }] },
+    { id: 'linda_hooked', title: 'Linda Fisgada (202/224 — só a TA documenta, seguindo a sequência 192-201 dos capítulos anteriores)', text: 'Frank Stone alcança e empala Linda, terminando o capítulo por aqui. Não é um fim de jogo — segundo a Fandom Wiki oficial, essa escolha abre uma cena exclusiva mais tarde, no Capítulo 9 (Bonnie e Jaime desenganchando Linda, com um QTE de ajudar Jaime a subir um muro que, se falhado, mata Jaime — a mesma cena que já tínhamos anotado como possível setup no fim do Cap. 5). Linda também aparece com um curativo visível no Cap. 9 e ferida/machucada no Cap. 13 (Murder Mill), segundo a mesma fonte.', delta: -20, crf: true, type: 'victory', converge: true, convergeNote: 'Este nó recebe três rotas diferentes, não só uma — o apêndice oficial de conquistas da TrueAchievements diz que "Linda Impaled" desbloqueia pegando Linda a qualquer momento antes dela escapar na plataforma elevatória, não só falhando o QTE inicial da câmera. As três entradas são: (1) só TOCAR o gatilho da câmera na Câmara da Fornalha, (2) falhar em afugentar Frank Stone pela segunda vez no Galpão de Vagões, e (3) falhar em repelir Frank Stone durante as 3 tentativas enquanto a plataforma desce. Nenhuma fonte cruzada diferencia consequências entre essas três entradas — pra fins de Sala de Montagem e do troféu Onisciente, contam como o mesmo desfecho.' },
+    { id: 'wagon_shed_escape', title: '5. Fuga do Galpão de Vagões', text: 'Frank Stone é afugentado. Corra até o meio da sala e interaja com a plataforma elevatória (scissor lift) — ela precisa de energia. Siga a parede até o gerador perto de um barril em chamas; interagir com ele faz Frank Stone reaparecer, e a câmera precisa ser usada de novo pra afugentá-lo. Falhar em afugentá-lo aqui também leva Frank Stone a alcançar Linda — o apêndice de conquistas da TrueAchievements confirma que "Linda Impaled" desbloqueia pegando Linda a qualquer momento antes dela escapar na plataforma, não só no QTE da câmera na Fornalha. Pegue a Engrenagem (Cog) numa pilha de paletes perto da plataforma.', delta: 10, options: [{ label: 'Afugentar Frank Stone de novo com a câmera', target: 'generator_repair_result' }, { label: 'Falhar em afugentá-lo (Frank Stone alcança Linda)', target: 'linda_hooked' }] },
   ],
   level6: [
-    { id: 'generator_repair_result', title: '6. Reparo do Gerador — Cuidado com o Número de Falhas', text: 'O reparo é uma sequência de testes de habilidade. Completar com no máximo 1 falha segue a rota documentada abaixo (falhar uma vez só dispara um ataque extra de Frank Stone pra repelir). A TrueAchievements avisa que falhar 2 vezes ou mais muda o capítulo pra um caminho diferente — sem detalhar qual, nem dar nome ou número. Bônus pra caçadores de troféu: este é o 2º de 3 geradores do jogo pra 🏆 "Tinkerer" — jogadores de Xbox podem não ver o contador desta conquista atualizar aqui por causa de um bug já corrigido pela Supermassive, mas ela ainda desbloqueia certinho lá no Cap. 14.', delta: 0, options: [{ label: '0 ou 1 falha (rota documentada)', target: 'scissor_lift_survive' }, { label: '2+ falhas (rota alternativa)', target: 'generator_alt_undocumented' }] },
+    { id: 'generator_repair_result', title: '6. Reparo do Gerador — Cuidado com o Número de Falhas', text: 'Sequência de testes de habilidade (2º de 3 geradores do jogo pra 🏆 "Tinkerer" — no Xbox o contador pode não atualizar aqui por um bug já corrigido pela Supermassive, mas o troféu libera certinho no Cap. 14). Falhar uma vez só dispara um ataque extra de Frank Stone pra repelir, sem sair da rota documentada. A TrueAchievements avisa que falhar 2 vezes ou mais muda o capítulo pra um caminho diferente, sem detalhar qual.', delta: 0, options: [{ label: '0 ou 1 falha (rota documentada)', target: 'scissor_lift_survive' }, { label: '2+ falhas (rota alternativa)', target: 'generator_alt_undocumented' }] },
   ],
   level7: [
     { id: 'generator_alt_undocumented', title: 'Rota Alternativa Não Documentada', text: 'Nenhuma fonte cruzada — nem TA, nem Docs, nem Trophies Hunter, nem os resultados que puxei agora — detalha o que acontece falhando 2 ou mais vezes no reparo do gerador. A própria TrueAchievements só avisa que "tira você da sequência do walkthrough", sem dizer pra onde leva. Fica em aberto até alguém documentar essa rota especificamente.', delta: 0 },
-    { id: 'scissor_lift_survive', title: '7. Sobrevivendo até a Plataforma Descer', text: 'Volte à plataforma elevatória e acione-a — ela desce devagar, e é preciso repelir Frank Stone 3 vezes enquanto isso acontece (ele ataca pela frente ou pela esquerda, fique de olho nos dois lados). Depois de repelir as 3 vezes, suba pelas paletes ao lado da plataforma pra escapar.', delta: 10, crf: true, options: [{ label: 'Escapar do galpão', target: 'escaped_wagon_shed' }] },
+    { id: 'scissor_lift_survive', title: '7. Sobrevivendo até a Plataforma Descer', text: 'Volte à plataforma elevatória e acione-a — ela desce devagar, e é preciso repelir Frank Stone 3 vezes enquanto isso acontece (ele ataca pela frente ou pela esquerda, fique de olho nos dois lados). Depois de repelir as 3 vezes, suba pelas paletes ao lado da plataforma pra escapar. Falhar em repelir Frank Stone em qualquer uma dessas 3 tentativas também conta como ser pega antes de escapar — mesma condição de "Linda Impaled" do apêndice de conquistas da TrueAchievements.', delta: 10, crf: true, options: [{ label: 'Repelir as 3 vezes e escapar', target: 'escaped_wagon_shed' }, { label: 'Falhar em repelir (Frank Stone alcança Linda)', target: 'linda_hooked' }] },
   ],
   level8: [
     { id: 'escaped_wagon_shed', title: 'Galpão Escapado (58/224 ou 59/224)', text: 'Escaped Wagon Shed liberado. Auto-unlock em seguida: Wagon Shed (59/224 ou 60/224).', delta: 10, crf: true, options: [{ label: 'Procurar os outros', target: 'final_exploration' }] },
@@ -2360,7 +2369,7 @@ const FS_CM_TREE_CAP13 = {
     { id: 'linda_final_qte', title: '8. QTE Final — Linda Contra Frank Stone', text: 'Depois de uma sequência de cutscenes, surge um QTE de apertar botão repetidamente — o desfecho final do capítulo nesta rota depende dele.', delta: 0, options: [{ label: 'Passar o QTE', target: 'linda_defeated_stone' }, { label: 'Falhar de propósito', target: 'linda_failed' }] },
   ],
   level9: [
-    { id: 'sam_killed_second_encounter', title: 'Sam Morto no 2º Confronto (165/224 — combinado com Chris Escondida)', text: 'Passando o 1º confronto do dreno pluvial mas falhando este 2º, Sam morre aqui — confirmado pelo guia dedicado "TrueAchievements — All Seeing" como uma combinação específica ("succeed first stand off with Frank but fail the second"), com o número 165/224 quando combinado com Jaime morto + Chris encontrada escondida antes. Mesmo com Sam morto, a mesma fonte confirma que a história continua: Robert aparece e termina o trabalho sozinho.', delta: -20, crf: true, options: [{ label: 'Continuar — Robert termina o trabalho', target: 'robert_defeated_stone_alt' }] },
+    { id: 'sam_killed_second_encounter', title: 'Sam Morto no 2º Confronto (165/224 — combinado com Chris Escondida)', text: 'Passando o 1º confronto do dreno pluvial mas falhando este 2º, Sam morre aqui — confirmado pelo guia dedicado "TrueAchievements — All Seeing" como uma combinação específica ("vencer o primeiro confronto com Frank mas falhar no segundo", no original: "succeed first stand off with Frank but fail the second"), com o número 165/224 quando combinado com Jaime morto + Chris encontrada escondida antes. Mesmo com Sam morto, a mesma fonte confirma que a história continua: Robert aparece e termina o trabalho sozinho.', delta: -20, crf: true, options: [{ label: 'Continuar — Robert termina o trabalho', target: 'robert_defeated_stone_alt' }] },
     { id: 'sam_weakens_stone', title: 'Sam Enfraquece Frank Stone (86/224 ou 87/224)', text: 'Sam consegue enfraquecer Frank Stone com a câmera. Auto-unlock Final Stand (87/224 ou 88/224) logo em seguida. Este é o 3º e último confronto direto de Sam com Frank Stone.', delta: 10, crf: true, options: [{ label: 'Última chance com a câmera — Sam derrota Stone', target: 'sam_defeats_stone' }, { label: 'Falhar de propósito — Sam é nocauteado, Linda assume', target: 'sam_knocked_aside' }] },
     { id: 'linda_defeated_stone', title: 'Linda Derrotou Stone (221/224 — "Playthrough Two" da TA)', text: 'Linda consegue usar a câmera com sucesso pra capturar Frank Stone de vez, mesmo com Sam já morto e Robert apenas o tendo enfraquecido antes. Uma cutscene encerra o capítulo, levando pro Cap. 14.', delta: 15, crf: true, type: 'victory' },
     { id: 'linda_failed', title: 'Linda Falhou (214/224 — "Playthrough Two" da TA)', text: 'Falhando o QTE de apertar botão, Linda não consegue capturar Frank Stone. A TrueAchievements não deixa claro se isso significa a morte de Linda ali mesmo ou só um resultado narrativo pior — o capítulo ainda leva pro Cap. 14 numa cutscene, então não parece ser um fim de jogo direto, mas a gravidade exata fica em aberto.', delta: -25, crf: true, type: 'victory' },
@@ -2409,13 +2418,27 @@ const FS_CM_TREE_CAP13 = {
    ou testes de habilidade que tenho pra rota principal, então essa parte
    fica marcadamente mais enxuta.
 
-   CALLBACK ENORME PRA CHAPTER 2: a TrueAchievements confirma que a
-   escolha segura de Madi no Horologium (INCERTA, aceitar a proposta)
-   só é segura por causa de uma escolha de bebida lá no Capítulo 2 —
-   12 capítulos de distância entre o setup e o pagamento. Não tenho os
-   detalhes exatos de qual escolha do Cap. 2 garante essa "imunidade"
-   à mão nesta sessão, então fica sinalizado como callback confirmado,
-   sem apontar o nó exato do Cap. 2 responsável.
+   CALLBACK ENORME PRA CHAPTER 2 — AGORA RESOLVIDO (09/2026, cruzando
+   com o .txt da TrueAchievements): a escolha segura de Madi no
+   Horologium (INCERTA, aceitar a proposta → Madi Aceitou a Proposta,
+   95/224) só é segura SE Madi tiver aceitado a bebida da Augustine lá
+   no Cap. 2 (nó 'drink_accept', 18/224) — qualquer outra escolha ali
+   mata Madi por causa dessa bebida. A fonte confirma literalmente:
+   "Any other choice will get Madi killed, specifically because of the
+   drink you took WAAAYYYYYYY back in Chapter 2." O mesmo gatilho
+   (bebida no Cap. 2 OU o Pingente pego no Cap. 12) é o que decide TODA
+   uma cadeia de estados de Madi mais adiante, ainda não cruzada nó a
+   nó nesta árvore: Cap. 13 "Curtain Call" (Madi Shot exige também
+   Linda Took Gun do Cap. 8 + Madison viva no Cap. 9; Madi Consumed é
+   a alternativa caso não atirem nela; sem bebida/pingente, quem é
+   agarrada nessa cena é Linda em vez de Madi — Linda Consumed) e o
+   Cap. 14 "Hunted" (Madi Refused Augustine com bebida/pingente vira
+   Madi Hypnotized; aceitar a proposta sem escolher RESISTENTE depois,
+   ou recusar já hipnotizada, vira Madi Betrayed). Ou seja: o nó
+   'drink_accept' do Cap. 2 não é só setup de Fogo Amigo/Fagocitose —
+   é o gatilho de um novo ramo inteiro de finais possíveis pra Madi que
+   ainda não existe nesta árvore. Fica sinalizado aqui pra quando
+   chegarmos nos Caps. 8, 9, 12, 13 e 14.
 
    CORREÇÕES E ADIÇÕES (09/2026, cruzando com o guia Steam "All Seeing",
    dedicado a pré-requisitos de conquista): esse guia revelou uma camada
@@ -2632,15 +2655,19 @@ const FS_CM_CHAPTERS = [
 const FS_CM_PRESETS = {
   cap1: [
     { id: "salvador_limpo", label: "🏆 Salvador (rota limpa)", path: ["start", "registros_falsificados", "acusatorio", "mill_explore", "crowbar_qte", "crowbar_used", "tom_reaction", "tom_trust", "storm_drain", "flashlight_ok", "furnace_arrival", "ramp_choice", "blind_attempt", "stone_blinded", "pipe_attempt", "pipe_ok", "baby_attempt", "salvador"] },
-    { id: "setup_dinheiro_facil", label: "🔗 Setup Dinheiro Fácil", path: ["start", "conversa_padrao", "mill_explore", "crowbar_qte", "crowbar_broken", "tom_reaction", "tom_irritated", "storm_drain", "flashlight_broken", "furnace_arrival", "ladder_choice", "blind_attempt", "eye_gouged", "pipe_attempt", "pipe_injured", "baby_attempt", "baby_dies"] }
+    { id: "setup_dinheiro_facil", label: "🔗 Setup Dinheiro Fácil + 🏆 Vivendo e Aprendendo", path: ["start", "conversa_padrao", "mill_explore", "crowbar_qte", "crowbar_broken", "tom_reaction", "tom_trust", "storm_drain", "flashlight_broken", "furnace_arrival", "ladder_choice", "blind_attempt", "eye_gouged", "pipe_attempt", "pipe_injured", "baby_attempt", "baby_dies"] }
   ],
   cap2: [
-    { id: "colegas_tema", label: "🏆 Colegas de Viagem + Tema", path: ["start", "hitchhiker_stop", "filmmaker_yes", "manor_arrival", "drink_decline", "jaime_confront"] },
-    { id: "setup_fogo_fagocitose", label: "🔗 Setup Fogo Amigo/Fagocitose", path: ["start", "hitchhiker_drive", "linda_late", "manor_arrival", "drink_accept", "jaime_confront"] }
+    { id: "colegas_tema", label: "🏆 Colegas de Viagem + Tema", path: ["start", "lonely_road", "hitchhiker_stop", "filmmaker_yes", "manor_arrival", "drink_decline", "jaime_confront"] },
+    { id: "setup_fogo_fagocitose", label: "🏆 Colegas de Viagem + Tema + 🔗 Setup Fogo Amigo/Fagocitose", path: ["start", "lonely_road", "hitchhiker_stop", "filmmaker_yes", "manor_arrival", "drink_accept", "jaime_confront"] }
   ],
   cap3: [
     { id: "cinco_dedos_heroi", label: "🏆 Desconto + Herói 8 Bit + Espelho", path: ["start", "jaime_apologized", "casa_rivera", "bonnie_setup", "five_finger", "street_choice", "drugstore_chosen", "drugstore_scene", "firecrackers_choice", "firecrackers_bought", "curiosity_scene", "camera_deal", "price_haggled", "mirror_gifted", "end_cap3"] },
     { id: "setup_dinheiro_facil3", label: "🔗 Setup Dinheiro Fácil (via suborno)", path: ["start", "jaime_reluctant", "bribe_offer", "easy_money", "street_choice", "curiosity_chosen", "curiosity_scene_alt", "camera_deal", "price_accepted", "end_cap3"] }
+  ],
+  cap7: [
+    { id: "fuga_limpa_cap7", label: "🏆 Camera Shy + Escaped Wagon Shed", path: ["start", "find_others", "camera_furnace", "camera_qte", "wagon_shed_escape", "generator_repair_result", "scissor_lift_survive", "escaped_wagon_shed", "final_exploration"] },
+    { id: "setup_linda_fisgada_cap7", label: "🔗 Setup Linda Fisgada pro Cap. 9", path: ["start", "find_others", "camera_furnace", "camera_qte", "linda_hooked"] }
   ]
 };
 
