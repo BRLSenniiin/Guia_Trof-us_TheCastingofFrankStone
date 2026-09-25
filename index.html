@@ -211,6 +211,12 @@ body{
 .fs-cm-conv-marker:active{background:var(--sepia2);color:#1c1712;}
 .fs-cm-popup{position:absolute;z-index:30;max-width:230px;background:#241e17;border:1px solid var(--sepia2);border-radius:6px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.8);font-size:.68rem;line-height:1.4;color:#e8e2d6;}
 .fs-cm-popup-close{position:absolute;top:4px;right:6px;background:none;border:none;color:#948a78;font-size:.85rem;cursor:pointer;line-height:1;padding:2px;}
+.fs-cm-popup img{cursor:zoom-in;}
+.fs-cm-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(10,8,6,.92);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;animation:fsCmLightboxIn .15s ease-out;}
+@keyframes fsCmLightboxIn{from{opacity:0}to{opacity:1}}
+.fs-cm-lightbox img{max-width:100%;max-height:100%;border-radius:6px;border:1px solid var(--sepia2);box-shadow:0 12px 40px rgba(0,0,0,.7);}
+.fs-cm-lightbox-close{position:fixed;top:16px;right:18px;background:none;border:none;color:#e8e2d6;font-size:1.6rem;cursor:pointer;line-height:1;padding:6px;}
+
 .fs-cm-popup-title{font-family:'Oswald',sans-serif;font-size:.68rem;color:var(--sepia2);letter-spacing:.5px;margin-bottom:5px;padding-right:14px;}
 .fs-cm-app,.fs-cm-app *{-webkit-tap-highlight-color:transparent;}
 .fs-cm-header{background:linear-gradient(180deg,#2a231b 0%,#1c1712 100%);padding:10px 14px;border-bottom:2px solid rgba(155,44,44,.3);display:flex;flex-direction:column;gap:8px;z-index:10;box-shadow:0 4px 15px rgba(0,0,0,.6);}
@@ -3126,6 +3132,21 @@ function fsCmGetConvergenceNote(node) {
   return `<div class="fs-cm-popup-title">📍 Ramificação</div><div>${body}</div>`;
 }
 
+function fsCmOpenLightbox(src, alt) {
+  fsCmCloseLightbox();
+  const box = document.createElement("div");
+  box.className = "fs-cm-lightbox";
+  box.id = "fs-cm-active-lightbox";
+  box.innerHTML = `<button class="fs-cm-lightbox-close" onclick="event.stopPropagation();fsCmCloseLightbox()">✕</button><img src="${src}" alt="${alt || ''}">`;
+  box.addEventListener("click", (e) => { if (e.target === box) { e.stopPropagation(); fsCmCloseLightbox(); } });
+  document.body.appendChild(box);
+}
+function fsCmCloseLightbox() {
+  const box = document.getElementById("fs-cm-active-lightbox");
+  if (box) box.remove();
+}
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") fsCmCloseLightbox(); });
+
 function fsCmShowConvergencePopup(evt, nodeId) {
   evt.stopPropagation();
   const node = fsCmFindNodeById(nodeId);
@@ -3144,6 +3165,9 @@ function fsCmShowConvergencePopup(evt, nodeId) {
   popup.className = "fs-cm-popup";
   popup.id = "fs-cm-active-popup";
   popup.innerHTML = `<button class="fs-cm-popup-close" onclick="fsCmCloseConvergencePopup()">✕</button>${noteHTML}`;
+  popup.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") { e.stopPropagation(); fsCmOpenLightbox(e.target.src, e.target.alt); }
+  });
 
   app.appendChild(popup);
 
