@@ -55,16 +55,6 @@ body {
 }
 .wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:0 16px 80px;}
 
-/* Imagens laterais */
-.side-img{
-  position:fixed;top:50%;transform:translateY(-50%);
-  z-index:1;width:220px;pointer-events:none;
-  filter:drop-shadow(0 4px 24px rgba(0,0,0,0.7));
-}
-.side-img.left{position:fixed;right:1050px;top:0;bottom:0;height:100vh;width:45vw;transform:none;object-fit:cover;object-position:30% center;z-index:1000;pointer-events:none;filter:drop-shadow(-5px 0 20px rgba(0,0,0,0.8)) brightness(1.05) contrast(1.05);}
-.side-img.left img{width:100%;height:100%;object-fit:cover;object-position:0% center;display: block;}
-.side-img.right{position:fixed;right:-60px;left:400;top:50;bottom:0;height:100vh;width:60vw;transform:none;object-fit:cover;object-position:left center;z-index:1000;pointer-events:none;filter:drop-shadow(-5px 0 20px rgba(0,0,0,0.8)) brightness(1.05) contrast(1.05);}
-.side-img.right img{width:100%;height:55%;object-fit:cover;object-position:left ;}
 .root{
   min-height:100vh;
   background:rgba(240,237,230,0.55);
@@ -260,6 +250,20 @@ path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
 .fs-cm-tag-neutral{background:rgba(148,163,184,.12);color:#948a78;}
 .fs-cm-trophy-badge{display:flex;align-items:center;gap:4px;background:rgba(184,150,106,.15);border:1px solid rgba(184,150,106,.4);color:var(--sepia2);padding:3px 6px;border-radius:3px;font-size:.62rem;font-weight:700;margin-bottom:6px;line-height:1.1;}
 .fs-cm-crf-badge{display:flex;align-items:center;gap:4px;background:rgba(61,138,82,.14);border:1px solid rgba(61,138,82,.45);color:var(--green2);padding:3px 6px;border-radius:3px;font-size:.6rem;font-weight:700;margin-bottom:6px;line-height:1.1;}
+/* Destaque: cards de exploração livre / colecionável (com imagem) */
+.fs-cm-node-card.has-collectible{border:2px solid #e3b341;border-left:6px solid #e3b341;background:linear-gradient(180deg,rgba(227,179,65,.16),rgba(28,23,18,.96) 55%);box-shadow:0 0 0 2px rgba(227,179,65,.25),0 0 18px rgba(227,179,65,.55);animation:fsCmCollectPulse 2.2s ease-in-out infinite;}
+.fs-cm-node-card.has-collectible.dimmed-node{opacity:.85;filter:none;}
+@keyframes fsCmCollectPulse{0%,100%{box-shadow:0 0 0 2px rgba(227,179,65,.25),0 0 12px rgba(227,179,65,.4);}50%{box-shadow:0 0 0 3px rgba(227,179,65,.45),0 0 24px rgba(227,179,65,.8);}}
+@media (prefers-reduced-motion:reduce){.fs-cm-node-card.has-collectible{animation:none;}}
+.fs-cm-collect-badge{display:flex;align-items:center;gap:4px;background:#e3b341;color:#1c1712;padding:4px 6px;border-radius:3px;font-size:.62rem;font-weight:800;letter-spacing:.4px;margin-bottom:6px;line-height:1.1;text-transform:uppercase;}
+/* Pop-up: bloco de colecionáveis */
+.fs-cm-collect-block{border:1px solid #e3b341;background:rgba(227,179,65,.08);border-radius:5px;padding:6px;margin:4px 0 8px;}
+.fs-cm-collect-head{font-family:'Oswald',sans-serif;font-size:.66rem;color:#e3b341;letter-spacing:.5px;margin-bottom:4px;}
+.fs-cm-collect-item{margin-bottom:6px;text-align:center;}
+.fs-cm-collect-item:last-child{margin-bottom:0;}
+.fs-cm-collect-name{font-weight:700;color:#f3e3b4;font-size:.68rem;}
+.fs-cm-collect-kind{color:#b8a98a;font-size:.6rem;}
+.fs-cm-collect-info{color:#f3e3b4;font-weight:700;}
 .fs-cm-node-title{font-family:'Oswald',sans-serif;font-size:.82rem;font-weight:600;color:#f0ede6;margin-bottom:4px;line-height:1.15;}
 .fs-cm-node-text{font-size:.72rem;color:#a89e8c;line-height:1.3;margin-bottom:8px;}
 .fs-cm-node-options{display:flex;flex-direction:column;gap:5px;}
@@ -343,8 +347,6 @@ path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
 <body>
 
 <div class="wallpaper"></div>
-<div class="side-img left"><img src="./Images/PNG02.png" alt=""></div>
-<div class="side-img right"><img src="./Images/PNG01.png" alt=""></div>
 <div class="root">
 <div class="wrap">
 
@@ -601,6 +603,32 @@ path.fs-cm-connection.victory{stroke:var(--sepia2);stroke-width:2.5;}
 </div><!-- /root -->
 
 <script>
+/* Fallback de nomes de imagem (Artefato 22/23, Gerador 03): tenta variações com/sem espaço */
+document.addEventListener('error',function(e){
+  var im=e.target;
+  if(!im||im.tagName!=='IMG')return;
+  var src=im.getAttribute('src')||'';
+  if(!/Images\/(Artefato|Gerador)/i.test(src))return;
+  var tried=(im.getAttribute('data-alt-tried')||'').split('|').filter(Boolean);
+  tried.push(src);
+  var m=src.match(/^(.*\/)([^\/]+)\.(png|jpg|jpeg|webp)$/i);
+  if(!m)return;
+  var dir=m[1],base=decodeURIComponent(m[2]),ext=m[3];
+  var nospace=base.replace(/\s+/g,'');
+  var spaced=nospace.replace(/^([A-Za-z]+)(\d)/,'$1 $2');
+  var cands=[];
+  [nospace,spaced].forEach(function(b){
+    [ext,ext.toLowerCase(),'png','PNG','jpg','webp'].forEach(function(x){cands.push(dir+b+'.'+x);});
+  });
+  for(var i=0;i<cands.length;i++){
+    var c=cands[i];
+    if(tried.indexOf(c)===-1&&tried.indexOf(encodeURI(c))===-1){
+      im.setAttribute('data-alt-tried',tried.join('|'));
+      im.src=encodeURI(c);
+      return;
+    }
+  }
+},true);
 /* ── DATA ── */
 const TROPHIES = [
   {img:'https://m.exophase.com/psn/awards/s/7704ged8.png?20f861f74634a9bad32275348afbe9f2', name:'O Criador', desc:'Coletou todos os troféus.', how:'Obtenha todos os outros troféus.', rank:'plat', miss:false},
@@ -1005,7 +1033,7 @@ const CAPS = [
          {n:5, t:" Se você tiver sucesso, Madi irá liberar a energia no Horologium e verá a Chris saindo do portal. Isso vai afetar capítulos posteriores. Caso contrário, Madi falha e o Horologium sobrecarrega, causando uma explosão que afeta a narrativa de maneira diferente."},                
          {n:6, t:"O Capítulo X é só uma cutscene dentro do Capítulo 8, mostrando eventos em Cedar Hills. Ele se passa em 1980, enquanto o resto do capítulo é em 2024."},
          {n:7, t:"Agora são Linda e Sam juntos enquanto passam pela Mansão, lembrando, aqui é mais uma decisão de diálogo, escolha ser <span style='color:#2ecc71;font-weight:bold'>EXIGENTE</span>. E mais a frente coloque a opção <span style='color:#2ecc71;font-weight:bold'>BOLSA</span>"},
-         {n:8, t:"Sam desaparece após um som estranho. Siga até a porta secreta iluminada e entre no arquivo. À esquerda, pegue as camisetas <span class='hl'>“Murder Mine” [Artefato 10/10]</span>, que indicam uma versão alternativa da história."},
+         {n:8, t:"Ao tentar pegar a pochete ou o diário, Sam desmaia. Depois do card de escolhas de falas, Sam desaparece após um som estranho. Siga até a porta secreta iluminada e entre no arquivo. À esquerda, pegue as camisetas <span class='hl'>“Murder Mine” [Artefato 10/10]</span>, que indicam uma versão alternativa da história."},
          {n:8.5, t:"<img src='Images/Camiseta01.png' alt='Camiseta 01' width='1207' height='675' title='Em uma coleção de camisetas' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
          {n:9, t:"Na mesma fileira de prateleiras, à direita, você encontrará um <span class='hl'>Adereço de braço falso [Artefato Murder Mill 8/10]</span>. Neste universo, foi o outro braço do Jaime que foi manipulado."},
          {n:9.5, t:"<img src='Images/Artefato13.png' alt='Artefato 13' width='1207' height='675' title='Em uma coleção de artefatos' style='max-width:100%;height:auto;display:block;margin:10px 0;border:2px solid var(--border);'>"},                                    
@@ -2255,14 +2283,14 @@ const FS_CM_TREE_CAP8 = {
     { id: 'chapter_x_transition', title: '11. Enquanto Isso em Cedar Hills, 1980 (63/224 ou 64/224)', text: 'Cutscene na Rua Principal de Cedar Hills, em 1980: Robert conversa com o Lojista da Loja de Curiosidades. Depois, a história volta para a mansão Gerant.', delta: 0, crf: true, converge: true, convergeNote: 'Marco "Search" (63/224 na TA), automático. É só uma cutscene do Cap. 8, chamada "Capítulo X" nos guias. O "Enquanto isso" do título estranha porque o resto do capítulo se passa em 2024, o que reforça a ideia de linhas temporais paralelas (consolidado). As duas rotas do Horologium seguem pra cá do mesmo jeito. A fonte em português não menciona essa cutscene (Nota 3).', next: 'linda_corridor_dialogue' },
   ],
   level17: [
-    { id: 'linda_corridor_dialogue', title: '12. Corredor — Linda e Sam (64/224 ou 65/224)', text: 'Agora são Linda e Sam, juntos, atravessando a mansão. Sam pergunta como Augustine conseguiu convencê-la a vir.', delta: 0, crf: true, converge: true, convergeNote: 'Ramificação: EXIGENTE e MELANCÓLICA convergem em "Sam Desaba — Pochete ou Diário"; nenhuma muda o destino dos personagens. Marco "Archive" (64/224 na TA), automático ao voltar pra Linda. As duas falas não mudam o destino dos personagens, só revelam mais da história (consolidado). A TA usa SOMBER na 1ª campanha e DEMANDING na 2ª. Falas em PT-BR conforme o consolidado: EXIGENTE "Desculpa, você ainda me deve algumas respostas." e MELANCÓLICA "Ela me prometeu liberdade." A fonte em português pula esse trecho inteiro (Nota 5).', options: [{ label: 'EXIGENTE — "Desculpe, mas você ainda me deve algumas respostas."', target: 'linda_exigente' }, { label: 'MELANCÓLICA — "Ela me prometeu liberdade."', target: 'linda_sombria' }] },
+    { id: 'linda_corridor_dialogue', title: '12. Corredor — Linda e Sam (64/224 ou 65/224)', text: 'Agora são Linda e Sam, juntos, atravessando a mansão. Sam pergunta como Augustine conseguiu convencê-la a vir.', delta: 0, crf: true, converge: true, convergeNote: 'Ramificação: EXIGENTE e MELANCÓLICA convergem em "Sam Desmaia — Pochete ou Diário"; nenhuma muda o destino dos personagens. Marco "Archive" (64/224 na TA), automático ao voltar pra Linda. As duas falas não mudam o destino dos personagens, só revelam mais da história (consolidado). A TA usa SOMBER na 1ª campanha e DEMANDING na 2ª. Falas em PT-BR conforme o consolidado: EXIGENTE "Desculpa, você ainda me deve algumas respostas." e MELANCÓLICA "Ela me prometeu liberdade." A fonte em português pula esse trecho inteiro (Nota 5).', options: [{ label: 'EXIGENTE — "Desculpe, mas você ainda me deve algumas respostas."', target: 'linda_exigente' }, { label: 'MELANCÓLICA — "Ela me prometeu liberdade."', target: 'linda_sombria' }] },
   ],
   level18: [
     { id: 'linda_exigente', title: 'Exigente', text: 'Ao cobrar respostas, Linda ouve Sam dizer o quanto está feliz por ter quebrado a câmera dela. Ela responde que ele não quebrou a câmera deles — e que ele não está bem.', delta: 0, converge: true, convergeNote: 'Reforça a ideia de múltiplos universos: no jogo que você jogou, Sam de fato quebrou a câmera (escolha de um capítulo anterior), mas Linda fala como se ele não tivesse quebrado a deles — alinhado ao que Augustine e os artefatos do jogo vêm sugerindo (consolidado).', next: 'pouch_diary_choice' },
-    { id: 'linda_sombria', title: 'Melancólica', text: 'Linda conta como tem sido difícil guardar o rolo de filme por tantos anos, e fala mais sobre Madi e Bonnie.', delta: 0, converge: true, convergeNote: 'Converge com EXIGENTE em "Sam Desaba — Pochete ou Diário". Sem consequência de história (consolidado).', next: 'pouch_diary_choice' },
+    { id: 'linda_sombria', title: 'Melancólica', text: 'Linda conta como tem sido difícil guardar o rolo de filme por tantos anos, e fala mais sobre Madi e Bonnie.', delta: 0, converge: true, convergeNote: 'Converge com EXIGENTE em "Sam Desmaia — Pochete ou Diário". Sem consequência de história (consolidado).', next: 'pouch_diary_choice' },
   ],
   level19: [
-    { id: 'pouch_diary_choice', title: '13. Sam Desaba — Pochete ou Diário', text: 'Sam começa a passar mal e cai. Linda pode aproveitar pra pegar algo dele: a pochete ou o diário.', delta: 0, converge: true, convergeNote: 'Converge aqui: EXIGENTE e MELANCÓLICA. Ramificação real de história: POCHETE e DIÁRIO abrem cenas independentes (marco exclusivo 204 na pochete; 65, 68 e 69 no diário) e só se reencontram em "Sam Desaparece". Decisão crítica. Os dois caminhos são cenas independentes: não dá pra fazer os dois na mesma partida (TA). Quem fica com a arma muda as opções de história no Cap. 14 (consolidado). Pela lista de troféus do guia, "Não É Nada Pessoal" exige roubar a arma aqui e atirar em Augustine no Cap. 14. Na 1ª campanha a TA escolhe o DIÁRIO, pra deixar a arma com Sam (rende dois troféus mais tarde); na 2ª, a POCHETE. Cap. 14 (TA): "Linda Shot Augustine" e "Madi Shot" exigem "Linda Took Gun"; já "Linda Consumed" pode exigir que Linda NÃO tenha pego a arma (Sam atira em Madi).', options: [{ label: 'POCHETE — chance de pegar a arma', target: 'pouch_route' }, { label: 'DIÁRIO — Descoberta + carta', target: 'diary_route' }] },
+    { id: 'pouch_diary_choice', title: '13. Sam Desmaia — Pochete ou Diário', text: 'Sam começa a passar mal e desmaia. Linda pode aproveitar pra pegar algo dele: a pochete ou o diário.', delta: 0, converge: true, convergeNote: 'Converge aqui: EXIGENTE e MELANCÓLICA. Ramificação real de história: POCHETE e DIÁRIO abrem cenas independentes (marco exclusivo 204 na pochete; 65, 68 e 69 no diário) e só se reencontram em "Sam Desaparece". Decisão crítica. Os dois caminhos são cenas independentes: não dá pra fazer os dois na mesma partida (TA). Quem fica com a arma muda as opções de história no Cap. 14 (consolidado). Pela lista de troféus do guia, "Não É Nada Pessoal" exige roubar a arma aqui e atirar em Augustine no Cap. 14. Na 1ª campanha a TA escolhe o DIÁRIO, pra deixar a arma com Sam (rende dois troféus mais tarde); na 2ª, a POCHETE. Cap. 14 (TA): "Linda Shot Augustine" e "Madi Shot" exigem "Linda Took Gun"; já "Linda Consumed" pode exigir que Linda NÃO tenha pego a arma (Sam atira em Madi).', options: [{ label: 'POCHETE — chance de pegar a arma', target: 'pouch_route' }, { label: 'DIÁRIO — Descoberta + carta', target: 'diary_route' }] },
   ],
   level20: [
     { id: 'pouch_route', title: 'Rota da Pochete — A Arma de Sam', text: 'Ao revistar a pochete de Sam, Linda encontra uma arma. Um QTE marca o momento de pegá-la.', delta: 0, converge: true, convergeNote: 'Ramificação por teste: passar leva a "A Arma — Pegar ou Devolver"; falhar leva a "Teste Falhado" (não documentado). As duas voltam ao pedido de ajuda de Sam. Teste de habilidade imediato (TA). Só passando dá pra chegar à escolha de pegar ou devolver a arma (TA e consolidado). O que acontece ao falhar não está descrito em nenhuma das fontes.', options: [{ label: 'Passar no teste de habilidade', target: 'gun_choice' }, { label: 'Falhar no teste de habilidade', target: 'pouch_skill_failed' }] },
@@ -2628,10 +2656,10 @@ const FS_CM_TREE_CAP13 = {
     { id: 'chris_stayed_hidden', title: 'Chris Escondida (164/224)', text: 'Chris está escondida atrás da porta. Sam a convence a continuar escondida pra ficar viva.', delta: 10, crf: true, converge: true, convergeNote: 'Marco "Chris Stayed Hidden" (164/224 na TA, rota de limpeza). A relação sobe (guia em português). A wiki fala em "convencer" Chris; a TA só exige achá-la. Divergência de localização: wiki — escadas e aperto, porta à direita; guia em português — parede com grafite vermelho, área iluminada em laranja, escadas e outra rachadura.', next: 'sam_finds_linda' },
   ],
   level16: [
-    { id: 'sam_finds_linda', title: '12. Sam Segue os Gritos de Linda', text: 'Sam volta ao corredor principal, segue os gritos de Linda e desce as escadas. Num novo corredor, Frank Stone aparece de novo, e Sam o afasta com a câmera antes de pular a janela.', delta: 0, converge: true, convergeNote: 'Converge aqui: Chris escondida e Chris ignorada. Sem marco próprio. O registro anterior colocava aqui uma morte de Sam ("Sam Killed", 165); o apêndice da TA a coloca só no confronto final. A janela com marcas de sangue leva ao quarto onde Linda está (wiki).', next: 'sam_first_stand' },
+    { id: 'sam_finds_linda', title: '12. Sam Segue os Gritos de Linda', text: 'Sam volta ao corredor principal, segue os gritos de Linda e desce as escadas. Num novo corredor, Frank Stone aparece de novo, e Sam o afasta com a câmera antes de pular a janela.', delta: 0, converge: true, convergeNote: 'Converge aqui: Chris escondida e Chris ignorada. Sem marco próprio. O registro anterior colocava aqui uma morte de Sam ("Sam Killed", 165); o apêndice da TA a coloca só no confronto final. A janela com marcas de sangue leva aos túneis da siderúrgica, onde Linda está (wiki).', next: 'sam_first_stand' },
   ],
   level17: [
-    { id: 'sam_first_stand', title: '13. O Confronto Final — Primeira Investida', text: 'Depois de uma cutscene, Sam retoma o controle no quarto de Linda e precisa apontar a câmera pra Frank de novo. O tempo é curtíssimo.', delta: 0, converge: true, convergeNote: 'Ramificação: usar a câmera leva a "Sam Enfraquece Frank" (86/224 e 87/224); falhar a câmera e o teste de habilidade leva a "Sam Nocauteado" (167/224). Segundo a TA, quem erra a câmera cai num teste de habilidade; que passar nele depois de errar a câmera mude o resultado não está documentado. Wiki: se Sam falha, é atingido e nocauteado, Linda pega a câmera e Robert chega; Sam sobrevive. Divergência: o guia em português diz que a falha aqui mata Sam e que Robert pega a câmera dele — a wiki e a TA separam Sam nocauteado (não morre) de Sam morto no primeiro encontro (212).', options: [{ label: 'Usar a câmera — Sam enfraquece Frank', target: 'sam_weakens_stone' }, { label: 'Falhar a câmera e o teste — Sam é jogado', target: 'sam_knocked_aside' }] },
+    { id: 'sam_first_stand', title: '13. O Confronto Final — Primeira Investida', text: 'Depois de uma cutscene, Sam retoma o controle nos túneis da siderúrgica e precisa apontar a câmera pra Frank de novo. O tempo é curtíssimo.', delta: 0, converge: true, convergeNote: 'Ramificação: usar a câmera leva a "Sam Enfraquece Frank" (86/224 e 87/224); falhar a câmera e o teste de habilidade leva a "Sam Nocauteado" (167/224). Segundo a TA, quem erra a câmera cai num teste de habilidade; que passar nele depois de errar a câmera mude o resultado não está documentado. Wiki: se Sam falha, é atingido e nocauteado, Linda pega a câmera e Robert chega; Sam sobrevive. Divergência: o guia em português diz que a falha aqui mata Sam e que Robert pega a câmera dele — a wiki e a TA separam Sam nocauteado (não morre) de Sam morto no primeiro encontro (212).', options: [{ label: 'Usar a câmera — Sam enfraquece Frank', target: 'sam_weakens_stone' }, { label: 'Falhar a câmera e o teste — Sam é jogado', target: 'sam_knocked_aside' }] },
   ],
   level18: [
     { id: 'sam_weakens_stone', title: 'Sam Enfraquece Frank (86/224 e 87/224 ou 87/224 e 88/224)', text: 'Sam afasta Frank Stone e o enfraquece. A investida final começa.', delta: 10, crf: true, converge: true, convergeNote: 'Marcos "Sam Weakened Stone" (86/224) e "Final Stand" (87/224, automático). Exige que "Sam Died" não tenha sido liberado (TA). Wiki: se Sam enfraquece Frank, todos os que sobreviveram até aqui ficam vivos e Sam captura o Assassino num rolo de filme.', next: 'sam_last_stand' },
@@ -3193,8 +3221,33 @@ function fsCmGetConvergenceNote(node) {
   // "convergeNote"; se não tiver um customizado, cai no texto padrão
   // do próprio nó — assim não preciso mais de um caso especial por id
   // conforme a árvore cresce com mais pontos de convergência.
-  const body = node.convergeNote || node.text;
-  return `<div class="fs-cm-popup-title">📍 Ramificação</div><div>${body}</div>`;
+  let body = node.convergeNote || node.text;
+  let collectBlock = "";
+  if (/<img/i.test(body)) {
+    // Colecionáveis: cada imagem vira um mini-cartão (nome + tipo + tamanho da coleção)
+    const fsCmKindOf = (src) => {
+      const k = decodeURIComponent(src).replace(/\s+/g, "").toLowerCase();
+      if (/bugiganga|trinket/.test(k)) return "Bugiganga (Trinket) · coleção de 12";
+      if (/rellik/.test(k)) return "Relíquia (Rellik) · coleção de 12";
+      if (/storyteller/.test(k)) return "Artefato do Narrador (Storyteller) · coleção de 10";
+      if (/champion/.test(k)) return "Artefato do Campeão (The Champion) · coleção de 10";
+      if (/murdermill/.test(k)) return "Artefato Murder Mill · coleção de 10";
+      if (/gerador/.test(k)) return "Peça do gerador";
+      if (/artefato/.test(k)) return "Artefato";
+      return "Colecionável";
+    };
+    const imgs = body.match(/<img[^>]*>/gi) || [];
+    collectBlock = `<div class="fs-cm-collect-block"><div class="fs-cm-collect-head">⭐ COLECIONÁVEIS NESTE PONTO (${imgs.length})</div>` +
+      imgs.map(tag => {
+        const alt = (tag.match(/alt=["']([^"']*)["']/i) || [])[1] || "Colecionável";
+        const src = (tag.match(/src=["']([^"']*)["']/i) || [])[1] || "";
+        return `<div class="fs-cm-collect-item">${tag}<div class="fs-cm-collect-name">${alt}</div><div class="fs-cm-collect-kind">${fsCmKindOf(src)}</div></div>`;
+      }).join("") + `</div>`;
+    body = body.replace(/<img[^>]*>/gi, "");
+  }
+  // Destaca a frase com os detalhes do colecionável (nome, contador, onde fica, troféu)
+  body = body.replace(/(Colecionáve(?:l|is):[\s\S]*?\.)(?=\s+[A-ZÁÉÍÓÚ"]|\s*$)/, '<span class="fs-cm-collect-info">$1</span>');
+  return `<div class="fs-cm-popup-title">📍 Ramificação</div>${collectBlock}<div>${body}</div>`;
 }
 
 function fsCmOpenLightbox(src, alt) {
@@ -3314,7 +3367,9 @@ function fsCmRenderGraph() {
       if (node.crf) crfHTML = `<div class="fs-cm-crf-badge"><span>🎞️ Ramificação Cutting Room Floor</span></div>`;
 
       const card = document.createElement("div");
-      card.className = `fs-cm-node-card ${statusClass}`;
+      const fsCmHasCollectible = typeof node.convergeNote === "string" && /<img/i.test(node.convergeNote);
+      card.className = `fs-cm-node-card ${statusClass}${fsCmHasCollectible ? " has-collectible" : ""}`;
+      const collectHTML = fsCmHasCollectible ? `<div class="fs-cm-collect-badge"><span>⭐ Exploração livre · Colecionável</span></div>` : "";
       card.id = node.id;
 
       let optionsHTML = "";
@@ -3353,6 +3408,7 @@ function fsCmRenderGraph() {
         </div>
         ${trophyHTML}
         ${crfHTML}
+        ${collectHTML}
         <div class="fs-cm-node-title">${node.title}</div>
         <div class="fs-cm-node-text">${node.text}</div>
         ${optionsHTML}
@@ -3432,7 +3488,30 @@ function fsCmDrawConnections() {
         const y2 = tgtPos.y + targetEl.offsetHeight / 2;
 
         const dx = (x2 - x1) * 0.5;
-        const pathData = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+        let pathData = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+
+        // Cap 8: conexões que pulam uma ou mais colunas contornam os cards do meio
+        // (passam pelas calhas entre colunas e por cima/baixo) em vez de cortá-los.
+        if (fsCmSelectedChapterId === "cap8" && sourceEl.parentElement && targetEl.parentElement) {
+          const fsCmCols = Array.from(container.querySelectorAll(".fs-cm-tree-column"));
+          const cS = fsCmCols.indexOf(sourceEl.parentElement);
+          const cT = fsCmCols.indexOf(targetEl.parentElement);
+          if (cS !== -1 && cT - cS > 1) {
+            let minTop = Infinity, maxBottom = 0;
+            for (let ci = cS + 1; ci < cT; ci++) {
+              const cp = fsCmOffsetRelativeTo(fsCmCols[ci], container);
+              minTop = Math.min(minTop, cp.y);
+              maxBottom = Math.max(maxBottom, cp.y + fsCmCols[ci].offsetHeight);
+            }
+            const goAbove = (y1 + y2) / 2 < container.offsetHeight / 2;
+            const ry = goAbove ? Math.max(6, minTop - 14) : Math.min(container.offsetHeight - 6, maxBottom + 14);
+            const g1 = x1 + 24, g2 = x2 - 24;
+            const r = Math.max(2, Math.min(12, Math.abs(ry - y1) / 2, Math.abs(ry - y2) / 2));
+            const d1 = ry < y1 ? -1 : 1;
+            const d2 = y2 > ry ? 1 : -1;
+            pathData = `M ${x1} ${y1} H ${g1 - r} Q ${g1} ${y1} ${g1} ${y1 + d1 * r} V ${ry - d1 * r} Q ${g1} ${ry} ${g1 + r} ${ry} H ${g2 - r} Q ${g2} ${ry} ${g2} ${ry + d2 * r} V ${y2 - d2 * r} Q ${g2} ${y2} ${g2 + r} ${y2} H ${x2}`;
+          }
+        }
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", pathData);
